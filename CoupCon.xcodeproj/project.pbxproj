@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		18C90C041DAF78DF0053F8D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C90C031DAF78DF0053F8D7 /* AppDelegate.swift */; };
-		18C90C061DAF78DF0053F8D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C90C051DAF78DF0053F8D7 /* ViewController.swift */; };
+		18C90C061DAF78DF0053F8D7 /* CXSigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C90C051DAF78DF0053F8D7 /* CXSigninViewController.swift */; };
 		18C90C091DAF78DF0053F8D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C90C071DAF78DF0053F8D7 /* Main.storyboard */; };
 		18C90C0C1DAF78DF0053F8D7 /* CoupCon.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18C90C0A1DAF78DF0053F8D7 /* CoupCon.xcdatamodeld */; };
 		18C90C0E1DAF78DF0053F8D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18C90C0D1DAF78DF0053F8D7 /* Assets.xcassets */; };
@@ -42,7 +42,7 @@
 /* Begin PBXFileReference section */
 		18C90C001DAF78DF0053F8D7 /* CoupCon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoupCon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C90C031DAF78DF0053F8D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		18C90C051DAF78DF0053F8D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		18C90C051DAF78DF0053F8D7 /* CXSigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CXSigninViewController.swift; sourceTree = "<group>"; };
 		18C90C081DAF78DF0053F8D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18C90C0B1DAF78DF0053F8D7 /* CoupCon.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoupCon.xcdatamodel; sourceTree = "<group>"; };
 		18C90C0D1DAF78DF0053F8D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -114,7 +114,7 @@
 				18C90C481DAF7CD40053F8D7 /* Controllers */,
 				18C90C441DAF7CB40053F8D7 /* SWSidePanel */,
 				18C90C031DAF78DF0053F8D7 /* AppDelegate.swift */,
-				18C90C051DAF78DF0053F8D7 /* ViewController.swift */,
+				18C90C051DAF78DF0053F8D7 /* CXSigninViewController.swift */,
 				18C90C071DAF78DF0053F8D7 /* Main.storyboard */,
 				18C90C0D1DAF78DF0053F8D7 /* Assets.xcassets */,
 				18C90C0F1DAF78DF0053F8D7 /* LaunchScreen.storyboard */,
@@ -298,7 +298,7 @@
 			files = (
 				18C90C4A1DAF7CED0053F8D7 /* HomeViewController.swift in Sources */,
 				18C90C0C1DAF78DF0053F8D7 /* CoupCon.xcdatamodeld in Sources */,
-				18C90C061DAF78DF0053F8D7 /* ViewController.swift in Sources */,
+				18C90C061DAF78DF0053F8D7 /* CXSigninViewController.swift in Sources */,
 				18C90C4C1DAF7D000053F8D7 /* LeftViewController.swift in Sources */,
 				18C90C041DAF78DF0053F8D7 /* AppDelegate.swift in Sources */,
 				18C90C471DAF7CC30053F8D7 /* SWRevealViewController.m in Sources */,
