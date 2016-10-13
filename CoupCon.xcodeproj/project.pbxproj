@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07EA6B5AEA6DCAC4FA208E12 /* Pods_CoupConTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FF100D70C4BCD9B1EF4A14 /* Pods_CoupConTests.framework */; };
+		18057E2F1DAFA33B0017F038 /* ICSDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18057E2C1DAFA33B0017F038 /* ICSDrawerController.m */; };
+		18057E301DAFA33B0017F038 /* ICSDropShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18057E2E1DAFA33B0017F038 /* ICSDropShadowView.m */; };
 		18C90C041DAF78DF0053F8D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C90C031DAF78DF0053F8D7 /* AppDelegate.swift */; };
 		18C90C061DAF78DF0053F8D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C90C051DAF78DF0053F8D7 /* ViewController.swift */; };
 		18C90C091DAF78DF0053F8D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C90C071DAF78DF0053F8D7 /* Main.storyboard */; };
@@ -20,6 +23,8 @@
 		18C90C4C1DAF7D000053F8D7 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C90C4B1DAF7D000053F8D7 /* LeftViewController.swift */; };
 		18C90C4F1DAF7EA60053F8D7 /* reveal-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C90C4D1DAF7EA60053F8D7 /* reveal-icon.png */; };
 		18C90C501DAF7EA60053F8D7 /* reveal-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C90C4E1DAF7EA60053F8D7 /* reveal-icon@2x.png */; };
+		530A4A0975836E19D0B2F8BC /* Pods_CoupConUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C41FBE6E97500FA66BFBF6 /* Pods_CoupConUITests.framework */; };
+		BB2E53519290050F395A2AEF /* Pods_CoupCon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEB40090EE11D5B76565BB03 /* Pods_CoupCon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18057E2B1DAFA33B0017F038 /* ICSDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICSDrawerController.h; sourceTree = "<group>"; };
+		18057E2C1DAFA33B0017F038 /* ICSDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICSDrawerController.m; sourceTree = "<group>"; };
+		18057E2D1DAFA33B0017F038 /* ICSDropShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICSDropShadowView.h; sourceTree = "<group>"; };
+		18057E2E1DAFA33B0017F038 /* ICSDropShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICSDropShadowView.m; sourceTree = "<group>"; };
 		18C90C001DAF78DF0053F8D7 /* CoupCon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoupCon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C90C031DAF78DF0053F8D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18C90C051DAF78DF0053F8D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +70,15 @@
 		18C90C4B1DAF7D000053F8D7 /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
 		18C90C4D1DAF7EA60053F8D7 /* reveal-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-icon.png"; sourceTree = "<group>"; };
 		18C90C4E1DAF7EA60053F8D7 /* reveal-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-icon@2x.png"; sourceTree = "<group>"; };
+		2CDFCB9A19A5592344D69BBA /* Pods-CoupConUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoupConUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoupConUITests/Pods-CoupConUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		56C41FBE6E97500FA66BFBF6 /* Pods_CoupConUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoupConUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		674211D20DF2F16091F4B75B /* Pods-CoupConTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoupConTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoupConTests/Pods-CoupConTests.release.xcconfig"; sourceTree = "<group>"; };
+		7D514BA27D6025269F7204F0 /* Pods-CoupCon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoupCon.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoupCon/Pods-CoupCon.release.xcconfig"; sourceTree = "<group>"; };
+		7F4CEBA49048AE921AEF3807 /* Pods-CoupCon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoupCon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoupCon/Pods-CoupCon.debug.xcconfig"; sourceTree = "<group>"; };
+		820AEFDD7E72C3C143BF611B /* Pods-CoupConUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoupConUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoupConUITests/Pods-CoupConUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C9FF100D70C4BCD9B1EF4A14 /* Pods_CoupConTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoupConTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE05C162DC6A10D511B5B4A3 /* Pods-CoupConTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoupConTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoupConTests/Pods-CoupConTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DEB40090EE11D5B76565BB03 /* Pods_CoupCon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoupCon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB2E53519290050F395A2AEF /* Pods_CoupCon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07EA6B5AEA6DCAC4FA208E12 /* Pods_CoupConTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				530A4A0975836E19D0B2F8BC /* Pods_CoupConUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +116,8 @@
 				18C90C1A1DAF78DF0053F8D7 /* CoupConTests */,
 				18C90C251DAF78DF0053F8D7 /* CoupConUITests */,
 				18C90C011DAF78DF0053F8D7 /* Products */,
+				572338FD6D3F0DFCD7041D79 /* Pods */,
+				693C31B5FFCFE8EF86A243C2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -146,6 +169,10 @@
 		18C90C441DAF7CB40053F8D7 /* SWSidePanel */ = {
 			isa = PBXGroup;
 			children = (
+				18057E2B1DAFA33B0017F038 /* ICSDrawerController.h */,
+				18057E2C1DAFA33B0017F038 /* ICSDrawerController.m */,
+				18057E2D1DAFA33B0017F038 /* ICSDropShadowView.h */,
+				18057E2E1DAFA33B0017F038 /* ICSDropShadowView.m */,
 				18C90C4D1DAF7EA60053F8D7 /* reveal-icon.png */,
 				18C90C4E1DAF7EA60053F8D7 /* reveal-icon@2x.png */,
 				18C90C451DAF7CC30053F8D7 /* SWRevealViewController.h */,
@@ -163,6 +190,29 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		572338FD6D3F0DFCD7041D79 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7F4CEBA49048AE921AEF3807 /* Pods-CoupCon.debug.xcconfig */,
+				7D514BA27D6025269F7204F0 /* Pods-CoupCon.release.xcconfig */,
+				DE05C162DC6A10D511B5B4A3 /* Pods-CoupConTests.debug.xcconfig */,
+				674211D20DF2F16091F4B75B /* Pods-CoupConTests.release.xcconfig */,
+				2CDFCB9A19A5592344D69BBA /* Pods-CoupConUITests.debug.xcconfig */,
+				820AEFDD7E72C3C143BF611B /* Pods-CoupConUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		693C31B5FFCFE8EF86A243C2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DEB40090EE11D5B76565BB03 /* Pods_CoupCon.framework */,
+				C9FF100D70C4BCD9B1EF4A14 /* Pods_CoupConTests.framework */,
+				56C41FBE6E97500FA66BFBF6 /* Pods_CoupConUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -170,9 +220,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18C90C2B1DAF78DF0053F8D7 /* Build configuration list for PBXNativeTarget "CoupCon" */;
 			buildPhases = (
+				0423EBA6076DE861F9E80136 /* [CP] Check Pods Manifest.lock */,
 				18C90BFC1DAF78DF0053F8D7 /* Sources */,
 				18C90BFD1DAF78DF0053F8D7 /* Frameworks */,
 				18C90BFE1DAF78DF0053F8D7 /* Resources */,
+				B49D75EF945FA4C4FE11324F /* [CP] Embed Pods Frameworks */,
+				D7B1EB2F33C80054806CEFDF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -187,9 +240,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18C90C2E1DAF78DF0053F8D7 /* Build configuration list for PBXNativeTarget "CoupConTests" */;
 			buildPhases = (
+				B8DAB92CF76ECD91D4FEDB41 /* [CP] Check Pods Manifest.lock */,
 				18C90C131DAF78DF0053F8D7 /* Sources */,
 				18C90C141DAF78DF0053F8D7 /* Frameworks */,
 				18C90C151DAF78DF0053F8D7 /* Resources */,
+				6B7BA6D8336BE622A504D676 /* [CP] Embed Pods Frameworks */,
+				84C470C65728A90F95FA882C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -205,9 +261,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18C90C311DAF78DF0053F8D7 /* Build configuration list for PBXNativeTarget "CoupConUITests" */;
 			buildPhases = (
+				958A03A34B87071642231DD8 /* [CP] Check Pods Manifest.lock */,
 				18C90C1E1DAF78DF0053F8D7 /* Sources */,
 				18C90C1F1DAF78DF0053F8D7 /* Frameworks */,
 				18C90C201DAF78DF0053F8D7 /* Resources */,
+				3FE81C5E8ACB1B2971D81DA2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -291,6 +349,129 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0423EBA6076DE861F9E80136 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3FE81C5E8ACB1B2971D81DA2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoupConUITests/Pods-CoupConUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B7BA6D8336BE622A504D676 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoupConTests/Pods-CoupConTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84C470C65728A90F95FA882C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoupConTests/Pods-CoupConTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		958A03A34B87071642231DD8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B49D75EF945FA4C4FE11324F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoupCon/Pods-CoupCon-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B8DAB92CF76ECD91D4FEDB41 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D7B1EB2F33C80054806CEFDF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoupCon/Pods-CoupCon-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		18C90BFC1DAF78DF0053F8D7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -299,8 +480,10 @@
 				18C90C4A1DAF7CED0053F8D7 /* HomeViewController.swift in Sources */,
 				18C90C0C1DAF78DF0053F8D7 /* CoupCon.xcdatamodeld in Sources */,
 				18C90C061DAF78DF0053F8D7 /* ViewController.swift in Sources */,
+				18057E301DAFA33B0017F038 /* ICSDropShadowView.m in Sources */,
 				18C90C4C1DAF7D000053F8D7 /* LeftViewController.swift in Sources */,
 				18C90C041DAF78DF0053F8D7 /* AppDelegate.swift in Sources */,
+				18057E2F1DAFA33B0017F038 /* ICSDrawerController.m in Sources */,
 				18C90C471DAF7CC30053F8D7 /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,6 +624,7 @@
 		};
 		18C90C2C1DAF78DF0053F8D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F4CEBA49048AE921AEF3807 /* Pods-CoupCon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -455,6 +639,7 @@
 		};
 		18C90C2D1DAF78DF0053F8D7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D514BA27D6025269F7204F0 /* Pods-CoupCon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -468,6 +653,7 @@
 		};
 		18C90C2F1DAF78DF0053F8D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE05C162DC6A10D511B5B4A3 /* Pods-CoupConTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = CoupConTests/Info.plist;
@@ -480,6 +666,7 @@
 		};
 		18C90C301DAF78DF0053F8D7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 674211D20DF2F16091F4B75B /* Pods-CoupConTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = CoupConTests/Info.plist;
@@ -492,6 +679,7 @@
 		};
 		18C90C321DAF78DF0053F8D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CDFCB9A19A5592344D69BBA /* Pods-CoupConUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = CoupConUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -503,6 +691,7 @@
 		};
 		18C90C331DAF78DF0053F8D7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 820AEFDD7E72C3C143BF611B /* Pods-CoupConUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = CoupConUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

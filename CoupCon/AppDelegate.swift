@@ -35,9 +35,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
         
         let revealVC = SWRevealViewController(rearViewController: menuVC, frontViewController: navHome)
         revealVC.delegate = self
-        self.window?.rootViewController = revealVC
-        self.window?.makeKeyAndVisible()
+       // self.window?.rootViewController = revealVC
+        //self.window?.makeKeyAndVisible()
         
+        let drawer : ICSDrawerController = ICSDrawerController(leftViewController: menuVC, centerViewController: homeView)
+        self.window?.rootViewController = drawer
+        self.window?.makeKeyAndVisible()
         
     }
 

@@ -3,3 +3,5 @@
 //
 
 #import "SWRevealViewController.h"
+#import <MagicalRecord/CoreData+MagicalRecord.h>
+#import "ICSDrawerController.h"
