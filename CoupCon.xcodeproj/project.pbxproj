@@ -11,7 +11,7 @@
 		18057E2F1DAFA33B0017F038 /* ICSDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18057E2C1DAFA33B0017F038 /* ICSDrawerController.m */; };
 		18057E301DAFA33B0017F038 /* ICSDropShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18057E2E1DAFA33B0017F038 /* ICSDropShadowView.m */; };
 		18C90C041DAF78DF0053F8D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C90C031DAF78DF0053F8D7 /* AppDelegate.swift */; };
-		18C90C061DAF78DF0053F8D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C90C051DAF78DF0053F8D7 /* ViewController.swift */; };
+		18C90C061DAF78DF0053F8D7 /* CXSigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C90C051DAF78DF0053F8D7 /* CXSigninViewController.swift */; };
 		18C90C091DAF78DF0053F8D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C90C071DAF78DF0053F8D7 /* Main.storyboard */; };
 		18C90C0C1DAF78DF0053F8D7 /* CoupCon.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18C90C0A1DAF78DF0053F8D7 /* CoupCon.xcdatamodeld */; };
 		18C90C0E1DAF78DF0053F8D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18C90C0D1DAF78DF0053F8D7 /* Assets.xcassets */; };
@@ -51,7 +51,7 @@
 		18057E2E1DAFA33B0017F038 /* ICSDropShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICSDropShadowView.m; sourceTree = "<group>"; };
 		18C90C001DAF78DF0053F8D7 /* CoupCon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoupCon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C90C031DAF78DF0053F8D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		18C90C051DAF78DF0053F8D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		18C90C051DAF78DF0053F8D7 /* CXSigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CXSigninViewController.swift; sourceTree = "<group>"; };
 		18C90C081DAF78DF0053F8D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18C90C0B1DAF78DF0053F8D7 /* CoupCon.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoupCon.xcdatamodel; sourceTree = "<group>"; };
 		18C90C0D1DAF78DF0053F8D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -137,7 +137,7 @@
 				18C90C481DAF7CD40053F8D7 /* Controllers */,
 				18C90C441DAF7CB40053F8D7 /* SWSidePanel */,
 				18C90C031DAF78DF0053F8D7 /* AppDelegate.swift */,
-				18C90C051DAF78DF0053F8D7 /* ViewController.swift */,
+				18C90C051DAF78DF0053F8D7 /* CXSigninViewController.swift */,
 				18C90C071DAF78DF0053F8D7 /* Main.storyboard */,
 				18C90C0D1DAF78DF0053F8D7 /* Assets.xcassets */,
 				18C90C0F1DAF78DF0053F8D7 /* LaunchScreen.storyboard */,
