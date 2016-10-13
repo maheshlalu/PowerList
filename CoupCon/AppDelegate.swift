@@ -10,14 +10,35 @@ import UIKit
 import CoreData
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDelegate{
 
     var window: UIWindow?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        self.setUpSidePanl()
         // Override point for customization after application launch.
         return true
+    }
+    
+    func setUpSidePanl(){
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        
+        let homeView = storyBoard.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
+        
+        let menuVC = storyBoard.instantiateViewControllerWithIdentifier("LeftViewController") as! LeftViewController
+        
+        
+        let navHome = UINavigationController(rootViewController: homeView)
+        
+        let revealVC = SWRevealViewController(rearViewController: menuVC, frontViewController: navHome)
+        revealVC.delegate = self
+        self.window?.rootViewController = revealVC
+        self.window?.makeKeyAndVisible()
+        
+        
     }
 
     func applicationWillResignActive(application: UIApplication) {

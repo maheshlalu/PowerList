@@ -15,6 +15,11 @@
 		18C90C111DAF78DF0053F8D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C90C0F1DAF78DF0053F8D7 /* LaunchScreen.storyboard */; };
 		18C90C1C1DAF78DF0053F8D7 /* CoupConTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C90C1B1DAF78DF0053F8D7 /* CoupConTests.swift */; };
 		18C90C271DAF78DF0053F8D7 /* CoupConUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C90C261DAF78DF0053F8D7 /* CoupConUITests.swift */; };
+		18C90C471DAF7CC30053F8D7 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C90C461DAF7CC30053F8D7 /* SWRevealViewController.m */; };
+		18C90C4A1DAF7CED0053F8D7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C90C491DAF7CED0053F8D7 /* HomeViewController.swift */; };
+		18C90C4C1DAF7D000053F8D7 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C90C4B1DAF7D000053F8D7 /* LeftViewController.swift */; };
+		18C90C4F1DAF7EA60053F8D7 /* reveal-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C90C4D1DAF7EA60053F8D7 /* reveal-icon.png */; };
+		18C90C501DAF7EA60053F8D7 /* reveal-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C90C4E1DAF7EA60053F8D7 /* reveal-icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,13 @@
 		18C90C221DAF78DF0053F8D7 /* CoupConUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoupConUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C90C261DAF78DF0053F8D7 /* CoupConUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoupConUITests.swift; sourceTree = "<group>"; };
 		18C90C281DAF78DF0053F8D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18C90C401DAF7C970053F8D7 /* CoupCon-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoupCon-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		18C90C451DAF7CC30053F8D7 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		18C90C461DAF7CC30053F8D7 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		18C90C491DAF7CED0053F8D7 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		18C90C4B1DAF7D000053F8D7 /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
+		18C90C4D1DAF7EA60053F8D7 /* reveal-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-icon.png"; sourceTree = "<group>"; };
+		18C90C4E1DAF7EA60053F8D7 /* reveal-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-icon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +111,8 @@
 		18C90C021DAF78DF0053F8D7 /* CoupCon */ = {
 			isa = PBXGroup;
 			children = (
+				18C90C481DAF7CD40053F8D7 /* Controllers */,
+				18C90C441DAF7CB40053F8D7 /* SWSidePanel */,
 				18C90C031DAF78DF0053F8D7 /* AppDelegate.swift */,
 				18C90C051DAF78DF0053F8D7 /* ViewController.swift */,
 				18C90C071DAF78DF0053F8D7 /* Main.storyboard */,
@@ -106,6 +120,7 @@
 				18C90C0F1DAF78DF0053F8D7 /* LaunchScreen.storyboard */,
 				18C90C121DAF78DF0053F8D7 /* Info.plist */,
 				18C90C0A1DAF78DF0053F8D7 /* CoupCon.xcdatamodeld */,
+				18C90C401DAF7C970053F8D7 /* CoupCon-Bridging-Header.h */,
 			);
 			path = CoupCon;
 			sourceTree = "<group>";
@@ -126,6 +141,26 @@
 				18C90C281DAF78DF0053F8D7 /* Info.plist */,
 			);
 			path = CoupConUITests;
+			sourceTree = "<group>";
+		};
+		18C90C441DAF7CB40053F8D7 /* SWSidePanel */ = {
+			isa = PBXGroup;
+			children = (
+				18C90C4D1DAF7EA60053F8D7 /* reveal-icon.png */,
+				18C90C4E1DAF7EA60053F8D7 /* reveal-icon@2x.png */,
+				18C90C451DAF7CC30053F8D7 /* SWRevealViewController.h */,
+				18C90C461DAF7CC30053F8D7 /* SWRevealViewController.m */,
+			);
+			name = SWSidePanel;
+			sourceTree = "<group>";
+		};
+		18C90C481DAF7CD40053F8D7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				18C90C491DAF7CED0053F8D7 /* HomeViewController.swift */,
+				18C90C4B1DAF7D000053F8D7 /* LeftViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,8 +268,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				18C90C111DAF78DF0053F8D7 /* LaunchScreen.storyboard in Resources */,
+				18C90C501DAF7EA60053F8D7 /* reveal-icon@2x.png in Resources */,
 				18C90C0E1DAF78DF0053F8D7 /* Assets.xcassets in Resources */,
 				18C90C091DAF78DF0053F8D7 /* Main.storyboard in Resources */,
+				18C90C4F1DAF7EA60053F8D7 /* reveal-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,9 +296,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18C90C4A1DAF7CED0053F8D7 /* HomeViewController.swift in Sources */,
 				18C90C0C1DAF78DF0053F8D7 /* CoupCon.xcdatamodeld in Sources */,
 				18C90C061DAF78DF0053F8D7 /* ViewController.swift in Sources */,
+				18C90C4C1DAF7D000053F8D7 /* LeftViewController.swift in Sources */,
 				18C90C041DAF78DF0053F8D7 /* AppDelegate.swift in Sources */,
+				18C90C471DAF7CC30053F8D7 /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,10 +443,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = CoupCon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CX.Coupcon.CoupCon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CoupCon-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -414,10 +457,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = CoupCon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CX.Coupcon.CoupCon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CoupCon-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -486,6 +531,7 @@
 				18C90C2D1DAF78DF0053F8D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18C90C2E1DAF78DF0053F8D7 /* Build configuration list for PBXNativeTarget "CoupConTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +540,7 @@
 				18C90C301DAF78DF0053F8D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18C90C311DAF78DF0053F8D7 /* Build configuration list for PBXNativeTarget "CoupConUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +549,7 @@
 				18C90C331DAF78DF0053F8D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
