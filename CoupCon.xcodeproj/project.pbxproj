@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		07EA6B5AEA6DCAC4FA208E12 /* Pods_CoupConTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FF100D70C4BCD9B1EF4A14 /* Pods_CoupConTests.framework */; };
+		112EBC511DAFC4C200389726 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112EBC4F1DAFC4C200389726 /* TableViewCell.swift */; };
+		112EBC521DAFC4C200389726 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 112EBC501DAFC4C200389726 /* TableViewCell.xib */; };
 		18057E2F1DAFA33B0017F038 /* ICSDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18057E2C1DAFA33B0017F038 /* ICSDrawerController.m */; };
 		18057E301DAFA33B0017F038 /* ICSDropShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18057E2E1DAFA33B0017F038 /* ICSDropShadowView.m */; };
 		18C90C041DAF78DF0053F8D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C90C031DAF78DF0053F8D7 /* AppDelegate.swift */; };
@@ -45,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		112EBC4F1DAFC4C200389726 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		112EBC501DAFC4C200389726 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		18057E2B1DAFA33B0017F038 /* ICSDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICSDrawerController.h; sourceTree = "<group>"; };
 		18057E2C1DAFA33B0017F038 /* ICSDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICSDrawerController.m; sourceTree = "<group>"; };
 		18057E2D1DAFA33B0017F038 /* ICSDropShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICSDropShadowView.h; sourceTree = "<group>"; };
@@ -109,6 +113,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		112EBC531DAFC97000389726 /* LeftView */ = {
+			isa = PBXGroup;
+			children = (
+				18C90C4B1DAF7D000053F8D7 /* LeftViewController.swift */,
+				112EBC4F1DAFC4C200389726 /* TableViewCell.swift */,
+				112EBC501DAFC4C200389726 /* TableViewCell.xib */,
+			);
+			name = LeftView;
+			sourceTree = "<group>";
+		};
 		18C90BF71DAF78DF0053F8D7 = {
 			isa = PBXGroup;
 			children = (
@@ -184,8 +198,8 @@
 		18C90C481DAF7CD40053F8D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				112EBC531DAFC97000389726 /* LeftView */,
 				18C90C491DAF7CED0053F8D7 /* HomeViewController.swift */,
-				18C90C4B1DAF7D000053F8D7 /* LeftViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -326,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18C90C111DAF78DF0053F8D7 /* LaunchScreen.storyboard in Resources */,
+				112EBC521DAFC4C200389726 /* TableViewCell.xib in Resources */,
 				18C90C501DAF7EA60053F8D7 /* reveal-icon@2x.png in Resources */,
 				18C90C0E1DAF78DF0053F8D7 /* Assets.xcassets in Resources */,
 				18C90C091DAF78DF0053F8D7 /* Main.storyboard in Resources */,
@@ -479,7 +494,8 @@
 			files = (
 				18C90C4A1DAF7CED0053F8D7 /* HomeViewController.swift in Sources */,
 				18C90C0C1DAF78DF0053F8D7 /* CoupCon.xcdatamodeld in Sources */,
-				18C90C061DAF78DF0053F8D7 /* ViewController.swift in Sources */,
+				18C90C061DAF78DF0053F8D7 /* CXSigninViewController.swift in Sources */,
+				112EBC511DAFC4C200389726 /* TableViewCell.swift in Sources */,
 				18057E301DAFA33B0017F038 /* ICSDropShadowView.m in Sources */,
 				18C90C4C1DAF7D000053F8D7 /* LeftViewController.swift in Sources */,
 				18C90C041DAF78DF0053F8D7 /* AppDelegate.swift in Sources */,
