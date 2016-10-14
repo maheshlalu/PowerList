@@ -10,9 +10,19 @@ import UIKit
 
 class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
 
+    
+    var drawer : ICSDrawerController!
+    @IBOutlet weak var registerBtn: UIButton!
+    
+    @IBOutlet weak var nearByBtn: UIButton!
+    @IBOutlet weak var dealsBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addSidePanelButton()
+        self.applyTheButtonProperties(self.registerBtn)
+        self.applyTheButtonProperties(self.nearByBtn)
+        self.applyTheButtonProperties(self.dealsBtn)
+
        /* let menuItem = UIBarButtonItem(image: UIImage(named: "reveal-icon"), style: .Plain, target: self.revealViewController(), action: "revealToggle:")
         self.navigationItem.leftBarButtonItem = menuItem
         
@@ -32,6 +42,14 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
     
     
     
+    }
+    
+    
+    func applyTheButtonProperties(button:UIButton){
+        button.layer.cornerRadius = 8.0
+        button.layer.borderColor = UIColor.blackColor().CGColor
+        button.layer.borderWidth = 2.0
+        
     }
 
     /*
@@ -57,10 +75,14 @@ extension HomeViewController{
     }
     
     func drawerControllerWillOpen(drawerController: ICSDrawerController!) {
-        
+        self.view.userInteractionEnabled = false;
     }
     
     func drawerControllerDidClose(drawerController: ICSDrawerController!) {
-        
+        self.view.userInteractionEnabled = true;
+
+    }
+    @IBAction func sideMenuAction(sender: AnyObject) {
+        self.drawer.open()
     }
 }

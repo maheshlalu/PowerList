@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "LOGIN_320-480.png",
+      "filename" : "placeholder-20.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "LOGIN_320-568.png",
+      "filename" : "placeholder-81.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "LOGIN_375-667.png",
+      "filename" : "placeholder-80.png",
       "scale" : "3x"
     }
   ],

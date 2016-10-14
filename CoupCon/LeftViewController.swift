@@ -86,3 +86,24 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
     */
 
 }
+
+
+extension LeftViewController{
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return false
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return.LightContent
+    }
+    
+    func drawerControllerWillOpen(drawerController: ICSDrawerController!) {
+        
+    }
+    
+    func drawerControllerDidClose(drawerController: ICSDrawerController!) {
+        
+    }
+    
+}
