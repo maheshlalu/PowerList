@@ -458,8 +458,8 @@
     </scenes>
     <resources>
         <image name="CoupoConlogo_image" width="345" height="254"/>
-        <image name="SigninBg_image" width="640" height="1136"/>
-        <image name="leftpanel_image" width="640" height="1136"/>
+        <image name="SigninBg_image" width="320" height="480"/>
+        <image name="leftpanel_image" width="320" height="480"/>
         <image name="soundaryapic" width="233" height="217"/>
     </resources>
 </document>

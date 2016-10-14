@@ -26,9 +26,9 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
     @IBOutlet weak var rememberLabel: UILabel!
     
     
-    @IBOutlet weak var loginBtn: GIDSignInButton!
+    @IBOutlet weak var loginBtn: UIButton!
     
-    @IBOutlet weak var loginBtn2: FBSDKLoginButton!
+    @IBOutlet weak var loginBtn2: UIButton!
     
     
     @IBOutlet weak var facebookBtn: UILabel!
@@ -75,8 +75,8 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
         self.facebookBtn.layer.borderWidth = 1
         self.facebookBtn.layer.cornerRadius = 4
         self.facebookBtn.clipsToBounds = true
-        self.loginBtn2.delegate = self
-         self.loginBtn2.readPermissions = ["public_profile", "email", "user_friends"];
+       // self.loginBtn2.delegate = self
+         //self.loginBtn2.readPermissions = ["public_profile", "email", "user_friends"];
         
         
         self.gmailBtn.layer.borderColor = UIColor.whiteColor().CGColor
