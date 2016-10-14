@@ -6,6 +6,8 @@ target 'CoupCon' do
   use_frameworks!
 pod 'MagicalRecord/Shorthand'
 pod 'Alamofire', '~> 3.4'
+pod 'Google/SignIn'
+
   # Pods for CoupCon
 
   target 'CoupConTests' do

@@ -5,3 +5,4 @@
 #import "SWRevealViewController.h"
 #import <MagicalRecord/CoreData+MagicalRecord.h>
 #import "ICSDrawerController.h"
+#import <Google/SignIn.h>

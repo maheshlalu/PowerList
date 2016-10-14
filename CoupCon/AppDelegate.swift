@@ -8,16 +8,24 @@
 
 import UIKit
 import CoreData
+import FBSDKCoreKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDelegate{
+class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDelegate,GIDSignInDelegate{
 
     var window: UIWindow?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        self.setUpSidePanl()
+        //self.setUpSidePanl()
         // Override point for customization after application launch.
+        
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        var configureError: NSError?
+        GGLContext.sharedInstance().configureWithError(&configureError)
+        assert(configureError == nil, "Error configuring Google services: \(configureError)")
+        GIDSignIn.sharedInstance().clientID = "454116202484-33qe5mvf2ttp49s96dqahr4me91nuft1.apps.googleusercontent.com"
+        GIDSignIn.sharedInstance().delegate = self
         return true
     }
     
@@ -59,6 +67,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
+        FBSDKAppEvents.activateApp()
+
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
 
@@ -66,6 +76,68 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        let callBack:Bool
+        // print("***************************url Schemaaa:", url.scheme);
+        
+        if url.scheme == "fb144823225979761" {
+            callBack = FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+        } else {
+            callBack =  GIDSignIn.sharedInstance().handleURL(url, sourceApplication: sourceApplication, annotation: annotation)
+        }
+        
+        return callBack
+    }
+    
+    //MARK: - Google Sign in
+    
+    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
+                withError error: NSError!) {
+        if (error == nil) {
+            // Perform any operations on signed in user here.
+            let userId = user.userID                  // For client-side use only!
+            let idToken = user.authentication.idToken // Safe to send to the server
+            let fullName = user.profile.name
+            let givenName = user.profile.givenName
+            let familyName = user.profile.familyName
+            let email = user.profile.email
+            
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            let url = NSURL(string:  "https://www.googleapis.com/oauth2/v3/userinfo?access_token=\(user.authentication.accessToken)")
+            let session = NSURLSession.sharedSession()
+            session.dataTaskWithURL(url!) {(data, response, error) -> Void in
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                do {
+                    let userData = try NSJSONSerialization.JSONObjectWithData(data!, options:[]) as? [String:AnyObject]
+//                    
+//                    let orgID:String! = CXConstant.MALL_ID
+//                    firstName = userData!["given_name"] as! String
+//                    lastName = userData!["family_name"] as! String
+//                    gender = userData!["gender"] as! String
+//                    profilePic = userData!["picture"] as! String
+//                    email = userData!["email"] as! String
+//                    
+//                    print("\(email)\(firstName)\(lastName)\(gender)\(profilePic)\(orgID)")
+                    
+                    NSNotificationCenter.defaultCenter().postNotificationName("GoogleSignUp", object: userData)
+                    
+                } catch {
+                    NSLog("Account Information could not be loaded")
+                }
+                
+                }.resume()
+            // ...
+        } else {
+            print("\(error.localizedDescription)")
+        }
+    }
+    
+    func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
+                withError error: NSError!) {
+        // Perform any operations when the user disconnects from app here.
+        // ...
     }
 
     // MARK: - Core Data stack
