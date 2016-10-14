@@ -9,9 +9,8 @@
 /* Begin PBXBuildFile section */
 		07EA6B5AEA6DCAC4FA208E12 /* Pods_CoupConTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FF100D70C4BCD9B1EF4A14 /* Pods_CoupConTests.framework */; };
 		112EBC521DAFC4C200389726 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 112EBC501DAFC4C200389726 /* TableViewCell.xib */; };
-		1165F98C1DB0A96D001AC1B9 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1165F9891DB0A96D001AC1B9 /* LeftViewController.swift */; };
-		1165F98D1DB0A96D001AC1B9 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1165F98A1DB0A96D001AC1B9 /* TableViewCell.swift */; };
-		1165F98E1DB0A96D001AC1B9 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1165F98B1DB0A96D001AC1B9 /* TableViewCell.xib */; };
+		1165F9901DB0AA3D001AC1B9 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1165F98F1DB0AA3D001AC1B9 /* LeftViewController.swift */; };
+		1165F9921DB0AA6C001AC1B9 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1165F9911DB0AA6C001AC1B9 /* TableViewCell.swift */; };
 		18057E2F1DAFA33B0017F038 /* ICSDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18057E2C1DAFA33B0017F038 /* ICSDrawerController.m */; };
 		18057E301DAFA33B0017F038 /* ICSDropShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18057E2E1DAFA33B0017F038 /* ICSDropShadowView.m */; };
 		18057E3E1DAFC37C0017F038 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18057E3B1DAFC37C0017F038 /* FBSDKCoreKit.framework */; };
@@ -54,9 +53,8 @@
 
 /* Begin PBXFileReference section */
 		112EBC501DAFC4C200389726 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
-		1165F9891DB0A96D001AC1B9 /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
-		1165F98A1DB0A96D001AC1B9 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		1165F98B1DB0A96D001AC1B9 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		1165F98F1DB0AA3D001AC1B9 /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeftViewController.swift; path = LeftView/LeftViewController.swift; sourceTree = "<group>"; };
+		1165F9911DB0AA6C001AC1B9 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		18057E2B1DAFA33B0017F038 /* ICSDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICSDrawerController.h; sourceTree = "<group>"; };
 		18057E2C1DAFA33B0017F038 /* ICSDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICSDrawerController.m; sourceTree = "<group>"; };
 		18057E2D1DAFA33B0017F038 /* ICSDropShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICSDropShadowView.h; sourceTree = "<group>"; };
@@ -168,6 +166,8 @@
 				18C90C481DAF7CD40053F8D7 /* Controllers */,
 				18C90C441DAF7CB40053F8D7 /* SWSidePanel */,
 				18C90C031DAF78DF0053F8D7 /* AppDelegate.swift */,
+				1165F98F1DB0AA3D001AC1B9 /* LeftViewController.swift */,
+				1165F9911DB0AA6C001AC1B9 /* TableViewCell.swift */,
 				18C90C051DAF78DF0053F8D7 /* CXSigninViewController.swift */,
 				18C90C071DAF78DF0053F8D7 /* Main.storyboard */,
 				18C90C0D1DAF78DF0053F8D7 /* Assets.xcassets */,
@@ -215,9 +215,6 @@
 		18C90C481DAF7CD40053F8D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1165F9891DB0A96D001AC1B9 /* LeftViewController.swift */,
-				1165F98A1DB0A96D001AC1B9 /* TableViewCell.swift */,
-				1165F98B1DB0A96D001AC1B9 /* TableViewCell.xib */,
 				18C90C491DAF7CED0053F8D7 /* HomeViewController.swift */,
 			);
 			name = Controllers;
@@ -363,7 +360,6 @@
 				18C90C501DAF7EA60053F8D7 /* reveal-icon@2x.png in Resources */,
 				18C90C0E1DAF78DF0053F8D7 /* Assets.xcassets in Resources */,
 				18C90C091DAF78DF0053F8D7 /* Main.storyboard in Resources */,
-				1165F98E1DB0A96D001AC1B9 /* TableViewCell.xib in Resources */,
 				18C90C4F1DAF7EA60053F8D7 /* reveal-icon.png in Resources */,
 				18057E421DAFCEE10017F038 /* GoogleService-Info.plist in Resources */,
 			);
@@ -518,9 +514,9 @@
 				18C90C061DAF78DF0053F8D7 /* CXSigninViewController.swift in Sources */,
 				18057E301DAFA33B0017F038 /* ICSDropShadowView.m in Sources */,
 				18C90C4C1DAF7D000053F8D7 /* LeftViewController.swift in Sources */,
-				1165F98D1DB0A96D001AC1B9 /* TableViewCell.swift in Sources */,
+				1165F9921DB0AA6C001AC1B9 /* TableViewCell.swift in Sources */,
 				18C90C041DAF78DF0053F8D7 /* AppDelegate.swift in Sources */,
-				1165F98C1DB0A96D001AC1B9 /* LeftViewController.swift in Sources */,
+				1165F9901DB0AA3D001AC1B9 /* LeftViewController.swift in Sources */,
 				18057E2F1DAFA33B0017F038 /* ICSDrawerController.m in Sources */,
 				18C90C471DAF7CC30053F8D7 /* SWRevealViewController.m in Sources */,
 			);

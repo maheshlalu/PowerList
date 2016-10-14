@@ -2,7 +2,7 @@
 //  TableViewCell.swift
 //  CoupCon
 //
-//  Created by Manishi on 10/13/16.
+//  Created by Manishi on 10/14/16.
 //  Copyright © 2016 CX. All rights reserved.
 //
 
@@ -15,12 +15,10 @@ class TableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    
-    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
-    
+
 }

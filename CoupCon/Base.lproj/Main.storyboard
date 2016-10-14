@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="iT0-HO-dwe">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="iT0-HO-dwe">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -200,21 +200,21 @@
                                 <exclude reference="4bf-1A-9ZN"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="GWR-a1-Akt"/>
+                                <exclude reference="Uiy-ns-LIP"/>
+                                <exclude reference="yYh-gH-qg3"/>
+                                <exclude reference="IBX-Vh-Aai"/>
+                                <exclude reference="jqO-aN-LxA"/>
+                                <exclude reference="o72-3o-MIh"/>
+                                <exclude reference="013-vd-mfn"/>
+                                <exclude reference="eHi-M7-glB"/>
+                                <exclude reference="pbv-IA-8PR"/>
                                 <exclude reference="381-eF-8TH"/>
                                 <exclude reference="ZQn-T6-m45"/>
                                 <exclude reference="vFc-jR-Eh0"/>
                                 <exclude reference="8cX-Oa-JK2"/>
                                 <exclude reference="Q2v-A8-bLK"/>
                                 <exclude reference="wye-Np-rzh"/>
-                                <exclude reference="013-vd-mfn"/>
-                                <exclude reference="eHi-M7-glB"/>
-                                <exclude reference="pbv-IA-8PR"/>
-                                <exclude reference="IBX-Vh-Aai"/>
-                                <exclude reference="jqO-aN-LxA"/>
-                                <exclude reference="o72-3o-MIh"/>
-                                <exclude reference="GWR-a1-Akt"/>
-                                <exclude reference="Uiy-ns-LIP"/>
-                                <exclude reference="yYh-gH-qg3"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -225,21 +225,21 @@
                                 <include reference="4bf-1A-9ZN"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="GWR-a1-Akt"/>
+                                <include reference="Uiy-ns-LIP"/>
+                                <include reference="yYh-gH-qg3"/>
+                                <include reference="IBX-Vh-Aai"/>
+                                <include reference="jqO-aN-LxA"/>
+                                <include reference="o72-3o-MIh"/>
+                                <include reference="013-vd-mfn"/>
+                                <include reference="eHi-M7-glB"/>
+                                <include reference="pbv-IA-8PR"/>
                                 <include reference="381-eF-8TH"/>
                                 <include reference="ZQn-T6-m45"/>
                                 <include reference="vFc-jR-Eh0"/>
                                 <include reference="8cX-Oa-JK2"/>
                                 <include reference="Q2v-A8-bLK"/>
                                 <include reference="wye-Np-rzh"/>
-                                <include reference="013-vd-mfn"/>
-                                <include reference="eHi-M7-glB"/>
-                                <include reference="pbv-IA-8PR"/>
-                                <include reference="IBX-Vh-Aai"/>
-                                <include reference="jqO-aN-LxA"/>
-                                <include reference="o72-3o-MIh"/>
-                                <exclude reference="GWR-a1-Akt"/>
-                                <include reference="Uiy-ns-LIP"/>
-                                <include reference="yYh-gH-qg3"/>
                             </mask>
                         </variation>
                     </view>
