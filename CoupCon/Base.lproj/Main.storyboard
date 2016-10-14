@@ -6,10 +6,10 @@
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Left View Controller-->
+        <!--View Controller-->
         <scene sceneID="Fyu-cH-4aY">
             <objects>
-                <viewController storyboardIdentifier="LeftViewController" id="PZZ-I3-aaw" customClass="LeftViewController" customModule="CoupCon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LeftViewController" id="PZZ-I3-aaw" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y7M-dB-yH2"/>
                         <viewControllerLayoutGuide type="bottom" id="w2P-kA-ywe"/>
@@ -251,7 +251,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j3v-Oo-tUk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="141.75" y="502.125"/>
+            <point key="canvasLocation" x="-87.5" y="490.5"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="z8s-ze-V0T">

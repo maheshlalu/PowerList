@@ -2,7 +2,7 @@
 //  TableViewCell.swift
 //  CoupCon
 //
-//  Created by Manishi on 10/14/16.
+//  Created by Manishi on 10/13/16.
 //  Copyright © 2016 CX. All rights reserved.
 //
 
@@ -20,5 +20,5 @@ class TableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }
