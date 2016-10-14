@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        //self.setUpSidePanl()
+        self.setUpSidePanl()
         // Override point for customization after application launch.
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -31,25 +31,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
     
     func setUpSidePanl(){
         
-//        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-//        
-//        
-//        let homeView = storyBoard.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
-//        
-//        let menuVC = storyBoard.instantiateViewControllerWithIdentifier("LeftViewController") as! LeftViewController
-//        
-//        
-//        let navHome = UINavigationController(rootViewController: homeView)
-//        
-//        let revealVC = SWRevealViewController(rearViewController: menuVC, frontViewController: navHome)
-//        revealVC.delegate = self
-//       // self.window?.rootViewController = revealVC
-//        //self.window?.makeKeyAndVisible()
-//        
-//        let drawer : ICSDrawerController = ICSDrawerController(leftViewController: menuVC, centerViewController: homeView)
-//        self.window?.rootViewController = drawer
-//        self.window?.makeKeyAndVisible()
-//        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        
+        let homeView = storyBoard.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
+        
+        let menuVC = storyBoard.instantiateViewControllerWithIdentifier("LeftViewController") as! LeftViewController
+        
+        
+        let navHome = UINavigationController(rootViewController: homeView)
+        
+        let revealVC = SWRevealViewController(rearViewController: menuVC, frontViewController: navHome)
+        revealVC.delegate = self
+       // self.window?.rootViewController = revealVC
+        //self.window?.makeKeyAndVisible()
+        
+        let drawer : ICSDrawerController = ICSDrawerController(leftViewController: menuVC, centerViewController: homeView)
+        self.window?.rootViewController = drawer
+        self.window?.makeKeyAndVisible()
+        
     }
 
     func applicationWillResignActive(application: UIApplication) {
