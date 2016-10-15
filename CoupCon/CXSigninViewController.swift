@@ -14,57 +14,57 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
     
     @IBOutlet weak var userBtn: UIButton!
     
-    
     @IBOutlet weak var passwordBtn: UIButton!
     
-    @IBOutlet weak var usernameTf: UITextField!
+    @IBOutlet weak var userTf: UITextField!
     
     @IBOutlet weak var passwordTf: UITextField!
     
-    @IBOutlet weak var checkBoxBtn: UIButton!
+    @IBOutlet weak var checkboxBtn: UIButton!
     
     @IBOutlet weak var rememberLabel: UILabel!
     
-    
     @IBOutlet weak var loginBtn: UIButton!
     
-    @IBOutlet weak var loginBtn2: UIButton!
+    @IBOutlet weak var loginBtn1: UIButton!
+    
+    @IBOutlet weak var facebookBtn: UIButton!
+    
+    @IBOutlet weak var gmailBtn: UIButton!
     
     
-    @IBOutlet weak var facebookBtn: UILabel!
-    
-    
-    @IBOutlet weak var gmailBtn: UILabel!
-    
-    
-    
-    
+    @IBOutlet weak var credientailsView: UIView!
     
     
     
+    
+    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
           GIDSignIn.sharedInstance().uiDelegate = self
+        self.userTf.delegate = self
+        self.passwordTf.delegate = self
         
         GIDSignIn.sharedInstance().signInSilently()
 
-        self.usernameTf.layer.borderColor = UIColor.whiteColor().CGColor
-        self.usernameTf.layer.borderWidth = 1
-        self.usernameTf.layer.cornerRadius = 5
-        self.usernameTf.clipsToBounds = true
-        self.usernameTf.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
+        self.userTf.layer.borderColor = UIColor.whiteColor().CGColor
+        self.userTf.layer.borderWidth = 0.8
+        self.userTf.layer.cornerRadius = 5
+        self.userTf.clipsToBounds = true
+        self.userTf.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
         
         
         self.passwordTf.layer.borderColor = UIColor.whiteColor().CGColor
-        self.passwordTf.layer.borderWidth = 1
+        self.passwordTf.layer.borderWidth = 0.8
         self.passwordTf.layer.cornerRadius = 5
         self.passwordTf.clipsToBounds = true
         self.passwordTf.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
         
-        self.checkBoxBtn.layer.borderColor = UIColor.whiteColor().CGColor
-        self.checkBoxBtn.layer.borderWidth = 1
-        self.checkBoxBtn.layer.cornerRadius = 5
-        self.checkBoxBtn.clipsToBounds = true
+        self.checkboxBtn.layer.borderColor = UIColor.whiteColor().CGColor
+        self.checkboxBtn.layer.borderWidth = 1
+        self.checkboxBtn.layer.cornerRadius = 5
+        self.checkboxBtn.clipsToBounds = true
         
         self.loginBtn.layer.borderColor = UIColor.whiteColor().CGColor
         self.loginBtn.layer.borderWidth = 1
@@ -73,7 +73,7 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
         
         self.facebookBtn.layer.borderColor = UIColor.whiteColor().CGColor
         self.facebookBtn.layer.borderWidth = 1
-        self.facebookBtn.layer.cornerRadius = 4
+        self.facebookBtn.layer.cornerRadius = 3
         self.facebookBtn.clipsToBounds = true
        // self.loginBtn2.delegate = self
          //self.loginBtn2.readPermissions = ["public_profile", "email", "user_friends"];
@@ -81,9 +81,48 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
         
         self.gmailBtn.layer.borderColor = UIColor.whiteColor().CGColor
         self.gmailBtn.layer.borderWidth = 1
-        self.gmailBtn.layer.cornerRadius = 4
+        self.gmailBtn.layer.cornerRadius = 3
         self.gmailBtn.clipsToBounds = true
         
+        self.userBtn.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
+        self.userBtn.layer.borderColor = UIColor.whiteColor().CGColor
+        self.userBtn.layer.cornerRadius = 2
+        self.userBtn.layer.borderWidth = 1
+        self.userBtn.clipsToBounds = true
+        
+        self.passwordBtn.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
+        self.passwordBtn.layer.borderColor = UIColor.whiteColor().CGColor
+        self.passwordBtn.layer.cornerRadius = 2
+        self.passwordBtn.layer.borderWidth = 1
+        self.passwordBtn.clipsToBounds = true
+        
+        
+        self.userBtn.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
+        self.userBtn.layer.borderColor = UIColor.whiteColor().CGColor
+        self.userBtn.layer.borderWidth = 0.8
+        self.userBtn.layer.cornerRadius = 5
+        self.userBtn.clipsToBounds = true
+        
+        self.passwordBtn.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
+        self.passwordBtn.layer.borderColor = UIColor.whiteColor().CGColor
+        self.passwordBtn.layer.borderWidth = 0.8
+        self.passwordBtn.layer.cornerRadius = 5
+        self.passwordBtn.clipsToBounds = true
+        
+
+        
+        
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(CXSigninViewController.keyboardWillShow(_:)),
+                                                         name: UIKeyboardWillShowNotification,
+                                                         object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(CXSigninViewController.keyboardWillHide(_:)),
+                                                         name: UIKeyboardWillHideNotification,
+                                                         object: nil)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(CXSigninViewController.handleTap(_:)))
+        self.view.addGestureRecognizer(tap)
         
 //        let fbLoginBtn = FBSDKLoginButton.init(frame: CGRectMake((self.view.frame.size.width-200)/2, hLabel.frame.size.height+hLabel.frame.origin.y+10, 200, 40))
 //        fbLoginBtn.delegate = self
@@ -91,8 +130,26 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
         
         // Do any additional setup after loading the view, typically from a nib.
     }
-
     
+    func handleTap(sender: UITapGestureRecognizer? = nil) {
+        // handling code
+        self.view.endEditing(true)
+    }
+
+    func keyboardWillShow(sender: NSNotification) {
+        if let keyboardSize = (sender.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue() {
+            self.view.frame.origin.y = -(keyboardSize.height-60)
+        }
+    }
+    
+    func keyboardWillHide(sender: NSNotification) {
+        self.view.frame.origin.y = 0
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
     
     override func didReceiveMemoryWarning() {

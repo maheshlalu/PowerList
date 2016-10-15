@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>MALL_ID</key>
+	<string>20217</string>
+	<key>AppTheamColor</key>
+	<array>
+		<string>215</string>
+		<string>37</string>
+		<string>25</string>
+	</array>
+	<key>BaseUrl</key>
+	<string>http://storeongo.com:8081/</string>
+	<key>getMaster</key>
+	<string>Services/getMasters?</string>
+	<key>SidePanelList</key>
+	<array>
+		<string>Home</string>
+		<string>About us</string>
+		<string>Orders</string>
+		<string>Wishlist</string>
+	</array>
+	<key>APPFONT_NAME_REGULAR</key>
+	<string>Roboto-Regular</string>
+	<key>APPFONT_MEDIUM</key>
+	<integer>13</integer>
+	<key>APPFONT_LARGE</key>
+	<integer>15</integer>
+	<key>APPFONT_SMALL</key>
+	<integer>12</integer>
+	<key>ISPagerEnable</key>
+	<false/>
+	<key>PRODUCT_NAME</key>
+	<string>68M Holidays</string>
+	<key>signInMethod</key>
+	<string>MobileAPIs/loginConsumerForOrg?</string>
+	<key>signUpMethod</key>
+	<string>MobileAPIs/regAndloyaltyAPI?</string>
+	<key>placeOrder</key>
+	<string>MobileAPIs/postedJobs?</string>
+	<key>forgotPassordMethod</key>
+	<string>MobileAPIs/forgotpwd?</string>
+	<key>updateProfile</key>
+	<string>MobileAPIs/updateUserDetails?</string>
+	<key>photoUpload</key>
+	<string>Services/uploadFileFromAndroidToServer</string>
+	<key>AppBgColr</key>
+	<array>
+		<string>235</string>
+		<string>235</string>
+		<string>236</string>
+	</array>
+</dict>
+</plist>

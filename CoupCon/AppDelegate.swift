@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        self.setUpSidePanl()
+        //self.setUpSidePanl()
         // Override point for customization after application launch.
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -40,13 +40,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
         
         
         let navHome = UINavigationController(rootViewController: homeView)
-        
-        let revealVC = SWRevealViewController(rearViewController: menuVC, frontViewController: navHome)
-        revealVC.delegate = self
+        navHome.navigationBarHidden = true
+       // let revealVC = SWRevealViewController(rearViewController: menuVC, frontViewController: navHome)
+        //revealVC.delegate = self
        // self.window?.rootViewController = revealVC
         //self.window?.makeKeyAndVisible()
         
-        let drawer : ICSDrawerController = ICSDrawerController(leftViewController: menuVC, centerViewController: homeView)
+        let drawer : ICSDrawerController = ICSDrawerController(leftViewController: menuVC, centerViewController: navHome)
         self.window?.rootViewController = drawer
         self.window?.makeKeyAndVisible()
         

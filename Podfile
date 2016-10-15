@@ -7,6 +7,7 @@ target 'CoupCon' do
 pod 'MagicalRecord/Shorthand'
 pod 'Alamofire', '~> 3.4'
 pod 'Google/SignIn'
+pod 'SDWebImage', '~> 3.8'
 
   # Pods for CoupCon
 
