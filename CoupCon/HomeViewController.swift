@@ -117,12 +117,14 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let categoryDic : NSDictionary = self.storeCategoryArray[indexPath.row] as! NSDictionary
         var dealsVc : DealsViewController = DealsViewController()
-        //dealsVc.categoryDict = categoryDic
-        
+    
         let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         dealsVc = storyBoard.instantiateViewControllerWithIdentifier("DealsViewController") as! DealsViewController
+        dealsVc.selectedName = categoryDic.valueForKey("Name")! as! String
+        self.presentViewController(dealsVc, animated: true) {
+        }
 
-        self.navigationController?.pushViewController(dealsVc, animated: true)
+        //self.navigationController?.pushViewController(dealsVc, animated: true)
 
     }
     

@@ -99,11 +99,11 @@ extension LeftViewController{
     }
     
     func drawerControllerWillOpen(drawerController: ICSDrawerController!) {
-        
+        self.view.userInteractionEnabled = false;
     }
     
     func drawerControllerDidClose(drawerController: ICSDrawerController!) {
+        self.view.userInteractionEnabled = true;
         
     }
-    
 }

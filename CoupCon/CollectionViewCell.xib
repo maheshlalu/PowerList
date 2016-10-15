@@ -52,7 +52,10 @@
                 <constraint firstItem="Xwj-49-B56" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="zwi-3a-5i1"/>
             </constraints>
             <size key="customSize" width="221" height="205"/>
-            <point key="canvasLocation" x="451.5" y="390.5"/>
+            <connections>
+                <outlet property="dealsImgView" destination="ssv-z0-D0b" id="olB-6I-imB"/>
+            </connections>
+            <point key="canvasLocation" x="544.5" y="375.5"/>
         </collectionViewCell>
     </objects>
 </document>
