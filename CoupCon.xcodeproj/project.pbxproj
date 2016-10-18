@@ -31,8 +31,6 @@
 		181C04EB1DB0F3F3006C05FF /* HomeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181C04EA1DB0F3F3006C05FF /* HomeTableCell.swift */; };
 		18C1603F1DB1FE740083F16D /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C1603E1DB1FE740083F16D /* UIImageView+UIActivityIndicatorForSDWebImage.m */; };
 		18C160511DB222820083F16D /* DealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C160501DB222820083F16D /* DealsViewController.swift */; };
-		18C160541DB223340083F16D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C160521DB223340083F16D /* CollectionViewCell.swift */; };
-		18C160551DB223340083F16D /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C160531DB223340083F16D /* CollectionViewCell.xib */; };
 		18C90C041DAF78DF0053F8D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C90C031DAF78DF0053F8D7 /* AppDelegate.swift */; };
 		18C90C061DAF78DF0053F8D7 /* CXSigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C90C051DAF78DF0053F8D7 /* CXSigninViewController.swift */; };
 		18C90C091DAF78DF0053F8D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C90C071DAF78DF0053F8D7 /* Main.storyboard */; };
@@ -45,6 +43,17 @@
 		18C90C4A1DAF7CED0053F8D7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C90C491DAF7CED0053F8D7 /* HomeViewController.swift */; };
 		18C90C4F1DAF7EA60053F8D7 /* reveal-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C90C4D1DAF7EA60053F8D7 /* reveal-icon.png */; };
 		18C90C501DAF7EA60053F8D7 /* reveal-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C90C4E1DAF7EA60053F8D7 /* reveal-icon@2x.png */; };
+		18ED49F51DB4B07200A612BA /* FineDiningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED49F41DB4B07200A612BA /* FineDiningViewController.swift */; };
+		18ED49FC1DB4C5B100A612BA /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED49FA1DB4C5B100A612BA /* HomeCollectionViewCell.swift */; };
+		18ED49FD1DB4C5B100A612BA /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18ED49FB1DB4C5B100A612BA /* HomeCollectionViewCell.xib */; };
+		18ED4A001DB4FEE100A612BA /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED49FE1DB4FEE100A612BA /* CollectionViewCell.swift */; };
+		18ED4A011DB4FEE100A612BA /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18ED49FF1DB4FEE100A612BA /* CollectionViewCell.xib */; };
+		18ED4A441DB6180500A612BA /* KIImagePager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18ED4A431DB6180500A612BA /* KIImagePager.m */; };
+		18ED4A461DB62F7C00A612BA /* CustomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED4A451DB62F7C00A612BA /* CustomNavBar.swift */; };
+		18ED4A4A1DB6486500A612BA /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED4A491DB6486500A612BA /* AboutUsViewController.swift */; };
+		18ED4A4C1DB6488700A612BA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED4A4B1DB6488700A612BA /* MapViewController.swift */; };
+		18ED4A4E1DB6489E00A612BA /* OffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED4A4D1DB6489E00A612BA /* OffersViewController.swift */; };
+		18ED4A501DB659F100A612BA /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED4A4F1DB659F100A612BA /* Station.swift */; };
 		530A4A0975836E19D0B2F8BC /* Pods_CoupConUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C41FBE6E97500FA66BFBF6 /* Pods_CoupConUITests.framework */; };
 		BB2E53519290050F395A2AEF /* Pods_CoupCon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEB40090EE11D5B76565BB03 /* Pods_CoupCon.framework */; };
 /* End PBXBuildFile section */
@@ -93,8 +102,6 @@
 		18C1603D1DB1FE740083F16D /* UIImageView+UIActivityIndicatorForSDWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+UIActivityIndicatorForSDWebImage.h"; sourceTree = "<group>"; };
 		18C1603E1DB1FE740083F16D /* UIImageView+UIActivityIndicatorForSDWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+UIActivityIndicatorForSDWebImage.m"; sourceTree = "<group>"; };
 		18C160501DB222820083F16D /* DealsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsViewController.swift; sourceTree = "<group>"; };
-		18C160521DB223340083F16D /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		18C160531DB223340083F16D /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		18C90C001DAF78DF0053F8D7 /* CoupCon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoupCon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C90C031DAF78DF0053F8D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18C90C051DAF78DF0053F8D7 /* CXSigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CXSigninViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +122,18 @@
 		18C90C491DAF7CED0053F8D7 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		18C90C4D1DAF7EA60053F8D7 /* reveal-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-icon.png"; sourceTree = "<group>"; };
 		18C90C4E1DAF7EA60053F8D7 /* reveal-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-icon@2x.png"; sourceTree = "<group>"; };
+		18ED49F41DB4B07200A612BA /* FineDiningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FineDiningViewController.swift; sourceTree = "<group>"; };
+		18ED49FA1DB4C5B100A612BA /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		18ED49FB1DB4C5B100A612BA /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
+		18ED49FE1DB4FEE100A612BA /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		18ED49FF1DB4FEE100A612BA /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		18ED4A421DB6180500A612BA /* KIImagePager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIImagePager.h; sourceTree = "<group>"; };
+		18ED4A431DB6180500A612BA /* KIImagePager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIImagePager.m; sourceTree = "<group>"; };
+		18ED4A451DB62F7C00A612BA /* CustomNavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavBar.swift; sourceTree = "<group>"; };
+		18ED4A491DB6486500A612BA /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		18ED4A4B1DB6488700A612BA /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		18ED4A4D1DB6489E00A612BA /* OffersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffersViewController.swift; sourceTree = "<group>"; };
+		18ED4A4F1DB659F100A612BA /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		2CDFCB9A19A5592344D69BBA /* Pods-CoupConUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoupConUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoupConUITests/Pods-CoupConUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		56C41FBE6E97500FA66BFBF6 /* Pods_CoupConUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoupConUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		674211D20DF2F16091F4B75B /* Pods-CoupConTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoupConTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoupConTests/Pods-CoupConTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -195,7 +214,12 @@
 		181C04E91DB0F3C9006C05FF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				18ED49FE1DB4FEE100A612BA /* CollectionViewCell.swift */,
+				18ED49FF1DB4FEE100A612BA /* CollectionViewCell.xib */,
+				18ED49FA1DB4C5B100A612BA /* HomeCollectionViewCell.swift */,
+				18ED49FB1DB4C5B100A612BA /* HomeCollectionViewCell.xib */,
 				181C04EA1DB0F3F3006C05FF /* HomeTableCell.swift */,
+				18ED4A451DB62F7C00A612BA /* CustomNavBar.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -212,6 +236,7 @@
 		18C90BF71DAF78DF0053F8D7 = {
 			isa = PBXGroup;
 			children = (
+				18ED4A411DB617DB00A612BA /* OtherResources */,
 				18C90C021DAF78DF0053F8D7 /* CoupCon */,
 				18C90C1A1DAF78DF0053F8D7 /* CoupConTests */,
 				18C90C251DAF78DF0053F8D7 /* CoupConUITests */,
@@ -289,16 +314,36 @@
 		18C90C481DAF7CD40053F8D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				18ED4A481DB6484800A612BA /* SegmentContollers */,
 				181C04E91DB0F3C9006C05FF /* Views */,
 				110DD1C41DB0AD9C001F9BC1 /* LeftViewController.swift */,
 				110DD1C51DB0AD9C001F9BC1 /* TableViewCell.swift */,
 				110DD1C61DB0AD9C001F9BC1 /* TableViewCell.xib */,
 				18C90C491DAF7CED0053F8D7 /* HomeViewController.swift */,
 				18C160501DB222820083F16D /* DealsViewController.swift */,
-				18C160521DB223340083F16D /* CollectionViewCell.swift */,
-				18C160531DB223340083F16D /* CollectionViewCell.xib */,
+				18ED49F41DB4B07200A612BA /* FineDiningViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		18ED4A411DB617DB00A612BA /* OtherResources */ = {
+			isa = PBXGroup;
+			children = (
+				18ED4A421DB6180500A612BA /* KIImagePager.h */,
+				18ED4A431DB6180500A612BA /* KIImagePager.m */,
+			);
+			name = OtherResources;
+			sourceTree = "<group>";
+		};
+		18ED4A481DB6484800A612BA /* SegmentContollers */ = {
+			isa = PBXGroup;
+			children = (
+				18ED4A4F1DB659F100A612BA /* Station.swift */,
+				18ED4A491DB6486500A612BA /* AboutUsViewController.swift */,
+				18ED4A4B1DB6488700A612BA /* MapViewController.swift */,
+				18ED4A4D1DB6489E00A612BA /* OffersViewController.swift */,
+			);
+			name = SegmentContollers;
 			sourceTree = "<group>";
 		};
 		572338FD6D3F0DFCD7041D79 /* Pods */ = {
@@ -444,13 +489,14 @@
 				181C04DE1DB0BA4D006C05FF /* Roboto-Medium.ttf in Resources */,
 				181C04DF1DB0BA4D006C05FF /* Roboto-Regular.ttf in Resources */,
 				181C04E01DB0BA4D006C05FF /* RobotoCondensed-Bold.ttf in Resources */,
+				18ED4A011DB4FEE100A612BA /* CollectionViewCell.xib in Resources */,
 				181C04E11DB0BA4D006C05FF /* RobotoCondensed-Light.ttf in Resources */,
 				18C90C111DAF78DF0053F8D7 /* LaunchScreen.storyboard in Resources */,
 				18C90C501DAF7EA60053F8D7 /* reveal-icon@2x.png in Resources */,
 				110DD1C91DB0AD9C001F9BC1 /* TableViewCell.xib in Resources */,
 				18C90C0E1DAF78DF0053F8D7 /* Assets.xcassets in Resources */,
+				18ED49FD1DB4C5B100A612BA /* HomeCollectionViewCell.xib in Resources */,
 				18C90C091DAF78DF0053F8D7 /* Main.storyboard in Resources */,
-				18C160551DB223340083F16D /* CollectionViewCell.xib in Resources */,
 				18C90C4F1DAF7EA60053F8D7 /* reveal-icon.png in Resources */,
 				18057E421DAFCEE10017F038 /* GoogleService-Info.plist in Resources */,
 			);
@@ -600,21 +646,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18ED4A4A1DB6486500A612BA /* AboutUsViewController.swift in Sources */,
+				18ED4A461DB62F7C00A612BA /* CustomNavBar.swift in Sources */,
 				18C160511DB222820083F16D /* DealsViewController.swift in Sources */,
 				18C90C4A1DAF7CED0053F8D7 /* HomeViewController.swift in Sources */,
+				18ED4A001DB4FEE100A612BA /* CollectionViewCell.swift in Sources */,
 				18C90C0C1DAF78DF0053F8D7 /* CoupCon.xcdatamodeld in Sources */,
+				18ED49F51DB4B07200A612BA /* FineDiningViewController.swift in Sources */,
 				181C04E71DB0EC4F006C05FF /* CXDataService.swift in Sources */,
 				18C90C061DAF78DF0053F8D7 /* CXSigninViewController.swift in Sources */,
-				18C160541DB223340083F16D /* CollectionViewCell.swift in Sources */,
 				110DD1C81DB0AD9C001F9BC1 /* TableViewCell.swift in Sources */,
 				18057E301DAFA33B0017F038 /* ICSDropShadowView.m in Sources */,
 				18C90C041DAF78DF0053F8D7 /* AppDelegate.swift in Sources */,
+				18ED49FC1DB4C5B100A612BA /* HomeCollectionViewCell.swift in Sources */,
+				18ED4A4C1DB6488700A612BA /* MapViewController.swift in Sources */,
+				18ED4A441DB6180500A612BA /* KIImagePager.m in Sources */,
 				181C04E61DB0EC4F006C05FF /* CXAppConfig.swift in Sources */,
 				110DD1C71DB0AD9C001F9BC1 /* LeftViewController.swift in Sources */,
+				18ED4A501DB659F100A612BA /* Station.swift in Sources */,
 				18057E2F1DAFA33B0017F038 /* ICSDrawerController.m in Sources */,
 				18C90C471DAF7CC30053F8D7 /* SWRevealViewController.m in Sources */,
 				181C04EB1DB0F3F3006C05FF /* HomeTableCell.swift in Sources */,
 				18C1603F1DB1FE740083F16D /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */,
+				18ED4A4E1DB6489E00A612BA /* OffersViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

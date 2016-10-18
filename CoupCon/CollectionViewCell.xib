@@ -4,58 +4,62 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CollectionViewCell" customModule="CoupCon" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="221" height="205"/>
+            <rect key="frame" x="0.0" y="0.0" width="168" height="174"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="221" height="205"/>
+                <rect key="frame" x="0.0" y="0.0" width="168" height="174"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ssv-z0-D0b">
-                        <rect key="frame" x="50" y="18" width="122" height="97"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="122" id="4mQ-dg-ma6"/>
-                            <constraint firstAttribute="height" constant="97" id="Ho4-5S-5UD"/>
-                        </constraints>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rtJ-VD-8VD">
+                        <rect key="frame" x="26" y="8" width="117" height="91"/>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xwj-49-B56">
-                        <rect key="frame" x="0.0" y="138" width="221" height="2"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="802-dI-JjF">
+                        <rect key="frame" x="0.0" y="107" width="168" height="1"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="2" id="ZlU-j8-zfZ"/>
-                            <constraint firstAttribute="width" constant="221" id="aPo-AQ-Zuc"/>
+                            <constraint firstAttribute="height" constant="1" id="THk-hD-iaS"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click To View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOD-wA-KNu">
-                        <rect key="frame" x="46" y="157" width="122" height="21"/>
-                        <color key="backgroundColor" red="1" green="0.7456686615" blue="0.22321904849999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="50" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click To View" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yin-Y3-Un5">
+                        <rect key="frame" x="26" y="120" width="117" height="21"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="122" id="88q-YY-q0T"/>
-                            <constraint firstAttribute="height" constant="21" id="Fo4-NU-XXu"/>
+                            <constraint firstAttribute="height" constant="21" id="uig-oG-jyS"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Xwj-49-B56" firstAttribute="top" secondItem="ssv-z0-D0b" secondAttribute="bottom" constant="23" id="3LU-2y-jo5"/>
-                <constraint firstItem="ssv-z0-D0b" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="18" id="4Sh-6l-Od0"/>
-                <constraint firstItem="GOD-wA-KNu" firstAttribute="top" secondItem="Xwj-49-B56" secondAttribute="bottom" constant="17" id="7Tn-0K-z82"/>
-                <constraint firstItem="GOD-wA-KNu" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="46" id="ERw-Js-qYu"/>
-                <constraint firstItem="ssv-z0-D0b" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="I9j-ZW-jrg"/>
-                <constraint firstItem="Xwj-49-B56" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="hcW-aJ-6Ki"/>
-                <constraint firstItem="Xwj-49-B56" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="zwi-3a-5i1"/>
+                <constraint firstItem="yin-Y3-Un5" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="26" id="4c1-Ey-243"/>
+                <constraint firstItem="802-dI-JjF" firstAttribute="top" secondItem="rtJ-VD-8VD" secondAttribute="bottom" constant="8" id="7aC-e1-qgJ"/>
+                <constraint firstAttribute="bottom" secondItem="yin-Y3-Un5" secondAttribute="bottom" constant="33" id="M24-Be-qc6"/>
+                <constraint firstAttribute="trailing" secondItem="802-dI-JjF" secondAttribute="trailing" id="N89-rI-Hn9"/>
+                <constraint firstItem="rtJ-VD-8VD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="d5g-EK-TE6"/>
+                <constraint firstItem="802-dI-JjF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="mCg-ie-vQv"/>
+                <constraint firstAttribute="trailing" secondItem="rtJ-VD-8VD" secondAttribute="trailing" constant="25" id="rw2-H4-1Wh"/>
+                <constraint firstItem="yin-Y3-Un5" firstAttribute="top" secondItem="802-dI-JjF" secondAttribute="bottom" constant="12" id="tcg-wi-n9c"/>
+                <constraint firstAttribute="trailing" secondItem="yin-Y3-Un5" secondAttribute="trailing" constant="25" id="wBT-Up-NmX"/>
+                <constraint firstItem="rtJ-VD-8VD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="26" id="z0R-Dw-l4G"/>
             </constraints>
-            <size key="customSize" width="221" height="205"/>
+            <size key="customSize" width="168" height="174"/>
             <connections>
-                <outlet property="dealsImgView" destination="ssv-z0-D0b" id="olB-6I-imB"/>
+                <outlet property="clickToLabel" destination="yin-Y3-Un5" id="9Bx-00-Tc0"/>
+                <outlet property="dealsImgView" destination="rtJ-VD-8VD" id="BNI-eP-zjs"/>
             </connections>
-            <point key="canvasLocation" x="544.5" y="375.5"/>
+            <point key="canvasLocation" x="199" y="216"/>
         </collectionViewCell>
     </objects>
 </document>

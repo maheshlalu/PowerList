@@ -13,25 +13,43 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
     
     var drawer : ICSDrawerController!
     var storeCategoryArray : NSArray! = nil
+    var refresher : UIRefreshControl = UIRefreshControl()
+    var coverPageImagesList: NSMutableArray!
 
+    @IBOutlet weak var sideMenuBtn: UIButton!
+    @IBOutlet weak var homecollectionview: UICollectionView!
     @IBOutlet weak var registerBtn: UIButton!
     
     @IBOutlet weak var nearByBtn: UIButton!
     @IBOutlet weak var dealsBtn: UIButton!
     @IBOutlet weak var homeTableView: UITableView!
+    @IBOutlet weak var pagerView: KIImagePager!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setUpSideMenu()
+        refresher = UIRefreshControl()
+        self.homecollectionview!.alwaysBounceVertical = true
+        refresher.tintColor = UIColor.redColor()
+        refresher.addTarget(self, action: #selector(loadData), forControlEvents: .ValueChanged)
+        homecollectionview!.addSubview(refresher)
+        
+        let nib = UINib(nibName: "HomeCollectionViewCell", bundle: nil)
+        
+        self.homecollectionview.registerNib(nib, forCellWithReuseIdentifier: "HomeCollectionViewCell")
+        
         self.storeCategoryArray = NSArray()
+        self.coverPageImagesList = NSMutableArray()
         self.addSidePanelButton()
         
         CXDataService.sharedInstance.getTheAppDataFromServer(["type":"ProductCategories","mallId":CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in
             print(responseDict)
-            
             self.storeCategoryArray = NSArray(array: (responseDict.valueForKey("jobs") as? NSArray)!)
-            self.homeTableView.reloadData()
+            self.homecollectionview.reloadData()
 
         }
+        self.getTheGalleryItems()
         
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "appBg")!)
         
        /* let menuItem = UIBarButtonItem(image: UIImage(named: "reveal-icon"), style: .Plain, target: self.revealViewController(), action: "revealToggle:")
         self.navigationItem.leftBarButtonItem = menuItem
@@ -40,6 +58,55 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
         
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())*/
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBarHidden = true
+    }
+    
+    func setUpSideMenu(){
+        let menuItem = UIBarButtonItem(image: UIImage(named: "sidePanelMenu"), style: .Plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
+        self.navigationItem.leftBarButtonItem = menuItem
+        
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
+        self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+
+        //self.sideMenuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), forControlEvents: .TouchUpOutside)
+    }
+    
+    func loadData()
+    {
+        //code to execute during refresher
+        //Call this to stop refresher
+        CXDataService.sharedInstance.getTheAppDataFromServer(["type":"ProductCategories","mallId":CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in
+            self.storeCategoryArray = NSArray(array: (responseDict.valueForKey("jobs") as? NSArray)!)
+            self.homecollectionview.reloadData()
+            self.refresher.endRefreshing()
+            
+        }
+    }
+    
+    
+    func getTheGalleryItems(){
+        
+        CXDataService.sharedInstance.getTheAppDataFromServer(["type":"Stores","mallId":CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in
+            let jobs : NSArray =  responseDict.valueForKey("jobs")! as! NSArray
+            let jobDic : NSDictionary = (jobs.lastObject as? NSDictionary)!
+            let attachMents : NSArray =  jobDic.valueForKey("Attachments")! as! NSArray
+            for attachMent in attachMents {
+                let galaryData : NSDictionary = (attachMent as? NSDictionary)!
+                if galaryData.valueForKey("isCoverImage") as? String == "true" {
+                    self.coverPageImagesList.addObject((galaryData.valueForKey("URL") as? String)!)
+                }
+            }
+            self.pagerView.checkWetherToToggleSlideshowTimer()
+            self.pagerView.slideshowTimeInterval = 3
+            self.pagerView.reloadData()
+    
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -93,13 +160,72 @@ extension HomeViewController{
 
     }
     @IBAction func sideMenuAction(sender: AnyObject) {
-        self.drawer.open()
+       // self.drawer.open()
+        //SWRevealViewController.revealToggle(_:)
+        self.revealViewController().revealToggle(nil)
+
     }
 }
 
-extension HomeViewController:UITableViewDelegate,UITableViewDataSource {
+extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    {
+        
+        return self.storeCategoryArray.count
+        
+    }
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
+    {
+        let cell : HomeCollectionViewCell = (collectionView.dequeueReusableCellWithReuseIdentifier("HomeCollectionViewCell", forIndexPath: indexPath)as? HomeCollectionViewCell)!
+        let categoryDic : NSDictionary = self.storeCategoryArray[indexPath.item] as! NSDictionary
+        cell.categoryImageView.setImageWithURL(NSURL(string:(categoryDic.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
+       // cell.subCategoryLbl.text = categoryDic
+
+        return cell
+        
+        
+    }
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
+    {
+        
+        
+       return 1
+        
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let categoryDic : NSDictionary = self.storeCategoryArray[indexPath.item] as! NSDictionary
+        var dealsVc : DealsViewController = DealsViewController()
+        let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        dealsVc = storyBoard.instantiateViewControllerWithIdentifier("DealsViewController") as! DealsViewController
+        dealsVc.selectedName = categoryDic.valueForKey("Name")! as! String
+        self.navigationController?.pushViewController(dealsVc, animated: true)
+    }
+    
+    
+    }
+
+
+extension HomeViewController:KIImagePagerDelegate,KIImagePagerDataSource {
+    
+    //    }
+    
+    func contentModeForImage(image: UInt, inPager pager: KIImagePager!) -> UIViewContentMode {
+        
+        return .ScaleToFill
+    }
+    
+    func arrayWithImages(pager: KIImagePager!) -> [AnyObject]! {
+        return self.coverPageImagesList as [AnyObject]
+    }
+    
+}
+
+
+    
+  /*  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.storeCategoryArray.count
     }
     
@@ -110,7 +236,6 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource {
         let categoryDic : NSDictionary = self.storeCategoryArray[indexPath.row] as! NSDictionary
 
         cell.categoryImgView.setImageWithURL(NSURL(string:(categoryDic.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
-//sd_setImageWithURL(NSURL(string:(categoryDic.valueForKey("Image_URL") as?String)!))
         return cell
     }
     
@@ -119,14 +244,24 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource {
         var dealsVc : DealsViewController = DealsViewController()
     
         let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        
+       
         dealsVc = storyBoard.instantiateViewControllerWithIdentifier("DealsViewController") as! DealsViewController
         dealsVc.selectedName = categoryDic.valueForKey("Name")! as! String
-        self.presentViewController(dealsVc, animated: true) {
+         let delasNav : UINavigationController = UINavigationController(rootViewController: dealsVc)
+        
+        var fineDinigVc : FineDiningViewController = FineDiningViewController()
+        fineDinigVc = storyBoard.instantiateViewControllerWithIdentifier("FineDining") as! FineDiningViewController
+
+        
+        
+        self.presentViewController(delasNav, animated: true) {
         }
 
         //self.navigationController?.pushViewController(dealsVc, animated: true)
 
+        //FineDining
     }
+    */
     
-    
-}
+

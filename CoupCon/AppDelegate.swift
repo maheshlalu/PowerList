@@ -30,25 +30,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
     }
     
     func setUpSidePanl(){
-        
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        
-        
         let homeView = storyBoard.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
-        
         let menuVC = storyBoard.instantiateViewControllerWithIdentifier("LeftViewController") as! LeftViewController
-        
-        
         let navHome = UINavigationController(rootViewController: homeView)
         navHome.navigationBarHidden = true
-       // let revealVC = SWRevealViewController(rearViewController: menuVC, frontViewController: navHome)
-        //revealVC.delegate = self
-       // self.window?.rootViewController = revealVC
-        //self.window?.makeKeyAndVisible()
         
-        let drawer : ICSDrawerController = ICSDrawerController(leftViewController: menuVC, centerViewController: homeView)
-        self.window?.rootViewController = drawer
+        
+        let revealVC = SWRevealViewController(rearViewController: menuVC, frontViewController: navHome)
+        revealVC.delegate = self
+        self.window?.rootViewController = revealVC
         self.window?.makeKeyAndVisible()
+        
+//        let drawer : ICSDrawerController = ICSDrawerController(leftViewController: menuVC, centerViewController: homeView)
+//        self.window?.rootViewController = drawer
+//        self.window?.makeKeyAndVisible()
         
     }
 

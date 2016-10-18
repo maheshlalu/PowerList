@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15G31" minimumToolsVersion="Automatic">
+    <entity name="CX_Gallery" representedClassName="CX_Gallery" syncable="YES">
+        <attribute name="gID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gImageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isBannerImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isCoverImage" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="CX_Stores" representedClassName="CX_Stores" syncable="YES">
+        <attribute name="createdById" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="favourite" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="json" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="storeID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CX_Gallery" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="CX_Stores" positionX="-54" positionY="-9" width="128" height="150"/>
+    </elements>
 </model>
