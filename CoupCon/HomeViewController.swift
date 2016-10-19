@@ -16,6 +16,7 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
     var refresher : UIRefreshControl = UIRefreshControl()
     var coverPageImagesList: NSMutableArray!
 
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var sideMenuBtn: UIButton!
     @IBOutlet weak var homecollectionview: UICollectionView!
     @IBOutlet weak var registerBtn: UIButton!
@@ -30,8 +31,8 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
         refresher = UIRefreshControl()
         self.homecollectionview!.alwaysBounceVertical = true
         refresher.tintColor = UIColor.redColor()
-        refresher.addTarget(self, action: #selector(loadData), forControlEvents: .ValueChanged)
-        homecollectionview!.addSubview(refresher)
+        //refresher.addTarget(self, action: #selector(loadData), forControlEvents: .ValueChanged)
+       // homecollectionview!.addSubview(refresher)
         
         let nib = UINib(nibName: "HomeCollectionViewCell", bundle: nil)
         
@@ -181,6 +182,7 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
         let cell : HomeCollectionViewCell = (collectionView.dequeueReusableCellWithReuseIdentifier("HomeCollectionViewCell", forIndexPath: indexPath)as? HomeCollectionViewCell)!
         let categoryDic : NSDictionary = self.storeCategoryArray[indexPath.item] as! NSDictionary
         cell.categoryImageView.setImageWithURL(NSURL(string:(categoryDic.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
+        cell.subCategoryLbl.text =  categoryDic.valueForKey("Name") as? String
        // cell.subCategoryLbl.text = categoryDic
 
         return cell
@@ -222,6 +224,39 @@ extension HomeViewController:KIImagePagerDelegate,KIImagePagerDataSource {
     }
     
 }
+
+extension HomeViewController:UISearchBarDelegate{
+    func searchBarSearchButtonClicked( searchBar: UISearchBar)
+    {
+//        self.productSearhBar.resignFirstResponder()
+//        self.doSearch()
+    }
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+       
+        
+    }
+    
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        // Do a default fetch of the beers
+    }
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        
+    }
+    
+    func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
+        
+        var dealsVc : SearchViewController = SearchViewController()
+        let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        dealsVc = storyBoard.instantiateViewControllerWithIdentifier("SearchViewController") as! SearchViewController
+        self.navigationController?.pushViewController(dealsVc, animated: true)
+        return false
+    }
+    
+}
+
+
 
 
     

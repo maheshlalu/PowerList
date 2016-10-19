@@ -10,27 +10,21 @@ import UIKit
 import MapKit
 
 class MapViewController: UIViewController {
-    var mapView: MKMapView = MKMapView ()
     let screenSize = UIScreen.mainScreen().bounds.size
     let locationManager = CLLocationManager()
-    var lat:Double! = nil
-    var lon:Double! = nil
-    
+    var lat:Double!
+    var lon:Double!
+    var mapView: MKMapView = MKMapView ()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        lat = 17.3850
-        lon = 78.4867
-        
         self.designMapview()
         self.locationManager.requestWhenInUseAuthorization()
-    
-        if CLLocationManager.locationServicesEnabled() {
+            if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
         }
-        
         // Do any additional setup after loading the view.
     }
     
@@ -57,7 +51,6 @@ class MapViewController: UIViewController {
         showDirectionBtn.center = CGPointMake(screenSize.width/2, screenSize.height-100)
         self.view.bringSubviewToFront(showDirectionBtn)
         showDirectionBtn.addTarget(self, action: #selector(MapViewCntl.showMapDirection), forControlEvents: UIControlEvents.TouchUpInside)
-        
     }*/
     
     func zoomToRegion() {

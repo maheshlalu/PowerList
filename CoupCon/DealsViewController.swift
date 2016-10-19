@@ -36,7 +36,7 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
     
     
     func getTheDealsFromServer(){
-        selectedName = "Fine Dining"
+       // selectedName = "Fine Dining"
         CXDataService.sharedInstance.getTheAppDataFromServer(["type":selectedName,"mallId":CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in
             print(responseDict)
             self.dealsArray = NSArray(array: (responseDict.valueForKey("jobs") as? NSArray)!)
@@ -60,8 +60,10 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
     }
 
     func searchButtonAction(){
-        self.dismissViewControllerAnimated(true) {
-        }
+        var dealsVc : SearchViewController = SearchViewController()
+        let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        dealsVc = storyBoard.instantiateViewControllerWithIdentifier("SearchViewController") as! SearchViewController
+        self.navigationController?.pushViewController(dealsVc, animated: true)
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int

@@ -10,12 +10,53 @@ import UIKit
 
 class OffersViewController: UIViewController {
 
+    
+    
+    var offersDic : NSDictionary?
+    var offersList : NSArray!
+
+    @IBOutlet weak var offersTableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        offersList = NSArray()
+        let nib = UINib(nibName: "OfferTableViewCell", bundle: nil)
+        self.offersTableView.registerNib(nib, forCellReuseIdentifier: "OfferTableViewCell")
+        let offerString :String =  self.offersDic?.valueForKey("Offers") as! String
+        offersList = NSArray(array: offerString.componentsSeparatedByString("#"))
+        //Offers
         // Do any additional setup after loading the view.
     }
+    
+    
+    
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
+        
+        return self.offersList.count
+        
+        
+    }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
+        let cell : OfferTableViewCell = (tableView.dequeueReusableCellWithIdentifier("OfferTableViewCell", forIndexPath: indexPath) as? OfferTableViewCell)!
+        tableView.separatorStyle = .None
+        cell.offersLblText.text = self.offersList[indexPath.row] as? String
+        tableView.allowsSelection = false
+        return cell
+    }
+    
+
+
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    {
+        tableView.rowHeight = 110
+        return 110
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

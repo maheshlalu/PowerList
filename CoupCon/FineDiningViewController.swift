@@ -19,10 +19,9 @@ class FineDiningViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dealBackgroundImg.setImageWithURL(NSURL(string:(dealsDic.valueForKey("BackgroundImage_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
+        print(dealsDic.valueForKey("BackgroundImage_URL"))
         self.dealLogoImg.setImageWithURL(NSURL(string:(dealsDic.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
         self.dealNameLbl.text = dealsDic.valueForKey("Name") as?String
-        print(dealsDic.valueForKey("BackgroundImage_URL") as?String)
-        
         //Background Image_URL
         //Image_URL
         //Name
@@ -63,10 +62,12 @@ class FineDiningViewController: UIViewController {
      */
     
     @IBAction func offerButtonAction(sender: AnyObject) {
-        let newViewController = self.storyboard?.instantiateViewControllerWithIdentifier("OffersViewController")
-        newViewController!.view.translatesAutoresizingMaskIntoConstraints = false
-        self.cycleFromViewController(self.currentViewController!, toViewController: newViewController!)
-        self.currentViewController = newViewController
+        let offersController : OffersViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("OffersViewController") as? OffersViewController)!
+        offersController.offersDic = NSDictionary(dictionary: self.dealsDic)
+        offersController.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.cycleFromViewController(self.currentViewController!, toViewController: offersController)
+        self.currentViewController = offersController
         
         
     }
@@ -75,22 +76,24 @@ class FineDiningViewController: UIViewController {
     @IBAction func aboutButtonAction(sender: AnyObject) {
         
         
-        let newViewController = self.storyboard?.instantiateViewControllerWithIdentifier("AboutUsViewController")
-        newViewController!.view.translatesAutoresizingMaskIntoConstraints = false
-        self.cycleFromViewController(self.currentViewController!, toViewController: newViewController!)
+        let newViewController : AboutUsViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("AboutUsViewController") as? AboutUsViewController)!
+        newViewController.offersDic = NSDictionary(dictionary: self.dealsDic)
+        newViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        self.cycleFromViewController(self.currentViewController!, toViewController: newViewController)
         self.currentViewController = newViewController
     }
     
     @IBAction func mapButtonAction(sender: AnyObject) {
         
         let newViewController : MapViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("MapViewController") as? MapViewController)!
+        newViewController.lat = Double(dealsDic.valueForKey("Latitude")! as! String)
+        newViewController.lon =  Double(dealsDic.valueForKey("Longitude")! as! String)
         newViewController.view.translatesAutoresizingMaskIntoConstraints = false
         self.cycleFromViewController(self.currentViewController!, toViewController: newViewController)
-        newViewController.lat = dealsDic.valueForKey("Latitude") as?Double
-        newViewController.lon = dealsDic.valueForKey("Longitude") as?Double
         self.currentViewController = newViewController
         //dealsDic.valueForKey("BackgroundImage_URL") as?String)
-        //Latitude, Longitude
+        //Latitude, Longitude  lat = 17.3850
+       // lon = 78.4867
         
     }
     

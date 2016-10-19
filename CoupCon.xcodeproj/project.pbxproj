@@ -29,6 +29,9 @@
 		181C04E71DB0EC4F006C05FF /* CXDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181C04E41DB0EC4F006C05FF /* CXDataService.swift */; };
 		181C04E81DB0EC4F006C05FF /* CXProjectConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 181C04E51DB0EC4F006C05FF /* CXProjectConfiguration.plist */; };
 		181C04EB1DB0F3F3006C05FF /* HomeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181C04EA1DB0F3F3006C05FF /* HomeTableCell.swift */; };
+		189E7C771DB7447800A48CE2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E7C761DB7447800A48CE2 /* SearchViewController.swift */; };
+		189E7C7A1DB7722000A48CE2 /* OfferTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E7C781DB7722000A48CE2 /* OfferTableViewCell.swift */; };
+		189E7C7B1DB7722000A48CE2 /* OfferTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189E7C791DB7722000A48CE2 /* OfferTableViewCell.xib */; };
 		18C1603F1DB1FE740083F16D /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C1603E1DB1FE740083F16D /* UIImageView+UIActivityIndicatorForSDWebImage.m */; };
 		18C160511DB222820083F16D /* DealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C160501DB222820083F16D /* DealsViewController.swift */; };
 		18C90C041DAF78DF0053F8D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C90C031DAF78DF0053F8D7 /* AppDelegate.swift */; };
@@ -99,6 +102,9 @@
 		181C04E41DB0EC4F006C05FF /* CXDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CXDataService.swift; sourceTree = "<group>"; };
 		181C04E51DB0EC4F006C05FF /* CXProjectConfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CXProjectConfiguration.plist; sourceTree = "<group>"; };
 		181C04EA1DB0F3F3006C05FF /* HomeTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableCell.swift; sourceTree = "<group>"; };
+		189E7C761DB7447800A48CE2 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		189E7C781DB7722000A48CE2 /* OfferTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferTableViewCell.swift; sourceTree = "<group>"; };
+		189E7C791DB7722000A48CE2 /* OfferTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OfferTableViewCell.xib; sourceTree = "<group>"; };
 		18C1603D1DB1FE740083F16D /* UIImageView+UIActivityIndicatorForSDWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+UIActivityIndicatorForSDWebImage.h"; sourceTree = "<group>"; };
 		18C1603E1DB1FE740083F16D /* UIImageView+UIActivityIndicatorForSDWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+UIActivityIndicatorForSDWebImage.m"; sourceTree = "<group>"; };
 		18C160501DB222820083F16D /* DealsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsViewController.swift; sourceTree = "<group>"; };
@@ -214,6 +220,8 @@
 		181C04E91DB0F3C9006C05FF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				189E7C781DB7722000A48CE2 /* OfferTableViewCell.swift */,
+				189E7C791DB7722000A48CE2 /* OfferTableViewCell.xib */,
 				18ED49FE1DB4FEE100A612BA /* CollectionViewCell.swift */,
 				18ED49FF1DB4FEE100A612BA /* CollectionViewCell.xib */,
 				18ED49FA1DB4C5B100A612BA /* HomeCollectionViewCell.swift */,
@@ -322,6 +330,7 @@
 				18C90C491DAF7CED0053F8D7 /* HomeViewController.swift */,
 				18C160501DB222820083F16D /* DealsViewController.swift */,
 				18ED49F41DB4B07200A612BA /* FineDiningViewController.swift */,
+				189E7C761DB7447800A48CE2 /* SearchViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -483,6 +492,7 @@
 			files = (
 				181C04E81DB0EC4F006C05FF /* CXProjectConfiguration.plist in Resources */,
 				181C04DA1DB0BA4D006C05FF /* Roboto-Black.ttf in Resources */,
+				189E7C7B1DB7722000A48CE2 /* OfferTableViewCell.xib in Resources */,
 				181C04DB1DB0BA4D006C05FF /* Roboto-Bold.ttf in Resources */,
 				181C04DC1DB0BA4D006C05FF /* Roboto-Italic.ttf in Resources */,
 				181C04DD1DB0BA4D006C05FF /* Roboto-Light.ttf in Resources */,
@@ -664,8 +674,10 @@
 				181C04E61DB0EC4F006C05FF /* CXAppConfig.swift in Sources */,
 				110DD1C71DB0AD9C001F9BC1 /* LeftViewController.swift in Sources */,
 				18ED4A501DB659F100A612BA /* Station.swift in Sources */,
+				189E7C771DB7447800A48CE2 /* SearchViewController.swift in Sources */,
 				18057E2F1DAFA33B0017F038 /* ICSDrawerController.m in Sources */,
 				18C90C471DAF7CC30053F8D7 /* SWRevealViewController.m in Sources */,
+				189E7C7A1DB7722000A48CE2 /* OfferTableViewCell.swift in Sources */,
 				181C04EB1DB0F3F3006C05FF /* HomeTableCell.swift in Sources */,
 				18C1603F1DB1FE740083F16D /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */,
 				18ED4A4E1DB6489E00A612BA /* OffersViewController.swift in Sources */,
