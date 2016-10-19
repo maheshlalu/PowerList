@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <development version="7000" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -16,20 +17,18 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15% Off an Total Bill" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTH-un-0bD">
-                        <rect key="frame" x="50" y="34" width="170" height="90"/>
-                        <color key="backgroundColor" red="0.34217667579650879" green="0.54783475399017334" blue="0.20137718319892883" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="90" id="GRZ-Ne-pSt"/>
-                            <constraint firstAttribute="width" constant="170" id="Nfy-TX-fTO"/>
-                        </constraints>
+                        <rect key="frame" x="78" y="10" width="115" height="137"/>
+                        <color key="backgroundColor" red="0.31764705882352939" green="0.72549019607843135" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="1" green="0.81922072172164917" blue="0.27857732772827148" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.89411764705882346" green="0.92549019607843142" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="wTH-un-0bD" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="7tc-xe-lJp"/>
-                    <constraint firstItem="wTH-un-0bD" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="pKD-1z-tyr"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="wTH-un-0bD" secondAttribute="bottom" constant="2" id="8ur-4T-AsL"/>
+                    <constraint firstItem="wTH-un-0bD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="Ba7-Mr-uHv"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="wTH-un-0bD" secondAttribute="trailing" constant="70" id="cRe-dM-kya"/>
+                    <constraint firstItem="wTH-un-0bD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="70" id="frl-GD-0nX"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

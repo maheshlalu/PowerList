@@ -10,8 +10,14 @@ import UIKit
 
 class AboutUsViewController: UIViewController {
     var offersDic : NSDictionary?
+    
+    @IBOutlet weak var aboutTextView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let aboutTxt :String =  self.offersDic?.valueForKey("Offers") as! String
+        self.aboutTextView.text = aboutTxt
+
 
         // Do any additional setup after loading the view.
     }

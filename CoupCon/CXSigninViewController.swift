@@ -84,30 +84,18 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
         self.gmailBtn.layer.cornerRadius = 3
         self.gmailBtn.clipsToBounds = true
         
-        self.userBtn.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
-        self.userBtn.layer.borderColor = UIColor.whiteColor().CGColor
-        self.userBtn.layer.cornerRadius = 2
-        self.userBtn.layer.borderWidth = 1
-        self.userBtn.clipsToBounds = true
+//        self.userBtn.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
+//        self.userBtn.layer.borderColor = UIColor.whiteColor().CGColor
+//        self.userBtn.layer.cornerRadius = 2
+//        self.userBtn.layer.borderWidth = 1
+//        self.userBtn.clipsToBounds = true
+//        
+//        self.passwordBtn.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
+//        self.passwordBtn.layer.borderColor = UIColor.whiteColor().CGColor
+//        self.passwordBtn.layer.cornerRadius = 2
+//        self.passwordBtn.layer.borderWidth = 1
+//        self.passwordBtn.clipsToBounds = true
         
-        self.passwordBtn.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
-        self.passwordBtn.layer.borderColor = UIColor.whiteColor().CGColor
-        self.passwordBtn.layer.cornerRadius = 2
-        self.passwordBtn.layer.borderWidth = 1
-        self.passwordBtn.clipsToBounds = true
-        
-        
-        self.userBtn.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
-        self.userBtn.layer.borderColor = UIColor.whiteColor().CGColor
-        self.userBtn.layer.borderWidth = 0.8
-        self.userBtn.layer.cornerRadius = 5
-        self.userBtn.clipsToBounds = true
-        
-        self.passwordBtn.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
-        self.passwordBtn.layer.borderColor = UIColor.whiteColor().CGColor
-        self.passwordBtn.layer.borderWidth = 0.8
-        self.passwordBtn.layer.cornerRadius = 5
-        self.passwordBtn.clipsToBounds = true
         
 
         
