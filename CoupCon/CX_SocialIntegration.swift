@@ -12,7 +12,7 @@ import MagicalRecord
 private var _SingletonSharedInstance:CX_SocialIntegration! = CX_SocialIntegration()
 
 class CX_SocialIntegration: NSObject {
-
+    
     
     class var sharedInstance : CX_SocialIntegration {
         return _SingletonSharedInstance
@@ -24,12 +24,12 @@ class CX_SocialIntegration: NSObject {
     
     //MARK: FACEBOOK
     func applicationRegisterWithFaceBook(userDataDic : NSDictionary) {
-        //Before register with facebook check The MACID info API call 
-       // http://storeongo.com:8081/Services/getMasters?type=macidinfo&mallId=17018
+        //Before register with facebook check The MACID info API call
+        // http://storeongo.com:8081/Services/getMasters?type=macidinfo&mallId=17018
         
         CXDataService.sharedInstance.getTheAppDataFromServer(["type" : "macidinfo","mallId" : CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in
             let email: String = (userDataDic.objectForKey("email") as? String)!
-       
+            
             if !self.checkTheUserRegisterWithApp(email, macidInfoResultDic: responseDict).isRegistred {
                 //Register with app
                 let strFirstName: String = (userDataDic.objectForKey("first_name") as? String)!
@@ -40,7 +40,7 @@ class CX_SocialIntegration: NSObject {
                 //picture,data,url
                 
                 let userRegisterDic: NSDictionary = NSDictionary(objects: [CXAppConfig.sharedInstance.getAppMallID(),email,"DEVICES",fbID,strFirstName,strLastName,gender,"","true"],
-                                                        forKeys: ["orgId","userEmailId","dt","password","firstName","lastName","gender","filePath","isLoginWithFB"])
+                                                                 forKeys: ["orgId","userEmailId","dt","password","firstName","lastName","gender","filePath","isLoginWithFB"])
                 self.registerWithSocialNewtWokrk(userRegisterDic)
                 //self.profileImageStr = (responseDict.objectForKey("picture")?.objectForKey("data")?.objectForKey("url") as? String)!
                 print("Welcome,\(email) \(strFirstName) \(strLastName) \(gender) ")
@@ -69,12 +69,12 @@ class CX_SocialIntegration: NSObject {
     
     func registerWithSocialNewtWokrk(registerDic:NSDictionary){
         
-
+        
         CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getSignUpInUrl(), parameters: registerDic as? [String : AnyObject]) { (responseDict) in
-          
+            
             print(responseDict)
         }
- 
+        
     }
     
     
@@ -90,13 +90,13 @@ class CX_SocialIntegration: NSObject {
             enProduct?.userPic =  userData.objectForKey("Image") as? String
             enProduct?.macId = enProduct?.userId
             enProduct?.macIdJobId = ""
-                }) { (success, error) in
+        }) { (success, error) in
             if success == true {
                 
             } else {
             }
         }
-
+        
         
         
         
@@ -113,7 +113,7 @@ class CX_SocialIntegration: NSObject {
             enProduct?.userPic =  (userData.objectForKey("picture")?.objectForKey("data")?.objectForKey("url") as? String)!
             enProduct?.macId = userData.valueForKey("macId") as? String
             enProduct?.macIdJobId = userData.valueForKey("macIdJobId") as? String
-
+            
             
         }) { (success, error) in
             if success == true {
@@ -123,7 +123,7 @@ class CX_SocialIntegration: NSObject {
             } else {
             }
         }
-
+        
     }
     
     //MARK: Google Plus
@@ -131,7 +131,7 @@ class CX_SocialIntegration: NSObject {
     func applicationRegisterWithGooglePlus(userDataDic : NSDictionary) {
         
         print(userDataDic)
-
+        
     }
     
     

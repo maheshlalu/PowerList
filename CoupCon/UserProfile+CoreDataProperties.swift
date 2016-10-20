@@ -11,6 +11,7 @@
 
 import Foundation
 import CoreData
+
 extension UserProfile {
 
     @NSManaged var userId: String?
