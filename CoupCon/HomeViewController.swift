@@ -203,13 +203,13 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
         let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         dealsVc = storyBoard.instantiateViewControllerWithIdentifier("DealsViewController") as! DealsViewController
         dealsVc.selectedName = categoryDic.valueForKey("Name")! as! String
-        //self.navigationController?.pushViewController(dealsVc, animated: true)
+        self.navigationController?.pushViewController(dealsVc, animated: true)
         
         var fineDinigVc : CXSigninViewController = CXSigninViewController()
         //dealsVc = storyBoard.instantiateViewControllerWithIdentifier("DealsViewController") as! DealsViewController
         //dealsVc.selectedName = categoryDic.valueForKey("Name")! as! String
         fineDinigVc = storyBoard.instantiateViewControllerWithIdentifier("CXSigninViewController") as! CXSigninViewController
-        self.navigationController?.pushViewController(fineDinigVc, animated: true)
+        //self.navigationController?.pushViewController(fineDinigVc, animated: true)
         
     }
     

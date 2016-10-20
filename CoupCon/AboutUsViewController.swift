@@ -14,8 +14,10 @@ class AboutUsViewController: UIViewController {
     @IBOutlet weak var aboutTextView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(offersDic)
+
+        let aboutTxt :String =  self.offersDic?.valueForKey("Description") as! String
         
-        let aboutTxt :String =  self.offersDic?.valueForKey("Offers") as! String
         self.aboutTextView.text = aboutTxt
 
 

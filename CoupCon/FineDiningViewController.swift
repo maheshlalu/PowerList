@@ -28,7 +28,11 @@ class FineDiningViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
-        self.currentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("AboutUsViewController")
+        //self.currentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("AboutUsViewController")
+        
+        let offersController : OffersViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("OffersViewController") as? OffersViewController)!
+        offersController.offersDic = NSDictionary(dictionary: self.dealsDic)
+        self.currentViewController = offersController
         self.currentViewController!.view.translatesAutoresizingMaskIntoConstraints = false
         self.addChildViewController(self.currentViewController!)
         self.addSubview(self.currentViewController!.view, toView: self.containerView)
