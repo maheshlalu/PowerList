@@ -145,7 +145,23 @@ class CXAppConfig {
     }
     
     
-    
+    static func resultString(input: AnyObject) -> String{
+        if let value: AnyObject = input {
+            var reqType : String!
+            switch value {
+            case let i as NSNumber:
+                reqType = "\(i)"
+            case let s as NSString:
+                reqType = "\(s)"
+            case let a as NSArray:
+                reqType = "\(a.objectAtIndex(0))"
+            default:
+                reqType = "Invalid Format"
+            }
+            return reqType
+        }
+        return ""
+    }
     
     
 }

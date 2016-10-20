@@ -15,8 +15,20 @@
         <attribute name="storeID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="UserProfile" representedClassName=".UserProfile" syncable="YES">
+        <attribute name="emailId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fullName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="macId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="macIdJobId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orgId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userPic" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="CX_Gallery" positionX="-63" positionY="-18" width="128" height="105"/>
         <element name="CX_Stores" positionX="-54" positionY="-9" width="128" height="150"/>
+        <element name="UserProfile" positionX="-54" positionY="36" width="128" height="180"/>
     </elements>
 </model>
