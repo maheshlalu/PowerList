@@ -40,6 +40,14 @@
 				<string>com.googleusercontent.apps.454116202484-33qe5mvf2ttp49s96dqahr4me91nuft1</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.creativexperts.cupocon</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>

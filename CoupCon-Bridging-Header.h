@@ -23,3 +23,5 @@
 #import <SDWebImage/UIImageView+HighlightedWebCache.h>
 #import <SDWebImage/UIView+WebCacheOperation.h>
 #import "UIImageView+UIActivityIndicatorForSDWebImage.h"
+#import <GoogleSignIn/GoogleSignIn.h>
+#import <Google/SignIn.h>

@@ -28,10 +28,10 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
     
     @IBOutlet weak var loginBtn1: UIButton!
     
-    @IBOutlet weak var facebookBtn: UIButton!
+    @IBOutlet weak var facebookBtn:  FBSDKLoginButton!
     
-    @IBOutlet weak var gmailBtn: UIButton!
-    
+    @IBOutlet weak var gmailBtn: GIDSignInButton!
+    //GIDSignInButton
     
     @IBOutlet weak var credientailsView: UIView!
     
@@ -71,18 +71,15 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
         self.loginBtn.layer.cornerRadius = 5
         self.loginBtn.clipsToBounds = true
         
-        self.facebookBtn.layer.borderColor = UIColor.whiteColor().CGColor
-        self.facebookBtn.layer.borderWidth = 1
-        self.facebookBtn.layer.cornerRadius = 3
-        self.facebookBtn.clipsToBounds = true
-       // self.loginBtn2.delegate = self
-         //self.loginBtn2.readPermissions = ["public_profile", "email", "user_friends"];
+        
+          self.facebookBtn.delegate = self
+         self.facebookBtn.readPermissions = ["public_profile", "email", "user_friends"];
         
         
-        self.gmailBtn.layer.borderColor = UIColor.whiteColor().CGColor
-        self.gmailBtn.layer.borderWidth = 1
-        self.gmailBtn.layer.cornerRadius = 3
-        self.gmailBtn.clipsToBounds = true
+
+        
+        
+        self.gmailBtn = GIDSignInButton.init(frame:self.gmailBtn.frame)
         
 //        self.userBtn.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
 //        self.userBtn.layer.borderColor = UIColor.whiteColor().CGColor
@@ -151,25 +148,12 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
     }
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-        print("Response \(result)")
+        //print("Response \(result)")
         FBSDKGraphRequest.init(graphPath: "me", parameters: ["fields":"first_name,email,last_name,gender,picture.type(large),id"]).startWithCompletionHandler { (connection, result, error) -> Void in
             print ("FB Result is \(result)")
             if result != nil {
-//                
-//                let strFirstName: String = (result.objectForKey("first_name") as? String)!
-//                let strLastName: String = (result.objectForKey("last_name") as? String)!
-//                let gender: String = (result.objectForKey("gender") as? String)!
-//                let email: String = (result.objectForKey("email") as? String)!
-//                self.profileImageStr = (result.objectForKey("picture")?.objectForKey("data")?.objectForKey("url") as? String)!
-//                print("Welcome,\(email) \(strFirstName) \(strLastName) \(gender) \(self.profileImageStr)")
-//                
-//                self.registeringWithSillyMonks(email, firstname: strFirstName, lastname: strLastName, gender: gender, profilePic: self.profileImageStr)
-//                NSUserDefaults.standardUserDefaults().setObject(self.profileImageStr, forKey: "PROFILE_PIC")
-//                NSUserDefaults.standardUserDefaults().synchronize()
-//                
-//                self.showAlertView("Login successfully.", status: 1)
+                CX_SocialIntegration.sharedInstance.applicationRegisterWithFaceBook(result as! NSDictionary)
             }
-            //NSNotificationCenter.defaultCenter().postNotificationName("UpdateProfilePic", object: nil)
         }
         
     }

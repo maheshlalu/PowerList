@@ -46,6 +46,9 @@
 		18C90C4A1DAF7CED0053F8D7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C90C491DAF7CED0053F8D7 /* HomeViewController.swift */; };
 		18C90C4F1DAF7EA60053F8D7 /* reveal-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C90C4D1DAF7EA60053F8D7 /* reveal-icon.png */; };
 		18C90C501DAF7EA60053F8D7 /* reveal-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C90C4E1DAF7EA60053F8D7 /* reveal-icon@2x.png */; };
+		18D1604D1DB89B83009FF71D /* CX_SocialIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D1604C1DB89B83009FF71D /* CX_SocialIntegration.swift */; };
+		18D1605E1DB8C903009FF71D /* UserProfile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D1605C1DB8C903009FF71D /* UserProfile+CoreDataProperties.swift */; };
+		18D1605F1DB8C903009FF71D /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D1605D1DB8C903009FF71D /* UserProfile.swift */; };
 		18ED49F51DB4B07200A612BA /* FineDiningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED49F41DB4B07200A612BA /* FineDiningViewController.swift */; };
 		18ED49FC1DB4C5B100A612BA /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED49FA1DB4C5B100A612BA /* HomeCollectionViewCell.swift */; };
 		18ED49FD1DB4C5B100A612BA /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18ED49FB1DB4C5B100A612BA /* HomeCollectionViewCell.xib */; };
@@ -128,6 +131,9 @@
 		18C90C491DAF7CED0053F8D7 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		18C90C4D1DAF7EA60053F8D7 /* reveal-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-icon.png"; sourceTree = "<group>"; };
 		18C90C4E1DAF7EA60053F8D7 /* reveal-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-icon@2x.png"; sourceTree = "<group>"; };
+		18D1604C1DB89B83009FF71D /* CX_SocialIntegration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CX_SocialIntegration.swift; sourceTree = "<group>"; };
+		18D1605C1DB8C903009FF71D /* UserProfile+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserProfile+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		18D1605D1DB8C903009FF71D /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		18ED49F41DB4B07200A612BA /* FineDiningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FineDiningViewController.swift; sourceTree = "<group>"; };
 		18ED49FA1DB4C5B100A612BA /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		18ED49FB1DB4C5B100A612BA /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -213,6 +219,8 @@
 				181C04E31DB0EC4F006C05FF /* CXAppConfig.swift */,
 				181C04E41DB0EC4F006C05FF /* CXDataService.swift */,
 				181C04E51DB0EC4F006C05FF /* CXProjectConfiguration.plist */,
+				18D1605C1DB8C903009FF71D /* UserProfile+CoreDataProperties.swift */,
+				18D1605D1DB8C903009FF71D /* UserProfile.swift */,
 			);
 			name = AppDataManager;
 			sourceTree = "<group>";
@@ -322,6 +330,7 @@
 		18C90C481DAF7CD40053F8D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				18D1604B1DB89B40009FF71D /* SocialIntegration */,
 				18ED4A481DB6484800A612BA /* SegmentContollers */,
 				181C04E91DB0F3C9006C05FF /* Views */,
 				110DD1C41DB0AD9C001F9BC1 /* LeftViewController.swift */,
@@ -333,6 +342,14 @@
 				189E7C761DB7447800A48CE2 /* SearchViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		18D1604B1DB89B40009FF71D /* SocialIntegration */ = {
+			isa = PBXGroup;
+			children = (
+				18D1604C1DB89B83009FF71D /* CX_SocialIntegration.swift */,
+			);
+			name = SocialIntegration;
 			sourceTree = "<group>";
 		};
 		18ED4A411DB617DB00A612BA /* OtherResources */ = {
@@ -664,6 +681,7 @@
 				18C90C0C1DAF78DF0053F8D7 /* CoupCon.xcdatamodeld in Sources */,
 				18ED49F51DB4B07200A612BA /* FineDiningViewController.swift in Sources */,
 				181C04E71DB0EC4F006C05FF /* CXDataService.swift in Sources */,
+				18D1604D1DB89B83009FF71D /* CX_SocialIntegration.swift in Sources */,
 				18C90C061DAF78DF0053F8D7 /* CXSigninViewController.swift in Sources */,
 				110DD1C81DB0AD9C001F9BC1 /* TableViewCell.swift in Sources */,
 				18057E301DAFA33B0017F038 /* ICSDropShadowView.m in Sources */,
@@ -671,8 +689,10 @@
 				18ED49FC1DB4C5B100A612BA /* HomeCollectionViewCell.swift in Sources */,
 				18ED4A4C1DB6488700A612BA /* MapViewController.swift in Sources */,
 				18ED4A441DB6180500A612BA /* KIImagePager.m in Sources */,
+				18D1605F1DB8C903009FF71D /* UserProfile.swift in Sources */,
 				181C04E61DB0EC4F006C05FF /* CXAppConfig.swift in Sources */,
 				110DD1C71DB0AD9C001F9BC1 /* LeftViewController.swift in Sources */,
+				18D1605E1DB8C903009FF71D /* UserProfile+CoreDataProperties.swift in Sources */,
 				18ED4A501DB659F100A612BA /* Station.swift in Sources */,
 				189E7C771DB7447800A48CE2 /* SearchViewController.swift in Sources */,
 				18057E2F1DAFA33B0017F038 /* ICSDrawerController.m in Sources */,
