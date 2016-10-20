@@ -16,6 +16,7 @@ class FineDiningViewController: UIViewController {
     @IBOutlet weak var dealNameLbl: UILabel!
     @IBOutlet weak var containerView: UIView!
      weak var currentViewController: UIViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dealBackgroundImg.setImageWithURL(NSURL(string:(dealsDic.valueForKey("BackgroundImage_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
@@ -117,5 +118,30 @@ class FineDiningViewController: UIViewController {
                                     oldViewController.removeFromParentViewController()
                                     newViewController.didMoveToParentViewController(self)
         })
+    }
+    @IBAction func likeBtnAction(sender: AnyObject) {
+        
+        
+    }
+
+    @IBAction func callBtnAction(sender: AnyObject) {
+        let primaryNumber = self.dealsDic.valueForKeyPath("Phone number") as! String!
+        callNumber(primaryNumber!)
+        
+    }
+    
+    @IBAction func shareBtnAction(sender: AnyObject) {
+        
+        let description = "Coupcon"
+        let url = self.dealsDic.valueForKey("publicURL") as? String
+        
+        let activityViewController:UIActivityViewController = UIActivityViewController(activityItems: [description,url!], applicationActivities: nil)
+        activityViewController.excludedActivityTypes = [UIActivityTypePrint, UIActivityTypePostToWeibo, UIActivityTypeCopyToPasteboard, UIActivityTypeAddToReadingList, UIActivityTypePostToVimeo]
+        self.presentViewController(activityViewController, animated: true, completion: nil)
+        
+    }
+    
+    private func callNumber(phoneNumber:String) {
+        UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(phoneNumber)")!)
     }
 }

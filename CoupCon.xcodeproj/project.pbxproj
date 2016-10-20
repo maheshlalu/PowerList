@@ -11,6 +11,10 @@
 		110DD1C71DB0AD9C001F9BC1 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110DD1C41DB0AD9C001F9BC1 /* LeftViewController.swift */; };
 		110DD1C81DB0AD9C001F9BC1 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110DD1C51DB0AD9C001F9BC1 /* TableViewCell.swift */; };
 		110DD1C91DB0AD9C001F9BC1 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 110DD1C61DB0AD9C001F9BC1 /* TableViewCell.xib */; };
+		11D37EEB1DB8D75C0014F202 /* RedeemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D37EE81DB8D75C0014F202 /* RedeemTableViewCell.swift */; };
+		11D37EEC1DB8D75C0014F202 /* RedeemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11D37EE91DB8D75C0014F202 /* RedeemTableViewCell.xib */; };
+		11D37EED1DB8D75C0014F202 /* ReedemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D37EEA1DB8D75C0014F202 /* ReedemViewController.swift */; };
+		11D37EF01DB8DA140014F202 /* ProfileMembershipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D37EEF1DB8DA140014F202 /* ProfileMembershipViewController.swift */; };
 		18057E2F1DAFA33B0017F038 /* ICSDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18057E2C1DAFA33B0017F038 /* ICSDrawerController.m */; };
 		18057E301DAFA33B0017F038 /* ICSDropShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18057E2E1DAFA33B0017F038 /* ICSDropShadowView.m */; };
 		18057E3E1DAFC37C0017F038 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18057E3B1DAFC37C0017F038 /* FBSDKCoreKit.framework */; };
@@ -85,6 +89,10 @@
 		110DD1C41DB0AD9C001F9BC1 /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
 		110DD1C51DB0AD9C001F9BC1 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		110DD1C61DB0AD9C001F9BC1 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		11D37EE81DB8D75C0014F202 /* RedeemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedeemTableViewCell.swift; sourceTree = "<group>"; };
+		11D37EE91DB8D75C0014F202 /* RedeemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RedeemTableViewCell.xib; sourceTree = "<group>"; };
+		11D37EEA1DB8D75C0014F202 /* ReedemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReedemViewController.swift; sourceTree = "<group>"; };
+		11D37EEF1DB8DA140014F202 /* ProfileMembershipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileMembershipViewController.swift; sourceTree = "<group>"; };
 		18057E2B1DAFA33B0017F038 /* ICSDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICSDrawerController.h; sourceTree = "<group>"; };
 		18057E2C1DAFA33B0017F038 /* ICSDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICSDrawerController.m; sourceTree = "<group>"; };
 		18057E2D1DAFA33B0017F038 /* ICSDropShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICSDropShadowView.h; sourceTree = "<group>"; };
@@ -188,6 +196,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11D37EEE1DB8D9BF0014F202 /* SidePanel */ = {
+			isa = PBXGroup;
+			children = (
+				11D37EE81DB8D75C0014F202 /* RedeemTableViewCell.swift */,
+				11D37EE91DB8D75C0014F202 /* RedeemTableViewCell.xib */,
+				11D37EEA1DB8D75C0014F202 /* ReedemViewController.swift */,
+				11D37EEF1DB8DA140014F202 /* ProfileMembershipViewController.swift */,
+			);
+			name = SidePanel;
+			sourceTree = "<group>";
+		};
 		18057E3A1DAFC3550017F038 /* FB */ = {
 			isa = PBXGroup;
 			children = (
@@ -330,7 +349,7 @@
 		18C90C481DAF7CD40053F8D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				18D1604B1DB89B40009FF71D /* SocialIntegration */,
+				11D37EEE1DB8D9BF0014F202 /* SidePanel */,
 				18ED4A481DB6484800A612BA /* SegmentContollers */,
 				181C04E91DB0F3C9006C05FF /* Views */,
 				110DD1C41DB0AD9C001F9BC1 /* LeftViewController.swift */,
@@ -512,6 +531,7 @@
 				189E7C7B1DB7722000A48CE2 /* OfferTableViewCell.xib in Resources */,
 				181C04DB1DB0BA4D006C05FF /* Roboto-Bold.ttf in Resources */,
 				181C04DC1DB0BA4D006C05FF /* Roboto-Italic.ttf in Resources */,
+				11D37EEC1DB8D75C0014F202 /* RedeemTableViewCell.xib in Resources */,
 				181C04DD1DB0BA4D006C05FF /* Roboto-Light.ttf in Resources */,
 				181C04DE1DB0BA4D006C05FF /* Roboto-Medium.ttf in Resources */,
 				181C04DF1DB0BA4D006C05FF /* Roboto-Regular.ttf in Resources */,
@@ -677,6 +697,7 @@
 				18ED4A461DB62F7C00A612BA /* CustomNavBar.swift in Sources */,
 				18C160511DB222820083F16D /* DealsViewController.swift in Sources */,
 				18C90C4A1DAF7CED0053F8D7 /* HomeViewController.swift in Sources */,
+				11D37EF01DB8DA140014F202 /* ProfileMembershipViewController.swift in Sources */,
 				18ED4A001DB4FEE100A612BA /* CollectionViewCell.swift in Sources */,
 				18C90C0C1DAF78DF0053F8D7 /* CoupCon.xcdatamodeld in Sources */,
 				18ED49F51DB4B07200A612BA /* FineDiningViewController.swift in Sources */,
@@ -685,11 +706,12 @@
 				18C90C061DAF78DF0053F8D7 /* CXSigninViewController.swift in Sources */,
 				110DD1C81DB0AD9C001F9BC1 /* TableViewCell.swift in Sources */,
 				18057E301DAFA33B0017F038 /* ICSDropShadowView.m in Sources */,
+				11D37EED1DB8D75C0014F202 /* ReedemViewController.swift in Sources */,
 				18C90C041DAF78DF0053F8D7 /* AppDelegate.swift in Sources */,
 				18ED49FC1DB4C5B100A612BA /* HomeCollectionViewCell.swift in Sources */,
 				18ED4A4C1DB6488700A612BA /* MapViewController.swift in Sources */,
 				18ED4A441DB6180500A612BA /* KIImagePager.m in Sources */,
-				18D1605F1DB8C903009FF71D /* UserProfile.swift in Sources */,
+				11D37EEB1DB8D75C0014F202 /* RedeemTableViewCell.swift in Sources */,
 				181C04E61DB0EC4F006C05FF /* CXAppConfig.swift in Sources */,
 				110DD1C71DB0AD9C001F9BC1 /* LeftViewController.swift in Sources */,
 				18D1605E1DB8C903009FF71D /* UserProfile+CoreDataProperties.swift in Sources */,

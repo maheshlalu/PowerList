@@ -15,6 +15,10 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
     var storeCategoryArray : NSArray! = nil
     var refresher : UIRefreshControl = UIRefreshControl()
     var coverPageImagesList: NSMutableArray!
+    
+    var screenSize: CGRect!
+    var screenWidth: CGFloat!
+    var screenHeight: CGFloat!
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var sideMenuBtn: UIButton!
@@ -25,6 +29,8 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
     @IBOutlet weak var dealsBtn: UIButton!
     @IBOutlet weak var homeTableView: UITableView!
     @IBOutlet weak var pagerView: KIImagePager!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUpSideMenu()
@@ -33,6 +39,10 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
         refresher.tintColor = UIColor.redColor()
         //refresher.addTarget(self, action: #selector(loadData), forControlEvents: .ValueChanged)
        // homecollectionview!.addSubview(refresher)
+        
+        screenSize = UIScreen.mainScreen().bounds
+        screenWidth = screenSize.width
+        screenHeight = screenSize.height
         
         let nib = UINib(nibName: "HomeCollectionViewCell", bundle: nil)
         
@@ -51,6 +61,16 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
         self.getTheGalleryItems()
         
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "appBg")!)
+        
+        
+        
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 30, bottom: 30, right: 30)
+        layout.itemSize = CGSize(width: screenWidth-30, height: 250)
+        //layout.minimumInteritemSpacing = 0
+        //layout.minimumLineSpacing = 0
+        homecollectionview!.collectionViewLayout = layout
+        
         
        /* let menuItem = UIBarButtonItem(image: UIImage(named: "reveal-icon"), style: .Plain, target: self.revealViewController(), action: "revealToggle:")
         self.navigationItem.leftBarButtonItem = menuItem
@@ -180,6 +200,17 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
     {
         let cell : HomeCollectionViewCell = (collectionView.dequeueReusableCellWithReuseIdentifier("HomeCollectionViewCell", forIndexPath: indexPath)as? HomeCollectionViewCell)!
+        
+        cell.layer.masksToBounds = false
+        //cell.layer.borderColor = UIColor.whiteColor().CGColor
+        //cell.layer.borderWidth = 7.0s
+        cell.layer.contentsScale = UIScreen.mainScreen().scale
+        cell.layer.shadowOpacity = 0.75
+        cell.layer.shadowRadius = 5.0
+        cell.layer.shadowOffset = CGSize.zero
+        cell.layer.shadowPath = UIBezierPath(rect: cell.bounds).CGPath
+        cell.layer.shouldRasterize = true
+        
         let categoryDic : NSDictionary = self.storeCategoryArray[indexPath.item] as! NSDictionary
         cell.categoryImageView.setImageWithURL(NSURL(string:(categoryDic.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
         cell.subCategoryLbl.text =  categoryDic.valueForKey("Name") as? String
@@ -223,7 +254,7 @@ extension HomeViewController:KIImagePagerDelegate,KIImagePagerDataSource {
     
     func contentModeForImage(image: UInt, inPager pager: KIImagePager!) -> UIViewContentMode {
         
-        return .ScaleToFill
+        return .ScaleAspectFill
     }
     
     func arrayWithImages(pager: KIImagePager!) -> [AnyObject]! {

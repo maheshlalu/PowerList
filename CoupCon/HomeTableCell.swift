@@ -16,6 +16,7 @@ class HomeTableCell: UITableViewCell {
     @IBOutlet weak var viewAllDealsBtn: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
+        totalSubCategoryLbl.backgroundColor = UIColor.redColor()
         // Initialization code
     }
 

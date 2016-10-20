@@ -68,22 +68,42 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
         return 50
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    /* if NSUserDefaults.standardUserDefaults().valueForKey("USER_ID") != nil{
+     let orders = storyBoard.instantiateViewControllerWithIdentifier("ORDERS") as! OrdersViewController
+     self.navigationController!.pushViewController(orders, animated: true)
+     }else{
+     let signInViewCnt : CXSignInSignUpViewController = CXSignInSignUpViewController()
+     self.navigationController!.pushViewController(signInViewCnt, animated: true)
+     }*/
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //self.navController.drawerToggle()
+        let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        
+        
+        let itemName : String =  (CXAppConfig.sharedInstance.getSidePanelList()[indexPath.row] as? String)!
+        if itemName == "Home"{
+            self.navigationController!.popToRootViewControllerAnimated(true)
+            
+        }else if itemName == "PROFILE & MEMBERSHIP"{
+            let aboutUs = storyBoard.instantiateViewControllerWithIdentifier("PROFILE_MEMBERSHIP") as! ProfileMembershipViewController
+            self.navigationController!.pushViewController(aboutUs, animated: true)
+            
+        }else if itemName == "REDEEM & HISTORY"{
+            let aboutUs = storyBoard.instantiateViewControllerWithIdentifier("REDEEM_HISTORY") as! ReedemViewController
+            self.navigationController!.pushViewController(aboutUs, animated: true)
+            
+        }else if itemName == "HOW TO USE"{
+//            let orders = storyBoard.instantiateViewControllerWithIdentifier("ORDERS") as! OrdersViewController
+//            self.navigationController!.pushViewController(orders, animated: true)
+            
+        }else if itemName == "HELP" {
+//            let wishlist = storyBoard.instantiateViewControllerWithIdentifier("WISHLIST") as! NowfloatWishlistViewController
+//            self.navController.pushViewController(wishlist, animated: true)
+        }
+        
     }
-    */
+
 
 }
 
