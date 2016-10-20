@@ -27,6 +27,11 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
         print(selectedName)
         self.getTheDealsFromServer()
         self.addTheBarButtonItem()
+        
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.translucent = true
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -79,8 +84,18 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
     {
         let cell : CollectionViewCell = (collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as? CollectionViewCell)!
+        
+        cell.layer.masksToBounds = false
+        cell.layer.contentsScale = UIScreen.mainScreen().scale
+        cell.layer.shadowOpacity = 0.75
+        cell.layer.shadowRadius = 5.0
+        cell.layer.shadowOffset = CGSize.zero
+        cell.layer.shadowPath = UIBezierPath(rect: cell.bounds).CGPath
+        cell.layer.shouldRasterize = true
+        
         let categoryDic : NSDictionary = self.dealsArray[indexPath.item] as! NSDictionary
         cell.dealsImgView.setImageWithURL(NSURL(string:(categoryDic.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
+        cell.productNameLbl.text = categoryDic.valueForKey("Name") as?String
         return cell
     }
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {

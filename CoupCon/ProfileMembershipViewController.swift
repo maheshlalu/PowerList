@@ -1,23 +1,17 @@
 //
-//  AboutUsViewController.swift
+//  ProfileMembershipViewController.swift
 //  CoupCon
 //
-//  Created by apple on 18/10/16.
+//  Created by Manishi on 10/20/16.
 //  Copyright © 2016 CX. All rights reserved.
 //
 
 import UIKit
 
-class AboutUsViewController: UIViewController {
-    var offersDic : NSDictionary?
-    
-    @IBOutlet weak var aboutTextView: UITextView!
+class ProfileMembershipViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //let aboutTxt :String =  self.offersDic?.valueForKey("Offers") as! String
-        //self.aboutTextView.text = aboutTxt
-
 
         // Do any additional setup after loading the view.
     }

@@ -10,8 +10,9 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var clickToLabel: UILabel!
+    @IBOutlet weak var productNameLbl: UILabel!
     @IBOutlet weak var dealsImgView: UIImageView!
+    @IBOutlet weak var likeBtn: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
