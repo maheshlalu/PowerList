@@ -21,7 +21,7 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
         
         self.userImage.layer.borderColor = UIColor.whiteColor().CGColor
         
-        self.userImage.layer.cornerRadius = self.userImage.frame.size.width/6
+        self.userImage.layer.cornerRadius = 45 //self.userImage.bounds.size.width/2
         self.userImage.clipsToBounds = true
         
         
@@ -52,7 +52,7 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
         
         let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell", forIndexPath: indexPath)
         cell.textLabel?.text = nameArray[indexPath.row]
-        
+        cell.textLabel?.font = CXAppConfig.sharedInstance.appMediumFont()
         cell.imageView?.image = UIImage(named: imageArray[indexPath.row])
         
         leftTableview.allowsSelection = true

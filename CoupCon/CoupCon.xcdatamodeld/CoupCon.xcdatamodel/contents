@@ -15,7 +15,7 @@
         <attribute name="storeID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="UserProfile" representedClassName=".UserProfile" syncable="YES">
+    <entity name="UserProfile" representedClassName="UserProfile" syncable="YES">
         <attribute name="emailId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fullName" optional="YES" attributeType="String" syncable="YES"/>

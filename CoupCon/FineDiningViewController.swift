@@ -31,13 +31,14 @@ class FineDiningViewController: UIViewController {
         
         //self.currentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("AboutUsViewController")
         
-        let offersController : OffersViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("OffersViewController") as? OffersViewController)!
+        let offersController : AboutUsViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("AboutUsViewController") as? AboutUsViewController)!
         offersController.offersDic = NSDictionary(dictionary: self.dealsDic)
         self.currentViewController = offersController
         self.currentViewController!.view.translatesAutoresizingMaskIntoConstraints = false
         self.addChildViewController(self.currentViewController!)
         self.addSubview(self.currentViewController!.view, toView: self.containerView)
-        
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "appBg")!)
+
     }
     
     override func didReceiveMemoryWarning() {

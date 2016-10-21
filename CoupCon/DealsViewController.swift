@@ -24,7 +24,6 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
         self.collectionview.registerNib(nib, forCellWithReuseIdentifier: "CollectionViewCell")
         self.collectionview.backgroundColor = UIColor.clearColor()
         // print("\(self.dealsDic) \(self.dealsDic!.allKeys)")
-        print(selectedName)
         self.getTheDealsFromServer()
         self.addTheBarButtonItem()
     }
