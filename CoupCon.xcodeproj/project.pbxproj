@@ -11,6 +11,10 @@
 		110DD1C71DB0AD9C001F9BC1 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110DD1C41DB0AD9C001F9BC1 /* LeftViewController.swift */; };
 		110DD1C81DB0AD9C001F9BC1 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110DD1C51DB0AD9C001F9BC1 /* TableViewCell.swift */; };
 		110DD1C91DB0AD9C001F9BC1 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 110DD1C61DB0AD9C001F9BC1 /* TableViewCell.xib */; };
+		118DBBE21DB9FB3A000AF9EE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118DBBE11DB9FB3A000AF9EE /* SignUpViewController.swift */; };
+		118DBBE71DB9FFB7000AF9EE /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118DBBE41DB9FFB7000AF9EE /* SkyFloatingLabelTextField.swift */; };
+		118DBBE81DB9FFB7000AF9EE /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118DBBE51DB9FFB7000AF9EE /* SkyFloatingLabelTextFieldWithIcon.swift */; };
+		118DBBE91DB9FFB7000AF9EE /* UITextField+fixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118DBBE61DB9FFB7000AF9EE /* UITextField+fixCaretPosition.swift */; };
 		11D37EEB1DB8D75C0014F202 /* RedeemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D37EE81DB8D75C0014F202 /* RedeemTableViewCell.swift */; };
 		11D37EEC1DB8D75C0014F202 /* RedeemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11D37EE91DB8D75C0014F202 /* RedeemTableViewCell.xib */; };
 		11D37EED1DB8D75C0014F202 /* ReedemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D37EEA1DB8D75C0014F202 /* ReedemViewController.swift */; };
@@ -89,6 +93,10 @@
 		110DD1C41DB0AD9C001F9BC1 /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
 		110DD1C51DB0AD9C001F9BC1 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		110DD1C61DB0AD9C001F9BC1 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		118DBBE11DB9FB3A000AF9EE /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		118DBBE41DB9FFB7000AF9EE /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
+		118DBBE51DB9FFB7000AF9EE /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextFieldWithIcon.swift; sourceTree = "<group>"; };
+		118DBBE61DB9FFB7000AF9EE /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
 		11D37EE81DB8D75C0014F202 /* RedeemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedeemTableViewCell.swift; sourceTree = "<group>"; };
 		11D37EE91DB8D75C0014F202 /* RedeemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RedeemTableViewCell.xib; sourceTree = "<group>"; };
 		11D37EEA1DB8D75C0014F202 /* ReedemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReedemViewController.swift; sourceTree = "<group>"; };
@@ -196,6 +204,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		118DBBE31DB9FF9C000AF9EE /* FloatingView */ = {
+			isa = PBXGroup;
+			children = (
+				118DBBE41DB9FFB7000AF9EE /* SkyFloatingLabelTextField.swift */,
+				118DBBE51DB9FFB7000AF9EE /* SkyFloatingLabelTextFieldWithIcon.swift */,
+				118DBBE61DB9FFB7000AF9EE /* UITextField+fixCaretPosition.swift */,
+			);
+			name = FloatingView;
+			sourceTree = "<group>";
+		};
 		11D37EEE1DB8D9BF0014F202 /* SidePanel */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +313,7 @@
 		18C90C021DAF78DF0053F8D7 /* CoupCon */ = {
 			isa = PBXGroup;
 			children = (
+				118DBBE31DB9FF9C000AF9EE /* FloatingView */,
 				181C04E21DB0EC41006C05FF /* AppDataManager */,
 				181C04D11DB0BA26006C05FF /* Fonts */,
 				18057E411DAFCEE10017F038 /* GoogleService-Info.plist */,
@@ -304,6 +323,7 @@
 				18C90C441DAF7CB40053F8D7 /* SWSidePanel */,
 				18C90C031DAF78DF0053F8D7 /* AppDelegate.swift */,
 				18C90C051DAF78DF0053F8D7 /* CXSigninViewController.swift */,
+				118DBBE11DB9FB3A000AF9EE /* SignUpViewController.swift */,
 				18C90C071DAF78DF0053F8D7 /* Main.storyboard */,
 				18C90C0D1DAF78DF0053F8D7 /* Assets.xcassets */,
 				18C90C0F1DAF78DF0053F8D7 /* LaunchScreen.storyboard */,
@@ -686,6 +706,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				118DBBE91DB9FFB7000AF9EE /* UITextField+fixCaretPosition.swift in Sources */,
 				18D160631DB8E088009FF71D /* UserProfile.swift in Sources */,
 				18D160621DB8E074009FF71D /* CX_SocialIntegration.swift in Sources */,
 				18ED4A4A1DB6486500A612BA /* AboutUsViewController.swift in Sources */,
@@ -695,8 +716,11 @@
 				11D37EF01DB8DA140014F202 /* ProfileMembershipViewController.swift in Sources */,
 				18ED4A001DB4FEE100A612BA /* CollectionViewCell.swift in Sources */,
 				18C90C0C1DAF78DF0053F8D7 /* CoupCon.xcdatamodeld in Sources */,
+				118DBBE81DB9FFB7000AF9EE /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
 				18ED49F51DB4B07200A612BA /* FineDiningViewController.swift in Sources */,
+				118DBBE21DB9FB3A000AF9EE /* SignUpViewController.swift in Sources */,
 				181C04E71DB0EC4F006C05FF /* CXDataService.swift in Sources */,
+				118DBBE71DB9FFB7000AF9EE /* SkyFloatingLabelTextField.swift in Sources */,
 				18C90C061DAF78DF0053F8D7 /* CXSigninViewController.swift in Sources */,
 				110DD1C81DB0AD9C001F9BC1 /* TableViewCell.swift in Sources */,
 				18057E301DAFA33B0017F038 /* ICSDropShadowView.m in Sources */,

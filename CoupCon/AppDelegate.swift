@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        self.setUpSidePanl()
+        //self.setUpSidePanl()
         self.setUpMagicalDB()
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
@@ -29,8 +29,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
     }
     
     func setUpSidePanl(){
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
+        let wFrame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height)
+        self.window = UIWindow.init(frame: wFrame)
+        
+//        if !NSUserDefaults.standardUserDefaults().boolForKey("USER_ID"){
+//            let signUpView = CXSignInSignUpViewController.init()
+//            let  navController: UINavigationController = UINavigationController(rootViewController: signUpView)
+//            self.window?.rootViewController = navController
+//            self.window?.makeKeyAndVisible()
+//        }else{
+//            let homeView = HomeViewController.init()
+//            let sideMenu = SMMenuViewController.init()
+//            let  navController: SMNavigationController = SMNavigationController(menuViewController: sideMenu,contentViewController: homeView)
+//            self.window?.rootViewController = navController
+//            self.window?.makeKeyAndVisible()
+//        }
+//        
+//        
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let homeView = storyBoard.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
         let menuVC = storyBoard.instantiateViewControllerWithIdentifier("LeftViewController") as! LeftViewController
@@ -45,6 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
         revealVC.delegate = self
         self.window?.rootViewController = revealVC
         self.window?.makeKeyAndVisible()
+        
         
         //        let drawer : ICSDrawerController = ICSDrawerController(leftViewController: menuVC, centerViewController: homeView)
         //        self.window?.rootViewController = drawer
@@ -120,7 +137,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
                     let orgID:String! = CXAppConfig.sharedInstance.getAppMallID()
                     firstName = userData!["given_name"] as! String
                     lastName = userData!["family_name"] as! String
-                    gender = userData!["gender"] as! String
+                    //gender = userData!["gender"] as! String
                     profilePic = userData!["picture"] as! String
                     email = userData!["email"] as! String
                     
