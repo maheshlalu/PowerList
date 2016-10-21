@@ -37,6 +37,7 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
         refresher = UIRefreshControl()
         self.homecollectionview!.alwaysBounceVertical = true
         refresher.tintColor = UIColor.redColor()
+        self.setUPTheNavigationProperty()
         //refresher.addTarget(self, action: #selector(loadData), forControlEvents: .ValueChanged)
        // homecollectionview!.addSubview(refresher)
         
@@ -79,6 +80,15 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
         
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())*/
         // Do any additional setup after loading the view.
+    }
+    
+    
+    func setUPTheNavigationProperty(){
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.translucent = true
+
     }
     
     override func viewWillAppear(animated: Bool) {

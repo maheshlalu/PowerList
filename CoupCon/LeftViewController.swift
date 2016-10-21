@@ -12,6 +12,7 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
 
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var leftTableview: UITableView!
+    var previousSelectedIndex  : NSIndexPath = NSIndexPath()
     var nameArray = ["HOME","PROFILE & MEMBERSHIP","REDEEM & HISTORY","HOW TO USE","HELP"]
     var imageArray = ["HomeImage","Profile & membershipImage","Profile & membershipImage","HowtoUseImage","Helpimage"]
     override func viewDidLoad() {
@@ -31,6 +32,11 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
     }
     
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBarHidden = true
+
+    }
     
     
     
@@ -76,23 +82,36 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
      self.navigationController!.pushViewController(signInViewCnt, animated: true)
      }*/
     
+    
+    
+  
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        
+        let revealController : SWRevealViewController  = self.revealViewController()
+        
+        if indexPath == previousSelectedIndex {
+            revealController.revealToggleAnimated(true)
+            return
+        }
+        previousSelectedIndex = indexPath
         //self.navController.drawerToggle()
         let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        
-        
-        let itemName : String =  (CXAppConfig.sharedInstance.getSidePanelList()[indexPath.row] as? String)!
-        if itemName == "Home"{
-            self.navigationController!.popToRootViewControllerAnimated(true)
-            
+        let itemName : String =  nameArray[indexPath.row]
+        if itemName == "HOME"{
+            let homeView = storyBoard.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
+            let navCntl = UINavigationController(rootViewController: homeView)
+            revealController.pushFrontViewController(navCntl, animated: true)
+
         }else if itemName == "PROFILE & MEMBERSHIP"{
             let aboutUs = storyBoard.instantiateViewControllerWithIdentifier("PROFILE_MEMBERSHIP") as! ProfileMembershipViewController
-            self.navigationController!.pushViewController(aboutUs, animated: true)
+            let navCntl = UINavigationController(rootViewController: aboutUs)
+            revealController.pushFrontViewController(navCntl, animated: true)
             
         }else if itemName == "REDEEM & HISTORY"{
-            let aboutUs = storyBoard.instantiateViewControllerWithIdentifier("REDEEM_HISTORY") as! ReedemViewController
-            self.navigationController!.pushViewController(aboutUs, animated: true)
-            
+            let redeem = storyBoard.instantiateViewControllerWithIdentifier("REDEEM_HISTORY") as! ReedemViewController
+            let navCntl = UINavigationController(rootViewController: redeem)
+            revealController.pushFrontViewController(navCntl, animated: true)
         }else if itemName == "HOW TO USE"{
 //            let orders = storyBoard.instantiateViewControllerWithIdentifier("ORDERS") as! OrdersViewController
 //            self.navigationController!.pushViewController(orders, animated: true)

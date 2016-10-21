@@ -27,11 +27,6 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
         print(selectedName)
         self.getTheDealsFromServer()
         self.addTheBarButtonItem()
-        
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.translucent = true
     }
     
     override func viewWillAppear(animated: Bool) {

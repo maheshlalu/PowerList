@@ -24,8 +24,27 @@ class ReedemViewController: UIViewController,UITextFieldDelegate {
         
         let nib = UINib(nibName: "RedeemTableViewCell", bundle: nil)
         self.RedeemTableView.registerNib(nib, forCellReuseIdentifier: "RedeemTableViewCell")
+        self.setUPTheNavigationProperty()
+        // Do any additional setup after loading the view.
+        self.setUpSideMenu()
+    }
+    
+    func setUpSideMenu(){
+        let menuItem = UIBarButtonItem(image: UIImage(named: "sidePanelMenu"), style: .Plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
+        self.navigationItem.leftBarButtonItem = menuItem
         
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
+        self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        
+        //self.sideMenuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), forControlEvents: .TouchUpOutside)
+    }
+    
+    func setUPTheNavigationProperty(){
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.translucent = true
         
     }
     
