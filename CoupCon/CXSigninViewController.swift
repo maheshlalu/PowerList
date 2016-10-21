@@ -9,52 +9,34 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
-class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDelegate,GIDSignInUIDelegate {
 
+class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDelegate,GIDSignInUIDelegate {
     
     @IBOutlet weak var userBtn: UIButton!
-    
     @IBOutlet weak var passwordBtn: UIButton!
-    
     @IBOutlet weak var userTf: UITextField!
-    
     @IBOutlet weak var passwordTf: UITextField!
-    
     @IBOutlet weak var checkboxBtn: UIButton!
-    
     @IBOutlet weak var rememberLabel: UILabel!
-    
     @IBOutlet weak var loginBtn: UIButton!
-    
     @IBOutlet weak var loginBtn1: UIButton!
-    
     @IBOutlet weak var facebookBtn:  FBSDKLoginButton!
-    
     @IBOutlet weak var gmailBtn: GIDSignInButton!
-    //GIDSignInButton
-    
     @IBOutlet weak var credientailsView: UIView!
     
-    
-    
-    
-    
-   
     override func viewDidLoad() {
         super.viewDidLoad()
-          GIDSignIn.sharedInstance().uiDelegate = self
+        
+        GIDSignIn.sharedInstance().uiDelegate = self
         self.userTf.delegate = self
         self.passwordTf.delegate = self
-        
-        GIDSignIn.sharedInstance().signInSilently()
 
         self.userTf.layer.borderColor = UIColor.whiteColor().CGColor
         self.userTf.layer.borderWidth = 0.8
         self.userTf.layer.cornerRadius = 5
         self.userTf.clipsToBounds = true
         self.userTf.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
-        
-        
+
         self.passwordTf.layer.borderColor = UIColor.whiteColor().CGColor
         self.passwordTf.layer.borderWidth = 0.8
         self.passwordTf.layer.cornerRadius = 5
@@ -71,31 +53,23 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
         self.loginBtn.layer.cornerRadius = 5
         self.loginBtn.clipsToBounds = true
         
-        
-          self.facebookBtn.delegate = self
-         self.facebookBtn.readPermissions = ["public_profile", "email", "user_friends"];
-        
-        
+        self.facebookBtn.delegate = self
+        self.facebookBtn.readPermissions = ["public_profile", "email", "user_friends"];
 
-        
-        
         self.gmailBtn = GIDSignInButton.init(frame:self.gmailBtn.frame)
         
-//        self.userBtn.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
-//        self.userBtn.layer.borderColor = UIColor.whiteColor().CGColor
-//        self.userBtn.layer.cornerRadius = 2
-//        self.userBtn.layer.borderWidth = 1
-//        self.userBtn.clipsToBounds = true
-//        
-//        self.passwordBtn.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
-//        self.passwordBtn.layer.borderColor = UIColor.whiteColor().CGColor
-//        self.passwordBtn.layer.cornerRadius = 2
-//        self.passwordBtn.layer.borderWidth = 1
-//        self.passwordBtn.clipsToBounds = true
-        
-        
-
-        
+        //        self.userBtn.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
+        //        self.userBtn.layer.borderColor = UIColor.whiteColor().CGColor
+        //        self.userBtn.layer.cornerRadius = 2
+        //        self.userBtn.layer.borderWidth = 1
+        //        self.userBtn.clipsToBounds = true
+        //
+        //        self.passwordBtn.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
+        //        self.passwordBtn.layer.borderColor = UIColor.whiteColor().CGColor
+        //        self.passwordBtn.layer.cornerRadius = 2
+        //        self.passwordBtn.layer.borderWidth = 1
+        //        self.passwordBtn.clipsToBounds = true
+   
         
         NSNotificationCenter.defaultCenter().addObserver(self,
                                                          selector: #selector(CXSigninViewController.keyboardWillShow(_:)),
@@ -109,18 +83,21 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
         let tap = UITapGestureRecognizer(target: self, action: #selector(CXSigninViewController.handleTap(_:)))
         self.view.addGestureRecognizer(tap)
         
-//        let fbLoginBtn = FBSDKLoginButton.init(frame: CGRectMake((self.view.frame.size.width-200)/2, hLabel.frame.size.height+hLabel.frame.origin.y+10, 200, 40))
-//        fbLoginBtn.delegate = self
-//        fbLoginBtn.readPermissions = ["public_profile", "email", "user_friends"];
+        //        let fbLoginBtn = FBSDKLoginButton.init(frame: CGRectMake((self.view.frame.size.width-200)/2, hLabel.frame.size.height+hLabel.frame.origin.y+10, 200, 40))
+        //        fbLoginBtn.delegate = self
+        //        fbLoginBtn.readPermissions = ["public_profile", "email", "user_friends"];
         
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(CXSigninViewController.googleSignUp(_:)), name: "GoogleSignUp", object: nil)
+
     }
     
     func handleTap(sender: UITapGestureRecognizer? = nil) {
         // handling code
         self.view.endEditing(true)
     }
-
+    
     func keyboardWillShow(sender: NSNotification) {
         if let keyboardSize = (sender.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue() {
             self.view.frame.origin.y = -(keyboardSize.height-60)
@@ -135,12 +112,7 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
         textField.resignFirstResponder()
         return true
     }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         let loginManager: FBSDKLoginManager = FBSDKLoginManager()
@@ -157,9 +129,16 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
         }
         
     }
-
     
-    // Google
+    
+    // Google+ Integration
+    
+    @IBAction func googleBtnAction(sender: AnyObject) {
+        
+        GIDSignIn.sharedInstance().signOut()
+        GIDSignIn.sharedInstance().clientID = "454116202484-33qe5mvf2ttp49s96dqahr4me91nuft1.apps.googleusercontent.com"
+        GIDSignIn.sharedInstance().signIn()
+    }
     
     func signInWillDispatch(signIn: GIDSignIn!, error: NSError!) {
         //  myActivityIndicator.stopAnimating()
@@ -176,6 +155,41 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
                 dismissViewController viewController: UIViewController!) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-
+    
+//    func googleSignUp(notification: NSNotification){
+//        
+//        let dic = notification.object as! [String:AnyObject]
+//        let orgID:String! = CXAppConfig.sharedInstance.getAppMallID()
+//        let firstName = dic["given_name"] as! String
+//        let lastName = dic["family_name"] as! String
+//        let gender = dic["gender"] as! String
+//        let  profilePic = dic["picture"] as! String
+//        let  email = dic["email"] as! String
+//        
+//        print("\(email)\(firstName)\(lastName)\(gender)\(profilePic)\(orgID)")
+//        
+//        NSUserDefaults.standardUserDefaults().setObject(profilePic, forKey: "PROFILE_PIC")
+//        NSUserDefaults.standardUserDefaults().synchronize()
+//        
+//        //self.registeringWithSillyMonks(email,firstname:firstName, lastname: lastName, gender: gender, profilePic:profilePic)
+//        self.showAlertView("Login successfully.", status: 1)
+//        
+//    }
+//    
+//    
+//    func showAlertView(message:String, status:Int) {
+//        dispatch_async(dispatch_get_main_queue(), {
+//            let alert = UIAlertController(title: "CoupCon", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+//            let okAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default) {
+//                UIAlertAction in
+//                if status == 1 {
+//                        self.navigationController?.popViewControllerAnimated(true)
+//                    }
+//            }
+//            alert.addAction(okAction)
+//            self.presentViewController(alert, animated: true, completion: nil)
+//        })
+//    }
+    
 }
 

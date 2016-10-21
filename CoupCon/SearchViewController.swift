@@ -27,22 +27,6 @@ class SearchViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBarHidden = false
@@ -62,6 +46,16 @@ class SearchViewController: UIViewController {
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
     {
         let cell : CollectionViewCell = (collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as? CollectionViewCell)!
+        
+        cell.layer.masksToBounds = false
+        cell.layer.contentsScale = UIScreen.mainScreen().scale
+        cell.layer.shadowOpacity = 0.75
+        cell.layer.shadowRadius = 5.0
+        cell.layer.shadowOffset = CGSize.zero
+        cell.layer.shadowPath = UIBezierPath(rect: cell.bounds).CGPath
+        cell.layer.shouldRasterize = true
+        
+        
         let categoryDic : NSDictionary = self.searchResults[indexPath.item] as! NSDictionary
         cell.dealsImgView.setImageWithURL(NSURL(string:(categoryDic.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
         return cell
