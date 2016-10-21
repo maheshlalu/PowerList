@@ -15,13 +15,13 @@ class AboutUsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(offersDic)
-
+        
         let aboutTxt :String =  self.offersDic?.valueForKey("Description") as! String
         
         //let aboutTxt :String =  self.offersDic?.valueForKey("Offers") as! String
-        //self.aboutTextView.text = aboutTxt
-
-
+        self.aboutTextView.text = aboutTxt
+        self.view.backgroundColor = UIColor.clearColor()
+        
         // Do any additional setup after loading the view.
     }
 

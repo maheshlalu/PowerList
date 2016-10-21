@@ -89,7 +89,7 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
         
         // Do any additional setup after loading the view, typically from a nib.
         
-        //NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(CXSigninViewController.googleSignUp(_:)), name: "GoogleSignUp", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(CXSigninViewController.googleSignUp(_:)), name: "GoogleSignUp", object: nil)
 
     }
     
@@ -156,40 +156,43 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-//    func googleSignUp(notification: NSNotification){
-//        
-//        let dic = notification.object as! [String:AnyObject]
-//        let orgID:String! = CXAppConfig.sharedInstance.getAppMallID()
-//        let firstName = dic["given_name"] as! String
-//        let lastName = dic["family_name"] as! String
-//        let gender = dic["gender"] as! String
-//        let  profilePic = dic["picture"] as! String
-//        let  email = dic["email"] as! String
-//        
-//        print("\(email)\(firstName)\(lastName)\(gender)\(profilePic)\(orgID)")
-//        
-//        NSUserDefaults.standardUserDefaults().setObject(profilePic, forKey: "PROFILE_PIC")
-//        NSUserDefaults.standardUserDefaults().synchronize()
-//        
-//        //self.registeringWithSillyMonks(email,firstname:firstName, lastname: lastName, gender: gender, profilePic:profilePic)
-//        self.showAlertView("Login successfully.", status: 1)
-//        
-//    }
-//    
-//    
-//    func showAlertView(message:String, status:Int) {
-//        dispatch_async(dispatch_get_main_queue(), {
-//            let alert = UIAlertController(title: "CoupCon", message: message, preferredStyle: UIAlertControllerStyle.Alert)
-//            let okAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default) {
-//                UIAlertAction in
-//                if status == 1 {
-//                        self.navigationController?.popViewControllerAnimated(true)
-//                    }
-//            }
-//            alert.addAction(okAction)
-//            self.presentViewController(alert, animated: true, completion: nil)
-//        })
-//    }
+    func googleSignUp(notification: NSNotification){
+        
+        let dic = notification.object as! [String:AnyObject]
+        let orgID:String! = CXAppConfig.sharedInstance.getAppMallID()
+        let firstName = dic["given_name"] as! String
+        let lastName = dic["family_name"] as! String
+        //let gender = dic["gender"] as! String
+        let  profilePic = dic["picture"] as! String
+        let  email = dic["email"] as! String
+        
+        
+        CX_SocialIntegration.sharedInstance.applicationRegisterWithGooglePlus(dic)
+
+        print("\(email)\(firstName)\(lastName)\(profilePic)\(orgID)")
+        
+        NSUserDefaults.standardUserDefaults().setObject(profilePic, forKey: "PROFILE_PIC")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+        //self.registeringWithSillyMonks(email,firstname:firstName, lastname: lastName, gender: gender, profilePic:profilePic)
+        self.showAlertView("Login successfully.", status: 1)
+        
+    }
+    
+    
+    func showAlertView(message:String, status:Int) {
+        dispatch_async(dispatch_get_main_queue(), {
+            let alert = UIAlertController(title: "CoupCon", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            let okAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default) {
+                UIAlertAction in
+                if status == 1 {
+                        self.navigationController?.popViewControllerAnimated(true)
+                    }
+            }
+            alert.addAction(okAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+        })
+    }
     
 }
 

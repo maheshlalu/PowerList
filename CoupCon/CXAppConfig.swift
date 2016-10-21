@@ -83,7 +83,7 @@ class CXAppConfig {
         return config!.valueForKey("SidePanelList") as! NSArray
     }
 
-    
+
     func getAppTheamColor() -> UIColor {
         
         let appTheamColorArr : NSArray = config!.valueForKey("AppTheamColor") as! NSArray
@@ -161,6 +161,15 @@ class CXAppConfig {
             return reqType
         }
         return ""
+    }
+    
+    //MARK: User ID Saving
+    func saveUserID(userID:String){
+        NSUserDefaults.standardUserDefaults().setObject(userID, forKey: "USERID")
+    }
+    
+    func getUserID() ->String{
+        return NSUserDefaults.standardUserDefaults().valueForKey("USERID") as! String
     }
     
     

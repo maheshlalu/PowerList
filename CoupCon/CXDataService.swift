@@ -28,12 +28,14 @@ public class CXDataService: NSObject {
     public func getTheAppDataFromServer(parameters:[String: AnyObject]? = nil ,completion:(responseDict:NSDictionary) -> Void){
         if Bool(1) {
             print(CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getMasterUrl())
+            print(parameters)
+            
         Alamofire.request(.GET,CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getMasterUrl() , parameters: parameters)
             .validate()
             .responseJSON { response in
                 switch response.result {
                 case .Success:
-                    print("Validation Successful\(response.result.value)")
+                   // print("Validation Successful\(response.result.value)")
                     completion(responseDict: (response.result.value as? NSDictionary)!)
                     break
                 case .Failure(let error):
@@ -53,7 +55,7 @@ public class CXDataService: NSObject {
             .responseJSON { response in
                 switch response.result {
                 case .Success:
-                    print("Validation Successful\(response.result.value)")
+                   // print("Validation Successful\(response.result.value)")
                     completion(responseDict: (response.result.value as? NSDictionary)!)
                     break
                 case .Failure(let error):
@@ -76,7 +78,7 @@ public class CXDataService: NSObject {
             },
             encodingCompletion: { encodingResult in
                 
-                print("result")
+                //print("result")
             }
         )
     }
@@ -94,7 +96,7 @@ public class CXDataService: NSObject {
             .responseJSON { response in
                 switch response.result {
                 case .Success:
-                    print("Validation Successful\(response.result.value)")
+                    //print("Validation Successful\(response.result.value)")
                     completion(responseDict: (response.result.value as? NSDictionary)!)
                     break
                 case .Failure(let error):
