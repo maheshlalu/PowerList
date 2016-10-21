@@ -12,44 +12,46 @@ import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDelegate,GIDSignInDelegate{
-
+    
     var window: UIWindow?
-
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
         self.setUpSidePanl()
-        // Override point for customization after application launch.
         self.setUpMagicalDB()
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
         var configureError: NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
-        GIDSignIn.sharedInstance().clientID = "454116202484-33qe5mvf2ttp49s96dqahr4me91nuft1.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = self
         return true
     }
     
     func setUpSidePanl(){
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-
+        
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let homeView = storyBoard.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
         let menuVC = storyBoard.instantiateViewControllerWithIdentifier("LeftViewController") as! LeftViewController
+        
+        let menuVCNav = UINavigationController(rootViewController: menuVC)
+        menuVCNav.navigationBarHidden = true
+        
         let navHome = UINavigationController(rootViewController: homeView)
         navHome.navigationBarHidden = true
         
-        
-        let revealVC = SWRevealViewController(rearViewController: menuVC, frontViewController: navHome)
+        let revealVC = SWRevealViewController(rearViewController: menuVCNav, frontViewController: navHome)
         revealVC.delegate = self
         self.window?.rootViewController = revealVC
         self.window?.makeKeyAndVisible()
         
-//        let drawer : ICSDrawerController = ICSDrawerController(leftViewController: menuVC, centerViewController: homeView)
-//        self.window?.rootViewController = drawer
-//        self.window?.makeKeyAndVisible()
+        //        let drawer : ICSDrawerController = ICSDrawerController(leftViewController: menuVC, centerViewController: homeView)
+        //        self.window?.rootViewController = drawer
+        //        self.window?.makeKeyAndVisible()
         
     }
-
+    
     // MARK: - Core Data stack
     
     func setUpMagicalDB() {
@@ -61,22 +63,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     }
-
+    
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
-
+    
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     }
-
+    
     func applicationDidBecomeActive(application: UIApplication) {
         FBSDKAppEvents.activateApp()
-
+        
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
-
+    
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
@@ -98,16 +100,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
     
     //MARK: - Google Sign in
     
-    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
-                withError error: NSError!) {
+    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
         if (error == nil) {
-            // Perform any operations on signed in user here.
-            let userId = user.userID                  // For client-side use only!
-            let idToken = user.authentication.idToken // Safe to send to the server
-            let fullName = user.profile.name
-            let givenName = user.profile.givenName
-            let familyName = user.profile.familyName
-            let email = user.profile.email
+            var firstName = ""
+            var lastName = ""
+            // let userId = user.userID
+            var gender = ""
+            var profilePic = ""
+            var email = ""
             
             UIApplication.sharedApplication().networkActivityIndicatorVisible = true
             let url = NSURL(string:  "https://www.googleapis.com/oauth2/v3/userinfo?access_token=\(user.authentication.accessToken)")
@@ -116,15 +116,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 do {
                     let userData = try NSJSONSerialization.JSONObjectWithData(data!, options:[]) as? [String:AnyObject]
-//                    
-//                    let orgID:String! = CXConstant.MALL_ID
-//                    firstName = userData!["given_name"] as! String
-//                    lastName = userData!["family_name"] as! String
-//                    gender = userData!["gender"] as! String
-//                    profilePic = userData!["picture"] as! String
-//                    email = userData!["email"] as! String
-//                    
-//                    print("\(email)\(firstName)\(lastName)\(gender)\(profilePic)\(orgID)")
+                    
+                    let orgID:String! = CXAppConfig.sharedInstance.getAppMallID()
+                    firstName = userData!["given_name"] as! String
+                    lastName = userData!["family_name"] as! String
+                    gender = userData!["gender"] as! String
+                    profilePic = userData!["picture"] as! String
+                    email = userData!["email"] as! String
+                    
+                    print("\(email)\(firstName)\(lastName)\(gender)\(profilePic)\(orgID)")
                     
                     NSNotificationCenter.defaultCenter().postNotificationName("GoogleSignUp", object: userData)
                     
@@ -133,32 +133,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
                 }
                 
                 }.resume()
-            // ...
-        } else {
-            print("\(error.localizedDescription)")
+        }
+            
+        else {
+            //Login Failed
+            NSLog("login failed")
+            
         }
     }
+    
+    
     
     func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
                 withError error: NSError!) {
         // Perform any operations when the user disconnects from app here.
         // ...
     }
-
+    
     // MARK: - Core Data stack
-
+    
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "CX.Coupcon.CoupCon" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         return urls[urls.count-1]
     }()
-
+    
     lazy var managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
         let modelURL = NSBundle.mainBundle().URLForResource("CoupCon", withExtension: "momd")!
         return NSManagedObjectModel(contentsOfURL: modelURL)!
     }()
-
+    
     lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
         // The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
         // Create the coordinator and store
@@ -172,7 +177,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
             var dict = [String: AnyObject]()
             dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
             dict[NSLocalizedFailureReasonErrorKey] = failureReason
-
+            
             dict[NSUnderlyingErrorKey] = error as NSError
             let wrappedError = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
             // Replace this with code to handle the error appropriately.
@@ -183,7 +188,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
         
         return coordinator
     }()
-
+    
     lazy var managedObjectContext: NSManagedObjectContext = {
         // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.) This property is optional since there are legitimate error conditions that could cause the creation of the context to fail.
         let coordinator = self.persistentStoreCoordinator
@@ -191,9 +196,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
     }()
-
+    
     // MARK: - Core Data Saving support
-
+    
     func saveContext () {
         if managedObjectContext.hasChanges {
             do {
@@ -207,6 +212,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
             }
         }
     }
-
+    
 }
 
