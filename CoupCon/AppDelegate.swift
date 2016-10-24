@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
         GGLContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
         GIDSignIn.sharedInstance().delegate = self
+        
         return true
     }
     
@@ -34,7 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
         let userId = CXAppConfig.sharedInstance.getUserID()
         print(userId)
         if userId == "" {
-            
+            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let exampleViewController: CXSigninViewController = mainStoryboard.instantiateViewControllerWithIdentifier("CXSigninViewController") as! CXSigninViewController
+            self.window?.rootViewController = exampleViewController
+            self.window?.makeKeyAndVisible()
             
         }else{
             self.setUpSidePanl()

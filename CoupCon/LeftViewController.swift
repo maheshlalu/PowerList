@@ -1,4 +1,4 @@
-//
+ //
 //  LeftViewController.swift
 //  CoupCon
 //
@@ -14,7 +14,7 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
     @IBOutlet weak var leftTableview: UITableView!
     var previousSelectedIndex  : NSIndexPath = NSIndexPath()
     var nameArray = ["HOME","PROFILE & MEMBERSHIP","REDEEM & HISTORY","HOW TO USE","HELP","SIGN OUT"]
-    var imageArray = ["HomeImage","Profile & membershipImage","Profile & membershipImage","HowtoUseImage","Helpimage",""]
+    var imageArray = ["HomeImage","Profile & membershipImage","Profile & membershipImage","HowtoUseImage","Helpimage","PowerBtn"]
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -102,7 +102,7 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
             let homeView = storyBoard.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
             let navCntl = UINavigationController(rootViewController: homeView)
             revealController.pushFrontViewController(navCntl, animated: true)
-
+            
         }else if itemName == "PROFILE & MEMBERSHIP"{
             let aboutUs = storyBoard.instantiateViewControllerWithIdentifier("PROFILE_MEMBERSHIP") as! ProfileMembershipViewController
             let navCntl = UINavigationController(rootViewController: aboutUs)
@@ -112,19 +112,73 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
             let redeem = storyBoard.instantiateViewControllerWithIdentifier("REDEEM_HISTORY") as! ReedemViewController
             let navCntl = UINavigationController(rootViewController: redeem)
             revealController.pushFrontViewController(navCntl, animated: true)
+            
         }else if itemName == "HOW TO USE"{
-//            let orders = storyBoard.instantiateViewControllerWithIdentifier("ORDERS") as! OrdersViewController
-//            self.navigationController!.pushViewController(orders, animated: true)
+            //            let orders = storyBoard.instantiateViewControllerWithIdentifier("ORDERS") as! OrdersViewController
+            //            self.navigationController!.pushViewController(orders, animated: true)
             
         }else if itemName == "HELP" {
-//            let wishlist = storyBoard.instantiateViewControllerWithIdentifier("WISHLIST") as! NowfloatWishlistViewController
-//            self.navController.pushViewController(wishlist, animated: true)
+            //            let wishlist = storyBoard.instantiateViewControllerWithIdentifier("WISHLIST") as! NowfloatWishlistViewController
+            //            self.navController.pushViewController(wishlist, animated: true)
+            
+        }else if itemName == "SIGN OUT"{
+            
+             showAlertView("Are You Sure??", status: 1)
+            
         }
         
     }
 
-
+    func showAlertView(message:String, status:Int) {
+        let alert = UIAlertController(title: "CoupoCon", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        //alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+        let okAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default) {
+            UIAlertAction in
+            if status == 1 {
+                //Db Clear
+                self.clearDbFiles()
+                
+                //Delete userID from nsuserdeafults
+                NSUserDefaults.standardUserDefaults().removeObjectForKey("USERID")
+                
+                // for FB signout
+                let appDelVar:AppDelegate = (UIApplication.sharedApplication().delegate as? AppDelegate)!
+                // for Google signout
+                GIDSignIn.sharedInstance().signOut()
+                GIDSignIn.sharedInstance().disconnect()
+                appDelVar.application(UIApplication.sharedApplication(), didFinishLaunchingWithOptions: nil)
+                //self.navigationController?.popViewControllerAnimated(true)
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) {
+            UIAlertAction in
+            if status == 1 {
+                
+            }
+        }
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func clearDbFiles(){
+        
+        let fileManager = NSFileManager.defaultManager()
+        let documentsUrl =  NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first! as NSURL
+        
+        do {
+            let filePaths = try fileManager.contentsOfDirectoryAtPath("\(documentsUrl)")
+            for filePath in filePaths {
+                try fileManager.removeItemAtPath(NSTemporaryDirectory() + filePath)
+            }
+        } catch {
+            print("Could not clear temp folder: \(error)")
+        }
+    }
+    
 }
+
+
 
 
 extension LeftViewController{
