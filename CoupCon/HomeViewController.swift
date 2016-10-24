@@ -128,7 +128,7 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
             let attachMents : NSArray =  jobDic.valueForKey("Attachments")! as! NSArray
             for attachMent in attachMents {
                 let galaryData : NSDictionary = (attachMent as? NSDictionary)!
-                if galaryData.valueForKey("isCoverImage") as? String == "true" {
+                if galaryData.valueForKey("isBannerImage") as? String == "true" {
                     self.coverPageImagesList.addObject((galaryData.valueForKey("URL") as? String)!)
                 }
             }
@@ -158,16 +158,6 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
         button.layer.borderWidth = 2.0
         
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

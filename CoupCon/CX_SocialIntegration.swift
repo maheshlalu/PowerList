@@ -91,6 +91,7 @@ class CX_SocialIntegration: NSObject {
             //"password":""
             self.saveUserDeatils(responseDict)
             completion(responseDict: responseDict)
+            LoadingView.hide()
         }
 //        
 //        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getSignInUrl(), parameters: loginDic as? [String : AnyObject]) { (responseDict) in

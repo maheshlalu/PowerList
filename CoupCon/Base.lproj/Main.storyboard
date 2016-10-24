@@ -1661,6 +1661,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="aboutWebView" destination="GBK-2j-NZQ" id="dMt-tZ-TwH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A9O-d5-fDC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

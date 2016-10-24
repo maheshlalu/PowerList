@@ -93,6 +93,9 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
         // Do any additional setup after loading the view, typically from a nib.
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(CXSigninViewController.googleSignUp(_:)), name: "GoogleSignUp", object: nil)
+        
+        let loginManager: FBSDKLoginManager = FBSDKLoginManager()
+        loginManager.logOut()
 
     }
     
@@ -148,6 +151,8 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
     
     // Login Action
     @IBAction func userLoginAction(sender: AnyObject) {
+        
+        LoadingView.show("loading", animated: true)
 //        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getSignInUrl(), parameters: ["orgId":CXAppConfig.sharedInstance.getAppMallID(),"email":email,"dt":"DEVICES","password":password]) { (responseDict) in
 //            completion(responseDict: responseDict)
         //http://storeongo.com:8081/MobileAPIs/loginConsumerForOrg?
@@ -158,6 +163,7 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
             let status: Int = Int(responseDict.valueForKey("status") as! String)!
             if status == 1{
                 self.leadToHomeScreen()
+                LoadingView.hide()
             }
 
             let message = responseDict.valueForKey("msg") as? String
@@ -166,7 +172,7 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
                 alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
                     //self.moveBackView()
                     self.navigationController!.popViewControllerAnimated(true)
-                    
+                    LoadingView.hide()
                 }))
                 self.presentViewController(alert, animated: true, completion: nil)
             })
