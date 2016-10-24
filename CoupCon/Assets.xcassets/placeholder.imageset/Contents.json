@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "gmail-512.png",
+      "filename" : "profile_placeholder.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "gmail-513.png",
+      "filename" : "profile_placeholder-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "gmail-514.png",
+      "filename" : "profile_placeholder-2.png",
       "scale" : "3x"
     }
   ],

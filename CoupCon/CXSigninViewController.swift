@@ -10,7 +10,7 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDelegate,GIDSignInUIDelegate {
+class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDelegate,GIDSignInUIDelegate,SWRevealViewControllerDelegate {
     
     @IBOutlet weak var userBtn: UIButton!
     @IBOutlet weak var passwordBtn: UIButton!
@@ -23,9 +23,12 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
     @IBOutlet weak var facebookBtn:  FBSDKLoginButton!
     @IBOutlet weak var gmailBtn: GIDSignInButton!
     @IBOutlet weak var credientailsView: UIView!
-    
+    var window: UIWindow?
+
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        self.navigationController?.navigationBarHidden = true
         
         GIDSignIn.sharedInstance().uiDelegate = self
         self.userTf.delegate = self
@@ -93,6 +96,10 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
 
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = true
+    }
+    
     func handleTap(sender: UITapGestureRecognizer? = nil) {
         // handling code
         self.view.endEditing(true)
@@ -114,6 +121,13 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
     }
 
     
+    @IBAction func signUpBtnAction(sender: AnyObject) {
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let profile = storyBoard.instantiateViewControllerWithIdentifier("SignUpViewController") as! SignUpViewController
+        self.navigationController?.pushViewController(profile, animated: true)
+        
+    }
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         let loginManager: FBSDKLoginManager = FBSDKLoginManager()
         loginManager.logOut()
@@ -124,12 +138,65 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
         FBSDKGraphRequest.init(graphPath: "me", parameters: ["fields":"first_name,email,last_name,gender,picture.type(large),id"]).startWithCompletionHandler { (connection, result, error) -> Void in
             print ("FB Result is \(result)")
             if result != nil {
-                CX_SocialIntegration.sharedInstance.applicationRegisterWithFaceBook(result as! NSDictionary)
+                CX_SocialIntegration.sharedInstance.applicationRegisterWithFaceBook(result as! NSDictionary, completion: { (resPonce) in
+                    self.leadToHomeScreen()
+                })
             }
         }
         
     }
     
+    // Login Action
+    @IBAction func userLoginAction(sender: AnyObject) {
+//        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getSignInUrl(), parameters: ["orgId":CXAppConfig.sharedInstance.getAppMallID(),"email":email,"dt":"DEVICES","password":password]) { (responseDict) in
+//            completion(responseDict: responseDict)
+        //http://storeongo.com:8081/MobileAPIs/loginConsumerForOrg?
+        let userLoginDict: NSDictionary = NSDictionary(objects: [CXAppConfig.sharedInstance.getAppMallID(),self.userTf.text!,"DEVICES",passwordTf.text!],
+                                                         forKeys: ["orgId","userEmailId","dt","password"])
+        CX_SocialIntegration.sharedInstance.userLogin(userLoginDict) { (responseDict) in
+            
+            let status: Int = Int(responseDict.valueForKey("status") as! String)!
+            if status == 1{
+                self.leadToHomeScreen()
+            }
+
+            let message = responseDict.valueForKey("msg") as? String
+            dispatch_async(dispatch_get_main_queue(), {
+                let alert = UIAlertController(title: "Alert!!!", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
+                    //self.moveBackView()
+                    self.navigationController!.popViewControllerAnimated(true)
+                    
+                }))
+                self.presentViewController(alert, animated: true, completion: nil)
+            })
+            
+        }
+
+    }
+    
+    func leadToHomeScreen() {
+        //HomeViewController
+        let wFrame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height)
+        self.window = UIWindow.init(frame: wFrame)
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let homeView = storyBoard.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
+        let menuVC = storyBoard.instantiateViewControllerWithIdentifier("LeftViewController") as! LeftViewController
+        
+        let menuVCNav = UINavigationController(rootViewController: menuVC)
+        menuVCNav.navigationBarHidden = true
+        
+        let navHome = UINavigationController(rootViewController: homeView)
+        navHome.navigationBarHidden = true
+        
+        let revealVC = SWRevealViewController(rearViewController: menuVCNav, frontViewController: navHome)
+        revealVC.delegate = self
+        self.window?.rootViewController = revealVC
+        self.window?.makeKeyAndVisible()
+        
+    }
+
     
     // Google+ Integration
     
@@ -167,7 +234,9 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
         let  email = dic["email"] as! String
         
         
-        CX_SocialIntegration.sharedInstance.applicationRegisterWithGooglePlus(dic)
+        CX_SocialIntegration.sharedInstance.applicationRegisterWithGooglePlus(dic) { (resPonce) in
+            self.leadToHomeScreen()
+        }
 
         print("\(email)\(firstName)\(lastName)\(profilePic)\(orgID)")
         

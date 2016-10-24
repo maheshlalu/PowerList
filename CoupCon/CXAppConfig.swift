@@ -169,7 +169,17 @@ class CXAppConfig {
     }
     
     func getUserID() ->String{
-        return NSUserDefaults.standardUserDefaults().valueForKey("USERID") as! String
+        
+        if(NSUserDefaults.standardUserDefaults().objectForKey("USERID") == nil)
+        {
+            print("NULL")
+            return ""
+            
+        }else{
+            
+            return NSUserDefaults.standardUserDefaults().valueForKey("USERID") as! String
+        }
+        
     }
     
     

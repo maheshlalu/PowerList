@@ -17,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        //self.setUpSidePanl()
+        self.configure()
+        applicationNavigationFlow()
         self.setUpMagicalDB()
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
@@ -28,25 +29,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
         return true
     }
     
+    
+    func applicationNavigationFlow(){
+        let userId = CXAppConfig.sharedInstance.getUserID()
+        print(userId)
+        if userId == "" {
+            
+            
+        }else{
+            self.setUpSidePanl()
+            
+        }
+        
+    }
+    
     func setUpSidePanl(){
         
         let wFrame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height)
         self.window = UIWindow.init(frame: wFrame)
-        
-//        if !NSUserDefaults.standardUserDefaults().boolForKey("USER_ID"){
-//            let signUpView = CXSignInSignUpViewController.init()
-//            let  navController: UINavigationController = UINavigationController(rootViewController: signUpView)
-//            self.window?.rootViewController = navController
-//            self.window?.makeKeyAndVisible()
-//        }else{
-//            let homeView = HomeViewController.init()
-//            let sideMenu = SMMenuViewController.init()
-//            let  navController: SMNavigationController = SMNavigationController(menuViewController: sideMenu,contentViewController: homeView)
-//            self.window?.rootViewController = navController
-//            self.window?.makeKeyAndVisible()
-//        }
-//        
-//        
+    
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let homeView = storyBoard.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
         let menuVC = storyBoard.instantiateViewControllerWithIdentifier("LeftViewController") as! LeftViewController
@@ -230,5 +231,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
         }
     }
     
+    //MARK: Loader configuration
+    
+    func configure (){
+        var config : LoadingView.Config = LoadingView.Config()
+        config.size = 100
+        config.backgroundColor = UIColor.blackColor() //UIColor(red:0.03, green:0.82, blue:0.7, alpha:1)
+        config.spinnerColor = UIColor.whiteColor()//UIColor(red:0.88, green:0.26, blue:0.18, alpha:1)
+        config.titleTextColor = UIColor.whiteColor()//UIColor(red:0.88, green:0.26, blue:0.18, alpha:1)
+        config.spinnerLineWidth = 2.0
+        config.foregroundColor = UIColor.blackColor()
+        config.foregroundAlpha = 0.5
+        LoadingView.setConfig(config)
+    }
 }
 
