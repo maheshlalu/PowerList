@@ -12,6 +12,7 @@ class AboutUsViewController: UIViewController {
     var offersDic : NSDictionary?
     
     @IBOutlet weak var aboutTextView: UITextView!
+    @IBOutlet weak var aboutWebView: UIWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
         print(offersDic)
@@ -19,7 +20,10 @@ class AboutUsViewController: UIViewController {
         let aboutTxt :String =  self.offersDic?.valueForKey("Description") as! String
         
         //let aboutTxt :String =  self.offersDic?.valueForKey("Offers") as! String
-        self.aboutTextView.text = aboutTxt
+       // self.aboutTextView.text = aboutTxt
+        let descriptionTxt = "<span style=\"font-family: Roboto-Regular; font-size: 14\">\(aboutTxt)</span>"
+
+        self.aboutWebView.loadHTMLString(descriptionTxt, baseURL: nil)
         self.view.backgroundColor = UIColor.clearColor()
         
         // Do any additional setup after loading the view.

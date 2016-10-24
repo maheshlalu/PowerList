@@ -47,8 +47,10 @@ class OffersViewController: UIViewController {
     }
     
     func getTheOffers(){
+        LoadingView.show("Loading...", animated: true)
         CXDataService.sharedInstance.getTheAppDataFromServer(["type":"offers","mallId":CXAppConfig.sharedInstance.getAppMallID(),"PrefferedJobs":self.getTheOfferCodes()]) { (responseDict) in
             self.filterTheOffers((responseDict.valueForKey("jobs") as? NSArray)!)
+            LoadingView.hide()
             self.offersTableView.reloadData()
         }
     }
@@ -96,7 +98,37 @@ class OffersViewController: UIViewController {
         
         let offerDic : NSDictionary = self.offersList[indexPath.row] as! NSDictionary
         cell.offersLblText.text = offerDic.valueForKey("Name") as? String
+        //cell.offersLblText.backgroundColor = UIColor.redColor()
         tableView.allowsSelection = false
+        
+        
+
+        
+        
+        
+//        if indexPath.row == 0 {
+//            let color = UIColor.redColor().CGColor
+//            
+//            let shapeLayer:CAShapeLayer = CAShapeLayer()
+//            let frameSize =  cell.offersLblText.bounds
+//            print(NSStringFromCGRect(frameSize))
+//            let shapeRect = CGRect(x: 0, y: 0, width: frameSize.width, height: frameSize.height)
+//            
+//            shapeLayer.bounds = shapeRect
+//            shapeLayer.position = CGPoint(x: frameSize.width/2, y: frameSize.height/2)
+//            shapeLayer.fillColor = UIColor.clearColor().CGColor
+//            shapeLayer.strokeColor = color
+//            shapeLayer.lineWidth = 1
+//            shapeLayer.lineJoin = kCALineJoinRound
+//            shapeLayer.lineDashPattern = [2,4]
+//            shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: 5).CGPath
+//            print(NSStringFromCGRect(shapeLayer.frame))
+//
+//            cell.offersLblText.layer.addSublayer(shapeLayer)
+//
+//        }
+        
+
         return cell
         
     }

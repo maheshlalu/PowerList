@@ -36,10 +36,12 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
     
     func getTheDealsFromServer(){
        // selectedName = "Fine Dining"
+        LoadingView.show("Loading...", animated: true)
         CXDataService.sharedInstance.getTheAppDataFromServer(["type":selectedName,"mallId":CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in
-            print(responseDict)
+            //print(responseDict)
             self.dealsArray = NSArray(array: (responseDict.valueForKey("jobs") as? NSArray)!)
             self.collectionview.reloadData()
+            LoadingView.hide()
         }
     }
     

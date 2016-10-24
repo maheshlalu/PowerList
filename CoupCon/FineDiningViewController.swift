@@ -20,7 +20,7 @@ class FineDiningViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dealBackgroundImg.setImageWithURL(NSURL(string:(dealsDic.valueForKey("BackgroundImage_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
-        print(dealsDic.valueForKey("BackgroundImage_URL"))
+       // print(dealsDic.valueForKey("BackgroundImage_URL"))
         self.dealLogoImg.setImageWithURL(NSURL(string:(dealsDic.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
         self.dealNameLbl.text = dealsDic.valueForKey("Name") as?String
         //Background Image_URL

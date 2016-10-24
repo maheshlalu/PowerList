@@ -58,6 +58,7 @@ class SearchViewController: UIViewController {
         
         let categoryDic : NSDictionary = self.searchResults[indexPath.item] as! NSDictionary
         cell.dealsImgView.setImageWithURL(NSURL(string:(categoryDic.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
+        cell.productNameLbl.text = categoryDic.valueForKey("Name") as?String
         return cell
     }
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -72,6 +73,31 @@ class SearchViewController: UIViewController {
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
         return 5
     }
+    
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let dealsDic : NSDictionary = self.searchResults[indexPath.item] as! NSDictionary
+        var fineDinigVc : FineDiningViewController = FineDiningViewController()
+        let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        //dealsVc = storyBoard.instantiateViewControllerWithIdentifier("DealsViewController") as! DealsViewController
+        //dealsVc.selectedName = categoryDic.valueForKey("Name")! as! String
+        fineDinigVc = storyBoard.instantiateViewControllerWithIdentifier("FineDining") as! FineDiningViewController
+        fineDinigVc.dealsDic = dealsDic
+        self.navigationController?.pushViewController(fineDinigVc, animated: true)
+        
+        //        var cell : CollectionViewCell = (collectionView.cellForItemAtIndexPath(indexPath) as? CollectionViewCell))
+        //        cell.clickToLabel.textColor = UIColor.redColor()
+        //        cell!.layer.borderWidth = 1.0
+        //        cell!.layer.borderColor = UIColor(red: 80.0/255.0, green: 159.0/255.0, blue: 192.0/255.0, alpha: 1.0).CGColor
+        //
+        //        if let cell = collectionView.cellForItemAtIndexPath(indexPath) {
+        //            let label = cell.viewWithTag(50) as? UILabel
+        //            label!.textColor = UIColor.redColor()
+        //            
+        //        }
+        
+    }
+
     
 
 
@@ -90,7 +116,6 @@ extension SearchViewController:UISearchBarDelegate{
         } else {
            // self.loadDefaultList()
         }
-        
     }
     
     func loadDefaultList (){
@@ -113,23 +138,18 @@ extension SearchViewController:UISearchBarDelegate{
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         self.searchBar.showsCancelButton = true;
-        
     }
     
     func doSearch () {
         //http://storeongo.com:8081/Services/getMasters?type=allProducts&mallId=20217&keyWord=night
-        
+        LoadingView.show("Loading...", animated: true)
         CXDataService.sharedInstance.getTheAppDataFromServer(["type":"allProducts","keyWord":self.searchBar.text!,"mallId":CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in
             let jobs : NSArray =  responseDict.valueForKey("jobs")! as! NSArray
             self.searchResults = jobs
             self.searchCollectionView.reloadData()
-            
+            LoadingView.hide()
         }
-        
     }
-    
-    
-    
     
 }
 

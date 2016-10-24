@@ -52,12 +52,11 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
         self.storeCategoryArray = NSArray()
         self.coverPageImagesList = NSMutableArray()
         self.addSidePanelButton()
-        
+        LoadingView.show("Loading...", animated: true)
         CXDataService.sharedInstance.getTheAppDataFromServer(["type":"ProductCategories","mallId":CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in
-            print(responseDict)
             self.storeCategoryArray = NSArray(array: (responseDict.valueForKey("jobs") as? NSArray)!)
             self.homecollectionview.reloadData()
-
+            LoadingView.hide()
         }
         self.getTheGalleryItems()
         
