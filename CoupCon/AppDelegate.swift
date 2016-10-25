@@ -11,7 +11,7 @@ import CoreData
 import FBSDKCoreKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDelegate,GIDSignInDelegate{
+class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDelegate, GIDSignInDelegate {
     
     var window: UIWindow?
     
@@ -38,7 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
             self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let exampleViewController: CXSigninViewController = mainStoryboard.instantiateViewControllerWithIdentifier("CXSigninViewController") as! CXSigninViewController
-            self.window?.rootViewController = exampleViewController
+            let navCntl : UINavigationController = UINavigationController(rootViewController: exampleViewController)
+            self.window?.rootViewController = navCntl
             self.window?.makeKeyAndVisible()
             
         }else{

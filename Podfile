@@ -8,6 +8,7 @@ pod 'MagicalRecord/Shorthand'
 pod 'Alamofire', '~> 3.4'
 pod 'Google/SignIn'
 pod 'SDWebImage', '~> 3.8'
+pod 'AFNetworking', '~> 3.1'
 
   # Pods for CoupCon
 

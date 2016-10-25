@@ -43,7 +43,7 @@
                             </mask>
                         </variation>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SjZ-sq-zqI">
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SjZ-sq-zqI">
                         <rect key="frame" x="162" y="260" width="94" height="19"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -91,7 +91,7 @@
                 <outlet property="categoryImageView" destination="Ibm-XE-1JL" id="gWI-Xg-Gam"/>
                 <outlet property="subCategoryLbl" destination="HpM-Le-iyL" id="rxs-hM-b0B"/>
             </connections>
-            <point key="canvasLocation" x="82" y="13"/>
+            <point key="canvasLocation" x="236" y="200"/>
         </collectionViewCell>
     </objects>
     <resources>

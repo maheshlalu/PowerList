@@ -37,8 +37,10 @@ class CX_SocialIntegration: NSObject {
                 let gender: String = (userDataDic.objectForKey("gender") as? String)!
                 let email: String = (userDataDic.objectForKey("email") as? String)!
                 let fbID : String = (userDataDic.objectForKey("id") as? String)!
+                let userPic : String = (userDataDic.valueForKeyPath("picture.data.url") as? String)!
+
                 //picture,data,url
-                let userRegisterDic: NSDictionary = NSDictionary(objects: [CXAppConfig.sharedInstance.getAppMallID(),email,"DEVICES",fbID,strFirstName,strLastName,gender,"","true"],
+                let userRegisterDic: NSDictionary = NSDictionary(objects: [CXAppConfig.sharedInstance.getAppMallID(),email,"DEVICES",fbID,strFirstName,strLastName,gender,userPic,"true"],
                                                                  forKeys: ["orgId","userEmailId","dt","password","firstName","lastName","gender","filePath","isLoginWithFB"])
                 self.registerWithSocialNewtWokrk(userRegisterDic, completion: { (responseDict) in
                     completion(resPonce: true)
@@ -48,7 +50,6 @@ class CX_SocialIntegration: NSObject {
                 print("Welcome,\(email) \(strFirstName) \(strLastName) \(gender) ")
             }else{
                 // get the details from server using below url
-                
                 CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getSignInUrl(), parameters: ["orgId":CXAppConfig.sharedInstance.getAppMallID(),"email":email,"dt":"DEVICES","isLoginWithFB":"true"]) { (responseDict) in
                     //"password":""
                     self.saveUserDeatils(responseDict)
@@ -87,8 +88,9 @@ class CX_SocialIntegration: NSObject {
     
     func userLogin(loginDic:NSDictionary,completion:(responseDict:NSDictionary) -> Void){
         print(loginDic)
-        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getSignInUrl(), parameters: ["orgId":CXAppConfig.sharedInstance.getAppMallID(),"email":loginDic.valueForKey("userEmailId") as! String,"dt":"DEVICES","isLoginWithFB":"true"]) { (responseDict) in
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getSignInUrl(), parameters: ["dt":"DEVICES","orgId":CXAppConfig.sharedInstance.getAppMallID(),"email":loginDic.valueForKey("email")!,"password":loginDic.valueForKey("password")!]) { (responseDict) in
             //"password":""
+            
             self.saveUserDeatils(responseDict)
             completion(responseDict: responseDict)
             LoadingView.hide()
@@ -124,10 +126,6 @@ class CX_SocialIntegration: NSObject {
             } else {
             }
         }
-        
-        
-        
-        
     }
     
     func saveUserDeatils(userData:NSDictionary){
@@ -139,14 +137,16 @@ class CX_SocialIntegration: NSObject {
             let status: Int = Int(userData.valueForKey("status") as! String)!
             
             if status == 1{
-            enProduct?.userId = CXAppConfig.resultString(userData.valueForKey("UserId")!)
-            enProduct?.emailId = userData.valueForKey("emailId") as? String
-            enProduct?.firstName = userData.valueForKey("firstName") as? String
-            enProduct?.lastName = userData.valueForKey("lastName") as? String
-            enProduct?.userPic =  userData.objectForKey("userImagePath") as? String
-            enProduct?.macId = userData.valueForKey("macId") as? String
-            enProduct?.macIdJobId = userData.valueForKey("macIdJobId") as? String
-            CXAppConfig.sharedInstance.saveUserID((enProduct?.userId)! )
+                enProduct?.userId = CXAppConfig.resultString(userData.valueForKey("UserId")!)
+                enProduct?.emailId = userData.valueForKey("emailId") as? String
+                enProduct?.firstName = userData.valueForKey("firstName") as? String
+                enProduct?.lastName = userData.valueForKey("lastName") as? String
+                if enProduct?.userPic == nil{
+                    enProduct?.userPic =  userData.objectForKey("userImagePath") as? String
+                }
+                enProduct?.macId = userData.valueForKey("macId") as? String
+                enProduct?.macIdJobId = userData.valueForKey("macIdJobId") as? String
+                CXAppConfig.sharedInstance.saveUserID((enProduct?.userId)!)
             }
         }) { (success, error) in
             if success == true {
@@ -192,7 +192,7 @@ class CX_SocialIntegration: NSObject {
 
                 //picture,data,url
                 
-                let userRegisterDic: NSDictionary = NSDictionary(objects: [CXAppConfig.sharedInstance.getAppMallID(),email,"DEVICES",GoogleID,strFirstName,strLastName,"","","true",userPic],
+                let userRegisterDic: NSDictionary = NSDictionary(objects: [CXAppConfig.sharedInstance.getAppMallID(),email,"DEVICES",GoogleID,strFirstName,strLastName,"",userPic,"true",userPic],
                                                                  forKeys: ["orgId","userEmailId","dt","password","firstName","lastName","gender","filePath","isLoginWithFB","userImagePath"])
                 self.registerWithSocialNewtWokrk(userRegisterDic, completion: { (responseDict) in
                     completion(resPonce: true)

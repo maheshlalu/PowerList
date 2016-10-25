@@ -9,8 +9,8 @@
 import UIKit
 
 
-class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,SWRevealViewControllerDelegate{
-
+class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,SWRevealViewControllerDelegate,UIScrollViewDelegate{
+    
     @IBOutlet weak var firstNameTxtField: SkyFloatingLabelTextField!
     @IBOutlet weak var lastNameTxtField: SkyFloatingLabelTextField!
     @IBOutlet weak var mobileTextField: SkyFloatingLabelTextField!
@@ -19,22 +19,25 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
     @IBOutlet weak var confirmPwdTxtField: SkyFloatingLabelTextField!
     @IBOutlet weak var signUpBtn: UIButton!
     @IBOutlet weak var editDPImage: UIImageView!
-     var window: UIWindow?
+    @IBOutlet weak var signUpScrollView: UIScrollView!
+    var window: UIWindow?
     var alertTextField:UITextField! = nil
     let limitLength = 10
     
-//    var firstName:String!
-//    var lastName:String!
-//    var emai:String!
-//    var mobile:String!
-//    var dpImg:String!
+    //    var firstName:String!
+    //    var lastName:String!
+    //    var emai:String!
+    //    var mobile:String!
+    //    var dpImg:String!
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        
+        
         self.navigationController?.navigationBarHidden = false
-        self.editDPImage.layer.cornerRadius = self.editDPImage.frame.size.width / 3
+        self.editDPImage.layer.cornerRadius = 70
         self.editDPImage.clipsToBounds = true
         self.editDPImage.layer.borderWidth = 3.0
         self.editDPImage.layer.borderColor = UIColor.whiteColor().CGColor
@@ -44,13 +47,25 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
         self.editDPImage.addGestureRecognizer(imgTap)
         
         
-//        headerViewAlignments()
-//        dataIntegration()
-//        editDropDown()
-//        self.saveImageBtn.hidden = true
-//        let imgTap:UIGestureRecognizer = UITapGestureRecognizer.init()
-//        imgTap.addTarget(self, action: #selector(editBtnAction(_:)))
-//        editDPImage.addGestureRecognizer(imgTap)
+        //        headerViewAlignments()
+        //        dataIntegration()
+        //        editDropDown()
+        //        self.saveImageBtn.hidden = true
+        //        let imgTap:UIGestureRecognizer = UITapGestureRecognizer.init()
+        //        imgTap.addTarget(self, action: #selector(editBtnAction(_:)))
+        //        editDPImage.addGestureRecognizer(imgTap)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(SignUpViewController.keyboardWillShow(_:)),
+                                                         name: UIKeyboardWillShowNotification,
+                                                         object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(SignUpViewController.keyboardWillHide(_:)),
+                                                         name: UIKeyboardWillHideNotification,
+                                                         object: nil)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.handleTap(_:)))
+        self.signUpScrollView.addGestureRecognizer(tap)
         
     }
     
@@ -59,7 +74,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
     }
     
     func imagePickerAction(sender: AnyObject){
-     
+        
         print("choose from photos")
         let image = UIImagePickerController()
         image.delegate = self
@@ -83,35 +98,41 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
             if self.mobileTextField.text?.characters.count < 10 {
                 self.mobileTextField.errorMessage = "Invalid Mobile"
                 return
+            }else{
+                self.mobileTextField.errorMessage = nil
             }
             
             if !self.isValidEmail(self.emailTxtField.text!) {
                 self.emailTxtField.errorMessage = "Invalid Email"
                 return
+            }else{
+                self.emailTxtField.errorMessage = nil
             }
-
+            
             if self.pwdTxtField.text != self.confirmPwdTxtField.text{
-                self.pwdTxtField.errorMessage = "Unequal Password"
+                self.confirmPwdTxtField.errorMessage = "Unequal Password"
                 return
+            }else{
+                self.pwdTxtField.errorMessage = nil
             }
+            
             self.sendSignUpDetails()
             
         } else {
-
+            
             let alert = UIAlertController(title: "Alert!!!", message: "All fields are mandatory. Please enter all fields.", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
-
+            
         }
     }
     
     func sendSignUpDetails() {
-        
         savingDataInUserDefaults()
-        self.emailTxtField.errorMessage = ""
-        self.mobileTextField.errorMessage = ""
-        self.pwdTxtField.errorMessage = ""
-
+        
+        self.signUp()
+        return
+        
         let alert = UIAlertController(title: "CoupoCon", message: "Enter Valid Mobile Number To Get OTP", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addTextFieldWithConfigurationHandler(configurationTextField)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Destructive, handler:handleCancel))
@@ -122,33 +143,58 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
             }else{
                 //let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
                 //let profile = storyBoard.instantiateViewControllerWithIdentifier("OTP_VIEW") as! OTPViewController
-                self.signUp()
-               // self.navigationController?.pushViewController(profile, animated: true)
+                //self.signUp()
+                // self.navigationController?.pushViewController(profile, animated: true)
             }
-
+            
         }))
-//        self.presentViewController(alert, animated: true, completion: {
-//            print("completion block")
-//        })
+        //        self.presentViewController(alert, animated: true, completion: {
+        //            print("completion block")
+        //        })
     }
     
     func signUp(){
+        
         LoadingView.show("loading", animated: true)
-
+        
+        
+        
         let firstName = NSUserDefaults.standardUserDefaults().valueForKey("FIRST_NAME") as? String
         let lastName = NSUserDefaults.standardUserDefaults().valueForKey("LAST_NAME") as? String
         //let mobile = NSUserDefaults.standardUserDefaults().valueForKey("FULL_NAME") as? String
         let email = NSUserDefaults.standardUserDefaults().valueForKey("USER_EMAIL") as? String
         let password = NSUserDefaults.standardUserDefaults().valueForKey("PASSWORD") as? String
-        //let imageData = NSUserDefaults.standardUserDefaults().valueForKey("IMG_DATA") as? String
+        let imageData = NSUserDefaults.standardUserDefaults().valueForKey("IMG_DATA") as? NSData
         
-        
-        let userRegisterDic: NSDictionary = NSDictionary(objects: [CXAppConfig.sharedInstance.getAppMallID(),email!,"DEVICES",password!,firstName!,lastName!,"","","false"],
-                                                         forKeys: ["orgId","userEmailId","dt","password","firstName","lastName","gender","filePath","isLoginWithFB"])
-        CX_SocialIntegration.sharedInstance.registerWithSocialNewtWokrk(userRegisterDic, completion: { (responseDict) in
-            self.leadToHomeScreen()
-            LoadingView.hide()
+        LoadingView.show("Uploading", animated: true)
+        CXDataService.sharedInstance.imageUpload(imageData!, completion: { (Response) in
+            print(Response)
+            let status: Int = Int(Response.valueForKey("status") as! String)!
+            if status == 1{
+                let imgStr = Response.valueForKey("filePath") as! String
+                let userRegisterDic: NSDictionary = NSDictionary(objects: [CXAppConfig.sharedInstance.getAppMallID(),email!,"DEVICES",password!,firstName!,lastName!,"",imgStr,"false"],
+                    forKeys: ["orgId","userEmailId","dt","password","firstName","lastName","gender","filePath","isLoginWithFB"])
+                CX_SocialIntegration.sharedInstance.registerWithSocialNewtWokrk(userRegisterDic, completion: { (responseDict) in
+                    self.leadToHomeScreen()
+                    LoadingView.hide()
+                })
+                //NSUserDefaults.standardUserDefaults().setObject(Response.valueForKey("filePath"), forKey: "IMG_URL")
+                
+                
+            }
         })
+        
+//        if imageData != ""{
+//        let userRegisterDic: NSDictionary = NSDictionary(objects: [CXAppConfig.sharedInstance.getAppMallID(),email!,"DEVICES",password!,firstName!,lastName!,"",imageData!,"false"],
+//                                                         forKeys: ["orgId","userEmailId","dt","password","firstName","lastName","gender","filePath","isLoginWithFB"])
+//        CX_SocialIntegration.sharedInstance.registerWithSocialNewtWokrk(userRegisterDic, completion: { (responseDict) in
+//            self.leadToHomeScreen()
+//            LoadingView.hide()
+//        })
+//        }else{
+//        self.showAlertView("Please Upload Profile Image", status: 0)
+//            
+//        }
     }
     
     func leadToHomeScreen() {
@@ -172,7 +218,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
         self.window?.makeKeyAndVisible()
         
     }
-
+    
     
     func configurationTextField(alertTextField: UITextField!)
     {
@@ -188,7 +234,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
         alertTextField.contentVerticalAlignment = UIControlContentVerticalAlignment.Center
         self.alertTextField = alertTextField
     }
-
+    
     func handleCancel(alertView: UIAlertAction!)
     {
         print("User click Cancel button")
@@ -211,7 +257,12 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
         let newLength = text.characters.count + string.characters.count - range.length
         return newLength <= limitLength
         
-
+        
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     func showAlertView(message:String, status:Int) {
@@ -232,6 +283,36 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
         }
         return false
     }
+    
+    func handleTap(sender: UITapGestureRecognizer? = nil) {
+        // handling code
+        self.view.endEditing(true)
+    }
+    
+    func keyboardWillShow(sender: NSNotification) {
+        if let keyboardSize = (sender.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            if view.frame.origin.y == 0{
+                self.view.frame.origin.y = -(keyboardSize.height-60)
+            }
+            else {
+                
+            }
+        }
+    }
+    
+    func keyboardWillHide(sender: NSNotification) {
+        if ((sender.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue()) != nil {
+            if view.frame.origin.y != 0 {
+                self.view.frame.origin.y = 0
+            }
+            else {
+                
+            }
+        }
+    }
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        self.signUpScrollView.resignFirstResponder()
+    }
     // MARK: - UIImagePickerControllerDelegate Methods
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
@@ -241,7 +322,6 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
             let image = pickedImage as UIImage
             let imageData = NSData(data: UIImagePNGRepresentation(image)!)
             NSUserDefaults.standardUserDefaults().setObject(imageData, forKey: "IMG_DATA")
-
         }
         
         dismissViewControllerAnimated(true, completion: nil)
@@ -252,5 +332,5 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
         
     }
     
-
+    
 }

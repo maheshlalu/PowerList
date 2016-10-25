@@ -157,9 +157,9 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
 //            completion(responseDict: responseDict)
         //http://storeongo.com:8081/MobileAPIs/loginConsumerForOrg?
         let userLoginDict: NSDictionary = NSDictionary(objects: [CXAppConfig.sharedInstance.getAppMallID(),self.userTf.text!,"DEVICES",passwordTf.text!],
-                                                         forKeys: ["orgId","userEmailId","dt","password"])
+                                                         forKeys: ["orgId","email","dt","password"])
         CX_SocialIntegration.sharedInstance.userLogin(userLoginDict) { (responseDict) in
-            
+            print(responseDict)
             let status: Int = Int(responseDict.valueForKey("status") as! String)!
             if status == 1{
                 self.leadToHomeScreen()

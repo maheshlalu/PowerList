@@ -12,26 +12,38 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
 
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var leftTableview: UITableView!
+    @IBOutlet weak var dpNameLbl: UILabel!
+    
+    let managedObjectContext:NSManagedObjectContext! = nil
     var previousSelectedIndex  : NSIndexPath = NSIndexPath()
     var nameArray = ["HOME","PROFILE & MEMBERSHIP","REDEEM & HISTORY","HOW TO USE","HELP","SIGN OUT"]
     var imageArray = ["HomeImage","Profile & membershipImage","Profile & membershipImage","HowtoUseImage","Helpimage","PowerBtn"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let appdata:NSArray = UserProfile.MR_findAll() as NSArray
+        let userProfileData:UserProfile = appdata.lastObject as! UserProfile
         
+        let imageUrl = userProfileData.userPic
+        if (imageUrl != ""){
+            userImage.sd_setImageWithURL(NSURL(string: imageUrl!))
+        }
         self.userImage.layer.borderColor = UIColor.whiteColor().CGColor
-        
-        self.userImage.layer.cornerRadius = 45 //self.userImage.bounds.size.width/2
+        self.userImage.layer.cornerRadius = 60 //self.userImage.bounds.size.width/2
         self.userImage.clipsToBounds = true
         
-        
+        self.dpNameLbl.text = userProfileData.firstName
+
         let nib = UINib(nibName: "TableViewCell", bundle: nil)
         self.leftTableview.registerNib(nib, forCellReuseIdentifier: "TableViewCell")
 
         // Do any additional setup after loading the view.
+        
+        
     }
     
-    
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBarHidden = true
@@ -42,8 +54,7 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        
-        
+
         return nameArray.count
         
     }
