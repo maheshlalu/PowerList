@@ -1,40 +1,65 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <development version="7000" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="158" id="KGk-i7-Jjw" customClass="OfferTableViewCell" customModule="CoupCon" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="271" height="158"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="122" id="KGk-i7-Jjw" customClass="OfferTableViewCell" customModule="CoupCon" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="474" height="122"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="271" height="157"/>
+                <rect key="frame" x="0.0" y="0.0" width="474" height="121"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15% Off an Total Bill" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTH-un-0bD">
-                        <rect key="frame" x="78" y="10" width="115" height="137"/>
-                        <color key="backgroundColor" red="0.31764705882352939" green="0.72549019607843135" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.89411764705882346" green="0.92549019607843142" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15% Off an Total Bill" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTH-un-0bD">
+                        <rect key="frame" x="8" y="25" width="306" height="72"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="306" id="S70-og-Zhw"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="udo-nl-i9f">
+                        <rect key="frame" x="327" y="25" width="139" height="72"/>
+                        <color key="backgroundColor" red="0.27058823529411763" green="0.52941176470588236" blue="0.88235294117647056" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="139" id="MPe-KS-qxG"/>
+                            <constraint firstAttribute="height" constant="72" id="h0Q-eu-1kr"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                        <state key="normal">
+                            <string key="title">View Terms of Use
+ &amp;  Redeem</string>
+                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="wTH-un-0bD" secondAttribute="bottom" constant="2" id="8ur-4T-AsL"/>
-                    <constraint firstItem="wTH-un-0bD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="Ba7-Mr-uHv"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="wTH-un-0bD" secondAttribute="trailing" constant="70" id="cRe-dM-kya"/>
-                    <constraint firstItem="wTH-un-0bD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="70" id="frl-GD-0nX"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="wTH-un-0bD" secondAttribute="bottom" constant="16" id="8ur-4T-AsL"/>
+                    <constraint firstItem="wTH-un-0bD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="17" id="Ba7-Mr-uHv"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="udo-nl-i9f" secondAttribute="bottom" constant="16" id="Fns-1H-rpv"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="udo-nl-i9f" secondAttribute="trailing" id="Lha-jO-nZ1"/>
+                    <constraint firstItem="udo-nl-i9f" firstAttribute="leading" secondItem="wTH-un-0bD" secondAttribute="trailing" constant="13" id="aoc-4w-iuW"/>
+                    <constraint firstItem="wTH-un-0bD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="frl-GD-0nX"/>
+                    <constraint firstItem="udo-nl-i9f" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="17" id="hlv-rd-4hM"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="offersLblText" destination="wTH-un-0bD" id="iQ5-6g-Eek"/>
+                <outlet property="redeemBtn" destination="udo-nl-i9f" id="hrD-O3-KxM"/>
             </connections>
-            <point key="canvasLocation" x="11.5" y="-11"/>
+            <point key="canvasLocation" x="185" y="265"/>
         </tableViewCell>
     </objects>
 </document>

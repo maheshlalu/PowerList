@@ -34,12 +34,14 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setUPTheNavigationProperty()
         
         
         self.navigationController?.navigationBarHidden = false
         self.editDPImage.layer.cornerRadius = 70
         self.editDPImage.clipsToBounds = true
-        self.editDPImage.layer.borderWidth = 3.0
+        self.editDPImage.layer.borderWidth = 5.0
+        
         self.editDPImage.layer.borderColor = UIColor.whiteColor().CGColor
         
         let imgTap:UIGestureRecognizer = UITapGestureRecognizer.init()
@@ -71,6 +73,14 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.editDPImage.endEditing(true)
+    }
+    
+    func setUPTheNavigationProperty(){
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.translucent = true
+        
     }
     
     func imagePickerAction(sender: AnyObject){

@@ -98,13 +98,16 @@ class OffersViewController: UIViewController {
         
         let offerDic : NSDictionary = self.offersList[indexPath.row] as! NSDictionary
         cell.offersLblText.text = offerDic.valueForKey("Name") as? String
-        //cell.offersLblText.backgroundColor = UIColor.redColor()
-        tableView.allowsSelection = false
+        cell.redeemBtn.layer.cornerRadius = 8.0
         
-        
+        if indexPath.row % 2 != 0 {
+            
+            cell.backgroundColor = UIColor.lightGrayColor()
+        }
+        else {
+            cell.backgroundColor = UIColor.whiteColor()
+        }
 
-        
-        
         
 //        if indexPath.row == 0 {
 //            let color = UIColor.redColor().CGColor
@@ -132,13 +135,14 @@ class OffersViewController: UIViewController {
         return cell
         
     }
+
     
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let offerTitle : String = (self.offersList[indexPath.row] as?String)!
-        self.getTheofferDisplayString(offerTitle)
+       // let offerTitle : String = (self.offersList[indexPath.row] as?String)!
+        //self.getTheofferDisplayString(offerTitle)
 
     }
     
@@ -152,25 +156,11 @@ class OffersViewController: UIViewController {
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {
-        tableView.rowHeight = 110
-        return 110
+        tableView.rowHeight = 122
+        return 122
         
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

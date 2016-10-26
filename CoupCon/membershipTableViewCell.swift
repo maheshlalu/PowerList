@@ -1,17 +1,18 @@
 //
-//  OfferTableViewCell.swift
+//  membershipTableViewCell.swift
 //  MembershipScreen
 //
-//  Created by Rama kuppa on 19/10/16.
+//  Created by Rama kuppa on 18/10/16.
 //  Copyright © 2016 Mahesh. All rights reserved.
 //
 
 import UIKit
 
-class OfferTableViewCell: UITableViewCell {
+class membershipTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var offersLblText: UILabel!
-    @IBOutlet weak var redeemBtn: UIButton!
+    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var descriptionLbl: UILabel!
+    @IBOutlet weak var imageLbl: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

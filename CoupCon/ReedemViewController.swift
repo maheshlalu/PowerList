@@ -30,7 +30,9 @@ class ReedemViewController: UIViewController,UITextFieldDelegate {
     }
     
     func setUpSideMenu(){
+        
         let menuItem = UIBarButtonItem(image: UIImage(named: "sidePanelMenu"), style: .Plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
+        menuItem.tintColor = UIColor.grayColor()
         self.navigationItem.leftBarButtonItem = menuItem
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
@@ -48,26 +50,30 @@ class ReedemViewController: UIViewController,UITextFieldDelegate {
         
     }
     
-//    
-//  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-//    {
-//        return 1
-//        
-//        
-//    }
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//    
-//        
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "RedeemTableViewCell", for: indexPath)
-//        
-//        RedeemTableView.separatorStyle = .none
-//        return cell
-//    }
-//
-//    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        tableView.rowHeight = 100
-//        return 100
-//        
-//    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        
+         return 1
+        
+    }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("RedeemTableViewCell", forIndexPath: indexPath)
+
+        RedeemTableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        return cell
+        
+        
+    }
+    
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    {
+        tableView.rowHeight = 100
+            return 100
+        
+    }
+    
 }

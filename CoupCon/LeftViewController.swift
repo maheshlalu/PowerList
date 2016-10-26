@@ -30,7 +30,8 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
             userImage.sd_setImageWithURL(NSURL(string: imageUrl!))
         }
         self.userImage.layer.borderColor = UIColor.whiteColor().CGColor
-        self.userImage.layer.cornerRadius = 60 //self.userImage.bounds.size.width/2
+       self.userImage.layer.cornerRadius = 60
+        self.userImage.layer.borderWidth = 5
         self.userImage.clipsToBounds = true
         
         self.dpNameLbl.text = userProfileData.firstName
@@ -125,8 +126,9 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
             revealController.pushFrontViewController(navCntl, animated: true)
             
         }else if itemName == "HOW TO USE"{
-            //            let orders = storyBoard.instantiateViewControllerWithIdentifier("ORDERS") as! OrdersViewController
-            //            self.navigationController!.pushViewController(orders, animated: true)
+            let howToUse = storyBoard.instantiateViewControllerWithIdentifier("HOW_TO_USE") as! HowToUseViewController
+             let navCntl = UINavigationController(rootViewController: howToUse)
+            revealController.pushFrontViewController(navCntl, animated: true)
             
         }else if itemName == "HELP" {
             //            let wishlist = storyBoard.instantiateViewControllerWithIdentifier("WISHLIST") as! NowfloatWishlistViewController

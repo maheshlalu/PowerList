@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "usr-with-background.png",
+      "filename" : "phone-120.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "usr-with-background-1.png",
+      "filename" : "phone-121.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "usr-with-background-2.png",
+      "filename" : "phone-122.png",
       "scale" : "3x"
     }
   ],

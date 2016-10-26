@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <development version="7000" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="membershipTableViewCell" rowHeight="72" id="KGk-i7-Jjw" customClass="membershipTableViewCell" customModule="CoupCon" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="398" height="72"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="398" height="71"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Njx-Pn-We0">
+                        <rect key="frame" x="8" y="8" width="294" height="25"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="294" id="CB8-Jr-uOK"/>
+                            <constraint firstAttribute="height" constant="25" id="LoI-J1-RUB"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1Y-TX-9qg">
+                        <rect key="frame" x="8" y="32" width="63" height="21"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="63" id="Wyt-BY-xdk"/>
+                            <constraint firstAttribute="height" constant="21" id="kRz-4o-TK1"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dYa-gP-avx">
+                        <rect key="frame" x="0.0" y="66" width="398" height="1"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTc-op-UyD">
+                        <rect key="frame" x="342" y="8" width="48" height="50"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="48" id="W2e-cO-HoB"/>
+                            <constraint firstAttribute="height" constant="50" id="m3S-Im-fqX"/>
+                        </constraints>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Njx-Pn-We0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="D6u-SV-F4G"/>
+                    <constraint firstItem="g1Y-TX-9qg" firstAttribute="top" secondItem="Njx-Pn-We0" secondAttribute="bottom" constant="-1" id="Mjq-iL-OKG"/>
+                    <constraint firstItem="Njx-Pn-We0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="fPn-0g-rQS"/>
+                    <constraint firstItem="g1Y-TX-9qg" firstAttribute="leading" secondItem="Njx-Pn-We0" secondAttribute="leading" id="huQ-vY-mN6"/>
+                    <constraint firstItem="HTc-op-UyD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="r8U-FM-lz6"/>
+                    <constraint firstAttribute="trailing" secondItem="HTc-op-UyD" secondAttribute="trailing" constant="8" id="w6B-0O-gze"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="descriptionLbl" destination="g1Y-TX-9qg" id="oJY-w4-q2A"/>
+                <outlet property="imageLbl" destination="HTc-op-UyD" id="xne-s1-5Fg"/>
+                <outlet property="nameLbl" destination="Njx-Pn-We0" id="QEk-FL-6k0"/>
+            </connections>
+            <point key="canvasLocation" x="94" y="89"/>
+        </tableViewCell>
+    </objects>
+</document>
