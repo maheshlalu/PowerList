@@ -47,6 +47,9 @@ class OffersViewController: UIViewController {
     }
     
     func getTheOffers(){
+        //http://storeongo.com:8081/Services/getOffers?mallId=20217&%20consumerEmail=yernagulamahesh@gmail.com&macJobId=195735&%20productId=196429prefferedJobs=196663
+        
+        
         LoadingView.show("Loading...", animated: true)
         CXDataService.sharedInstance.getTheAppDataFromServer(["type":"offers","mallId":CXAppConfig.sharedInstance.getAppMallID(),"PrefferedJobs":self.getTheOfferCodes()]) { (responseDict) in
             self.filterTheOffers((responseDict.valueForKey("jobs") as? NSArray)!)
@@ -164,6 +167,29 @@ class OffersViewController: UIViewController {
     {
         tableView.rowHeight = 122
         return 122
+        
+    }
+    
+    
+    func constructTheOfferReedemJson(){
+        /*
+         json={"list"":[{"ProductName":"Tabla","ProductDescription":"description","ProductImage":"https://s3-ap-southeast-1.amazonaws.com/storeongocontent/jobs/jobFldAttachments/20217_1477488244540.png","OfferName":"25 off on lunch","ProductId":"196429","OfferId":"9876543210","MacId":"102716-BHJAFCFH"}]}&dt=CAMPAIGNS&category=Notifications&userId=20217&consumerEmail=cxsample@gmail.com
+         
+         */
+        let jsonDic : NSMutableDictionary = NSMutableDictionary()
+        jsonDic.setObject("334", forKey: "ProductName")
+        jsonDic.setObject("23", forKey: "ProductDescription")
+        jsonDic.setObject("54", forKey: "ProductImage")
+        jsonDic.setObject("456", forKey: "OfferName")
+        jsonDic.setObject("456", forKey: "ProductId")
+        jsonDic.setObject("456", forKey: "OfferId")
+        jsonDic.setObject("76445", forKey: "MacId")
+
+        let jsonListArray : NSMutableArray = NSMutableArray()
+        jsonListArray.addObject(jsonDic)
+        
+        let listDic : NSDictionary = NSDictionary(object: jsonListArray, forKey: "list")
+        print(listDic)
         
     }
     

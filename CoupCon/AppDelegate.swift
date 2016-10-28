@@ -26,10 +26,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
         GGLContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
         GIDSignIn.sharedInstance().delegate = self
-        
+        //self.constructTheOfferReedemJson()
         return true
     }
     
+    func constructTheOfferReedemJson(){
+        /*
+         json={"list"":[{"ProductName":"Tabla","ProductDescription":"description","ProductImage":"https://s3-ap-southeast-1.amazonaws.com/storeongocontent/jobs/jobFldAttachments/20217_1477488244540.png","OfferName":"25 off on lunch","ProductId":"196429","OfferId":"9876543210","MacId":"102716-BHJAFCFH"}]}&dt=CAMPAIGNS&category=Notifications&userId=20217&consumerEmail=cxsample@gmail.com
+         
+         */
+        let jsonDic : NSMutableDictionary = NSMutableDictionary()
+        jsonDic.setObject("Club Republic", forKey: "ProductName")
+        //jsonDic.setObject("23", forKey: "ProductDescription")
+        jsonDic.setObject("https://s3-ap-southeast-1.amazonaws.com/storeongocontent/jobs/jobFldAttachments/20217_1477388128490.jpg", forKey: "ProductImage")
+        jsonDic.setObject("10% off on total bill", forKey: "OfferName")
+        jsonDic.setObject("196243", forKey: "ProductId")
+        jsonDic.setObject("itemcode_5", forKey: "OfferId")
+        jsonDic.setObject(CXAppConfig.sharedInstance.getTheUserData().macId, forKey: "MacId")
+        
+        let jsonListArray : NSMutableArray = NSMutableArray()
+        jsonListArray.addObject(jsonDic)
+        
+        let listDic : NSDictionary = NSDictionary(object: jsonListArray, forKey: "list")
+        print(listDic)
+        
+        var jsonData : NSData = NSData()
+        do {
+            jsonData = try NSJSONSerialization.dataWithJSONObject(listDic, options: NSJSONWritingOptions.PrettyPrinted)
+            // here "jsonData" is the dictionary encoded in JSON data
+        } catch let error as NSError {
+            print(error)
+        }
+        let jsonStringFormat = String(data: jsonData, encoding: NSUTF8StringEncoding)
+        
+        print(jsonStringFormat)
+        
+        
+        
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getPlaceOrderUrl(), parameters: ["type":"RedeemHistory","json":jsonStringFormat!,"dt":"CAMPAIGNS","category":"Notifications","userId":CXAppConfig.sharedInstance.getAppMallID(),"consumerEmail":"yernagulamahesh@gmail.com"]) { (responseDict) in
+            print(responseDict)
+            let string = responseDict.valueForKeyPath("myHashMap.status")
+            print(string)
+        }
+        
+    }
+    
+    
+  
     
     func applicationNavigationFlow(){
         let userId = CXAppConfig.sharedInstance.getUserID()
