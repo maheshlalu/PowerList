@@ -55,53 +55,12 @@ class ReedemViewController: UIViewController,UITableViewDataSource,UITableViewDe
             enterRedeemCodeLbl.text = "YOUR REDEEM HISTORY"
             codeStackView.hidden = true
             yourRedeemHistoryLbl.hidden = true
-            autolayoutsForTableView()
             self.backgroundImg.addSubview(RedeemTableView)
             self.setUpSideMenu()
         }
     
     }
-    
-    func autolayoutsForTableView(){
-        
-        let bottomConstraint = NSLayoutConstraint(
-            item: RedeemTableView ,
-            attribute: NSLayoutAttribute.BottomMargin,
-            relatedBy: NSLayoutRelation.Equal,
-            toItem: self.view,
-            attribute: NSLayoutAttribute.BottomMargin,
-            multiplier: 1,
-            constant: 10)
-        let topConstraint = NSLayoutConstraint(
-            item: RedeemTableView,
-            attribute: NSLayoutAttribute.TopMargin,
-            relatedBy: NSLayoutRelation.Equal,
-            toItem: self.view,
-            attribute: NSLayoutAttribute.TopMargin,
-            multiplier: 1,
-            constant: 10)
-        let leadingConstraint = NSLayoutConstraint(
-            item: RedeemTableView,
-            attribute: NSLayoutAttribute.Leading,
-            relatedBy: NSLayoutRelation.Equal,
-            toItem: self.view,
-            attribute: NSLayoutAttribute.Left,
-            multiplier: 1,
-            constant: 10)
-        let trailingConstraint = NSLayoutConstraint(
-            item: RedeemTableView,
-            attribute: NSLayoutAttribute.Trailing,
-            relatedBy: NSLayoutRelation.Equal,
-            toItem: self.view,
-            attribute: NSLayoutAttribute.Right,
-            multiplier: 1,
-            constant: 10)
-        
-        NSLayoutConstraint.activateConstraints([bottomConstraint, topConstraint,leadingConstraint,trailingConstraint])
-        
-        RedeemTableView.translatesAutoresizingMaskIntoConstraints = false
-    
-    }
+
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
