@@ -145,8 +145,9 @@ class CX_SocialIntegration: NSObject {
                     enProduct?.userPic =  userData.objectForKey("userImagePath") as? String
                 }
                 enProduct?.macId = userData.valueForKey("macId") as? String
-                enProduct?.macIdJobId = userData.valueForKey("macIdJobId") as? String
+                enProduct?.macIdJobId = CXAppConfig.resultString(userData.valueForKey("macIdJobId")!)
                 CXAppConfig.sharedInstance.saveUserID((enProduct?.userId)!)
+                CXAppConfig.sharedInstance.saveMacJobID((enProduct?.macIdJobId)!)
             }
         }) { (success, error) in
             if success == true {

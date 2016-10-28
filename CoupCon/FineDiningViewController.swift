@@ -19,9 +19,11 @@ class FineDiningViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(dealsDic)
         self.dealBackgroundImg.setImageWithURL(NSURL(string:(dealsDic.valueForKey("BackgroundImage_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
        // print(dealsDic.valueForKey("BackgroundImage_URL"))
         self.dealLogoImg.setImageWithURL(NSURL(string:(dealsDic.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
+        NSUserDefaults.standardUserDefaults().setObject(dealsDic.valueForKey("Image_URL"), forKey: "POPUP_LOGO")
         self.dealNameLbl.text = dealsDic.valueForKey("Name") as?String
         //Background Image_URL
         //Image_URL
@@ -38,12 +40,33 @@ class FineDiningViewController: UIViewController {
         self.addChildViewController(self.currentViewController!)
         self.addSubview(self.currentViewController!.view, toView: self.containerView)
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "appBg")!)
-
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(FineDiningViewController.showPopUp(_:)), name: "ShowPopUp", object: nil)
+        
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func showPopUp(notification: NSNotification){
+
+        let popup = PopupController
+            .create(self)
+            .customize(
+                [
+                    .Animation(.SlideUp),
+                    .Scrollable(false),
+                    .Layout(.Center),
+                    .BackgroundStyle(.BlackFilter(alpha: 0.7))
+                ]
+            )
+            .didShowHandler { popup in
+            }
+            .didCloseHandler { _ in
+        }
+        let container = DemoPopupViewController2.instance()
+        container.closeHandler = { _ in
+            popup.dismiss()
+            print("pop up closed")
+        }
+        popup.show(container)
+        
     }
     
     func addSubview(subView:UIView, toView parentView:UIView) {
@@ -57,15 +80,6 @@ class FineDiningViewController: UIViewController {
             options: [], metrics: nil, views: viewBindingsDict))
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
     @IBAction func offerButtonAction(sender: AnyObject) {
         let offersController : OffersViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("OffersViewController") as? OffersViewController)!
@@ -92,11 +106,24 @@ class FineDiningViewController: UIViewController {
     @IBAction func mapButtonAction(sender: AnyObject) {
         
         let newViewController : MapViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("MapViewController") as? MapViewController)!
-        newViewController.lat = Double(dealsDic.valueForKey("Latitude")! as! String)
-        newViewController.lon =  Double(dealsDic.valueForKey("Longitude")! as! String)
-        newViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        self.cycleFromViewController(self.currentViewController!, toViewController: newViewController)
-        self.currentViewController = newViewController
+        if (dealsDic.valueForKey("Latitude")) != nil {
+            newViewController.lat = Double(dealsDic.valueForKey("Latitude")! as! String)
+            newViewController.lon =  Double(dealsDic.valueForKey("Longitude")! as! String)
+            newViewController.view.translatesAutoresizingMaskIntoConstraints = false
+            self.cycleFromViewController(self.currentViewController!, toViewController: newViewController)
+            self.currentViewController = newViewController
+        }else{
+            let alert = UIAlertController(title: "Alert!!!", message: "Sorry!!Location Not Available!!", preferredStyle: UIAlertControllerStyle.Alert)
+            let okAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default) {
+                UIAlertAction in
+                //self.navigationController?.popViewControllerAnimated(true)
+                
+            }
+            alert.addAction(okAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+            return
+        }
+        
         //dealsDic.valueForKey("BackgroundImage_URL") as?String)
         //Latitude, Longitude  lat = 17.3850
        // lon = 78.4867

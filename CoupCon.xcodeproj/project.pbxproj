@@ -15,6 +15,12 @@
 		111C7D0B1DC08E7D00D4FC09 /* membershipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111C7D0A1DC08E7D00D4FC09 /* membershipTableViewCell.swift */; };
 		111C7D0D1DC0CD4F00D4FC09 /* HowToUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111C7D0C1DC0CD4F00D4FC09 /* HowToUseViewController.swift */; };
 		1127C6B31DBE453100D92FF7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1127C6B21DBE453100D92FF7 /* LoadingView.swift */; };
+		115CA1C21DC1D35100BE9D57 /* DemoPopupViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115CA1C01DC1D35100BE9D57 /* DemoPopupViewController2.swift */; };
+		115CA1C31DC1D35100BE9D57 /* DemoPopupViewController2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 115CA1C11DC1D35100BE9D57 /* DemoPopupViewController2.storyboard */; };
+		115CA1C71DC1D3B700BE9D57 /* PopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115CA1C41DC1D3B700BE9D57 /* PopupController.swift */; };
+		115CA1C81DC1D3B700BE9D57 /* FTPopOverMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 115CA1C61DC1D3B700BE9D57 /* FTPopOverMenu.m */; };
+		115CA1CB1DC1E45500BE9D57 /* DealsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115CA1C91DC1E45500BE9D57 /* DealsCollectionViewCell.swift */; };
+		115CA1CC1DC1E45500BE9D57 /* DealsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 115CA1CA1DC1E45500BE9D57 /* DealsCollectionViewCell.xib */; };
 		118DBBE21DB9FB3A000AF9EE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118DBBE11DB9FB3A000AF9EE /* SignUpViewController.swift */; };
 		118DBBE71DB9FFB7000AF9EE /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118DBBE41DB9FFB7000AF9EE /* SkyFloatingLabelTextField.swift */; };
 		118DBBE81DB9FFB7000AF9EE /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118DBBE51DB9FFB7000AF9EE /* SkyFloatingLabelTextFieldWithIcon.swift */; };
@@ -102,6 +108,13 @@
 		111C7D0A1DC08E7D00D4FC09 /* membershipTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = membershipTableViewCell.swift; sourceTree = "<group>"; };
 		111C7D0C1DC0CD4F00D4FC09 /* HowToUseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToUseViewController.swift; sourceTree = "<group>"; };
 		1127C6B21DBE453100D92FF7 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		115CA1C01DC1D35100BE9D57 /* DemoPopupViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoPopupViewController2.swift; sourceTree = "<group>"; };
+		115CA1C11DC1D35100BE9D57 /* DemoPopupViewController2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DemoPopupViewController2.storyboard; sourceTree = "<group>"; };
+		115CA1C41DC1D3B700BE9D57 /* PopupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupController.swift; sourceTree = "<group>"; };
+		115CA1C51DC1D3B700BE9D57 /* FTPopOverMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPopOverMenu.h; sourceTree = "<group>"; };
+		115CA1C61DC1D3B700BE9D57 /* FTPopOverMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPopOverMenu.m; sourceTree = "<group>"; };
+		115CA1C91DC1E45500BE9D57 /* DealsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsCollectionViewCell.swift; sourceTree = "<group>"; };
+		115CA1CA1DC1E45500BE9D57 /* DealsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealsCollectionViewCell.xib; sourceTree = "<group>"; };
 		118DBBE11DB9FB3A000AF9EE /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		118DBBE41DB9FFB7000AF9EE /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
 		118DBBE51DB9FFB7000AF9EE /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextFieldWithIcon.swift; sourceTree = "<group>"; };
@@ -214,6 +227,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		115CA1B61DC1BEB800BE9D57 /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+				115CA1C01DC1D35100BE9D57 /* DemoPopupViewController2.swift */,
+				115CA1C11DC1D35100BE9D57 /* DemoPopupViewController2.storyboard */,
+				115CA1C41DC1D3B700BE9D57 /* PopupController.swift */,
+				115CA1C51DC1D3B700BE9D57 /* FTPopOverMenu.h */,
+				115CA1C61DC1D3B700BE9D57 /* FTPopOverMenu.m */,
+			);
+			name = PopUp;
+			sourceTree = "<group>";
+		};
 		118DBBE31DB9FF9C000AF9EE /* FloatingView */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,6 +313,8 @@
 				181C04EA1DB0F3F3006C05FF /* HomeTableCell.swift */,
 				18ED4A451DB62F7C00A612BA /* CustomNavBar.swift */,
 				111C7D0C1DC0CD4F00D4FC09 /* HowToUseViewController.swift */,
+				115CA1C91DC1E45500BE9D57 /* DealsCollectionViewCell.swift */,
+				115CA1CA1DC1E45500BE9D57 /* DealsCollectionViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -327,6 +354,7 @@
 		18C90C021DAF78DF0053F8D7 /* CoupCon */ = {
 			isa = PBXGroup;
 			children = (
+				115CA1B61DC1BEB800BE9D57 /* PopUp */,
 				118DBBE31DB9FF9C000AF9EE /* FloatingView */,
 				181C04E21DB0EC41006C05FF /* AppDataManager */,
 				181C04D11DB0BA26006C05FF /* Fonts */,
@@ -566,8 +594,10 @@
 				181C04DF1DB0BA4D006C05FF /* Roboto-Regular.ttf in Resources */,
 				181C04E01DB0BA4D006C05FF /* RobotoCondensed-Bold.ttf in Resources */,
 				18ED4A011DB4FEE100A612BA /* CollectionViewCell.xib in Resources */,
+				115CA1C31DC1D35100BE9D57 /* DemoPopupViewController2.storyboard in Resources */,
 				181C04E11DB0BA4D006C05FF /* RobotoCondensed-Light.ttf in Resources */,
 				18C90C111DAF78DF0053F8D7 /* LaunchScreen.storyboard in Resources */,
+				115CA1CC1DC1E45500BE9D57 /* DealsCollectionViewCell.xib in Resources */,
 				18C90C501DAF7EA60053F8D7 /* reveal-icon@2x.png in Resources */,
 				110DD1C91DB0AD9C001F9BC1 /* TableViewCell.xib in Resources */,
 				18C90C0E1DAF78DF0053F8D7 /* Assets.xcassets in Resources */,
@@ -738,9 +768,12 @@
 				18ED49F51DB4B07200A612BA /* FineDiningViewController.swift in Sources */,
 				11904BF81DBDC56C009B768E /* OTPViewController.swift in Sources */,
 				118DBBE21DB9FB3A000AF9EE /* SignUpViewController.swift in Sources */,
+				115CA1C71DC1D3B700BE9D57 /* PopupController.swift in Sources */,
 				181C04E71DB0EC4F006C05FF /* CXDataService.swift in Sources */,
+				115CA1C21DC1D35100BE9D57 /* DemoPopupViewController2.swift in Sources */,
 				118DBBE71DB9FFB7000AF9EE /* SkyFloatingLabelTextField.swift in Sources */,
 				18C90C061DAF78DF0053F8D7 /* CXSigninViewController.swift in Sources */,
+				115CA1CB1DC1E45500BE9D57 /* DealsCollectionViewCell.swift in Sources */,
 				110DD1C81DB0AD9C001F9BC1 /* TableViewCell.swift in Sources */,
 				18057E301DAFA33B0017F038 /* ICSDropShadowView.m in Sources */,
 				111C7D0D1DC0CD4F00D4FC09 /* HowToUseViewController.swift in Sources */,
@@ -756,6 +789,7 @@
 				18ED4A501DB659F100A612BA /* Station.swift in Sources */,
 				189E7C771DB7447800A48CE2 /* SearchViewController.swift in Sources */,
 				18057E2F1DAFA33B0017F038 /* ICSDrawerController.m in Sources */,
+				115CA1C81DC1D3B700BE9D57 /* FTPopOverMenu.m in Sources */,
 				18C90C471DAF7CC30053F8D7 /* SWRevealViewController.m in Sources */,
 				189E7C7A1DB7722000A48CE2 /* OfferTableViewCell.swift in Sources */,
 				181C04EB1DB0F3F3006C05FF /* HomeTableCell.swift in Sources */,

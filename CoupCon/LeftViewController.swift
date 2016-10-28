@@ -22,6 +22,7 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         let appdata:NSArray = UserProfile.MR_findAll() as NSArray
         let userProfileData:UserProfile = appdata.lastObject as! UserProfile
         

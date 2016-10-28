@@ -166,9 +166,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
     func signUp(){
         
         LoadingView.show("loading", animated: true)
-        
-        
-        
+
         let firstName = NSUserDefaults.standardUserDefaults().valueForKey("FIRST_NAME") as? String
         let lastName = NSUserDefaults.standardUserDefaults().valueForKey("LAST_NAME") as? String
         //let mobile = NSUserDefaults.standardUserDefaults().valueForKey("FULL_NAME") as? String

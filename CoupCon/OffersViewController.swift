@@ -95,14 +95,16 @@ class OffersViewController: UIViewController {
     {
         let cell : OfferTableViewCell = (tableView.dequeueReusableCellWithIdentifier("OfferTableViewCell", forIndexPath: indexPath) as? OfferTableViewCell)!
         tableView.separatorStyle = .None
+        cell.selectionStyle = .None
         
         let offerDic : NSDictionary = self.offersList[indexPath.row] as! NSDictionary
+        print(offerDic)
         cell.offersLblText.text = offerDic.valueForKey("Name") as? String
         cell.redeemBtn.layer.cornerRadius = 8.0
-        
+  
         if indexPath.row % 2 != 0 {
             
-            cell.backgroundColor = UIColor.lightGrayColor()
+            cell.backgroundColor = UIColor(red: 233.0/255.0, green: 233.0/255.0, blue: 233.0/255.0, alpha: 1.0)
         }
         else {
             cell.backgroundColor = UIColor.whiteColor()
@@ -136,23 +138,27 @@ class OffersViewController: UIViewController {
         
     }
 
-    
-    
-    
+
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-       // let offerTitle : String = (self.offersList[indexPath.row] as?String)!
-        //self.getTheofferDisplayString(offerTitle)
+        let offerDic : NSDictionary = self.offersList[indexPath.row] as! NSDictionary
+        let logoImg = NSUserDefaults.standardUserDefaults().valueForKey("POPUP_LOGO") as! String
+        let popUpName = offerDic.valueForKey("Name") as? String
+       // guard let terms = offerDic.valueForKey("TermsAndConditions") as? NSArray else{()}
+        let terms = offerDic.valueForKey("TermsAndConditions")
+        print(terms)
+        
+        if (terms as? String == ""){
+            let popUpDict:[String: AnyObject] = [ "popUpLogo":logoImg,  "popUpName": popUpName!]
+            NSNotificationCenter.defaultCenter().postNotificationName("ShowPopUp", object: nil)
+            NSNotificationCenter.defaultCenter().postNotificationName("PopUpData", object: popUpDict)
+        }else{
+            let popUpDict:[String: AnyObject] = [ "popUpLogo":logoImg,  "popUpName": popUpName!,"terms":terms!]
+            NSNotificationCenter.defaultCenter().postNotificationName("ShowPopUp", object: nil)
+            NSNotificationCenter.defaultCenter().postNotificationName("PopUpData", object: popUpDict)
+        }
 
     }
-    
-    
-/*
-     
-     let reqString = "http://sillymonksapp.com:8081/jobs/saveJobCommentJSON?userId="+userID+"&jobId="+jobID+"&comment="+comment+"&rating="+rating+"&commentId="+commentId
-     //http://sillymonksapp.com:8081/jobs/saveJobCommentJSON?/ userId=11&jobId=239&comment=excellent&rating=0.5&commentId=74
- */
-
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {

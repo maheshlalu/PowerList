@@ -183,4 +183,23 @@ class CXAppConfig {
     }
     
     
+    //MARK: User MacJob Id Saving
+    func saveMacJobID(macJobId:String){
+        NSUserDefaults.standardUserDefaults().setObject(macJobId, forKey: "MAC_JOB_ID")
+    }
+    
+    func getMacJobID() ->String{
+        
+        if(NSUserDefaults.standardUserDefaults().objectForKey("MAC_JOB_ID") == nil)
+        {
+            print("NULL")
+            return ""
+            
+        }else{
+            
+            return NSUserDefaults.standardUserDefaults().valueForKey("MAC_JOB_ID") as! String
+        }
+        
+    }
+    
 }

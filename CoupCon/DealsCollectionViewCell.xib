@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+            <string>Roboto-Bold</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="DealsCollectionViewCell" customModule="CoupCon" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="422" height="175"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="422" height="175"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeScreenCellBG" translatesAutoresizingMaskIntoConstraints="NO" id="i5w-K8-Kwe">
+                        <rect key="frame" x="0.0" y="0.0" width="422" height="175"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TKm-mY-y94">
+                        <rect key="frame" x="0.0" y="0.0" width="422" height="175"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lqw-mN-Awy">
+                                <rect key="frame" x="152" y="149" width="118" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="2RZ-zK-lwr"/>
+                                    <constraint firstAttribute="width" constant="118" id="yJp-qN-9qS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTK-Bs-8Ib">
+                                <rect key="frame" x="8" y="149" width="136" height="18"/>
+                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pTK-Bs-8Ib" firstAttribute="leading" secondItem="TKm-mY-y94" secondAttribute="leading" constant="8" id="IoI-pY-Wk9"/>
+                            <constraint firstItem="Lqw-mN-Awy" firstAttribute="bottom" secondItem="TKm-mY-y94" secondAttribute="bottomMargin" id="MQm-Ci-Gqz"/>
+                            <constraint firstItem="Lqw-mN-Awy" firstAttribute="baseline" secondItem="pTK-Bs-8Ib" secondAttribute="baseline" id="T6Q-m6-lxh"/>
+                            <constraint firstItem="Lqw-mN-Awy" firstAttribute="centerX" secondItem="TKm-mY-y94" secondAttribute="centerX" id="fgA-Br-VML"/>
+                            <constraint firstItem="Lqw-mN-Awy" firstAttribute="leading" secondItem="pTK-Bs-8Ib" secondAttribute="trailing" constant="8" symbolic="YES" id="wxQ-CH-Q46"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eHL-kO-8xG">
+                        <rect key="frame" x="337" y="8" width="40" height="40"/>
+                        <state key="normal" image="heart_unselected"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNH-ny-fOM">
+                        <rect key="frame" x="379" y="10" width="35" height="34"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="35" id="cAC-Qp-11D"/>
+                            <constraint firstAttribute="height" constant="34" id="gFp-Ac-Zjx"/>
+                        </constraints>
+                        <state key="normal" image="phoneCallImg"/>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="TKm-mY-y94" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="11h-sf-Lvu"/>
+                <constraint firstAttribute="trailing" secondItem="i5w-K8-Kwe" secondAttribute="trailing" id="7IJ-sj-t8z"/>
+                <constraint firstItem="i5w-K8-Kwe" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="8dw-dU-42I"/>
+                <constraint firstAttribute="bottom" secondItem="i5w-K8-Kwe" secondAttribute="bottom" id="Ay3-Pd-hsp"/>
+                <constraint firstAttribute="trailing" secondItem="TKm-mY-y94" secondAttribute="trailing" id="BE3-Fs-6Vo"/>
+                <constraint firstItem="cNH-ny-fOM" firstAttribute="leading" secondItem="i5w-K8-Kwe" secondAttribute="trailing" constant="-43" id="Bi2-RO-csL"/>
+                <constraint firstItem="TKm-mY-y94" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Vuh-hK-ejR"/>
+                <constraint firstItem="eHL-kO-8xG" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="topMargin" id="b0X-tR-pJn"/>
+                <constraint firstItem="i5w-K8-Kwe" firstAttribute="top" secondItem="cNH-ny-fOM" secondAttribute="bottom" constant="-44" id="cZ0-MC-eBg"/>
+                <constraint firstItem="cNH-ny-fOM" firstAttribute="leading" secondItem="eHL-kO-8xG" secondAttribute="trailing" constant="2" id="lab-gc-bKO"/>
+                <constraint firstAttribute="bottom" secondItem="TKm-mY-y94" secondAttribute="bottom" id="vsO-iP-e58"/>
+                <constraint firstItem="i5w-K8-Kwe" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="wJp-yP-TdF"/>
+            </constraints>
+            <size key="customSize" width="422" height="137"/>
+            <connections>
+                <outlet property="callBtn" destination="cNH-ny-fOM" id="18V-0F-rDI"/>
+                <outlet property="dealArea" destination="Lqw-mN-Awy" id="ev6-1b-ejk"/>
+                <outlet property="dealName" destination="pTK-Bs-8Ib" id="Ah1-iA-Wqh"/>
+                <outlet property="dealsImageView" destination="i5w-K8-Kwe" id="2R5-g2-luD"/>
+                <outlet property="layerView" destination="TKm-mY-y94" id="5y3-5a-VWX"/>
+                <outlet property="likeBtn" destination="eHL-kO-8xG" id="xB3-oN-DPP"/>
+            </connections>
+            <point key="canvasLocation" x="331" y="289.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="heart_unselected" width="40" height="40"/>
+        <image name="homeScreenCellBG" width="581" height="56"/>
+        <image name="phoneCallImg" width="40" height="40"/>
+    </resources>
+</document>

@@ -20,8 +20,8 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
         super.viewDidLoad()
         self.dealsArray = NSArray()
         
-        let nib = UINib(nibName: "CollectionViewCell", bundle: nil)
-        self.collectionview.registerNib(nib, forCellWithReuseIdentifier: "CollectionViewCell")
+        let nib = UINib(nibName: "DealsCollectionViewCell", bundle: nil)
+        self.collectionview.registerNib(nib, forCellWithReuseIdentifier: "DealsCollectionViewCell")
         self.collectionview.backgroundColor = UIColor.clearColor()
         // print("\(self.dealsDic) \(self.dealsDic!.allKeys)")
         self.getTheDealsFromServer()
@@ -79,24 +79,32 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
     }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
     {
-        let cell : CollectionViewCell = (collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as? CollectionViewCell)!
+        let cell : DealsCollectionViewCell = (collectionView.dequeueReusableCellWithReuseIdentifier("DealsCollectionViewCell", forIndexPath: indexPath) as? DealsCollectionViewCell)!
         
-        cell.layer.masksToBounds = false
-        cell.layer.contentsScale = UIScreen.mainScreen().scale
-        cell.layer.shadowOpacity = 0.75
-        cell.layer.shadowRadius = 5.0
-        cell.layer.shadowOffset = CGSize.zero
-        cell.layer.shadowPath = UIBezierPath(rect: cell.bounds).CGPath
-        cell.layer.shouldRasterize = true
+//        cell.layer.masksToBounds = false
+//        cell.layer.contentsScale = UIScreen.mainScreen().scale
+//        cell.layer.shadowOpacity = 0.75
+//        cell.layer.shadowRadius = 5.0
+//        cell.layer.shadowOffset = CGSize.zero
+//        cell.layer.shadowPath = UIBezierPath(rect: cell.bounds).CGPath
+//        cell.layer.shouldRasterize = true
         
         let categoryDic : NSDictionary = self.dealsArray[indexPath.item] as! NSDictionary
-        cell.dealsImgView.setImageWithURL(NSURL(string:(categoryDic.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
-        cell.productNameLbl.text = categoryDic.valueForKey("Name") as?String
+        print(categoryDic)
+        cell.dealsImageView.setImageWithURL(NSURL(string:(categoryDic.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
+        cell.dealName.text = categoryDic.valueForKey("Name") as?String
+        if cell.dealArea.text == "Label"{
+            cell.dealArea.text = ""
+        }else{
+            cell.dealArea.text = categoryDic.valueForKey("Location") as? String
+        }
+        cell.callBtn.tag = indexPath.item+1
+        cell.callBtn.addTarget(self, action: #selector(DealsViewController.phoneBtnAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         return cell
     }
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
-        return CGSizeMake((self.view.frame.size.width/2) - 8, (self.view.frame.size.width/2) - 8);
+        return CGSizeMake(self.view.frame.size.width,175)
         
     }
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
@@ -131,6 +139,13 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
         
     }
     
+    func phoneBtnAction(button : UIButton!){
+        
+        let dealsDict : NSDictionary = self.dealsArray[button.tag-1] as! NSDictionary
+        let phoneNumber = dealsDict.valueForKey("PhoneNumber") as?String
+        UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(phoneNumber!)")!)
+ 
+    }
     
    
 

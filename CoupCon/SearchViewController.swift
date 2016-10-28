@@ -19,9 +19,9 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.searchResults = NSArray()
-        let nib = UINib(nibName: "CollectionViewCell", bundle: nil)
+        let nib = UINib(nibName: "DealsCollectionViewCell", bundle: nil)
         
-        self.searchCollectionView.registerNib(nib, forCellWithReuseIdentifier: "CollectionViewCell")
+        self.searchCollectionView.registerNib(nib, forCellWithReuseIdentifier: "DealsCollectionViewCell")
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "appBg")!)
 
         // Do any additional setup after loading the view.
@@ -45,25 +45,30 @@ class SearchViewController: UIViewController {
     }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
     {
-        let cell : CollectionViewCell = (collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as? CollectionViewCell)!
+        let cell : DealsCollectionViewCell = (collectionView.dequeueReusableCellWithReuseIdentifier("DealsCollectionViewCell", forIndexPath: indexPath) as? DealsCollectionViewCell)!
         
-        cell.layer.masksToBounds = false
-        cell.layer.contentsScale = UIScreen.mainScreen().scale
-        cell.layer.shadowOpacity = 0.75
-        cell.layer.shadowRadius = 5.0
-        cell.layer.shadowOffset = CGSize.zero
-        cell.layer.shadowPath = UIBezierPath(rect: cell.bounds).CGPath
-        cell.layer.shouldRasterize = true
+//        cell.layer.masksToBounds = false
+//        cell.layer.contentsScale = UIScreen.mainScreen().scale
+//        cell.layer.shadowOpacity = 0.75
+//        cell.layer.shadowRadius = 5.0
+//        cell.layer.shadowOffset = CGSize.zero
+//        cell.layer.shadowPath = UIBezierPath(rect: cell.bounds).CGPath
+//        cell.layer.shouldRasterize = true
         
         
         let categoryDic : NSDictionary = self.searchResults[indexPath.item] as! NSDictionary
-        cell.dealsImgView.setImageWithURL(NSURL(string:(categoryDic.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
-        cell.productNameLbl.text = categoryDic.valueForKey("Name") as?String
+        cell.dealsImageView.setImageWithURL(NSURL(string:(categoryDic.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
+        cell.dealName.text = categoryDic.valueForKey("Name") as?String
+        if cell.dealArea.text == "Label"{
+            cell.dealArea.text = ""
+        }else{
+            cell.dealArea.text = categoryDic.valueForKey("Location") as? String
+        }
         return cell
     }
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
-        return CGSizeMake((self.view.frame.size.width/2) - 8, (self.view.frame.size.width/2) - 8);
+        return CGSizeMake(self.view.frame.size.width,137)
         
     }
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
