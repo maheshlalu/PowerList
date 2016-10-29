@@ -2146,7 +2146,7 @@
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9Dw-Au-JhJ">
                                 <rect key="frame" x="0.0" y="248" width="320" height="320"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BsK-CQ-vvm" id="ltO-wm-93G"/>
                                     <outlet property="delegate" destination="BsK-CQ-vvm" id="bfR-wE-OPV"/>
