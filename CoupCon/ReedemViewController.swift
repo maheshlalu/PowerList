@@ -108,25 +108,28 @@ class ReedemViewController: UIViewController,UITableViewDataSource,UITableViewDe
     }
     
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
         return self.redeemHistoryJobsArr.count
-        
     }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("RedeemTableViewCell", forIndexPath: indexPath) as! RedeemTableViewCell
         RedeemTableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
-        let categoryDic : NSDictionary = self.redeemHistoryJobsArr[indexPath.row] as! NSDictionary
-
+        let categoryDic : NSDictionary = self.redeemHistoryJobsArr[indexPath.section] as! NSDictionary
+        
         cell.redeemImageView.sd_setImageWithURL(NSURL(string:categoryDic.valueForKey("ProductImage") as! String))
         cell.redeemLogo.sd_setImageWithURL(NSURL(string: categoryDic.valueForKey("ProductDescription") as! String))
         cell.redeemLbl.text = "\(categoryDic.valueForKey("OfferName")!)"
         cell.redeemPercentLbl.text = "\(categoryDic.valueForKey("OfferName")!)"
-
+        
         return cell
         
         
@@ -138,6 +141,10 @@ class ReedemViewController: UIViewController,UITableViewDataSource,UITableViewDe
         tableView.rowHeight = 150
         return 150
         
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -228,12 +235,14 @@ class ReedemViewController: UIViewController,UITableViewDataSource,UITableViewDe
     //http://storeongo.com:8081/Services/getMasters?mallId=20217&type= RedeemHistory&refTypeProperty1=MacId&refId1=195735
     
     func redeemHistoryApiCall(){
-        
+        LoadingView.show("Loading...", animated: true)
         CXDataService.sharedInstance.getTheAppDataFromServer(["type":"RedeemHistory","mallId":CXAppConfig.sharedInstance.getAppMallID(),"refTypeProperty1":"MacId","refId1":CXAppConfig.sharedInstance.getTheUserData().macIdJobId]) { (responseDict) in
             print(responseDict)
             self.redeemHistoryJobsArr = responseDict.valueForKey("jobs") as! NSArray
             print(self.redeemHistoryJobsArr.count)
             self.RedeemTableView.reloadData()
+           // self.offerReedem()
+            LoadingView.hide()
         }
     }
 
@@ -242,4 +251,50 @@ class ReedemViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     
     // note: To get redeem history http://localhost:8081/MobileAPIs/getJobsFollowingBy?email=cxsample@gmail.com&mallId=530&type=RedeemHystory.
+    
+    
+    
+    
+    func offerReedem(){
+        LoadingView.show("Loading...", animated: true)
+
+        /*
+         json={"list"":[{"ProductName":"Tabla","ProductDescription":"description","ProductImage":"https://s3-ap-southeast-1.amazonaws.com/storeongocontent/jobs/jobFldAttachments/20217_1477488244540.png","OfferName":"25 off on lunch","ProductId":"196429","OfferId":"9876543210","MacId":"102716-BHJAFCFH"}]}&dt=CAMPAIGNS&category=Notifications&userId=20217&consumerEmail=cxsample@gmail.com
+         
+         */
+//        let jsonDic : NSMutableDictionary = NSMutableDictionary()
+//        jsonDic.setObject("Club Republic", forKey: "ProductName")
+//        //jsonDic.setObject("23", forKey: "ProductDescription")
+//        jsonDic.setObject("https://s3-ap-southeast-1.amazonaws.com/storeongocontent/jobs/jobFldAttachments/20217_1477388128490.jpg", forKey: "ProductImage")
+//        jsonDic.setObject("10% off on total bill", forKey: "OfferName")
+//        jsonDic.setObject("196243", forKey: "ProductId")
+//        jsonDic.setObject("itemcode_5", forKey: "OfferId")
+//        jsonDic.setObject(CXAppConfig.sharedInstance.getTheUserData().macId, forKey: "MacId")
+        
+        let jsonListArray : NSMutableArray = NSMutableArray()
+        jsonListArray.addObject(CXAppConfig.sharedInstance.getRedeemDictionary())
+        
+        let listDic : NSDictionary = NSDictionary(object: jsonListArray, forKey: "list")
+        print(listDic)
+        
+        var jsonData : NSData = NSData()
+        do {
+            jsonData = try NSJSONSerialization.dataWithJSONObject(listDic, options: NSJSONWritingOptions.PrettyPrinted)
+            // here "jsonData" is the dictionary encoded in JSON data
+        } catch let error as NSError {
+            print(error)
+        }
+        let jsonStringFormat = String(data: jsonData, encoding: NSUTF8StringEncoding)
+        
+        print(jsonStringFormat)
+
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getPlaceOrderUrl(), parameters: ["type":"RedeemHistory","json":jsonStringFormat!,"dt":"CAMPAIGNS","category":"Notifications","userId":CXAppConfig.sharedInstance.getAppMallID(),"consumerEmail":"yernagulamahesh@gmail.com"]) { (responseDict) in
+            print(responseDict)
+            let string = responseDict.valueForKeyPath("myHashMap.status")
+            print(string)
+            LoadingView.hide()
+        }
+        
+    }
+    
 }
