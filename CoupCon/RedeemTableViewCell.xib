@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <development version="7000" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Roboto-Regular.ttf">
@@ -22,7 +23,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="486" height="149"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="delasBg" translatesAutoresizingMaskIntoConstraints="NO" id="9w8-CT-VYC">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9w8-CT-VYC">
                         <rect key="frame" x="0.0" y="0.0" width="486" height="105"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="105" id="TZ8-ZY-gQe"/>
@@ -34,40 +35,33 @@
                             <constraint firstAttribute="height" constant="53" id="0jV-8p-Mwj"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart_selected" translatesAutoresizingMaskIntoConstraints="NO" id="Ht1-GJ-hNn">
-                        <rect key="frame" x="0.0" y="80" width="63" height="61"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="61" id="UxF-gn-5kv"/>
-                            <constraint firstAttribute="width" constant="63" id="cFB-bz-7xR"/>
-                        </constraints>
-                    </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="kcZ-dl-Ph0">
-                        <rect key="frame" x="71" y="105" width="332" height="44"/>
+                        <rect key="frame" x="71" y="105" width="397" height="44"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ah8-3j-2ZU">
-                                <rect key="frame" x="0.0" y="0.0" width="332" height="28"/>
+                                <rect key="frame" x="0.0" y="0.0" width="397" height="26"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ohri's" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n79-jT-rqb">
-                                        <rect key="frame" x="0.0" y="0.0" width="332" height="28"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="397" height="26"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="21"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                         <color key="textColor" red="0.49411764705882355" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="-100" translatesAutoresizingMaskIntoConstraints="NO" id="nJi-1i-Pg8">
-                                <rect key="frame" x="0.0" y="29" width="332" height="15"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="nJi-1i-Pg8">
+                                <rect key="frame" x="0.0" y="27" width="397" height="17"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Redeemed 15%" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wj8-pH-j8e">
-                                        <rect key="frame" x="0.0" y="0.0" width="195" height="15"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="199" height="17"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="11"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 Deals Used on 20/10/16" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2OT-Tr-FOY">
-                                        <rect key="frame" x="95" y="0.0" width="237" height="15"/>
+                                        <rect key="frame" x="199" y="0.0" width="198" height="17"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="11"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -78,19 +72,26 @@
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="height" constant="44" id="Qft-lC-bTz"/>
-                            <constraint firstAttribute="width" constant="332" id="bHk-8m-iNc"/>
                         </constraints>
                     </stackView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart_selected" translatesAutoresizingMaskIntoConstraints="NO" id="Ht1-GJ-hNn">
+                        <rect key="frame" x="8" y="78" width="55" height="55"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="55" id="UxF-gn-5kv"/>
+                            <constraint firstAttribute="width" constant="55" id="cFB-bz-7xR"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="kcZ-dl-Ph0" firstAttribute="top" secondItem="9w8-CT-VYC" secondAttribute="bottom" id="Grf-yN-5iI"/>
                     <constraint firstAttribute="trailing" secondItem="0v2-QC-qxb" secondAttribute="trailing" id="HII-Bw-V30"/>
-                    <constraint firstItem="Ht1-GJ-hNn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="80" id="M0c-02-SOo"/>
+                    <constraint firstItem="Ht1-GJ-hNn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="78" id="M0c-02-SOo"/>
                     <constraint firstItem="kcZ-dl-Ph0" firstAttribute="leading" secondItem="Ht1-GJ-hNn" secondAttribute="trailing" constant="8" id="S02-5B-2n7"/>
-                    <constraint firstItem="Ht1-GJ-hNn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="TKc-Ib-5UG"/>
+                    <constraint firstItem="Ht1-GJ-hNn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="TKc-Ib-5UG"/>
                     <constraint firstItem="0v2-QC-qxb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="bMB-gx-AiW"/>
                     <constraint firstAttribute="trailing" secondItem="9w8-CT-VYC" secondAttribute="trailing" id="k5Z-7m-0so"/>
                     <constraint firstItem="9w8-CT-VYC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="mTV-aZ-mqr"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="kcZ-dl-Ph0" secondAttribute="trailing" constant="10" id="qj9-Tc-AgA"/>
                     <constraint firstItem="9w8-CT-VYC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="tjN-6h-Zc9"/>
                     <constraint firstAttribute="trailing" secondItem="0v2-QC-qxb" secondAttribute="trailing" id="xHV-3B-sSU"/>
                     <constraint firstAttribute="bottom" secondItem="0v2-QC-qxb" secondAttribute="bottom" constant="-5" id="zLi-Ou-fdG"/>
@@ -108,7 +109,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="delasBg" width="581" height="56"/>
         <image name="heart_selected" width="40" height="40"/>
         <image name="redeemBackgroud" width="579" height="56"/>
     </resources>
