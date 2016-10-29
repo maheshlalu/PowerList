@@ -202,13 +202,26 @@ class CXAppConfig {
         
     }
     
-    func getTheUserData() ->(userID:String,macId:String,macIdJobId:String){
+    func setRedeemDictionary(dictionary:NSMutableDictionary){
+        
+        NSUserDefaults.standardUserDefaults().setObject(dictionary, forKey: "Redeem_Dict")
+        
+    }
+    
+    
+    func getRedeemDictionary() -> NSMutableDictionary {
+        
+        let redeemDict :NSMutableDictionary = NSUserDefaults.standardUserDefaults().valueForKey("Redeem_Dict") as! NSMutableDictionary
+        return redeemDict
+        
+    }
+    
+    func getTheUserData() ->(userID:String,macId:String,macIdJobId:String,userEmail:String){
         
         let appdata:NSArray = UserProfile.MR_findAll() as NSArray
         let userProfileData:UserProfile = appdata.lastObject as! UserProfile
         print(userProfileData.emailId)
-        return(userID:userProfileData.userId!,macId:userProfileData.macId!,macIdJobId:userProfileData.macIdJobId!)
+        return(userID:userProfileData.userId!,macId:userProfileData.macId!,macIdJobId:userProfileData.macIdJobId!,userProfileData.emailId!)
     }
-    
     
 }

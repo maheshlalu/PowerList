@@ -98,7 +98,11 @@
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
             <connections>
+                <outlet property="dealsUsedDate" destination="2OT-Tr-FOY" id="JZh-AX-Ycs"/>
                 <outlet property="redeemImageView" destination="9w8-CT-VYC" id="cYv-ti-MhJ"/>
+                <outlet property="redeemLbl" destination="n79-jT-rqb" id="FbC-4e-2uT"/>
+                <outlet property="redeemLogo" destination="Ht1-GJ-hNn" id="sQ6-La-bVi"/>
+                <outlet property="redeemPercentLbl" destination="Wj8-pH-j8e" id="kCD-bR-1fP"/>
             </connections>
             <point key="canvasLocation" x="292" y="143"/>
         </tableViewCell>

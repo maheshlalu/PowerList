@@ -47,15 +47,19 @@ class OffersViewController: UIViewController {
     }
     
     func getTheOffers(){
-        //http://storeongo.com:8081/Services/getOffers?mallId=20217&%20consumerEmail=yernagulamahesh@gmail.com&macJobId=195735&%20productId=196429prefferedJobs=196663
-        
-        
+        // http://storeongo.com:8081/Services/getOffers?mallId=20217&%20consumerEmail=yernagulamahesh@gmail.com&macJobId=195735&%20productId=196429prefferedJobs=196663
         LoadingView.show("Loading...", animated: true)
-        CXDataService.sharedInstance.getTheAppDataFromServer(["type":"offers","mallId":CXAppConfig.sharedInstance.getAppMallID(),"PrefferedJobs":self.getTheOfferCodes()]) { (responseDict) in
-            self.filterTheOffers((responseDict.valueForKey("jobs") as? NSArray)!)
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("http://storeongo.com:8081/Services/getOffers?", parameters: ["mallId":CXAppConfig.sharedInstance.getAppMallID(),"consumerEmail":CXAppConfig.sharedInstance.getTheUserData().userEmail,"macJobId":CXAppConfig.sharedInstance.getTheUserData().macIdJobId,"productId":CXAppConfig.resultString(self.offersDic!.valueForKey("id")!),"prefferedJobs":self.getTheOfferCodes()]) { (responseDict) in
+            self.offersList   =  NSMutableArray(array: (responseDict.valueForKey("jobs") as? NSArray!)!)
             LoadingView.hide()
             self.offersTableView.reloadData()
         }
+        //
+        //        CXDataService.sharedInstance.getTheAppDataFromServer(["type":"offers","mallId":CXAppConfig.sharedInstance.getAppMallID(),"PrefferedJobs":self.getTheOfferCodes()]) { (responseDict) in
+        //            self.filterTheOffers((responseDict.valueForKey("jobs") as? NSArray)!)
+        //            LoadingView.hide()
+        //            self.offersTableView.reloadData()
+        //        }
     }
     
     
@@ -160,6 +164,16 @@ class OffersViewController: UIViewController {
             NSNotificationCenter.defaultCenter().postNotificationName("ShowPopUp", object: nil)
             NSNotificationCenter.defaultCenter().postNotificationName("PopUpData", object: popUpDict)
         }
+        
+        
+        let jsonDic : NSMutableDictionary = NSMutableDictionary(dictionary: CXAppConfig.sharedInstance.getRedeemDictionary())
+        
+        jsonDic.setObject(offerDic.valueForKey("Name")!, forKey: "OfferName")
+        jsonDic.setObject(offerDic.valueForKey("ItemCode")!, forKey: "OfferId")
+        
+        print(jsonDic)
+        
+        CXAppConfig.sharedInstance.setRedeemDictionary(jsonDic)
 
     }
     
@@ -176,14 +190,11 @@ class OffersViewController: UIViewController {
          json={"list"":[{"ProductName":"Tabla","ProductDescription":"description","ProductImage":"https://s3-ap-southeast-1.amazonaws.com/storeongocontent/jobs/jobFldAttachments/20217_1477488244540.png","OfferName":"25 off on lunch","ProductId":"196429","OfferId":"9876543210","MacId":"102716-BHJAFCFH"}]}&dt=CAMPAIGNS&category=Notifications&userId=20217&consumerEmail=cxsample@gmail.com
          
          */
-        let jsonDic : NSMutableDictionary = NSMutableDictionary()
-        jsonDic.setObject("334", forKey: "ProductName")
-        jsonDic.setObject("23", forKey: "ProductDescription")
-        jsonDic.setObject("54", forKey: "ProductImage")
+        let jsonDic : NSMutableDictionary = NSMutableDictionary(dictionary: CXAppConfig.sharedInstance.getRedeemDictionary())
+        
         jsonDic.setObject("456", forKey: "OfferName")
-        jsonDic.setObject("456", forKey: "ProductId")
         jsonDic.setObject("456", forKey: "OfferId")
-        jsonDic.setObject("76445", forKey: "MacId")
+
 
         let jsonListArray : NSMutableArray = NSMutableArray()
         jsonListArray.addObject(jsonDic)

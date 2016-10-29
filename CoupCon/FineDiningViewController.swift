@@ -20,6 +20,7 @@ class FineDiningViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(dealsDic)
+        constructTheOfferReedemJson()
         self.dealBackgroundImg.setImageWithURL(NSURL(string:(dealsDic.valueForKey("BackgroundImage_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
        // print(dealsDic.valueForKey("BackgroundImage_URL"))
         self.dealLogoImg.setImageWithURL(NSURL(string:(dealsDic.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
@@ -66,6 +67,49 @@ class FineDiningViewController: UIViewController {
             print("pop up closed")
         }
         popup.show(container)
+        
+    }
+    
+    
+    func constructTheOfferReedemJson(){
+        /*
+         json={"list"":[{"ProductName":"Tabla","ProductDescription":"description","ProductImage":"https://s3-ap-southeast-1.amazonaws.com/storeongocontent/jobs/jobFldAttachments/20217_1477488244540.png","OfferName":"25 off on lunch","ProductId":"196429","OfferId":"9876543210","MacId":"102716-BHJAFCFH"}]}&dt=CAMPAIGNS&category=Notifications&userId=20217&consumerEmail=cxsample@gmail.com
+         
+         */
+        let jsonDic : NSMutableDictionary = NSMutableDictionary()
+        jsonDic.setObject((dealsDic.valueForKey("Name") as?String)!, forKey: "ProductName")
+        jsonDic.setObject(dealsDic.valueForKey("Image_URL")!, forKey: "ProductDescription")
+        jsonDic.setObject((dealsDic.valueForKey("BackgroundImage_URL") as?String)!, forKey: "ProductImage")
+        jsonDic.setObject(CXAppConfig.sharedInstance.getTheUserData().macId, forKey: "MacId")
+        
+        CXAppConfig.sharedInstance.setRedeemDictionary(jsonDic)
+        
+        /*
+        let jsonListArray : NSMutableArray = NSMutableArray()
+        jsonListArray.addObject(jsonDic)
+        
+        let listDic : NSDictionary = NSDictionary(object: jsonListArray, forKey: "list")
+        print(listDic)
+        
+        var jsonData : NSData = NSData()
+        do {
+            jsonData = try NSJSONSerialization.dataWithJSONObject(listDic, options: NSJSONWritingOptions.PrettyPrinted)
+            // here "jsonData" is the dictionary encoded in JSON data
+        } catch let error as NSError {
+            print(error)
+        }
+        let jsonStringFormat = String(data: jsonData, encoding: NSUTF8StringEncoding)
+        
+        print(jsonStringFormat)
+        
+        
+        
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getPlaceOrderUrl(), parameters: ["type":"RedeemHistory","json":jsonStringFormat!,"dt":"CAMPAIGNS","category":"Notifications","userId":CXAppConfig.sharedInstance.getAppMallID(),"consumerEmail":"yernagulamahesh@gmail.com"]) { (responseDict) in
+            print(responseDict)
+            let string = responseDict.valueForKeyPath("myHashMap.status")
+            print(string)
+        }
+ */
         
     }
     

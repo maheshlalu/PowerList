@@ -8,8 +8,8 @@
 
 import UIKit
 
-class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
-
+ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+    
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var leftTableview: UITableView!
     @IBOutlet weak var dpNameLbl: UILabel!
@@ -22,41 +22,37 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         let appdata:NSArray = UserProfile.MR_findAll() as NSArray
         let userProfileData:UserProfile = appdata.lastObject as! UserProfile
-        
-        let imageUrl = userProfileData.userPic
-        if (imageUrl != ""){
-            userImage.sd_setImageWithURL(NSURL(string: imageUrl!))
-        }
+        dispatch_async(dispatch_get_main_queue(), {
+            let imageUrl = userProfileData.userPic
+            if (imageUrl != ""){
+                self.userImage.sd_setImageWithURL(NSURL(string: imageUrl!))
+            }
+        })
         self.userImage.layer.borderColor = UIColor.whiteColor().CGColor
-       self.userImage.layer.cornerRadius = 60
+        self.userImage.layer.cornerRadius = 60
         self.userImage.layer.borderWidth = 5
         self.userImage.clipsToBounds = true
         
         self.dpNameLbl.text = userProfileData.firstName
-
+        
         let nib = UINib(nibName: "TableViewCell", bundle: nil)
         self.leftTableview.registerNib(nib, forCellReuseIdentifier: "TableViewCell")
 
-        // Do any additional setup after loading the view.
-        
-        
     }
     
-
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBarHidden = true
-
+        
     }
     
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-
+        
         return nameArray.count
         
     }
@@ -97,7 +93,7 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     
     
-  
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         
@@ -128,7 +124,7 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
             
         }else if itemName == "HOW TO USE"{
             let howToUse = storyBoard.instantiateViewControllerWithIdentifier("HOW_TO_USE") as! HowToUseViewController
-             let navCntl = UINavigationController(rootViewController: howToUse)
+            let navCntl = UINavigationController(rootViewController: howToUse)
             revealController.pushFrontViewController(navCntl, animated: true)
             
         }else if itemName == "HELP" {
@@ -137,12 +133,12 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
             
         }else if itemName == "SIGN OUT"{
             
-             showAlertView("Are You Sure??", status: 1)
+            showAlertView("Are You Sure??", status: 1)
             
         }
         
     }
-
+    
     func showAlertView(message:String, status:Int) {
         let alert = UIAlertController(title: "CoupoCon", message: message, preferredStyle: UIAlertControllerStyle.Alert)
         //alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
@@ -190,7 +186,7 @@ class LeftViewController: UIViewController,UITableViewDataSource,UITableViewDele
         }
     }
     
-}
+ }
 
 
 
