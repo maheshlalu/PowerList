@@ -30,7 +30,8 @@ public class CXDataService: NSObject {
         if Bool(1) {
             print(CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getMasterUrl())
             print(parameters)
-            
+            NSURLCache.sharedURLCache().removeAllCachedResponses()
+            Alamofire.Manager.sharedInstance.session.configuration.requestCachePolicy = .ReturnCacheDataDontLoad
         Alamofire.request(.GET,CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getMasterUrl() , parameters: parameters)
             .validate()
             .responseJSON { response in

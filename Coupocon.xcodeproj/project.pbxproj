@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		07EA6B5AEA6DCAC4FA208E12 /* Pods_CoupConTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FF100D70C4BCD9B1EF4A14 /* Pods_CoupConTests.framework */; };
+		110B61E11DC729ED006496E7 /* TextFieldMaximumLength.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110B61E01DC729ED006496E7 /* TextFieldMaximumLength.swift */; };
+		110B61E31DC7883D006496E7 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 110B61E21DC7883D006496E7 /* AFNetworking.framework */; };
+		110B61E41DC7883D006496E7 /* AFNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 110B61E21DC7883D006496E7 /* AFNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		110DD1C71DB0AD9C001F9BC1 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110DD1C41DB0AD9C001F9BC1 /* LeftViewController.swift */; };
 		110DD1C81DB0AD9C001F9BC1 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110DD1C51DB0AD9C001F9BC1 /* TableViewCell.swift */; };
 		110DD1C91DB0AD9C001F9BC1 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 110DD1C61DB0AD9C001F9BC1 /* TableViewCell.xib */; };
@@ -100,7 +103,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		110B61E51DC7883D006496E7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				110B61E41DC7883D006496E7 /* AFNetworking.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		110B61E01DC729ED006496E7 /* TextFieldMaximumLength.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldMaximumLength.swift; sourceTree = "<group>"; };
+		110B61E21DC7883D006496E7 /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = AFNetworking.framework; path = "/Users/cx_one/Library/Developer/Xcode/DerivedData/CoupCon-hkshhznyaccmslbpppwzfzjxedyf/Build/Products/Debug-iphonesimulator/AFNetworking/AFNetworking.framework"; sourceTree = "<absolute>"; };
 		110DD1C41DB0AD9C001F9BC1 /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
 		110DD1C51DB0AD9C001F9BC1 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		110DD1C61DB0AD9C001F9BC1 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
@@ -150,7 +169,7 @@
 		18C1603D1DB1FE740083F16D /* UIImageView+UIActivityIndicatorForSDWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+UIActivityIndicatorForSDWebImage.h"; sourceTree = "<group>"; };
 		18C1603E1DB1FE740083F16D /* UIImageView+UIActivityIndicatorForSDWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+UIActivityIndicatorForSDWebImage.m"; sourceTree = "<group>"; };
 		18C160501DB222820083F16D /* DealsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsViewController.swift; sourceTree = "<group>"; };
-		18C90C001DAF78DF0053F8D7 /* CoupCon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoupCon.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		18C90C001DAF78DF0053F8D7 /* Coupocon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coupocon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C90C031DAF78DF0053F8D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18C90C051DAF78DF0053F8D7 /* CXSigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CXSigninViewController.swift; sourceTree = "<group>"; };
 		18C90C081DAF78DF0053F8D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -158,10 +177,10 @@
 		18C90C0D1DAF78DF0053F8D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18C90C101DAF78DF0053F8D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18C90C121DAF78DF0053F8D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		18C90C171DAF78DF0053F8D7 /* CoupConTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoupConTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		18C90C171DAF78DF0053F8D7 /* CoupoconTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoupoconTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C90C1B1DAF78DF0053F8D7 /* CoupConTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoupConTests.swift; sourceTree = "<group>"; };
 		18C90C1D1DAF78DF0053F8D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		18C90C221DAF78DF0053F8D7 /* CoupConUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoupConUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		18C90C221DAF78DF0053F8D7 /* CoupoconTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoupoconTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C90C261DAF78DF0053F8D7 /* CoupConUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoupConUITests.swift; sourceTree = "<group>"; };
 		18C90C281DAF78DF0053F8D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18C90C401DAF7C970053F8D7 /* CoupCon-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoupCon-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
@@ -202,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18057E401DAFC37C0017F038 /* FBSDKShareKit.framework in Frameworks */,
+				110B61E31DC7883D006496E7 /* AFNetworking.framework in Frameworks */,
 				BB2E53519290050F395A2AEF /* Pods_CoupCon.framework in Frameworks */,
 				18057E3E1DAFC37C0017F038 /* FBSDKCoreKit.framework in Frameworks */,
 				18057E3F1DAFC37C0017F038 /* FBSDKLoginKit.framework in Frameworks */,
@@ -227,6 +247,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		110B61DF1DC729C4006496E7 /* TextFieldModificationFiles */ = {
+			isa = PBXGroup;
+			children = (
+				110B61E01DC729ED006496E7 /* TextFieldMaximumLength.swift */,
+			);
+			name = TextFieldModificationFiles;
+			sourceTree = "<group>";
+		};
 		115CA1B61DC1BEB800BE9D57 /* PopUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,6 +359,7 @@
 		18C90BF71DAF78DF0053F8D7 = {
 			isa = PBXGroup;
 			children = (
+				110B61E21DC7883D006496E7 /* AFNetworking.framework */,
 				18ED4A411DB617DB00A612BA /* OtherResources */,
 				18C90C021DAF78DF0053F8D7 /* CoupCon */,
 				18C90C1A1DAF78DF0053F8D7 /* CoupConTests */,
@@ -344,9 +373,9 @@
 		18C90C011DAF78DF0053F8D7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				18C90C001DAF78DF0053F8D7 /* CoupCon.app */,
-				18C90C171DAF78DF0053F8D7 /* CoupConTests.xctest */,
-				18C90C221DAF78DF0053F8D7 /* CoupConUITests.xctest */,
+				18C90C001DAF78DF0053F8D7 /* Coupocon.app */,
+				18C90C171DAF78DF0053F8D7 /* CoupoconTests.xctest */,
+				18C90C221DAF78DF0053F8D7 /* CoupoconTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -354,6 +383,7 @@
 		18C90C021DAF78DF0053F8D7 /* CoupCon */ = {
 			isa = PBXGroup;
 			children = (
+				110B61DF1DC729C4006496E7 /* TextFieldModificationFiles */,
 				115CA1B61DC1BEB800BE9D57 /* PopUp */,
 				118DBBE31DB9FF9C000AF9EE /* FloatingView */,
 				181C04E21DB0EC41006C05FF /* AppDataManager */,
@@ -473,9 +503,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		18C90BFF1DAF78DF0053F8D7 /* CoupCon */ = {
+		18C90BFF1DAF78DF0053F8D7 /* Coupocon */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 18C90C2B1DAF78DF0053F8D7 /* Build configuration list for PBXNativeTarget "CoupCon" */;
+			buildConfigurationList = 18C90C2B1DAF78DF0053F8D7 /* Build configuration list for PBXNativeTarget "Coupocon" */;
 			buildPhases = (
 				0423EBA6076DE861F9E80136 /* [CP] Check Pods Manifest.lock */,
 				18C90BFC1DAF78DF0053F8D7 /* Sources */,
@@ -483,19 +513,20 @@
 				18C90BFE1DAF78DF0053F8D7 /* Resources */,
 				B49D75EF945FA4C4FE11324F /* [CP] Embed Pods Frameworks */,
 				D7B1EB2F33C80054806CEFDF /* [CP] Copy Pods Resources */,
+				110B61E51DC7883D006496E7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = CoupCon;
+			name = Coupocon;
 			productName = CoupCon;
-			productReference = 18C90C001DAF78DF0053F8D7 /* CoupCon.app */;
+			productReference = 18C90C001DAF78DF0053F8D7 /* Coupocon.app */;
 			productType = "com.apple.product-type.application";
 		};
-		18C90C161DAF78DF0053F8D7 /* CoupConTests */ = {
+		18C90C161DAF78DF0053F8D7 /* CoupoconTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 18C90C2E1DAF78DF0053F8D7 /* Build configuration list for PBXNativeTarget "CoupConTests" */;
+			buildConfigurationList = 18C90C2E1DAF78DF0053F8D7 /* Build configuration list for PBXNativeTarget "CoupoconTests" */;
 			buildPhases = (
 				B8DAB92CF76ECD91D4FEDB41 /* [CP] Check Pods Manifest.lock */,
 				18C90C131DAF78DF0053F8D7 /* Sources */,
@@ -509,14 +540,14 @@
 			dependencies = (
 				18C90C191DAF78DF0053F8D7 /* PBXTargetDependency */,
 			);
-			name = CoupConTests;
+			name = CoupoconTests;
 			productName = CoupConTests;
-			productReference = 18C90C171DAF78DF0053F8D7 /* CoupConTests.xctest */;
+			productReference = 18C90C171DAF78DF0053F8D7 /* CoupoconTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		18C90C211DAF78DF0053F8D7 /* CoupConUITests */ = {
+		18C90C211DAF78DF0053F8D7 /* CoupoconUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 18C90C311DAF78DF0053F8D7 /* Build configuration list for PBXNativeTarget "CoupConUITests" */;
+			buildConfigurationList = 18C90C311DAF78DF0053F8D7 /* Build configuration list for PBXNativeTarget "CoupoconUITests" */;
 			buildPhases = (
 				958A03A34B87071642231DD8 /* [CP] Check Pods Manifest.lock */,
 				18C90C1E1DAF78DF0053F8D7 /* Sources */,
@@ -529,9 +560,9 @@
 			dependencies = (
 				18C90C241DAF78DF0053F8D7 /* PBXTargetDependency */,
 			);
-			name = CoupConUITests;
+			name = CoupoconUITests;
 			productName = CoupConUITests;
-			productReference = 18C90C221DAF78DF0053F8D7 /* CoupConUITests.xctest */;
+			productReference = 18C90C221DAF78DF0053F8D7 /* CoupoconTests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -557,7 +588,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 18C90BFB1DAF78DF0053F8D7 /* Build configuration list for PBXProject "CoupCon" */;
+			buildConfigurationList = 18C90BFB1DAF78DF0053F8D7 /* Build configuration list for PBXProject "Coupocon" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -570,9 +601,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				18C90BFF1DAF78DF0053F8D7 /* CoupCon */,
-				18C90C161DAF78DF0053F8D7 /* CoupConTests */,
-				18C90C211DAF78DF0053F8D7 /* CoupConUITests */,
+				18C90BFF1DAF78DF0053F8D7 /* Coupocon */,
+				18C90C161DAF78DF0053F8D7 /* CoupoconTests */,
+				18C90C211DAF78DF0053F8D7 /* CoupoconUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -784,6 +815,7 @@
 				18ED4A441DB6180500A612BA /* KIImagePager.m in Sources */,
 				11D37EEB1DB8D75C0014F202 /* RedeemTableViewCell.swift in Sources */,
 				181C04E61DB0EC4F006C05FF /* CXAppConfig.swift in Sources */,
+				110B61E11DC729ED006496E7 /* TextFieldMaximumLength.swift in Sources */,
 				110DD1C71DB0AD9C001F9BC1 /* LeftViewController.swift in Sources */,
 				18D1605E1DB8C903009FF71D /* UserProfile+CoreDataProperties.swift in Sources */,
 				18ED4A501DB659F100A612BA /* Station.swift in Sources */,
@@ -819,12 +851,12 @@
 /* Begin PBXTargetDependency section */
 		18C90C191DAF78DF0053F8D7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 18C90BFF1DAF78DF0053F8D7 /* CoupCon */;
+			target = 18C90BFF1DAF78DF0053F8D7 /* Coupocon */;
 			targetProxy = 18C90C181DAF78DF0053F8D7 /* PBXContainerItemProxy */;
 		};
 		18C90C241DAF78DF0053F8D7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 18C90BFF1DAF78DF0053F8D7 /* CoupCon */;
+			target = 18C90BFF1DAF78DF0053F8D7 /* Coupocon */;
 			targetProxy = 18C90C231DAF78DF0053F8D7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -890,7 +922,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "b0bbd02d-b846-410e-9c85-80fecea84637";
+				PROVISIONING_PROFILE = "37f88238-57c6-46ca-9937-fc36b0d1bdec";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -930,7 +962,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "b0bbd02d-b846-410e-9c85-80fecea84637";
+				PROVISIONING_PROFILE = "37f88238-57c6-46ca-9937-fc36b0d1bdec";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -951,9 +983,9 @@
 				);
 				INFOPLIST_FILE = CoupCon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.creativexperts.cupocon;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b0bbd02d-b846-410e-9c85-80fecea84637";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ongo.Coupocon;
+				PRODUCT_NAME = Coupocon;
+				PROVISIONING_PROFILE = "37f88238-57c6-46ca-9937-fc36b0d1bdec";
 				SWIFT_OBJC_BRIDGING_HEADER = "CoupCon-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -973,9 +1005,9 @@
 				);
 				INFOPLIST_FILE = CoupCon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.creativexperts.cupocon;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b0bbd02d-b846-410e-9c85-80fecea84637";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ongo.Coupocon;
+				PRODUCT_NAME = Coupocon;
+				PROVISIONING_PROFILE = "37f88238-57c6-46ca-9937-fc36b0d1bdec";
 				SWIFT_OBJC_BRIDGING_HEADER = "CoupCon-Bridging-Header.h";
 			};
 			name = Release;
@@ -988,8 +1020,8 @@
 				INFOPLIST_FILE = CoupConTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CX.Coupcon.CoupConTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoupCon.app/CoupCon";
+				PRODUCT_NAME = CoupoconTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Coupocon.app/Coupocon";
 			};
 			name = Debug;
 		};
@@ -1001,8 +1033,8 @@
 				INFOPLIST_FILE = CoupConTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CX.Coupcon.CoupConTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoupCon.app/CoupCon";
+				PRODUCT_NAME = CoupoconTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Coupocon.app/Coupocon";
 			};
 			name = Release;
 		};
@@ -1013,7 +1045,7 @@
 				INFOPLIST_FILE = CoupConUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CX.Coupcon.CoupConUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CoupoconTests;
 				TEST_TARGET_NAME = CoupCon;
 			};
 			name = Debug;
@@ -1025,7 +1057,7 @@
 				INFOPLIST_FILE = CoupConUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CX.Coupcon.CoupConUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CoupoconTests;
 				TEST_TARGET_NAME = CoupCon;
 			};
 			name = Release;
@@ -1033,7 +1065,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		18C90BFB1DAF78DF0053F8D7 /* Build configuration list for PBXProject "CoupCon" */ = {
+		18C90BFB1DAF78DF0053F8D7 /* Build configuration list for PBXProject "Coupocon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				18C90C291DAF78DF0053F8D7 /* Debug */,
@@ -1042,7 +1074,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		18C90C2B1DAF78DF0053F8D7 /* Build configuration list for PBXNativeTarget "CoupCon" */ = {
+		18C90C2B1DAF78DF0053F8D7 /* Build configuration list for PBXNativeTarget "Coupocon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				18C90C2C1DAF78DF0053F8D7 /* Debug */,
@@ -1051,7 +1083,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		18C90C2E1DAF78DF0053F8D7 /* Build configuration list for PBXNativeTarget "CoupConTests" */ = {
+		18C90C2E1DAF78DF0053F8D7 /* Build configuration list for PBXNativeTarget "CoupoconTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				18C90C2F1DAF78DF0053F8D7 /* Debug */,
@@ -1060,7 +1092,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		18C90C311DAF78DF0053F8D7 /* Build configuration list for PBXNativeTarget "CoupConUITests" */ = {
+		18C90C311DAF78DF0053F8D7 /* Build configuration list for PBXNativeTarget "CoupoconUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				18C90C321DAF78DF0053F8D7 /* Debug */,

@@ -78,7 +78,7 @@ class FineDiningViewController: UIViewController {
          */
         let jsonDic : NSMutableDictionary = NSMutableDictionary()
         jsonDic.setObject((dealsDic.valueForKey("Name") as?String)!, forKey: "ProductName")
-        jsonDic.setObject(dealsDic.valueForKey("Image_URL")!, forKey: "ProductDescription")
+        jsonDic.setObject(dealsDic.valueForKey("Image_URL")!, forKey: "productLogo")//productLogo
         jsonDic.setObject((dealsDic.valueForKey("BackgroundImage_URL") as?String)!, forKey: "ProductImage")
         jsonDic.setObject(CXAppConfig.sharedInstance.getTheUserData().macId, forKey: "MacId")
         

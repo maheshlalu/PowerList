@@ -195,6 +195,7 @@ class CX_SocialIntegration: NSObject {
                 
                 let userRegisterDic: NSDictionary = NSDictionary(objects: [CXAppConfig.sharedInstance.getAppMallID(),email,"DEVICES",GoogleID,strFirstName,strLastName,"",userPic,"true",userPic],
                                                                  forKeys: ["orgId","userEmailId","dt","password","firstName","lastName","gender","filePath","isLoginWithFB","userImagePath"])
+                print(userRegisterDic)
                 self.registerWithSocialNewtWokrk(userRegisterDic, completion: { (responseDict) in
                     completion(resPonce: true)
 

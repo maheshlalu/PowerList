@@ -25,7 +25,7 @@ class ReedemViewController: UIViewController,UITableViewDataSource,UITableViewDe
     @IBOutlet weak var tableviewHeight: NSLayoutConstraint!
     @IBOutlet weak var yourRedeemHistoryLbl: UILabel!
     var showBackBtn:Bool! = false
-    
+    let TEXT_FIELD_LIMIT = 1
     var redeemHistoryJobsArr:NSArray! = nil
     
     override func viewDidLoad() {
@@ -37,7 +37,7 @@ class ReedemViewController: UIViewController,UITableViewDataSource,UITableViewDe
         textField4.delegate = self
         textField5.delegate = self
         textField6.delegate = self
-        
+
         let nib = UINib(nibName: "RedeemTableViewCell", bundle: nil)
         self.RedeemTableView.registerNib(nib, forCellReuseIdentifier: "RedeemTableViewCell")
         self.setUPTheNavigationProperty()
@@ -46,15 +46,23 @@ class ReedemViewController: UIViewController,UITableViewDataSource,UITableViewDe
         self.redeemViewAligner()
         redeemHistoryApiCall()
         
+        textField1.addTarget(self, action: #selector(ReedemViewController.textFieldDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
+        textField2.addTarget(self, action: #selector(ReedemViewController.textFieldDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
+        textF3.addTarget(self, action: #selector(ReedemViewController.textFieldDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
+        textField4.addTarget(self, action: #selector(ReedemViewController.textFieldDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
+        textField5.addTarget(self, action: #selector(ReedemViewController.textFieldDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
+        textField6.addTarget(self, action: #selector(ReedemViewController.textFieldDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
+        
     }
     
     func redeemViewAligner(){
         
         if showBackBtn == true{
+            
             navigationItem.backBarButtonItem?.tintColor = UIColor.grayColor()
             navigationItem.hidesBackButton = false
-            codeStackView.hidden = false
-            
+            RedeemTableView.separatorStyle = .None
+
         }else{
             navigatingFromSidePanel()
         }
@@ -70,6 +78,7 @@ class ReedemViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
         var redeem:UITableView = self.RedeemTableView
         redeem = UITableView(frame: CGRectMake(10,self.enterRedeemCodeLbl.frame.size.height+enterRedeemCodeLbl.frame.origin.y+(self.navigationController?.navigationBar.frame.size.height)!+20 ,self.view.frame.size.width-20, (self.view.frame.size.height)), style: UITableViewStyle.Plain)
+        redeem.contentInset = UIEdgeInsetsMake(-36, 0, 0, 0);
         redeem.delegate = self
         redeem.dataSource = self
         redeem.backgroundColor = UIColor.clearColor()
@@ -126,7 +135,7 @@ class ReedemViewController: UIViewController,UITableViewDataSource,UITableViewDe
         let categoryDic : NSDictionary = self.redeemHistoryJobsArr[indexPath.section] as! NSDictionary
         
         cell.redeemImageView.sd_setImageWithURL(NSURL(string:categoryDic.valueForKey("ProductImage") as! String))
-        cell.redeemLogo.sd_setImageWithURL(NSURL(string: categoryDic.valueForKey("ProductDescription") as! String))
+        cell.redeemLogo.sd_setImageWithURL(NSURL(string: categoryDic.valueForKey("productLogo") as! String))
         cell.redeemLbl.text = "\(categoryDic.valueForKey("OfferName")!)"
         cell.redeemPercentLbl.text = "\(categoryDic.valueForKey("OfferName")!)"
         
@@ -144,96 +153,83 @@ class ReedemViewController: UIViewController,UITableViewDataSource,UITableViewDe
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10
+        return 0
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldDidChange(textField: UITextField){
+        textField.text = textField.text?.uppercaseString
+
+        let text = textField.text
         
-        /*textField.returnKeyType = UIReturnKeyType.done
-         self.view.endEditing(true)
-         return true*/
-        
-        if textField == textField1
-        {
-            
-            textField.resignFirstResponder()
-            textField2.becomeFirstResponder()
+        if text?.utf16.count==1{
+            switch textField{
+            case textField1:
+                textField2.becomeFirstResponder()
+                
+            case textField2:
+                textF3.becomeFirstResponder()
+                
+            case textF3:
+                textField4.becomeFirstResponder()
+                
+            case textField4:
+                textField5.becomeFirstResponder()
+                
+            case textField5:
+                textField6.becomeFirstResponder()
+                
+            case textField6:
+                
+                let Code = "\(textField1.text!)\(textField2.text!)\(textF3.text!)\(textField4.text!)\(textField5.text!)\(textField6.text!)"
+                let codeStr = Code.uppercaseString
+                let jsonListArray : NSMutableArray = NSMutableArray()
+                jsonListArray.addObject(CXAppConfig.sharedInstance.getRedeemDictionary())
+                
+                let OfferCode = jsonListArray.valueForKeyPath("OfferCode") as! NSArray
+                let offerCodeStr = OfferCode[0] as! String
+                //OCS72K
+                if (offerCodeStr != ""){
+                    if offerCodeStr == codeStr{
+                        textField6.resignFirstResponder()
+                        print("Code is Equal to OfferCode")
+                        self.offerReedem()
+                    }else{
+                        self.showAlertView("Please Check Code Once!!!", status: 0)
+                    }
+                }else{
+                     textField6.resignFirstResponder()
+                    print("OfferCode is not available")
+                }
+                
+            default:
+                break
+            }
         }
-            
-        else if textField == textField2
-        {
-            
-            textField.resignFirstResponder()
-            textF3.becomeFirstResponder()
-        }
-        else if textField == textF3
-        {
-            textField.resignFirstResponder()
-            textField4.becomeFirstResponder()
-            
-        }
-        else if textField == textField4
-        {
-            
-            textField.resignFirstResponder()
-            textField5.becomeFirstResponder()
-        }
-        else if textField == textField5
-        {
-            textField.resignFirstResponder()
-            textField6.becomeFirstResponder()
-            
-        }
-        else if textField == textField6
-        {
-            // self.codeLbl.text = ("\(textField1.text)\(textField2.text)\(textF3.text)\(textField4.text)\(textField5.text)\(textField6.text)")
-            resignFirstResponder()
-            
-        }
-        
-        return true
     }
     
     func textField(textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
         
     {
-        
-        if((textField.text?.characters.count)! < 1 && string.characters.count > 0){
-            
-            let nexttag = textField.tag+1
-            var nextresponder = textField.superview?.viewWithTag(nexttag)
-            if (nextresponder == nil)
-            {
-                nextresponder = textField.superview?.viewWithTag(1)
-            }
-            textField.text = string
-            nextresponder?.becomeFirstResponder()
-            return false
-        }
-            
-        else if (textField.text?.characters.count)! <= 1 && string.characters.count>0
-        {
-            return false
-            
-        }
-        else
-        {
-            return true
-        }
-        
+       return (textField.text?.utf16.count ?? 0) + string.utf16.count - range.length <= TEXT_FIELD_LIMIT
     }
     
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool // return NO to disallow editing.
     {
-        if textField.text?.characters.count == 1  {
-            return true
-        }else{
-            return false
-        }
+        return true
     }
     
-    //http://storeongo.com:8081/Services/getMasters?mallId=20217&type= RedeemHistory&refTypeProperty1=MacId&refId1=195735
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
+    func textFieldDidBeginEditing(textField: UITextField) {
+        textField.text = ""
+    }
+    
+    
+    //http://storeongo.com:8081/Services/getMasters?mallId=20217&type= RedeemHistory&refTypeProperty1=MacId&refId1=195735
+    //http://storeongo.com:8081/Services/getMasters?mallId=20217&type=RedeemHistory&refTypeProperty1=MacId&refId1=197024
     func redeemHistoryApiCall(){
         LoadingView.show("Loading...", animated: true)
         CXDataService.sharedInstance.getTheAppDataFromServer(["type":"RedeemHistory","mallId":CXAppConfig.sharedInstance.getAppMallID(),"refTypeProperty1":"MacId","refId1":CXAppConfig.sharedInstance.getTheUserData().macIdJobId]) { (responseDict) in
@@ -241,18 +237,10 @@ class ReedemViewController: UIViewController,UITableViewDataSource,UITableViewDe
             self.redeemHistoryJobsArr = responseDict.valueForKey("jobs") as! NSArray
             print(self.redeemHistoryJobsArr.count)
             self.RedeemTableView.reloadData()
-           // self.offerReedem()
             LoadingView.hide()
+            
         }
     }
-
-    
-    // note: After successful completino of Marchant entered pin is equals to offerDict pin code then call this api. Here userId = getUserId and jobid = offerId http://storeongo.com:8081/jobs/saveJobCommentJSON?userId=20217&jobId=196446&comment=excellent&rating=0.5
-    
-    
-    // note: To get redeem history http://localhost:8081/MobileAPIs/getJobsFollowingBy?email=cxsample@gmail.com&mallId=530&type=RedeemHystory.
-    
-    
     
     
     func offerReedem(){
@@ -272,6 +260,7 @@ class ReedemViewController: UIViewController,UITableViewDataSource,UITableViewDe
 //        jsonDic.setObject(CXAppConfig.sharedInstance.getTheUserData().macId, forKey: "MacId")
         
         let jsonListArray : NSMutableArray = NSMutableArray()
+        
         jsonListArray.addObject(CXAppConfig.sharedInstance.getRedeemDictionary())
         
         let listDic : NSDictionary = NSDictionary(object: jsonListArray, forKey: "list")
@@ -288,13 +277,33 @@ class ReedemViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
         print(jsonStringFormat)
 
-        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getPlaceOrderUrl(), parameters: ["type":"RedeemHistory","json":jsonStringFormat!,"dt":"CAMPAIGNS","category":"Notifications","userId":CXAppConfig.sharedInstance.getAppMallID(),"consumerEmail":"yernagulamahesh@gmail.com"]) { (responseDict) in
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getPlaceOrderUrl(), parameters: ["type":"RedeemHistory","json":jsonStringFormat!,"dt":"CAMPAIGNS","category":"Notifications","userId":CXAppConfig.sharedInstance.getAppMallID(),"consumerEmail":CXAppConfig.sharedInstance.getTheUserData().userEmail]) { (responseDict) in
             print(responseDict)
-            let string = responseDict.valueForKeyPath("myHashMap.status")
+            let string = responseDict.valueForKeyPath("myHashMap.status") as! String
             print(string)
+            
+            if string == "1"{
+                self.showAlertView("Product Redeemed Successfully!!!", status: 1)
+            }
             LoadingView.hide()
         }
         
+    }
+    
+    func showAlertView(message:String, status:Int) {
+        dispatch_async(dispatch_get_main_queue(), {
+            let alert = UIAlertController(title: "CoupCon", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            let okAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default) {
+                UIAlertAction in
+                if status == 1 {
+                    self.navigationController?.popToRootViewControllerAnimated(true)
+                }else{
+                
+                }
+            }
+            alert.addAction(okAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+        })
     }
     
 }

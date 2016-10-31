@@ -17,7 +17,7 @@ import UIKit
     let managedObjectContext:NSManagedObjectContext! = nil
     var previousSelectedIndex  : NSIndexPath = NSIndexPath()
     var nameArray = ["HOME","PROFILE & MEMBERSHIP","REDEEM & HISTORY","HOW TO USE","HELP","SIGN OUT"]
-    var imageArray = ["HomeImage","Profile & membershipImage","Profile & membershipImage","HowtoUseImage","Helpimage","PowerBtn"]
+    var imageArray = ["HomeImage","Profile & membershipImage","sidePanelRedeem20","HowtoUseImage","Helpimage","PowerBtn"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

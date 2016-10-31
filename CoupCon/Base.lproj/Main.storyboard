@@ -50,14 +50,13 @@
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
-            <string>Roboto-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
         <!--Data Source-->
         <scene sceneID="z8s-ze-V0T">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="yBy-IN-TvA" customClass="HomeViewController" customModule="CoupCon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="yBy-IN-TvA" customClass="HomeViewController" customModule="Coupocon" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CMd-kq-ffC"/>
                         <viewControllerLayoutGuide type="bottom" id="ZDj-1M-TSe"/>
@@ -75,9 +74,6 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t7J-Hr-BAH">
                                                 <rect key="frame" x="20" y="27" width="32" height="30"/>
                                                 <state key="normal" image="sidePanelMenu"/>
-                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                    <rect key="frame" x="0.0" y="0.0" width="295" height="30"/>
-                                                </variation>
                                                 <connections>
                                                     <action selector="sideMenuAction:" destination="yBy-IN-TvA" eventType="touchUpInside" id="IXa-9x-J0N"/>
                                                 </connections>
@@ -86,9 +82,6 @@
                                                 <rect key="frame" x="73" y="20" width="251" height="44"/>
                                                 <color key="barTintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
-                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                    <rect key="frame" x="315" y="0.0" width="50" height="30"/>
-                                                </variation>
                                                 <connections>
                                                     <outlet property="delegate" destination="yBy-IN-TvA" id="zto-Do-sPd"/>
                                                 </connections>
@@ -258,7 +251,7 @@
         <!--Deals View Controller-->
         <scene sceneID="zvX-UF-vCx">
             <objects>
-                <viewController storyboardIdentifier="DealsViewController" id="OzU-MV-kLg" customClass="DealsViewController" customModule="CoupCon" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DealsViewController" id="OzU-MV-kLg" customClass="DealsViewController" customModule="Coupocon" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="A5d-cK-9V3"/>
                         <viewControllerLayoutGuide type="bottom" id="1ei-tw-jpE"/>
@@ -359,7 +352,7 @@
         <!--Left View Controller-->
         <scene sceneID="gYH-tJ-WDb">
             <objects>
-                <viewController storyboardIdentifier="LeftViewController" id="JCN-7V-2TZ" customClass="LeftViewController" customModule="CoupCon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LeftViewController" id="JCN-7V-2TZ" customClass="LeftViewController" customModule="Coupocon" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Il4-zy-v7S"/>
                         <viewControllerLayoutGuide type="bottom" id="Wna-uc-cmB"/>
@@ -439,7 +432,7 @@
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hyderabd,Telangana" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7QF-Aq-f3B">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hyderabad,Telangana" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7QF-Aq-f3B">
                                         <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -552,13 +545,46 @@
                                     <outlet property="delegate" destination="JCN-7V-2TZ" id="Edu-tq-Apt"/>
                                 </connections>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="storeongoLogo" translatesAutoresizingMaskIntoConstraints="NO" id="y4t-PZ-NMf">
+                                <rect key="frame" x="0.0" y="750" width="136" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="7d1-Gn-4fI">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="62"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="144" id="IPb-Oy-cnD"/>
+                                    <constraint firstAttribute="width" constant="144" id="vBl-H7-dzk"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="IPb-Oy-cnD"/>
+                                        <exclude reference="vBl-H7-dzk"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="IPb-Oy-cnD"/>
+                                        <exclude reference="vBl-H7-dzk"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="y4t-PZ-NMf" firstAttribute="leading" secondItem="TLq-Zr-xfz" secondAttribute="leadingMargin" constant="-13" id="0tQ-M5-1sX"/>
+                            <constraint firstItem="Wna-uc-cmB" firstAttribute="top" secondItem="y4t-PZ-NMf" secondAttribute="bottom" constant="126" id="1ul-E4-SJJ">
+                                <variation key="heightClass=regular-widthClass=compact" constant="14"/>
+                            </constraint>
                             <constraint firstItem="Hru-eR-S2K" firstAttribute="top" secondItem="TLq-Zr-xfz" secondAttribute="top" id="2cf-9y-6Bk"/>
+                            <constraint firstItem="Hdr-Sc-Ifz" firstAttribute="leading" secondItem="hOa-Z9-qa7" secondAttribute="leading" id="5wG-Oh-EIe"/>
                             <constraint firstItem="hOa-Z9-qa7" firstAttribute="leading" secondItem="TLq-Zr-xfz" secondAttribute="leading" id="E8I-qn-eJA"/>
+                            <constraint firstItem="Hdr-Sc-Ifz" firstAttribute="centerX" secondItem="y4t-PZ-NMf" secondAttribute="centerX" id="JfH-2X-Cpg"/>
                             <constraint firstItem="Hdr-Sc-Ifz" firstAttribute="top" secondItem="hOa-Z9-qa7" secondAttribute="bottom" constant="1" id="MZw-EI-KIC"/>
                             <constraint firstItem="Hdr-Sc-Ifz" firstAttribute="leading" secondItem="TLq-Zr-xfz" secondAttribute="leading" id="R4p-1A-Dbm"/>
+                            <constraint firstItem="y4t-PZ-NMf" firstAttribute="top" secondItem="Hdr-Sc-Ifz" secondAttribute="bottom" constant="8" symbolic="YES" id="S50-zg-PvO">
+                                <variation key="heightClass=regular-widthClass=compact" constant="2"/>
+                            </constraint>
                             <constraint firstItem="hOa-Z9-qa7" firstAttribute="top" secondItem="TLq-Zr-xfz" secondAttribute="top" id="S8c-0q-fKn"/>
+                            <constraint firstItem="Hdr-Sc-Ifz" firstAttribute="trailing" secondItem="hOa-Z9-qa7" secondAttribute="trailing" id="St2-N5-Bly"/>
                             <constraint firstItem="Wna-uc-cmB" firstAttribute="top" secondItem="Hru-eR-S2K" secondAttribute="bottom" id="TFg-8G-FfY"/>
                             <constraint firstItem="Wna-uc-cmB" firstAttribute="top" secondItem="Hru-eR-S2K" secondAttribute="bottom" id="ZTA-N2-Zgc"/>
                             <constraint firstItem="Wna-uc-cmB" firstAttribute="top" secondItem="Hru-eR-S2K" secondAttribute="bottom" id="aHw-Fb-OMj"/>
@@ -566,8 +592,10 @@
                             <constraint firstAttribute="trailing" secondItem="Hdr-Sc-Ifz" secondAttribute="trailing" id="eL7-lf-rek"/>
                             <constraint firstAttribute="trailing" secondItem="Hru-eR-S2K" secondAttribute="trailing" id="jF1-Xq-dRm"/>
                             <constraint firstItem="Hru-eR-S2K" firstAttribute="leading" secondItem="TLq-Zr-xfz" secondAttribute="leading" id="jTf-gL-eOD"/>
-                            <constraint firstItem="Hdr-Sc-Ifz" firstAttribute="bottom" secondItem="Wna-uc-cmB" secondAttribute="top" id="vxu-hH-rS3"/>
                             <constraint firstAttribute="trailing" secondItem="hOa-Z9-qa7" secondAttribute="trailing" id="yCv-bq-xZC"/>
+                            <constraint firstItem="y4t-PZ-NMf" firstAttribute="leading" secondItem="TLq-Zr-xfz" secondAttribute="leadingMargin" constant="-13" id="yLn-lw-RHp">
+                                <variation key="heightClass=regular-widthClass=compact" constant="6"/>
+                            </constraint>
                             <constraint firstItem="Hdr-Sc-Ifz" firstAttribute="top" secondItem="hOa-Z9-qa7" secondAttribute="bottom" constant="1" id="zCD-lh-0CD">
                                 <variation key="heightClass=regular-widthClass=compact" constant="5"/>
                             </constraint>
@@ -577,16 +605,20 @@
                                 <exclude reference="Hru-eR-S2K"/>
                                 <exclude reference="hOa-Z9-qa7"/>
                                 <exclude reference="Hdr-Sc-Ifz"/>
+                                <exclude reference="y4t-PZ-NMf"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="1ul-E4-SJJ"/>
                                 <exclude reference="TFg-8G-FfY"/>
                                 <exclude reference="ZTA-N2-Zgc"/>
                                 <exclude reference="aHw-Fb-OMj"/>
+                                <exclude reference="5wG-Oh-EIe"/>
+                                <exclude reference="JfH-2X-Cpg"/>
                                 <exclude reference="MZw-EI-KIC"/>
                                 <exclude reference="R4p-1A-Dbm"/>
+                                <exclude reference="St2-N5-Bly"/>
                                 <exclude reference="eFP-v0-ATH"/>
                                 <exclude reference="eL7-lf-rek"/>
-                                <exclude reference="vxu-hH-rS3"/>
                                 <exclude reference="zCD-lh-0CD"/>
                                 <exclude reference="2cf-9y-6Bk"/>
                                 <exclude reference="jF1-Xq-dRm"/>
@@ -594,6 +626,9 @@
                                 <exclude reference="E8I-qn-eJA"/>
                                 <exclude reference="S8c-0q-fKn"/>
                                 <exclude reference="yCv-bq-xZC"/>
+                                <exclude reference="0tQ-M5-1sX"/>
+                                <exclude reference="S50-zg-PvO"/>
+                                <exclude reference="yLn-lw-RHp"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -601,16 +636,20 @@
                                 <include reference="Hru-eR-S2K"/>
                                 <include reference="hOa-Z9-qa7"/>
                                 <include reference="Hdr-Sc-Ifz"/>
+                                <include reference="y4t-PZ-NMf"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="1ul-E4-SJJ"/>
                                 <exclude reference="TFg-8G-FfY"/>
                                 <exclude reference="ZTA-N2-Zgc"/>
                                 <exclude reference="aHw-Fb-OMj"/>
+                                <include reference="5wG-Oh-EIe"/>
+                                <exclude reference="JfH-2X-Cpg"/>
                                 <exclude reference="MZw-EI-KIC"/>
-                                <include reference="R4p-1A-Dbm"/>
+                                <exclude reference="R4p-1A-Dbm"/>
+                                <include reference="St2-N5-Bly"/>
                                 <exclude reference="eFP-v0-ATH"/>
-                                <include reference="eL7-lf-rek"/>
-                                <include reference="vxu-hH-rS3"/>
+                                <exclude reference="eL7-lf-rek"/>
                                 <include reference="zCD-lh-0CD"/>
                                 <include reference="2cf-9y-6Bk"/>
                                 <include reference="jF1-Xq-dRm"/>
@@ -618,6 +657,9 @@
                                 <include reference="E8I-qn-eJA"/>
                                 <include reference="S8c-0q-fKn"/>
                                 <include reference="yCv-bq-xZC"/>
+                                <exclude reference="0tQ-M5-1sX"/>
+                                <include reference="S50-zg-PvO"/>
+                                <include reference="yLn-lw-RHp"/>
                             </mask>
                         </variation>
                     </view>
@@ -635,13 +677,13 @@
         <!--Signin View Controller-->
         <scene sceneID="jc3-AE-022">
             <objects>
-                <viewController storyboardIdentifier="CXSigninViewController" id="E1K-YL-D6u" customClass="CXSigninViewController" customModule="CoupCon" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CXSigninViewController" id="E1K-YL-D6u" customClass="CXSigninViewController" customModule="Coupocon" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YTx-PJ-mt7"/>
                         <viewControllerLayoutGuide type="bottom" id="ok7-1Q-dkf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jVh-et-llc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="SigninBg_image" translatesAutoresizingMaskIntoConstraints="NO" id="vh4-55-ENT">
@@ -1162,7 +1204,6 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="Zsu-NE-HhF"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="checkboxBtn" destination="CWb-33-d8x" id="cqB-wQ-ZZt"/>
                         <outlet property="credientailsView" destination="ixb-DF-Pa6" id="oeS-j1-Ybj"/>
@@ -1184,7 +1225,7 @@
         <!--Search View Controller-->
         <scene sceneID="tOC-ey-OS1">
             <objects>
-                <viewController storyboardIdentifier="SearchViewController" id="hyb-vq-mqD" customClass="SearchViewController" customModule="CoupCon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchViewController" id="hyb-vq-mqD" customClass="SearchViewController" customModule="Coupocon" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8aX-Fv-nk7"/>
                         <viewControllerLayoutGuide type="bottom" id="UVc-dB-UVx"/>
@@ -1223,7 +1264,7 @@
                                     <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="KYT-Oz-rrN" customClass="CollectionViewCell" customModule="CoupCon" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="KYT-Oz-rrN" customClass="CollectionViewCell" customModule="Coupocon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1292,7 +1333,7 @@
         <!--Fine Dining View Controller-->
         <scene sceneID="QsG-9d-tp8">
             <objects>
-                <viewController storyboardIdentifier="FineDining" id="EM1-kX-qw2" customClass="FineDiningViewController" customModule="CoupCon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FineDining" id="EM1-kX-qw2" customClass="FineDiningViewController" customModule="Coupocon" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="W1I-Uu-kkj"/>
                         <viewControllerLayoutGuide type="bottom" id="yVZ-eJ-rYA"/>
@@ -1595,7 +1636,7 @@
         <!--About-->
         <scene sceneID="ng4-un-Ihy">
             <objects>
-                <viewController storyboardIdentifier="AboutUsViewController" title="About" id="zun-Ap-F6F" customClass="AboutUsViewController" customModule="CoupCon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutUsViewController" title="About" id="zun-Ap-F6F" customClass="AboutUsViewController" customModule="Coupocon" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2wv-CW-Fs8"/>
                         <viewControllerLayoutGuide type="bottom" id="2rs-ot-kQR"/>
@@ -1656,7 +1697,7 @@
         <!--OFFER-->
         <scene sceneID="YRp-on-OYP">
             <objects>
-                <viewController storyboardIdentifier="OffersViewController" title="OFFER" id="zta-1M-8sb" customClass="OffersViewController" customModule="CoupCon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OffersViewController" title="OFFER" id="zta-1M-8sb" customClass="OffersViewController" customModule="Coupocon" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1qp-Jr-Seu"/>
                         <viewControllerLayoutGuide type="bottom" id="ZPO-W8-gZy"/>
@@ -1719,7 +1760,7 @@
         <!--Map-->
         <scene sceneID="pGH-O8-fj9">
             <objects>
-                <viewController storyboardIdentifier="MapViewController" title="Map" id="pTc-RG-hkj" customClass="MapViewController" customModule="CoupCon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" title="Map" id="pTc-RG-hkj" customClass="MapViewController" customModule="Coupocon" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lzK-bd-lne"/>
                         <viewControllerLayoutGuide type="bottom" id="tVK-Hs-cu4"/>
@@ -1736,7 +1777,7 @@
         <!--Profile Membership View Controller-->
         <scene sceneID="GE8-Kg-so0">
             <objects>
-                <viewController storyboardIdentifier="PROFILE_MEMBERSHIP" id="yw1-WG-Kmc" customClass="ProfileMembershipViewController" customModule="CoupCon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PROFILE_MEMBERSHIP" id="yw1-WG-Kmc" customClass="ProfileMembershipViewController" customModule="Coupocon" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YtJ-yu-S5f"/>
                         <viewControllerLayoutGuide type="bottom" id="o2t-Rd-oMq"/>
@@ -2132,7 +2173,7 @@
         <!--Reedem View Controller-->
         <scene sceneID="5un-h7-upI">
             <objects>
-                <viewController storyboardIdentifier="REDEEM_HISTORY" id="BsK-CQ-vvm" customClass="ReedemViewController" customModule="CoupCon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="REDEEM_HISTORY" id="BsK-CQ-vvm" customClass="ReedemViewController" customModule="Coupocon" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AR5-1n-wKh"/>
                         <viewControllerLayoutGuide type="bottom" id="A0V-Jy-AX6"/>
@@ -2141,9 +2182,115 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="leftpanel_image" translatesAutoresizingMaskIntoConstraints="NO" id="GO9-kN-DsC">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="leftpanel_image" translatesAutoresizingMaskIntoConstraints="NO" id="GO9-kN-DsC">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Jbz-Cv-q8e" userLabel="CodeStackView">
+                                <rect key="frame" x="38" y="71" width="230" height="40"/>
+                                <subviews>
+                                    <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iDJ-Xe-bW4">
+                                        <rect key="frame" x="0.0" y="0.0" width="38" height="40"/>
+                                        <color key="backgroundColor" red="0.97790759800000004" green="0.66284805540000002" blue="0.14767727259999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="namePhonePad"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="BsK-CQ-vvm" id="lhM-6y-376"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XO4-T6-HaE">
+                                        <rect key="frame" x="38" y="0.0" width="39" height="40"/>
+                                        <color key="backgroundColor" red="0.9952825904" green="0.76046985389999999" blue="0.35000991819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="namePhonePad"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="BsK-CQ-vvm" id="65T-Y3-kQC"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B9q-v9-L0n">
+                                        <rect key="frame" x="77" y="0.0" width="38" height="40"/>
+                                        <color key="backgroundColor" red="0.97790759800000004" green="0.66284805540000002" blue="0.14767727259999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="namePhonePad"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="BsK-CQ-vvm" id="zzr-D2-x7c"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UFP-2E-VP5">
+                                        <rect key="frame" x="115" y="0.0" width="38" height="40"/>
+                                        <color key="backgroundColor" red="0.9952825904" green="0.76046985389999999" blue="0.35000991819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="namePhonePad"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="BsK-CQ-vvm" id="A63-0k-boc"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v7O-bi-0ln">
+                                        <rect key="frame" x="153" y="0.0" width="39" height="40"/>
+                                        <color key="backgroundColor" red="0.97790759800000004" green="0.66284805540000002" blue="0.14767727259999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="namePhonePad"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="BsK-CQ-vvm" id="qtJ-Qm-pOh"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jAf-em-B8Z">
+                                        <rect key="frame" x="192" y="0.0" width="38" height="40"/>
+                                        <color key="backgroundColor" red="0.9952825904" green="0.76046985389999999" blue="0.35000991819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="namePhonePad"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="BsK-CQ-vvm" id="HsU-cL-ngg"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="7E4-vp-aDL"/>
+                                    <constraint firstAttribute="height" constant="40" id="Kkr-PW-gfX"/>
+                                </constraints>
+                            </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9Dw-Au-JhJ">
                                 <rect key="frame" x="0.0" y="248" width="320" height="320"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -2152,63 +2299,6 @@
                                     <outlet property="delegate" destination="BsK-CQ-vvm" id="bfR-wE-OPV"/>
                                 </connections>
                             </tableView>
-                            <stackView opaque="NO" contentMode="scaleAspectFit" misplaced="YES" distribution="fillEqually" spacing="-2" translatesAutoresizingMaskIntoConstraints="NO" id="Jbz-Cv-q8e" userLabel="CodeStackView">
-                                <rect key="frame" x="38" y="71" width="230" height="40"/>
-                                <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iDJ-Xe-bW4">
-                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                        <color key="backgroundColor" red="0.97790759800000004" green="0.66284805540000002" blue="0.14767727259999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XO4-T6-HaE">
-                                        <rect key="frame" x="38" y="0.0" width="40" height="40"/>
-                                        <color key="backgroundColor" red="0.9952825904" green="0.76046985389999999" blue="0.35000991819999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B9q-v9-L0n">
-                                        <rect key="frame" x="76" y="0.0" width="40" height="40"/>
-                                        <color key="backgroundColor" red="0.97790759800000004" green="0.66284805540000002" blue="0.14767727259999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UFP-2E-VP5">
-                                        <rect key="frame" x="114" y="0.0" width="40" height="40"/>
-                                        <color key="backgroundColor" red="0.9952825904" green="0.76046985389999999" blue="0.35000991819999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v7O-bi-0ln">
-                                        <rect key="frame" x="152" y="0.0" width="40" height="40"/>
-                                        <color key="backgroundColor" red="0.97790759800000004" green="0.66284805540000002" blue="0.14767727259999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jAf-em-B8Z">
-                                        <rect key="frame" x="190" y="0.0" width="40" height="40"/>
-                                        <color key="backgroundColor" red="0.9952825904" green="0.76046985389999999" blue="0.35000991819999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                    </textField>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="230" id="7E4-vp-aDL"/>
-                                    <constraint firstAttribute="height" constant="40" id="Kkr-PW-gfX"/>
-                                </constraints>
-                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="YOUR REDEEM HISTORY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FNV-jI-1xz">
                                 <rect key="frame" x="69" y="207" width="189" height="33"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
@@ -2288,12 +2378,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZJN-d5-BAf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2638.5" y="-620.25"/>
+            <point key="canvasLocation" x="-2628" y="-654"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="uzy-19-IG7">
             <objects>
-                <viewController storyboardIdentifier="SignUpViewController" id="kV6-a3-e3g" customClass="SignUpViewController" customModule="CoupCon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" id="kV6-a3-e3g" customClass="SignUpViewController" customModule="Coupocon" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sdV-qD-h4z"/>
                         <viewControllerLayoutGuide type="bottom" id="XGF-yq-hcU"/>
@@ -2339,7 +2429,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Pom-qe-5O2">
                                         <rect key="frame" x="30" y="323" width="64" height="18"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WL5-Tf-vK3" customClass="SkyFloatingLabelTextField" customModule="CoupCon" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WL5-Tf-vK3" customClass="SkyFloatingLabelTextField" customModule="Coupocon" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="9" height="18"/>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
@@ -2376,7 +2466,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xe5-Id-X5R" customClass="SkyFloatingLabelTextField" customModule="CoupCon" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xe5-Id-X5R" customClass="SkyFloatingLabelTextField" customModule="Coupocon" customModuleProvider="target">
                                                 <rect key="frame" x="11" y="0.0" width="9" height="18"/>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
@@ -2413,7 +2503,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kTu-s4-sQy" customClass="SkyFloatingLabelTextField" customModule="CoupCon" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kTu-s4-sQy" customClass="SkyFloatingLabelTextField" customModule="Coupocon" customModuleProvider="target">
                                                 <rect key="frame" x="22" y="0.0" width="9" height="18"/>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
@@ -2450,7 +2540,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tfd-m8-WOI" customClass="SkyFloatingLabelTextField" customModule="CoupCon" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tfd-m8-WOI" customClass="SkyFloatingLabelTextField" customModule="Coupocon" customModuleProvider="target">
                                                 <rect key="frame" x="33" y="0.0" width="9" height="18"/>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
@@ -2487,7 +2577,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sgK-hG-dzB" customClass="SkyFloatingLabelTextField" customModule="CoupCon" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sgK-hG-dzB" customClass="SkyFloatingLabelTextField" customModule="Coupocon" customModuleProvider="target">
                                                 <rect key="frame" x="44" y="0.0" width="9" height="18"/>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
@@ -2524,7 +2614,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wev-RK-Tml" customClass="SkyFloatingLabelTextField" customModule="CoupCon" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wev-RK-Tml" customClass="SkyFloatingLabelTextField" customModule="Coupocon" customModuleProvider="target">
                                                 <rect key="frame" x="55" y="0.0" width="9" height="18"/>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
@@ -2796,7 +2886,7 @@
         <!--View Controller-->
         <scene sceneID="BFS-wD-KwN">
             <objects>
-                <viewController storyboardIdentifier="OTP_VIEW" id="zTH-Yw-q3I" customClass="OTPViewController" customModule="CoupCon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OTP_VIEW" id="zTH-Yw-q3I" customClass="OTPViewController" customModule="Coupocon" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HaY-Ha-WTK"/>
                         <viewControllerLayoutGuide type="bottom" id="nQ5-Ef-77d"/>
@@ -2900,107 +2990,10 @@
             </objects>
             <point key="canvasLocation" x="-2406" y="-734.25"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="s5D-uB-zsn">
-            <objects>
-                <viewController id="3ou-0w-4mJ" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="iJp-3D-spE"/>
-                        <viewControllerLayoutGuide type="bottom" id="eD4-aS-WKN"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ZPY-h2-Xpf">
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="leftpanel_image" translatesAutoresizingMaskIntoConstraints="NO" id="la2-z6-6Fo">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4kT-lO-0KM">
-                                <rect key="frame" x="0.0" y="248" width="320" height="320"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="BsK-CQ-vvm" id="YAM-NG-BTY"/>
-                                    <outlet property="delegate" destination="BsK-CQ-vvm" id="W1C-Tl-973"/>
-                                </connections>
-                            </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ENTER REDEEM CODE HERE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWb-0e-1Ld">
-                                <rect key="frame" x="52" y="45" width="198" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="198" id="WhB-G7-dYd">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="360"/>
-                                    </constraint>
-                                    <constraint firstAttribute="height" constant="21" id="kFt-nQ-MOV"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="21"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="4kT-lO-0KM" firstAttribute="top" secondItem="qWb-0e-1Ld" secondAttribute="bottom" constant="33" id="1AZ-az-rnf"/>
-                            <constraint firstItem="la2-z6-6Fo" firstAttribute="leading" secondItem="ZPY-h2-Xpf" secondAttribute="leading" id="Czo-Iq-LfI"/>
-                            <constraint firstAttribute="trailing" secondItem="4kT-lO-0KM" secondAttribute="trailing" constant="10" id="InE-qB-Yea"/>
-                            <constraint firstItem="la2-z6-6Fo" firstAttribute="top" secondItem="ZPY-h2-Xpf" secondAttribute="top" id="J4w-1i-e0c"/>
-                            <constraint firstItem="la2-z6-6Fo" firstAttribute="top" secondItem="qWb-0e-1Ld" secondAttribute="bottom" constant="-49" id="PtI-1k-p3a"/>
-                            <constraint firstItem="qWb-0e-1Ld" firstAttribute="centerX" secondItem="ZPY-h2-Xpf" secondAttribute="centerX" id="Zjw-su-phm"/>
-                            <constraint firstItem="eD4-aS-WKN" firstAttribute="top" secondItem="la2-z6-6Fo" secondAttribute="bottom" id="g9L-fo-mgJ"/>
-                            <constraint firstItem="qWb-0e-1Ld" firstAttribute="centerY" secondItem="ZPY-h2-Xpf" secondAttribute="centerY" id="gbj-eg-39f">
-                                <variation key="heightClass=regular-widthClass=compact" constant="-361.5"/>
-                            </constraint>
-                            <constraint firstItem="4kT-lO-0KM" firstAttribute="leading" secondItem="ZPY-h2-Xpf" secondAttribute="leading" constant="10" id="iVU-QN-oPv"/>
-                            <constraint firstItem="eD4-aS-WKN" firstAttribute="top" secondItem="4kT-lO-0KM" secondAttribute="bottom" constant="8" id="qL1-Mt-XTE"/>
-                            <constraint firstAttribute="trailing" secondItem="la2-z6-6Fo" secondAttribute="trailing" id="zoh-2L-udK"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="la2-z6-6Fo"/>
-                                <exclude reference="4kT-lO-0KM"/>
-                                <exclude reference="qWb-0e-1Ld"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="Czo-Iq-LfI"/>
-                                <exclude reference="J4w-1i-e0c"/>
-                                <exclude reference="PtI-1k-p3a"/>
-                                <exclude reference="zoh-2L-udK"/>
-                                <exclude reference="Zjw-su-phm"/>
-                                <exclude reference="gbj-eg-39f"/>
-                                <exclude reference="1AZ-az-rnf"/>
-                                <exclude reference="InE-qB-Yea"/>
-                                <exclude reference="iVU-QN-oPv"/>
-                                <exclude reference="g9L-fo-mgJ"/>
-                                <exclude reference="qL1-Mt-XTE"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="la2-z6-6Fo"/>
-                                <include reference="4kT-lO-0KM"/>
-                                <include reference="qWb-0e-1Ld"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="Czo-Iq-LfI"/>
-                                <include reference="J4w-1i-e0c"/>
-                                <include reference="PtI-1k-p3a"/>
-                                <include reference="zoh-2L-udK"/>
-                                <include reference="Zjw-su-phm"/>
-                                <include reference="gbj-eg-39f"/>
-                                <include reference="1AZ-az-rnf"/>
-                                <include reference="InE-qB-Yea"/>
-                                <include reference="iVU-QN-oPv"/>
-                                <include reference="g9L-fo-mgJ"/>
-                                <include reference="qL1-Mt-XTE"/>
-                            </mask>
-                        </variation>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Q2i-HR-wkt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1963.5" y="-825.75"/>
-        </scene>
         <!--How To Use View Controller-->
         <scene sceneID="IpE-FO-tsL">
             <objects>
-                <viewController storyboardIdentifier="HOW_TO_USE" id="eHr-ig-kTm" customClass="HowToUseViewController" customModule="CoupCon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HOW_TO_USE" id="eHr-ig-kTm" customClass="HowToUseViewController" customModule="Coupocon" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uQx-hw-cEW"/>
                         <viewControllerLayoutGuide type="bottom" id="HWn-Or-YHa"/>
@@ -3226,6 +3219,7 @@
         <image name="profile_a4" width="450" height="233"/>
         <image name="shareImg" width="40" height="40"/>
         <image name="sidePanelMenu" width="40" height="40"/>
+        <image name="storeongoLogo" width="300" height="135"/>
         <image name="user" width="45" height="45"/>
     </resources>
 </document>

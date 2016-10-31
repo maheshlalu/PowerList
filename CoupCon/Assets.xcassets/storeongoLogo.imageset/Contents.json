@@ -2,14 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "powerdby-storeongo-white120x120.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "powerdby-storeongo-white120x120-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "powerdby-storeongo-white120x120-2.png",
       "scale" : "3x"
     }
   ],

@@ -170,6 +170,7 @@ class OffersViewController: UIViewController {
         
         jsonDic.setObject(offerDic.valueForKey("Name")!, forKey: "OfferName")
         jsonDic.setObject(offerDic.valueForKey("ItemCode")!, forKey: "OfferId")
+        jsonDic.setObject(offerDic.valueForKey("Code")!, forKey: "OfferCode")
         
         print(jsonDic)
         
