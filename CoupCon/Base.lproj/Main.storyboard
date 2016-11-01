@@ -3095,8 +3095,7 @@
                                                 <exclude reference="NKn-ZQ-UJI"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact" axis="vertical" misplaced="YES">
-                                            <rect key="frame" x="10" y="480" width="380" height="143"/>
+                                        <variation key="heightClass=regular-widthClass=compact" axis="vertical">
                                             <mask key="constraints">
                                                 <exclude reference="NKn-ZQ-UJI"/>
                                             </mask>

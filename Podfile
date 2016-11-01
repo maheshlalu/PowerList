@@ -1,7 +1,7 @@
 # Uncomment this line to define a global platform for your project
 # platform :ios, '9.0'
 
-target 'CoupCon' do
+target 'Coupocon' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 pod 'MagicalRecord/Shorthand'
@@ -12,12 +12,12 @@ pod 'AFNetworking', '~> 3.1'
 
   # Pods for CoupCon
 
-  target 'CoupConTests' do
+  target 'CoupoconTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
-  target 'CoupConUITests' do
+  target 'CoupoconUITests' do
     inherit! :search_paths
     # Pods for testing
   end

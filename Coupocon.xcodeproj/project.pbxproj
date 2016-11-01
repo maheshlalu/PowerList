@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		07EA6B5AEA6DCAC4FA208E12 /* Pods_CoupConTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9FF100D70C4BCD9B1EF4A14 /* Pods_CoupConTests.framework */; };
 		110B61E11DC729ED006496E7 /* TextFieldMaximumLength.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110B61E01DC729ED006496E7 /* TextFieldMaximumLength.swift */; };
-		110B61E31DC7883D006496E7 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 110B61E21DC7883D006496E7 /* AFNetworking.framework */; };
-		110B61E41DC7883D006496E7 /* AFNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 110B61E21DC7883D006496E7 /* AFNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		110DD1C71DB0AD9C001F9BC1 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110DD1C41DB0AD9C001F9BC1 /* LeftViewController.swift */; };
 		110DD1C81DB0AD9C001F9BC1 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110DD1C51DB0AD9C001F9BC1 /* TableViewCell.swift */; };
 		110DD1C91DB0AD9C001F9BC1 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 110DD1C61DB0AD9C001F9BC1 /* TableViewCell.xib */; };
@@ -82,8 +80,11 @@
 		18ED4A4C1DB6488700A612BA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED4A4B1DB6488700A612BA /* MapViewController.swift */; };
 		18ED4A4E1DB6489E00A612BA /* OffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED4A4D1DB6489E00A612BA /* OffersViewController.swift */; };
 		18ED4A501DB659F100A612BA /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED4A4F1DB659F100A612BA /* Station.swift */; };
+		340006765A7F5543EDF43765 /* Pods_CoupoconUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D80A7E3F8C688E1DF991F78 /* Pods_CoupoconUITests.framework */; };
+		51993E13B3676EC918DBC1EE /* Pods_Coupocon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC78A23309FC6A030117F9FB /* Pods_Coupocon.framework */; };
 		530A4A0975836E19D0B2F8BC /* Pods_CoupConUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C41FBE6E97500FA66BFBF6 /* Pods_CoupConUITests.framework */; };
 		BB2E53519290050F395A2AEF /* Pods_CoupCon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEB40090EE11D5B76565BB03 /* Pods_CoupCon.framework */; };
+		CEFC804BDED3B81F68DDD3CF /* Pods_CoupoconTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4C4F29A1DE34B19736C077 /* Pods_CoupoconTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,23 +104,10 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		110B61E51DC7883D006496E7 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				110B61E41DC7883D006496E7 /* AFNetworking.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		01D564FF12EE00C760145839 /* Pods-CoupoconTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoupoconTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoupoconTests/Pods-CoupoconTests.release.xcconfig"; sourceTree = "<group>"; };
+		1026005AF2B4CD26A2B392BB /* Pods-CoupoconUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoupoconUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoupoconUITests/Pods-CoupoconUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		110B61E01DC729ED006496E7 /* TextFieldMaximumLength.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldMaximumLength.swift; sourceTree = "<group>"; };
-		110B61E21DC7883D006496E7 /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = AFNetworking.framework; path = "/Users/cx_one/Library/Developer/Xcode/DerivedData/CoupCon-hkshhznyaccmslbpppwzfzjxedyf/Build/Products/Debug-iphonesimulator/AFNetworking/AFNetworking.framework"; sourceTree = "<absolute>"; };
 		110DD1C41DB0AD9C001F9BC1 /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
 		110DD1C51DB0AD9C001F9BC1 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		110DD1C61DB0AD9C001F9BC1 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
@@ -205,14 +193,21 @@
 		18ED4A4D1DB6489E00A612BA /* OffersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffersViewController.swift; sourceTree = "<group>"; };
 		18ED4A4F1DB659F100A612BA /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		2CDFCB9A19A5592344D69BBA /* Pods-CoupConUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoupConUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoupConUITests/Pods-CoupConUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		510610CC6A3C9914A83AA84A /* Pods-CoupoconTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoupoconTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoupoconTests/Pods-CoupoconTests.debug.xcconfig"; sourceTree = "<group>"; };
 		56C41FBE6E97500FA66BFBF6 /* Pods_CoupConUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoupConUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		587C0C23F0FFD806B8938F4E /* Pods-Coupocon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coupocon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Coupocon/Pods-Coupocon.debug.xcconfig"; sourceTree = "<group>"; };
 		674211D20DF2F16091F4B75B /* Pods-CoupConTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoupConTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoupConTests/Pods-CoupConTests.release.xcconfig"; sourceTree = "<group>"; };
 		7D514BA27D6025269F7204F0 /* Pods-CoupCon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoupCon.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoupCon/Pods-CoupCon.release.xcconfig"; sourceTree = "<group>"; };
+		7F4C4F29A1DE34B19736C077 /* Pods_CoupoconTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoupoconTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F4CEBA49048AE921AEF3807 /* Pods-CoupCon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoupCon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoupCon/Pods-CoupCon.debug.xcconfig"; sourceTree = "<group>"; };
+		81E1C93157DC357F1F1E3A83 /* Pods-CoupoconUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoupoconUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoupoconUITests/Pods-CoupoconUITests.release.xcconfig"; sourceTree = "<group>"; };
 		820AEFDD7E72C3C143BF611B /* Pods-CoupConUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoupConUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoupConUITests/Pods-CoupConUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9061E91C34FAA3D23E008955 /* Pods-Coupocon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coupocon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Coupocon/Pods-Coupocon.release.xcconfig"; sourceTree = "<group>"; };
+		9D80A7E3F8C688E1DF991F78 /* Pods_CoupoconUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoupoconUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9FF100D70C4BCD9B1EF4A14 /* Pods_CoupConTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoupConTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE05C162DC6A10D511B5B4A3 /* Pods-CoupConTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoupConTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoupConTests/Pods-CoupConTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DEB40090EE11D5B76565BB03 /* Pods_CoupCon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoupCon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC78A23309FC6A030117F9FB /* Pods_Coupocon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Coupocon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,10 +216,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				18057E401DAFC37C0017F038 /* FBSDKShareKit.framework in Frameworks */,
-				110B61E31DC7883D006496E7 /* AFNetworking.framework in Frameworks */,
 				BB2E53519290050F395A2AEF /* Pods_CoupCon.framework in Frameworks */,
 				18057E3E1DAFC37C0017F038 /* FBSDKCoreKit.framework in Frameworks */,
 				18057E3F1DAFC37C0017F038 /* FBSDKLoginKit.framework in Frameworks */,
+				51993E13B3676EC918DBC1EE /* Pods_Coupocon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07EA6B5AEA6DCAC4FA208E12 /* Pods_CoupConTests.framework in Frameworks */,
+				CEFC804BDED3B81F68DDD3CF /* Pods_CoupoconTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				530A4A0975836E19D0B2F8BC /* Pods_CoupConUITests.framework in Frameworks */,
+				340006765A7F5543EDF43765 /* Pods_CoupoconUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,7 +356,6 @@
 		18C90BF71DAF78DF0053F8D7 = {
 			isa = PBXGroup;
 			children = (
-				110B61E21DC7883D006496E7 /* AFNetworking.framework */,
 				18ED4A411DB617DB00A612BA /* OtherResources */,
 				18C90C021DAF78DF0053F8D7 /* CoupCon */,
 				18C90C1A1DAF78DF0053F8D7 /* CoupConTests */,
@@ -486,6 +482,12 @@
 				674211D20DF2F16091F4B75B /* Pods-CoupConTests.release.xcconfig */,
 				2CDFCB9A19A5592344D69BBA /* Pods-CoupConUITests.debug.xcconfig */,
 				820AEFDD7E72C3C143BF611B /* Pods-CoupConUITests.release.xcconfig */,
+				587C0C23F0FFD806B8938F4E /* Pods-Coupocon.debug.xcconfig */,
+				9061E91C34FAA3D23E008955 /* Pods-Coupocon.release.xcconfig */,
+				510610CC6A3C9914A83AA84A /* Pods-CoupoconTests.debug.xcconfig */,
+				01D564FF12EE00C760145839 /* Pods-CoupoconTests.release.xcconfig */,
+				1026005AF2B4CD26A2B392BB /* Pods-CoupoconUITests.debug.xcconfig */,
+				81E1C93157DC357F1F1E3A83 /* Pods-CoupoconUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -496,6 +498,9 @@
 				DEB40090EE11D5B76565BB03 /* Pods_CoupCon.framework */,
 				C9FF100D70C4BCD9B1EF4A14 /* Pods_CoupConTests.framework */,
 				56C41FBE6E97500FA66BFBF6 /* Pods_CoupConUITests.framework */,
+				FC78A23309FC6A030117F9FB /* Pods_Coupocon.framework */,
+				7F4C4F29A1DE34B19736C077 /* Pods_CoupoconTests.framework */,
+				9D80A7E3F8C688E1DF991F78 /* Pods_CoupoconUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -513,7 +518,6 @@
 				18C90BFE1DAF78DF0053F8D7 /* Resources */,
 				B49D75EF945FA4C4FE11324F /* [CP] Embed Pods Frameworks */,
 				D7B1EB2F33C80054806CEFDF /* [CP] Copy Pods Resources */,
-				110B61E51DC7883D006496E7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -683,7 +687,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoupConUITests/Pods-CoupConUITests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoupoconUITests/Pods-CoupoconUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6B7BA6D8336BE622A504D676 /* [CP] Embed Pods Frameworks */ = {
@@ -698,7 +702,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoupConTests/Pods-CoupConTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoupoconTests/Pods-CoupoconTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		84C470C65728A90F95FA882C /* [CP] Copy Pods Resources */ = {
@@ -713,7 +717,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoupConTests/Pods-CoupConTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoupoconTests/Pods-CoupoconTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		958A03A34B87071642231DD8 /* [CP] Check Pods Manifest.lock */ = {
@@ -743,7 +747,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoupCon/Pods-CoupCon-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Coupocon/Pods-Coupocon-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B8DAB92CF76ECD91D4FEDB41 /* [CP] Check Pods Manifest.lock */ = {
@@ -773,7 +777,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoupCon/Pods-CoupCon-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Coupocon/Pods-Coupocon-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -922,7 +926,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "37f88238-57c6-46ca-9937-fc36b0d1bdec";
+				PROVISIONING_PROFILE = "87ef6031-6a10-4046-965f-2ba6ae245a0c";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -962,7 +966,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "37f88238-57c6-46ca-9937-fc36b0d1bdec";
+				PROVISIONING_PROFILE = "87ef6031-6a10-4046-965f-2ba6ae245a0c";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -970,7 +974,7 @@
 		};
 		18C90C2C1DAF78DF0053F8D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F4CEBA49048AE921AEF3807 /* Pods-CoupCon.debug.xcconfig */;
+			baseConfigurationReference = 587C0C23F0FFD806B8938F4E /* Pods-Coupocon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -984,9 +988,9 @@
 				);
 				INFOPLIST_FILE = CoupCon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ongo.Coupocon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.creativexperts.cupocon;
 				PRODUCT_NAME = Coupocon;
-				PROVISIONING_PROFILE = "37f88238-57c6-46ca-9937-fc36b0d1bdec";
+				PROVISIONING_PROFILE = "87ef6031-6a10-4046-965f-2ba6ae245a0c";
 				SWIFT_OBJC_BRIDGING_HEADER = "CoupCon-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -994,7 +998,7 @@
 		};
 		18C90C2D1DAF78DF0053F8D7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D514BA27D6025269F7204F0 /* Pods-CoupCon.release.xcconfig */;
+			baseConfigurationReference = 9061E91C34FAA3D23E008955 /* Pods-Coupocon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1007,16 +1011,16 @@
 				);
 				INFOPLIST_FILE = CoupCon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ongo.Coupocon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.creativexperts.cupocon;
 				PRODUCT_NAME = Coupocon;
-				PROVISIONING_PROFILE = "37f88238-57c6-46ca-9937-fc36b0d1bdec";
+				PROVISIONING_PROFILE = "87ef6031-6a10-4046-965f-2ba6ae245a0c";
 				SWIFT_OBJC_BRIDGING_HEADER = "CoupCon-Bridging-Header.h";
 			};
 			name = Release;
 		};
 		18C90C2F1DAF78DF0053F8D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DE05C162DC6A10D511B5B4A3 /* Pods-CoupConTests.debug.xcconfig */;
+			baseConfigurationReference = 510610CC6A3C9914A83AA84A /* Pods-CoupoconTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = CoupConTests/Info.plist;
@@ -1029,7 +1033,7 @@
 		};
 		18C90C301DAF78DF0053F8D7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 674211D20DF2F16091F4B75B /* Pods-CoupConTests.release.xcconfig */;
+			baseConfigurationReference = 01D564FF12EE00C760145839 /* Pods-CoupoconTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = CoupConTests/Info.plist;
@@ -1042,7 +1046,7 @@
 		};
 		18C90C321DAF78DF0053F8D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2CDFCB9A19A5592344D69BBA /* Pods-CoupConUITests.debug.xcconfig */;
+			baseConfigurationReference = 1026005AF2B4CD26A2B392BB /* Pods-CoupoconUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = CoupConUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1054,7 +1058,7 @@
 		};
 		18C90C331DAF78DF0053F8D7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 820AEFDD7E72C3C143BF611B /* Pods-CoupConUITests.release.xcconfig */;
+			baseConfigurationReference = 81E1C93157DC357F1F1E3A83 /* Pods-CoupoconUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = CoupConUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
