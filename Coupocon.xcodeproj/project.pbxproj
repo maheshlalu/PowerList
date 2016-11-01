@@ -22,6 +22,7 @@
 		115CA1C81DC1D3B700BE9D57 /* FTPopOverMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 115CA1C61DC1D3B700BE9D57 /* FTPopOverMenu.m */; };
 		115CA1CB1DC1E45500BE9D57 /* DealsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115CA1C91DC1E45500BE9D57 /* DealsCollectionViewCell.swift */; };
 		115CA1CC1DC1E45500BE9D57 /* DealsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 115CA1CA1DC1E45500BE9D57 /* DealsCollectionViewCell.xib */; };
+		1184381D1DC86A1200DFE2FD /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1184381C1DC86A1200DFE2FD /* AFNetworking.framework */; };
 		118DBBE21DB9FB3A000AF9EE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118DBBE11DB9FB3A000AF9EE /* SignUpViewController.swift */; };
 		118DBBE71DB9FFB7000AF9EE /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118DBBE41DB9FFB7000AF9EE /* SkyFloatingLabelTextField.swift */; };
 		118DBBE81DB9FFB7000AF9EE /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118DBBE51DB9FFB7000AF9EE /* SkyFloatingLabelTextFieldWithIcon.swift */; };
@@ -83,7 +84,6 @@
 		340006765A7F5543EDF43765 /* Pods_CoupoconUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D80A7E3F8C688E1DF991F78 /* Pods_CoupoconUITests.framework */; };
 		51993E13B3676EC918DBC1EE /* Pods_Coupocon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC78A23309FC6A030117F9FB /* Pods_Coupocon.framework */; };
 		530A4A0975836E19D0B2F8BC /* Pods_CoupConUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C41FBE6E97500FA66BFBF6 /* Pods_CoupConUITests.framework */; };
-		BB2E53519290050F395A2AEF /* Pods_CoupCon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEB40090EE11D5B76565BB03 /* Pods_CoupCon.framework */; };
 		CEFC804BDED3B81F68DDD3CF /* Pods_CoupoconTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F4C4F29A1DE34B19736C077 /* Pods_CoupoconTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -122,6 +122,7 @@
 		115CA1C61DC1D3B700BE9D57 /* FTPopOverMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPopOverMenu.m; sourceTree = "<group>"; };
 		115CA1C91DC1E45500BE9D57 /* DealsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealsCollectionViewCell.swift; sourceTree = "<group>"; };
 		115CA1CA1DC1E45500BE9D57 /* DealsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealsCollectionViewCell.xib; sourceTree = "<group>"; };
+		1184381C1DC86A1200DFE2FD /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "../Library/Developer/Xcode/DerivedData/CoupCon-hkshhznyaccmslbpppwzfzjxedyf/Build/Products/Debug-iphonesimulator/AFNetworking/AFNetworking.framework"; sourceTree = "<group>"; };
 		118DBBE11DB9FB3A000AF9EE /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		118DBBE41DB9FFB7000AF9EE /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
 		118DBBE51DB9FFB7000AF9EE /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextFieldWithIcon.swift; sourceTree = "<group>"; };
@@ -215,8 +216,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1184381D1DC86A1200DFE2FD /* AFNetworking.framework in Frameworks */,
 				18057E401DAFC37C0017F038 /* FBSDKShareKit.framework in Frameworks */,
-				BB2E53519290050F395A2AEF /* Pods_CoupCon.framework in Frameworks */,
 				18057E3E1DAFC37C0017F038 /* FBSDKCoreKit.framework in Frameworks */,
 				18057E3F1DAFC37C0017F038 /* FBSDKLoginKit.framework in Frameworks */,
 				51993E13B3676EC918DBC1EE /* Pods_Coupocon.framework in Frameworks */,
@@ -495,6 +496,7 @@
 		693C31B5FFCFE8EF86A243C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1184381C1DC86A1200DFE2FD /* AFNetworking.framework */,
 				DEB40090EE11D5B76565BB03 /* Pods_CoupCon.framework */,
 				C9FF100D70C4BCD9B1EF4A14 /* Pods_CoupConTests.framework */,
 				56C41FBE6E97500FA66BFBF6 /* Pods_CoupConUITests.framework */,
