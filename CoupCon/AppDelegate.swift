@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
         
         
         
-        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getPlaceOrderUrl(), parameters: ["type":"RedeemHistory","json":jsonStringFormat!,"dt":"CAMPAIGNS","category":"Notifications","userId":CXAppConfig.sharedInstance.getAppMallID(),"consumerEmail":"yernagulamahesh@gmail.com"]) { (responseDict) in
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getPlaceOrderUrl(), parameters: ["type":"RedeemHistory","json":jsonStringFormat!,"dt":"CAMPAIGNS","category":"Notifications","userId":CXAppConfig.sharedInstance.getAppMallID(),"consumerEmail":CXAppConfig.sharedInstance.getTheUserData.consumerEmail]) { (responseDict) in
             print(responseDict)
             let string = responseDict.valueForKeyPath("myHashMap.status")
             print(string)
