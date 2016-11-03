@@ -50,7 +50,7 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
         
         let sendButton = UIBarButtonItem(image: UIImage(named: "search"), style: .Plain, target: self, action: #selector(DealsViewController.searchButtonAction))
         
-        self.navigationController!.navigationBar.barTintColor = UIColor(red: 160.0/255, green: 57.0/255, blue: 135.0/255, alpha: 0.0)
+       // self.navigationController!.navigationBar.barTintColor = UIColor(red: 160.0/255, green: 57.0/255, blue: 135.0/255, alpha: 0.0)
         
         //myLabel.backgroundColor = UIColor(red: 50.0/255, green: 150.0/255, blue: 65.0/255, alpha: 1.0)
 
@@ -90,7 +90,6 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
 //        cell.layer.shouldRasterize = true
         
         let categoryDic : NSDictionary = self.dealsArray[indexPath.item] as! NSDictionary
-        print(categoryDic)
         cell.dealsImageView.setImageWithURL(NSURL(string:(categoryDic.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
         cell.dealName.text = categoryDic.valueForKey("Name") as?String
         if cell.dealArea.text == "Label"{

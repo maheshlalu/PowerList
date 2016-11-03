@@ -18,7 +18,7 @@ class DealsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var callBtn: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
-        layerView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
+        //layerView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
     }
 
 }

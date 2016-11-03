@@ -60,7 +60,7 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
         }
         self.getTheGalleryItems()
         
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "appBg")!)
+       // self.view.backgroundColor = UIColor(patternImage: UIImage(named: "appBg")!)
         
         
         
@@ -84,16 +84,19 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
     
     func setUPTheNavigationProperty(){
         navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        self.navigationController!.navigationBar.barTintColor = UIColor(red: 237.0/255, green: 26.0/255, blue: 67.0/255, alpha: 0.0)
+        self.view.backgroundColor = UIColor.whiteColor()
+
+       /* navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.translucent = true
+        navigationController?.navigationBar.translucent = true*/
 
     }
     
     override func viewWillAppear(animated: Bool) {
         
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBarHidden = true
+        //self.navigationController?.navigationBarHidden = true
     }
     
     func setUpSideMenu(){

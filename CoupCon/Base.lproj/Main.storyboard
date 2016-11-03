@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3CF-tc-xn3">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3CF-tc-xn3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -106,7 +106,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="meR-fk-c9i" firstAttribute="top" secondItem="zSp-1F-I55" secondAttribute="top" constant="25" id="C6I-9S-QHB"/>
+                                    <constraint firstItem="meR-fk-c9i" firstAttribute="top" secondItem="zSp-1F-I55" secondAttribute="top" constant="20" symbolic="YES" id="C6I-9S-QHB"/>
                                     <constraint firstAttribute="height" constant="128" id="bTn-Qh-kuO">
                                         <variation key="heightClass=regular-widthClass=compact" constant="74"/>
                                     </constraint>
@@ -260,9 +260,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appBg" translatesAutoresizingMaskIntoConstraints="NO" id="W3I-ru-lhk">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ubB-8U-luw">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -292,9 +289,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="W3I-ru-lhk" firstAttribute="leading" secondItem="FKK-nR-dhB" secondAttribute="leading" id="3Zg-7w-apQ"/>
                             <constraint firstItem="1ei-tw-jpE" firstAttribute="top" secondItem="ubB-8U-luw" secondAttribute="bottom" id="3yb-HL-o4h"/>
-                            <constraint firstItem="1ei-tw-jpE" firstAttribute="top" secondItem="W3I-ru-lhk" secondAttribute="bottom" id="EKj-PD-uj1"/>
                             <constraint firstItem="ubB-8U-luw" firstAttribute="leading" secondItem="FKK-nR-dhB" secondAttribute="leading" id="HEz-sg-sGe">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
@@ -304,20 +299,13 @@
                             <constraint firstItem="ubB-8U-luw" firstAttribute="top" secondItem="A5d-cK-9V3" secondAttribute="bottom" id="k1E-Zl-jOD">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
-                            <constraint firstItem="W3I-ru-lhk" firstAttribute="top" secondItem="FKK-nR-dhB" secondAttribute="top" id="qle-7P-Q1X"/>
-                            <constraint firstAttribute="trailing" secondItem="W3I-ru-lhk" secondAttribute="trailing" id="syv-ts-YsQ"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="W3I-ru-lhk"/>
                                 <exclude reference="ubB-8U-luw"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="3yb-HL-o4h"/>
-                                <exclude reference="EKj-PD-uj1"/>
-                                <exclude reference="3Zg-7w-apQ"/>
-                                <exclude reference="qle-7P-Q1X"/>
-                                <exclude reference="syv-ts-YsQ"/>
                                 <exclude reference="HEz-sg-sGe"/>
                                 <exclude reference="YVd-dt-P4I"/>
                                 <exclude reference="k1E-Zl-jOD"/>
@@ -325,15 +313,10 @@
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="W3I-ru-lhk"/>
                                 <include reference="ubB-8U-luw"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="3yb-HL-o4h"/>
-                                <include reference="EKj-PD-uj1"/>
-                                <include reference="3Zg-7w-apQ"/>
-                                <include reference="qle-7P-Q1X"/>
-                                <include reference="syv-ts-YsQ"/>
                                 <include reference="HEz-sg-sGe"/>
                                 <include reference="YVd-dt-P4I"/>
                                 <include reference="k1E-Zl-jOD"/>
@@ -347,7 +330,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jm1-y7-lkj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="862.5" y="-413.25"/>
+            <point key="canvasLocation" x="414" y="-417.75"/>
         </scene>
         <!--Left View Controller-->
         <scene sceneID="gYH-tJ-WDb">
@@ -1971,38 +1954,6 @@
                                             </mask>
                                         </variation>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BUY MEMBERSHIP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0r-nS-isT">
-                                        <rect key="frame" x="102" y="199" width="125" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="AfB-V9-W97">
-                                                <variation key="heightClass=regular-widthClass=compact" constant="26"/>
-                                            </constraint>
-                                            <constraint firstAttribute="height" constant="26" id="BvL-Qa-AhP"/>
-                                            <constraint firstAttribute="width" constant="241" id="Unu-eR-kFm"/>
-                                            <constraint firstAttribute="height" constant="26" id="YER-5O-JS9"/>
-                                            <constraint firstAttribute="width" constant="125" id="peu-Vo-k6P">
-                                                <variation key="heightClass=regular-widthClass=compact" constant="241"/>
-                                            </constraint>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="BvL-Qa-AhP"/>
-                                                <exclude reference="Unu-eR-kFm"/>
-                                                <exclude reference="YER-5O-JS9"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
-                                            <mask key="constraints">
-                                                <exclude reference="AfB-V9-W97"/>
-                                                <include reference="BvL-Qa-AhP"/>
-                                                <include reference="Unu-eR-kFm"/>
-                                                <exclude reference="YER-5O-JS9"/>
-                                                <exclude reference="peu-Vo-k6P"/>
-                                            </mask>
-                                        </variation>
-                                    </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="trd-7p-7NR">
                                         <rect key="frame" x="30" y="561" width="380" height="231"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -2026,6 +1977,39 @@
                                             <outlet property="delegate" destination="yw1-WG-Kmc" id="Py4-IR-ZG8"/>
                                         </connections>
                                     </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BUY MEMBERSHIP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0r-nS-isT">
+                                        <rect key="frame" x="102" y="199" width="125" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="AfB-V9-W97">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="26"/>
+                                            </constraint>
+                                            <constraint firstAttribute="height" constant="26" id="BvL-Qa-AhP"/>
+                                            <constraint firstAttribute="width" constant="241" id="Unu-eR-kFm"/>
+                                            <constraint firstAttribute="height" constant="26" id="YER-5O-JS9"/>
+                                            <constraint firstAttribute="width" constant="125" id="peu-Vo-k6P">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="241"/>
+                                            </constraint>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="BvL-Qa-AhP"/>
+                                                <exclude reference="Unu-eR-kFm"/>
+                                                <exclude reference="YER-5O-JS9"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="80" y="243" width="241" height="26"/>
+                                            <mask key="constraints">
+                                                <exclude reference="AfB-V9-W97"/>
+                                                <include reference="BvL-Qa-AhP"/>
+                                                <include reference="Unu-eR-kFm"/>
+                                                <exclude reference="YER-5O-JS9"/>
+                                                <exclude reference="peu-Vo-k6P"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="trd-7p-7NR" firstAttribute="top" secondItem="Oxp-1p-edZ" secondAttribute="bottom" constant="21" id="0dc-cf-CBE">
@@ -3095,7 +3079,8 @@
                                                 <exclude reference="NKn-ZQ-UJI"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact" axis="vertical">
+                                        <variation key="heightClass=regular-widthClass=compact" axis="vertical" misplaced="YES">
+                                            <rect key="frame" x="10" y="480" width="380" height="143"/>
                                             <mask key="constraints">
                                                 <exclude reference="NKn-ZQ-UJI"/>
                                             </mask>
@@ -3204,7 +3189,6 @@
         <image name="Gmail_120" width="20" height="15"/>
         <image name="SigninBg_image" width="320" height="480"/>
         <image name="about" width="120" height="40"/>
-        <image name="appBg" width="320" height="480"/>
         <image name="editProfileFrom40" width="40" height="40"/>
         <image name="heart_selected" width="40" height="40"/>
         <image name="heart_unselected" width="40" height="40"/>

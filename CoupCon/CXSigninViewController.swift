@@ -96,6 +96,7 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
         
         let loginManager: FBSDKLoginManager = FBSDKLoginManager()
         loginManager.logOut()
+        self.removeTheUserData()
 
     }
     
@@ -123,6 +124,13 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
         return true
     }
 
+    func removeTheUserData(){
+        
+        if UserProfile.MR_truncateAll() {
+            print("delete the data")
+        }
+        
+    }
     
     @IBAction func signUpBtnAction(sender: AnyObject) {
         

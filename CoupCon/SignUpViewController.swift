@@ -38,7 +38,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
         
         
         self.navigationController?.navigationBarHidden = false
-        self.navigationController?.navigationBar.tintColor = UIColor.grayColor()
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.editDPImage.layer.cornerRadius = 80
         self.editDPImage.clipsToBounds = true
         self.editDPImage.layer.borderWidth = 5.0

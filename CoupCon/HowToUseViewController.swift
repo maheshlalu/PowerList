@@ -41,9 +41,9 @@ class HowToUseViewController: UIViewController {
     
     func setUPTheNavigationProperty(){
         navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        /*navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.translucent = true
+        navigationController?.navigationBar.translucent = true*/
         
     }
     

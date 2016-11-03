@@ -27,7 +27,7 @@ class OffersViewController: UIViewController {
         self.offersTableView.registerNib(nib, forCellReuseIdentifier: "OfferTableViewCell")
         self.getTheOffers()
         self.view.backgroundColor = UIColor.clearColor()
-
+        self.navigationController?.navigationBar.backgroundColor = UIColor.grayColor()
                //Offers
         // Do any additional setup after loading the view.
     }
