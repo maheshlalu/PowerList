@@ -32,7 +32,10 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
 
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        self.title = "Coupocon"
+        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.setUpSideMenu()
         refresher = UIRefreshControl()
         self.homecollectionview!.alwaysBounceVertical = true
@@ -45,6 +48,7 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
         screenWidth = screenSize.width
         screenHeight = screenSize.height
         
+        self.automaticallyAdjustsScrollViewInsets = false
         let nib = UINib(nibName: "HomeCollectionViewCell", bundle: nil)
         
         self.homecollectionview.registerNib(nib, forCellWithReuseIdentifier: "HomeCollectionViewCell")
@@ -59,16 +63,14 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
             LoadingView.hide()
         }
         self.getTheGalleryItems()
-        
+        self.addTheBarButtonItem()
        // self.view.backgroundColor = UIColor(patternImage: UIImage(named: "appBg")!)
         
         
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 30, bottom: 30, right: 30)
-        layout.itemSize = CGSize(width: screenWidth-30, height: 250)
-        //layout.minimumInteritemSpacing = 0
-        //layout.minimumLineSpacing = 0
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
+        layout.itemSize = CGSize(width: screenWidth, height: 185)
         homecollectionview!.collectionViewLayout = layout
         
         
@@ -84,7 +86,7 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
     
     func setUPTheNavigationProperty(){
         navigationController?.setNavigationBarHidden(false, animated: true)
-        self.navigationController!.navigationBar.barTintColor = UIColor(red: 237.0/255, green: 26.0/255, blue: 67.0/255, alpha: 0.0)
+        self.navigationController!.navigationBar.barTintColor = CXAppConfig.sharedInstance.getAppTheamColor()
         self.view.backgroundColor = UIColor.whiteColor()
 
        /* navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
@@ -102,12 +104,25 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
     func setUpSideMenu(){
         let menuItem = UIBarButtonItem(image: UIImage(named: "sidePanelMenu"), style: .Plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
         self.navigationItem.leftBarButtonItem = menuItem
+        self.navigationItem.leftBarButtonItem?.tintColor = UIColor.whiteColor()
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
 
-        //self.sideMenuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), forControlEvents: .TouchUpOutside)
+    }
+    
+    func addTheBarButtonItem(){
+        //UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(DealsViewController.backButtonAction))
+        
+        let sendButton = UIBarButtonItem(image: UIImage(named: "search"), style: .Plain, target: self, action: #selector(HomeViewController.searchButtonAction))
+        sendButton.tintColor = UIColor.whiteColor()
+        // self.navigationController!.navigationBar.barTintColor = UIColor(red: 160.0/255, green: 57.0/255, blue: 135.0/255, alpha: 0.0)
+        
+        //myLabel.backgroundColor = UIColor(red: 50.0/255, green: 150.0/255, blue: 65.0/255, alpha: 1.0)
+        
+        self.navigationItem.rightBarButtonItem = sendButton
+        self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
     }
     
     func loadData()
@@ -122,6 +137,18 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
         }
     }
     
+    
+    func searchButtonAction(){
+        var dealsVc : SearchViewController = SearchViewController()
+        let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        dealsVc = storyBoard.instantiateViewControllerWithIdentifier("SearchViewController") as! SearchViewController
+        
+                let backItem = UIBarButtonItem()
+                backItem.title = "Search Deals"
+                navigationItem.backBarButtonItem = backItem
+        
+        self.navigationController?.pushViewController(dealsVc, animated: true)
+    }
     
     func getTheGalleryItems(){
         
@@ -203,15 +230,15 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
     {
         let cell : HomeCollectionViewCell = (collectionView.dequeueReusableCellWithReuseIdentifier("HomeCollectionViewCell", forIndexPath: indexPath)as? HomeCollectionViewCell)!
         
-        cell.layer.masksToBounds = false
-        //cell.layer.borderColor = UIColor.whiteColor().CGColor
-        //cell.layer.borderWidth = 7.0s
-        cell.layer.contentsScale = UIScreen.mainScreen().scale
-        cell.layer.shadowOpacity = 0.75
-        cell.layer.shadowRadius = 5.0
-        cell.layer.shadowOffset = CGSize.zero
-        cell.layer.shadowPath = UIBezierPath(rect: cell.bounds).CGPath
-        cell.layer.shouldRasterize = true
+//        cell.layer.masksToBounds = false
+//        //cell.layer.borderColor = UIColor.whiteColor().CGColor
+//        //cell.layer.borderWidth = 7.0s
+//        cell.layer.contentsScale = UIScreen.mainScreen().scale
+//        cell.layer.shadowOpacity = 0.75
+//        cell.layer.shadowRadius = 5.0
+//        cell.layer.shadowOffset = CGSize.zero
+//        cell.layer.shadowPath = UIBezierPath(rect: cell.bounds).CGPath
+//        cell.layer.shouldRasterize = true
         
         let categoryDic : NSDictionary = self.storeCategoryArray[indexPath.item] as! NSDictionary
         cell.categoryImageView.setImageWithURL(NSURL(string:(categoryDic.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
@@ -236,6 +263,11 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
         let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         dealsVc = storyBoard.instantiateViewControllerWithIdentifier("DealsViewController") as! DealsViewController
         dealsVc.selectedName = categoryDic.valueForKey("Name")! as! String
+        
+        let backItem = UIBarButtonItem()
+        backItem.title = categoryDic.valueForKey("Name")! as? String
+        navigationItem.backBarButtonItem = backItem
+        
         self.navigationController?.pushViewController(dealsVc, animated: true)
         
         var fineDinigVc : CXSigninViewController = CXSigninViewController()
@@ -245,7 +277,6 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
         //self.navigationController?.pushViewController(fineDinigVc, animated: true)
         
     }
-    
     
     }
 

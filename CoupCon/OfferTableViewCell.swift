@@ -15,7 +15,7 @@ class OfferTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+      redeemBtn.backgroundColor = CXAppConfig.sharedInstance.getAppTheamColor()
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

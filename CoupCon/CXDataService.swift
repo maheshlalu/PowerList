@@ -27,10 +27,12 @@ public class CXDataService: NSObject {
     }
     
     public func getTheAppDataFromServer(parameters:[String: AnyObject]? = nil ,completion:(responseDict:NSDictionary) -> Void){
-        if Bool(1) {
+        
+         if Reachability.isConnectedToNetwork() == true{
+            
             print(CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getMasterUrl())
             print(parameters)
-            NSURLCache.sharedURLCache().removeAllCachedResponses()
+            //NSURLCache.sharedURLCache().removeAllCachedResponses()
             Alamofire.Manager.sharedInstance.session.configuration.requestCachePolicy = .ReturnCacheDataDontLoad
         Alamofire.request(.GET,CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getMasterUrl() , parameters: parameters)
             .validate()
@@ -46,12 +48,18 @@ public class CXDataService: NSObject {
         }
         }else{
             
+            print("No Internet Connectivity")
+            //UIApplication.sharedApplication().openURL(NSURL(string:"prefs:root=General")!)
+            UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!)
+            LoadingView.hide()
         }
         
     }
     
     public func synchDataToServerAndServerToMoblile(urlstring:String, parameters:[String: AnyObject]? = nil ,completion:(responseDict:NSDictionary) -> Void){
     
+        
+        if Reachability.isConnectedToNetwork() == true{
         print(urlstring)
         print(parameters)
         
@@ -67,36 +75,47 @@ public class CXDataService: NSObject {
                     print(error)
                 }
         }
-
+        }else{
+            print("No Internet Connectivity")
+        
+        }
         
     }
     
     public func imageUpload(imageData:NSData,completion:(Response:NSDictionary) -> Void){
         
-        let mutableRequest : AFHTTPRequestSerializer = AFHTTPRequestSerializer()
-        let request1 : NSMutableURLRequest =    mutableRequest.multipartFormRequestWithMethod("POST", URLString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getphotoUploadUrl(), parameters: ["refFileName": self.generateBoundaryString()], constructingBodyWithBlock: { (formatData:AFMultipartFormData) in
-            formatData.appendPartWithFileData(imageData, name: "srcFile", fileName: "uploadedFile.jpg", mimeType: "image/jpeg")
-            }, error: nil)
         
-        let session = NSURLSession.sharedSession()
-        
-        let task = session.dataTaskWithRequest(request1) {
-            (
-            let data, let response, let error) in
+        if Reachability.isConnectedToNetwork() == true {
+
+            let mutableRequest : AFHTTPRequestSerializer = AFHTTPRequestSerializer()
+            let request1 : NSMutableURLRequest =    mutableRequest.multipartFormRequestWithMethod("POST", URLString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getphotoUploadUrl(), parameters: ["refFileName": self.generateBoundaryString()], constructingBodyWithBlock: { (formatData:AFMultipartFormData) in
+                formatData.appendPartWithFileData(imageData, name: "srcFile", fileName: "uploadedFile.jpg", mimeType: "image/jpeg")
+                }, error: nil)
             
-            guard let _:NSData = data, let _:NSURLResponse = response  where error == nil else {
-                print("error")
-                return
+            let session = NSURLSession.sharedSession()
+            
+            let task = session.dataTaskWithRequest(request1) {
+                (
+                let data, let response, let error) in
+                
+                guard let _:NSData = data, let _:NSURLResponse = response  where error == nil else {
+                    print("error")
+                    return
+                }
+                let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                let myDic = self.convertStringToDictionary(dataString! as String)
+                completion(Response:myDic)
+                
             }
-            let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            let myDic = self.convertStringToDictionary(dataString! as String)
-            completion(Response:myDic)
             
+            task.resume()
+            
+            
+        } else {
+            print("Internet connection FAILED")
         }
         
-        task.resume()
-        
-        
+  
         
         
         //        Alamofire.upload(
@@ -126,18 +145,26 @@ public class CXDataService: NSObject {
          clientId=5FAE0707506C43BAB8B8C9F554586895577B22880B834423A473E797607EFCF6&skipBy=0&fpid=kljadlkcjasd898979
         */
         //print(parameters)
-        Alamofire.request(.GET,"https://api.withfloats.com/Discover/v2/floatingPoint/bizFloats?", parameters: parameters)
-            .validate()
-            .responseJSON { response in
-                switch response.result {
-                case .Success:
-                    //print("Validation Successful\(response.result.value)")
-                    completion(responseDict: (response.result.value as? NSDictionary)!)
-                    break
-                case .Failure(let error):
-                    print(error)
-                }
+        
+        if Reachability.isConnectedToNetwork() == true {
+            
+            Alamofire.request(.GET,"https://api.withfloats.com/Discover/v2/floatingPoint/bizFloats?", parameters: parameters)
+                .validate()
+                .responseJSON { response in
+                    switch response.result {
+                    case .Success:
+                        //print("Validation Successful\(response.result.value)")
+                        completion(responseDict: (response.result.value as? NSDictionary)!)
+                        break
+                    case .Failure(let error):
+                        print(error)
+                    }
+            }
+        } else {
+            print("Internet connection FAILED")
         }
+        
+
         
         
     }

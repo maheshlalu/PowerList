@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="05Q-G7-9aQ">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="05Q-G7-9aQ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -18,18 +18,18 @@
         <!--Demo Popup View Controller2-->
         <scene sceneID="ZPl-XE-XZo">
             <objects>
-                <viewController id="05Q-G7-9aQ" customClass="DemoPopupViewController2" customModule="CoupCon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="05Q-G7-9aQ" customClass="DemoPopupViewController2" customModule="Coupocon" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n5c-fn-lEd"/>
                         <viewControllerLayoutGuide type="bottom" id="kWo-hi-e32"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fX4-NP-0jd">
-                        <rect key="frame" x="0.0" y="0.0" width="280" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="280" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rRy-4t-TfY">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.1803921568627451" green="0.33333333333333331" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.92941176470588238" green="0.23529411764705882" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="ljA-rF-AsW">
                                         <variation key="heightClass=regular-widthClass=compact" constant="47"/>
@@ -88,7 +88,7 @@
                                     <constraint firstAttribute="height" constant="21" id="dbt-nB-FJS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="13"/>
-                                <color key="textColor" red="0.1803921568627451" green="0.33333333333333331" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.92941176470588238" green="0.10196078431372549" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -105,7 +105,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3b-oj-JYG">
                                 <rect key="frame" x="242" y="5" width="30" height="30"/>
-                                <color key="backgroundColor" red="0.18039215689999999" green="0.33333333329999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.92941176470588238" green="0.10196078431372549" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="X">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -120,7 +120,7 @@
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="3ah-wJ-LwZ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="3ah-wJ-LwZ">
                                 <rect key="frame" x="99" y="48" width="82" height="73"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="67" id="Ldd-ij-lV7">
@@ -182,6 +182,10 @@
                                 <exclude reference="3ah-wJ-LwZ"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="ihu-rO-lUW"/>
+                                <exclude reference="nfd-8p-QYe"/>
+                                <exclude reference="2iG-Ms-6CG"/>
+                                <exclude reference="R0H-RY-Pg5"/>
                                 <exclude reference="x2h-9s-BQE"/>
                                 <exclude reference="MXj-98-TUI"/>
                                 <exclude reference="dpw-af-GSH"/>
@@ -193,10 +197,6 @@
                                 <exclude reference="X4h-iD-FeO"/>
                                 <exclude reference="6FX-QJ-iWj"/>
                                 <exclude reference="Hls-dX-w0A"/>
-                                <exclude reference="2iG-Ms-6CG"/>
-                                <exclude reference="R0H-RY-Pg5"/>
-                                <exclude reference="ihu-rO-lUW"/>
-                                <exclude reference="nfd-8p-QYe"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -209,6 +209,10 @@
                                 <include reference="3ah-wJ-LwZ"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="ihu-rO-lUW"/>
+                                <include reference="nfd-8p-QYe"/>
+                                <include reference="2iG-Ms-6CG"/>
+                                <include reference="R0H-RY-Pg5"/>
                                 <include reference="x2h-9s-BQE"/>
                                 <include reference="MXj-98-TUI"/>
                                 <include reference="dpw-af-GSH"/>
@@ -220,10 +224,6 @@
                                 <include reference="X4h-iD-FeO"/>
                                 <include reference="6FX-QJ-iWj"/>
                                 <include reference="Hls-dX-w0A"/>
-                                <include reference="2iG-Ms-6CG"/>
-                                <include reference="R0H-RY-Pg5"/>
-                                <exclude reference="ihu-rO-lUW"/>
-                                <include reference="nfd-8p-QYe"/>
                             </mask>
                         </variation>
                     </view>

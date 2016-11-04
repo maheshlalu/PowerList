@@ -11,40 +11,45 @@ import UIKit
 class FineDiningViewController: UIViewController {
     var dealsDic: NSDictionary!
     
+    @IBOutlet weak var mapBtn: UIButton!
+    @IBOutlet weak var offerBtn: UIButton!
+    @IBOutlet weak var aboutBtn: UIButton!
     @IBOutlet weak var dealBackgroundImg: UIImageView!
     @IBOutlet weak var dealLogoImg: UIImageView!
     @IBOutlet weak var dealNameLbl: UILabel!
     @IBOutlet weak var containerView: UIView!
      weak var currentViewController: UIViewController?
     
+    @IBOutlet weak var backLbl: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         print(dealsDic)
         constructTheOfferReedemJson()
+        
+        self.aboutBtn.backgroundColor = CXAppConfig.sharedInstance.getAppTheamColor()
         self.dealBackgroundImg.setImageWithURL(NSURL(string:(dealsDic.valueForKey("BackgroundImage_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
-       // print(dealsDic.valueForKey("BackgroundImage_URL"))
-        self.dealLogoImg.setImageWithURL(NSURL(string:(dealsDic.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
         NSUserDefaults.standardUserDefaults().setObject(dealsDic.valueForKey("Image_URL"), forKey: "POPUP_LOGO")
-        self.dealNameLbl.text = dealsDic.valueForKey("Name") as?String
-        //Background Image_URL
-        //Image_URL
-        //Name
         
-        // Do any additional setup after loading the view.
-        
-        //self.currentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("AboutUsViewController")
-        
+        self.backLbl.titleLabel?.text = dealsDic.valueForKey("Name") as?String
+
         let offersController : AboutUsViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("AboutUsViewController") as? AboutUsViewController)!
         offersController.offersDic = NSDictionary(dictionary: self.dealsDic)
         self.currentViewController = offersController
         self.currentViewController!.view.translatesAutoresizingMaskIntoConstraints = false
         self.addChildViewController(self.currentViewController!)
         self.addSubview(self.currentViewController!.view, toView: self.containerView)
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "appBg")!)
+        self.view.backgroundColor = UIColor.whiteColor()
         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(FineDiningViewController.showPopUp(_:)), name: "ShowPopUp", object: nil)
+        
+        navigationController?.navigationBarHidden = true
+        UIApplication.sharedApplication().statusBarHidden = true
         
     }
     
+    @IBAction func backBtnAction(sender: UIButton) {
+        self.navigationController?.popViewControllerAnimated(true)
+        
+    }
     func showPopUp(notification: NSNotification){
 
         let popup = PopupController
@@ -70,6 +75,9 @@ class FineDiningViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(animated: Bool) {
+        
+    }
     
     func constructTheOfferReedemJson(){
         /*
@@ -125,7 +133,11 @@ class FineDiningViewController: UIViewController {
     }
     
     
-    @IBAction func offerButtonAction(sender: AnyObject) {
+    @IBAction func offerButtonAction(sender: UIButton) {
+        
+        sender.backgroundColor = CXAppConfig.sharedInstance.getAppTheamColor()
+        mapBtn.backgroundColor = UIColor.lightGrayColor()
+        self.aboutBtn.backgroundColor = UIColor.lightGrayColor()
         let offersController : OffersViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("OffersViewController") as? OffersViewController)!
         offersController.offersDic = NSDictionary(dictionary: self.dealsDic)
         offersController.view.translatesAutoresizingMaskIntoConstraints = false
@@ -133,12 +145,13 @@ class FineDiningViewController: UIViewController {
         self.cycleFromViewController(self.currentViewController!, toViewController: offersController)
         self.currentViewController = offersController
         
-        
     }
     
-    @IBOutlet weak var offerButtonAction: UIButton!
-    @IBAction func aboutButtonAction(sender: AnyObject) {
+    @IBAction func aboutButtonAction(sender: UIButton) {
         
+        sender.backgroundColor = CXAppConfig.sharedInstance.getAppTheamColor()
+        mapBtn.backgroundColor = UIColor.lightGrayColor()
+        self.offerBtn.backgroundColor = UIColor.lightGrayColor()
         
         let newViewController : AboutUsViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("AboutUsViewController") as? AboutUsViewController)!
         newViewController.offersDic = NSDictionary(dictionary: self.dealsDic)
@@ -147,7 +160,11 @@ class FineDiningViewController: UIViewController {
         self.currentViewController = newViewController
     }
     
-    @IBAction func mapButtonAction(sender: AnyObject) {
+    @IBAction func mapButtonAction(sender: UIButton) {
+        
+        sender.backgroundColor = CXAppConfig.sharedInstance.getAppTheamColor()
+        aboutBtn.backgroundColor = UIColor.lightGrayColor()
+        self.offerBtn.backgroundColor = UIColor.lightGrayColor()
         
         let newViewController : MapViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("MapViewController") as? MapViewController)!
         if (dealsDic.valueForKey("Latitude")) != nil {
@@ -170,7 +187,7 @@ class FineDiningViewController: UIViewController {
         
         //dealsDic.valueForKey("BackgroundImage_URL") as?String)
         //Latitude, Longitude  lat = 17.3850
-       // lon = 78.4867
+        // lon = 78.4867
         
     }
     
@@ -198,8 +215,10 @@ class FineDiningViewController: UIViewController {
 
     @IBAction func callBtnAction(sender: AnyObject) {
         let primaryNumber = self.dealsDic.valueForKeyPath("Phone number") as! String!
-        callNumber(primaryNumber!)
-        
+        if primaryNumber != ""{
+             callNumber(primaryNumber!)
+        }
+ 
     }
     
     @IBAction func shareBtnAction(sender: AnyObject) {

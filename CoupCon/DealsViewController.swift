@@ -19,7 +19,7 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dealsArray = NSArray()
-        
+        self.automaticallyAdjustsScrollViewInsets = false
         let nib = UINib(nibName: "DealsCollectionViewCell", bundle: nil)
         self.collectionview.registerNib(nib, forCellWithReuseIdentifier: "DealsCollectionViewCell")
         self.collectionview.backgroundColor = UIColor.clearColor()
@@ -49,21 +49,25 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
         //UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(DealsViewController.backButtonAction))
         
         let sendButton = UIBarButtonItem(image: UIImage(named: "search"), style: .Plain, target: self, action: #selector(DealsViewController.searchButtonAction))
-        
+        sendButton.tintColor = UIColor.whiteColor()
        // self.navigationController!.navigationBar.barTintColor = UIColor(red: 160.0/255, green: 57.0/255, blue: 135.0/255, alpha: 0.0)
         
         //myLabel.backgroundColor = UIColor(red: 50.0/255, green: 150.0/255, blue: 65.0/255, alpha: 1.0)
 
         self.navigationItem.rightBarButtonItem = sendButton
-        
-        self.navigationController!.navigationBar.barStyle = UIBarStyle.Black
-        self.navigationController!.navigationBar.tintColor = UIColor.grayColor()
+        self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
     }
 
     func searchButtonAction(){
         var dealsVc : SearchViewController = SearchViewController()
         let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         dealsVc = storyBoard.instantiateViewControllerWithIdentifier("SearchViewController") as! SearchViewController
+        
+        let backItem = UIBarButtonItem()
+        backItem.title = "Search Deals"
+        navigationItem.backBarButtonItem = backItem
+        
+        
         self.navigationController?.pushViewController(dealsVc, animated: true)
     }
     
@@ -103,7 +107,7 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
     }
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
-        return CGSizeMake(self.view.frame.size.width,175)
+        return CGSizeMake(self.view.frame.size.width,185)
         
     }
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
@@ -119,10 +123,14 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
         let dealsDic : NSDictionary = self.dealsArray[indexPath.item] as! NSDictionary
         var fineDinigVc : FineDiningViewController = FineDiningViewController()
         let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        //dealsVc = storyBoard.instantiateViewControllerWithIdentifier("DealsViewController") as! DealsViewController
-        //dealsVc.selectedName = categoryDic.valueForKey("Name")! as! String
+
         fineDinigVc = storyBoard.instantiateViewControllerWithIdentifier("FineDining") as! FineDiningViewController
         fineDinigVc.dealsDic = dealsDic
+        
+//        let backItem = UIBarButtonItem()
+//        backItem.title = dealsDic.valueForKey("Name")! as? String
+//        navigationItem.backBarButtonItem = backItem
+        
         self.navigationController?.pushViewController(fineDinigVc, animated: true)
        
 //        var cell : CollectionViewCell = (collectionView.cellForItemAtIndexPath(indexPath) as? CollectionViewCell))

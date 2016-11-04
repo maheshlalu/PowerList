@@ -48,7 +48,7 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
     func setUpSideMenu(){
         
         let menuItem = UIBarButtonItem(image: UIImage(named: "sidePanelMenu"), style: .Plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
-        menuItem.tintColor = UIColor.grayColor()
+        menuItem.tintColor = UIColor.whiteColor()
         
         self.navigationItem.leftBarButtonItem = menuItem
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
@@ -59,9 +59,14 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
     
     func setUPTheNavigationProperty(){
         navigationController?.setNavigationBarHidden(false, animated: true)
-       /* navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.translucent = true*/
+        self.navigationController!.navigationBar.barTintColor = CXAppConfig.sharedInstance.getAppTheamColor()
+        self.view.backgroundColor = UIColor.whiteColor()
+        
+        /* navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+         navigationController?.navigationBar.shadowImage = UIImage()
+         navigationController?.navigationBar.translucent = true*/
+        
+        
         
     }
     
@@ -106,7 +111,6 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {
-        tableView.rowHeight = 80
         return 70
         
     }
