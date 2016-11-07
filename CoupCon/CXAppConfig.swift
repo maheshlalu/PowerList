@@ -224,4 +224,11 @@ class CXAppConfig {
         return(userID:userProfileData.userId!,macId:userProfileData.macId!,macIdJobId:userProfileData.macIdJobId!,userProfileData.emailId!)
     }
     
+    func getTheUserDetails() -> UserProfile{
+        
+        let appdata:NSArray = UserProfile.MR_findAll() as NSArray
+        let userProfileData:UserProfile = appdata.lastObject as! UserProfile
+        return userProfileData
+    }
+    
 }

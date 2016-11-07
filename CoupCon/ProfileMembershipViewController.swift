@@ -122,4 +122,40 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
         print(self.navigationController)
     }
     
+    @IBAction func oneMonthAccessBtnAction(sender: AnyObject) {
+      //  http://test.com:9000/PaymentGateway/payments?name=&email=&amount=100&description=Test&phone=&macId=&mallId=
+        self.sendThePayMentDetailsToServer("99")
+
+   
+        
+    }
+    @IBAction func sixMonthsAccessBtnAction(sender: AnyObject) {
+        
+        self.sendThePayMentDetailsToServer("149")
+    }
+    @IBAction func oneYearAccessBtnAction(sender: AnyObject) {
+        self.sendThePayMentDetailsToServer("249")
+        
+    }
+    
+    func sendThePayMentDetailsToServer(amount:String){
+        let userProfileData:UserProfile = CXAppConfig.sharedInstance.getTheUserDetails()
+
+        LoadingView.show("Loading...", animated: true)
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("http://54.179.48.83:9000/PaymentGateway/payments?", parameters: ["name":userProfileData.firstName!,"email":userProfileData.emailId!,"amount":amount,"description":"","phone":"8096380038","macId":userProfileData.macId!,"mallId":CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in
+            print(responseDict)
+            print(responseDict.valueForKey("payment_url"))
+            let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+            let profileView = storyBoard.instantiateViewControllerWithIdentifier("CXPayMentController") as! CXPayMentController
+            profileView.paymentUrl = responseDict.valueForKey("payment_url")! as! String
+            self.navigationController?.pushViewController(profileView, animated: true)
+            LoadingView.hide()
+        }
+        
+        
+    }
+    
+    
+    
+    
 }

@@ -108,7 +108,7 @@ class DemoPopupViewController2: UIViewController, PopupContentViewController, UI
             let dict = self.redeemJsonArr.firstObject as! NSDictionary
             let currentJobStatus = dict.valueForKey("Current_Job_Status") as! String
             LoadingView.hide()
-            if currentJobStatus == "Active"{
+            if currentJobStatus != "Active"{
                 
                 let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
                 let redeemView = storyBoard.instantiateViewControllerWithIdentifier("REDEEM_HISTORY") as! ReedemViewController

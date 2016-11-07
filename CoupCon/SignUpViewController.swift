@@ -174,24 +174,35 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
         let email = NSUserDefaults.standardUserDefaults().valueForKey("USER_EMAIL") as? String
         let password = NSUserDefaults.standardUserDefaults().valueForKey("PASSWORD") as? String
         let imageData = NSUserDefaults.standardUserDefaults().valueForKey("IMG_DATA") as? NSData
-        
         LoadingView.show("Uploading", animated: true)
-        CXDataService.sharedInstance.imageUpload(imageData!, completion: { (Response) in
-            print(Response)
-            let status: Int = Int(Response.valueForKey("status") as! String)!
-            if status == 1{
-                let imgStr = Response.valueForKey("filePath") as! String
-                let userRegisterDic: NSDictionary = NSDictionary(objects: [CXAppConfig.sharedInstance.getAppMallID(),email!,"DEVICES",password!,firstName!,lastName!,"",imgStr,"false"],
-                    forKeys: ["orgId","userEmailId","dt","password","firstName","lastName","gender","filePath","isLoginWithFB"])
-                CX_SocialIntegration.sharedInstance.registerWithSocialNewtWokrk(userRegisterDic, completion: { (responseDict) in
-                    self.leadToHomeScreen()
-                    LoadingView.hide()
-                })
-                //NSUserDefaults.standardUserDefaults().setObject(Response.valueForKey("filePath"), forKey: "IMG_URL")
-                
-                
-            }
-        })
+
+        if imageData != nil {
+            CXDataService.sharedInstance.imageUpload(imageData!, completion: { (Response) in
+                print(Response)
+                let status: Int = Int(Response.valueForKey("status") as! String)!
+                if status == 1{
+                    let imgStr = Response.valueForKey("filePath") as! String
+                    let userRegisterDic: NSDictionary = NSDictionary(objects: [CXAppConfig.sharedInstance.getAppMallID(),email!,"DEVICES",password!,firstName!,lastName!,"",imgStr,"false"],
+                        forKeys: ["orgId","userEmailId","dt","password","firstName","lastName","gender","filePath","isLoginWithFB"])
+                    CX_SocialIntegration.sharedInstance.registerWithSocialNewtWokrk(userRegisterDic, completion: { (responseDict) in
+                        self.leadToHomeScreen()
+                        LoadingView.hide()
+                    })
+                    //NSUserDefaults.standardUserDefaults().setObject(Response.valueForKey("filePath"), forKey: "IMG_URL")
+                    
+                }
+            })
+        }else{
+            let userRegisterDic: NSDictionary = NSDictionary(objects: [CXAppConfig.sharedInstance.getAppMallID(),email!,"DEVICES",password!,firstName!,lastName!,"","","false"],
+                                                             forKeys: ["orgId","userEmailId","dt","password","firstName","lastName","gender","filePath","isLoginWithFB"])
+            CX_SocialIntegration.sharedInstance.registerWithSocialNewtWokrk(userRegisterDic, completion: { (responseDict) in
+                self.leadToHomeScreen()
+                LoadingView.hide()
+            })
+
+        }
+        
+
         
 //        if imageData != ""{
 //        let userRegisterDic: NSDictionary = NSDictionary(objects: [CXAppConfig.sharedInstance.getAppMallID(),email!,"DEVICES",password!,firstName!,lastName!,"",imageData!,"false"],
@@ -205,6 +216,8 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
 //            
 //        }
     }
+    
+    
     
     func leadToHomeScreen() {
         //HomeViewController

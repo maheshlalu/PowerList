@@ -58,7 +58,7 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
         
         self.facebookBtn.delegate = self
         self.facebookBtn.readPermissions = ["public_profile", "email", "user_friends"];
-
+       //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "leftpanel_image")!)
         self.gmailBtn = GIDSignInButton.init(frame:self.gmailBtn.frame)
         
         //        self.userBtn.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
