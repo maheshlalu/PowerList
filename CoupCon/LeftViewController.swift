@@ -14,10 +14,10 @@ import UIKit
     @IBOutlet weak var leftTableview: UITableView!
     @IBOutlet weak var dpNameLbl: UILabel!
     
-    let managedObjectContext:NSManagedObjectContext! = nil
+    let managedObjectContext:NSManagedObjectContext! = nil//Birthday Offers"
     var previousSelectedIndex  : NSIndexPath = NSIndexPath()
-    var nameArray = ["HOME","PROFILE & MEMBERSHIP","REDEEM & HISTORY","HOW TO USE","HELP","SIGN OUT"]
-    var imageArray = ["HomeImage","Profile & membershipImage","sidePanelRedeem20","HowtoUseImage","Helpimage","PowerBtn"]
+    var nameArray = ["HOME","PROFILE & MEMBERSHIP","REDEEM & HISTORY","BIRTHDAY OFFERS","HOW TO USE","HELP","SIGN OUT"]
+    var imageArray = ["HomeImage","Profile & membershipImage","sidePanelRedeem20","bthDayOffer","HowtoUseImage","Helpimage","PowerBtn"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -135,6 +135,18 @@ import UIKit
             
             showAlertView("Are You Sure??", status: 1)
             
+        }else if itemName == "BIRTHDAY OFFERS"{
+            
+            var dealsVc : DealsViewController = DealsViewController()
+            let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+            dealsVc = storyBoard.instantiateViewControllerWithIdentifier("DealsViewController") as! DealsViewController
+            dealsVc.selectedName = "Birthday Offers"
+            let navCntl = UINavigationController(rootViewController: dealsVc)
+            let backItem = UIBarButtonItem()
+            backItem.title = "Birthday Offers"
+            navigationItem.backBarButtonItem = backItem
+            revealController.pushFrontViewController(navCntl, animated: true)
+
         }
         
     }

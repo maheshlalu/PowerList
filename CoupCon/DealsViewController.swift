@@ -26,11 +26,16 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
         // print("\(self.dealsDic) \(self.dealsDic!.allKeys)")
         self.getTheDealsFromServer()
         self.addTheBarButtonItem()
+        if selectedName == "Birthday Offers" {
+            self.setUpSideMenu()
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBarHidden = false
+        self.navigationController!.navigationBar.barTintColor = CXAppConfig.sharedInstance.getAppTheamColor()
+        self.view.backgroundColor = UIColor.whiteColor()
     }
     
     
@@ -43,6 +48,19 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
             self.collectionview.reloadData()
             LoadingView.hide()
         }
+    }
+    
+    func setUpSideMenu(){
+        
+        let menuItem = UIBarButtonItem(image: UIImage(named: "sidePanelMenu"), style: .Plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
+        menuItem.tintColor = UIColor.whiteColor()
+        
+        self.navigationItem.leftBarButtonItem = menuItem
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        self.title = self.selectedName
+        self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        
+        //self.sideMenuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), forControlEvents: .TouchUpOutside)
     }
     
     func addTheBarButtonItem(){
@@ -150,7 +168,12 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
         
         let dealsDict : NSDictionary = self.dealsArray[button.tag-1] as! NSDictionary
         let phoneNumber = dealsDict.valueForKey("PhoneNumber") as?String
-        UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(phoneNumber!)")!)
+        if (phoneNumber != nil) {
+            if  UIApplication.sharedApplication().canOpenURL(NSURL(string: "tel://\(phoneNumber!)")!) {
+                UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(phoneNumber!)")!)
+
+            }
+        }
  
     }
     

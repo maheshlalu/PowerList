@@ -10,17 +10,23 @@ import UIKit
 
 class CXPayMentController: UIViewController {
     
-    var paymentUrl : String! = nil
+    var paymentUrl : NSURL! = nil
     var webRequestArry: NSMutableArray = NSMutableArray()
     @IBOutlet weak var payMentWebView: UIWebView!
+      var activity: UIActivityIndicatorView = UIActivityIndicatorView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         LoadingView.show("Processing...", animated: true)
       //self.webRequestArry = NSMutableArray()
-        let url = NSURL (string: paymentUrl)
-        let requestObj = NSURLRequest(URL: url!)
+        //let url =  NSURL(string: paymentUrl)
+        let requestObj = NSURLRequest(URL: paymentUrl)
         self.payMentWebView.loadRequest(requestObj)
+        self.navigationItem.setHidesBackButton(true, animated:true);
+        self.title = "payment Gateway "
+        self.activity = UIActivityIndicatorView()
+        self.activity.tintColor = CXAppConfig.sharedInstance.getAppTheamColor()
+
         // Do any additional setup after loading the view.
     }
 
@@ -45,29 +51,82 @@ class CXPayMentController: UIViewController {
 }
 
 extension CXPayMentController : UIWebViewDelegate {
-    
-    
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool{
-        
-        self.webRequestArry.addObject(String(request.URL))
-        
+        self.webRequestArry.addObject(String(request.URL!))
         print(request)
         return true
     }
     func webViewDidStartLoad(webView: UIWebView){
         LoadingView.show("Processing...", animated: true)
+        activity.hidden = false
+        activity.startAnimating()
     }
     func webViewDidFinishLoad(webView: UIWebView){
         print(self.webRequestArry.lastObject)
-        let lastRequest : String = (self.webRequestArry.lastObject as? String)!
-        if (lastRequest.rangeOfString("paymentOrderDetailsResponse") != nil)  {
+        LoadingView.hide()
+        let lastRequest : String = String(self.webRequestArry.lastObject!)
+        print(lastRequest)
+        if ((lastRequest.rangeOfString("paymentOrderResponse")) != nil)  {
+            LoadingView.show("Processing...", animated: true)
             CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(lastRequest, completion: { (responseDict) in
                 print(responseDict)
+                let status : String = (responseDict.valueForKey("status") as? String)!
+                if status == "Completed" {
+                    self.changeTheUserActiveStaus()
+                }else{
+                    
+                }
+                self.navigationController?.popViewControllerAnimated(true)
                 LoadingView.hide()
             })
         }
+        activity.hidden = true
+        activity.stopAnimating()
     }
     func webView(webView: UIWebView, didFailLoadWithError error: NSError?){
+        activity.hidden = true
+        activity.stopAnimating()
+    }
+    
+    
+    func changeTheUserActiveStaus(){
+//        let userProfileData:UserProfile = CXAppConfig.sharedInstance.getTheUserDetails()
+//
+//        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("http://storeongo.com:8081/MobileAPIs/changeJobStatus?", parameters: ["providerEmail":"","mallId":"","jobId":"","jobStatusId":""]) { (responseDict) in
+//            
+//        }
+        
+        //http://storeongo.com:8081/MobileAPIs/changeJobStatus?providerEmail=balabca.chandra72@gmail.com&mallId=20217&jobId=197201&jobStatusId=167594
         
     }
 }
+
+
+/*
+ 
+ {
+ "allow_repeated_payments" = 0;
+ amount = "99.00";
+ "buyer_name" = Yernagulamahesh;
+ "created_at" = "2016-11-08T11:12:38.654666Z";
+ email = "yernagulamahesh@gmail.com";
+ id = 0b9632ed01cd4252a9e9d01836018481;
+ longurl = "https://test.instamojo.com/@ongocoupocon/0b9632ed01cd4252a9e9d01836018481";
+ "mark_fulfilled" = 1;
+ "modified_at" = "2016-11-08T11:14:01.503206Z";
+ partner = "https://test.instamojo.com/v2/users/99003f8510dd48079341db08eacc739b/";
+ "partner_fee" = "10.00";
+ "partner_fee_type" = percent;
+ payments =     (
+ "https://test.instamojo.com/v2/payments/MOJO6b08005J79407729/"
+ );
+ phone = "+918096380038";
+ purpose = "Coupocon Payment";
+ "redirect_url" = "http://54.179.48.83:9000/CoupoconPG/paymentOrderResponse?mallId=20217&macId=3673a3bd-4461-47fa-9a9e-3781e7147d21&";
+ "resource_uri" = "https://test.instamojo.com/v2/payment_requests/0b9632ed01cd4252a9e9d01836018481/";
+ "send_email" = 0;
+ "send_sms" = 0;
+ status = Completed;
+ user = "https://test.instamojo.com/v2/users/11d49dde61bb46509a383d7505ba1d87/";
+ }
+ */

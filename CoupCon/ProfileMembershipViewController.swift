@@ -140,9 +140,37 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
     
     func sendThePayMentDetailsToServer(amount:String){
         let userProfileData:UserProfile = CXAppConfig.sharedInstance.getTheUserDetails()
-
         LoadingView.show("Loading...", animated: true)
-        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("http://54.179.48.83:9000/PaymentGateway/payments?", parameters: ["name":userProfileData.firstName!,"email":userProfileData.emailId!,"amount":amount,"description":"","phone":"8096380038","macId":userProfileData.macId!,"mallId":CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in
+        var urlString : String = String("http://54.179.48.83:9000/CoupoconPG/payments?")
+        urlString.appendContentsOf("name="+userProfileData.firstName!)
+        urlString.appendContentsOf("&email="+userProfileData.emailId!)
+        urlString.appendContentsOf("&amount="+amount)
+        urlString.appendContentsOf("&description="+"Coupocon Payment")
+        urlString.appendContentsOf("&phone="+"8096380038")
+        urlString.appendContentsOf("&macId="+userProfileData.macId!)
+        urlString.appendContentsOf("&mallId="+CXAppConfig.sharedInstance.getAppMallID())
+        print(urlString)
+        let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let profileView = storyBoard.instantiateViewControllerWithIdentifier("CXPayMentController") as! CXPayMentController
+        let urlSet = NSMutableCharacterSet()
+        urlSet.formUnionWithCharacterSet(.URLFragmentAllowedCharacterSet())
+        urlSet.formUnionWithCharacterSet(.URLHostAllowedCharacterSet())
+        urlSet.formUnionWithCharacterSet(.URLPasswordAllowedCharacterSet())
+        urlSet.formUnionWithCharacterSet(.URLQueryAllowedCharacterSet())
+        urlSet.formUnionWithCharacterSet(.URLUserAllowedCharacterSet())
+        
+        if let urlwithPercentEscapes = urlString.stringByAddingPercentEncodingWithAllowedCharacters( urlSet) {
+            print(urlwithPercentEscapes)
+            
+            profileView.paymentUrl = NSURL(string: urlwithPercentEscapes)
+
+            // "http://www.mapquestapi.com/geocoding/v1/batch?key=YOUR_KEY_HERE&callback=renderBatch&location=Pottsville,PA&location=Red%20Lion&location=19036&location=1090%20N%20Charlotte%20St,%20Lancaster,%20PA"
+        }
+        print(profileView.paymentUrl)
+        self.navigationController?.pushViewController(profileView, animated: true)
+        LoadingView.hide()
+        
+       /* CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("http://54.179.48.83:9000/CoupoconPG/payments?", parameters: ["name":userProfileData.firstName!,"email":userProfileData.emailId!,"amount":amount,"description":"","phone":"8096380038","macId":userProfileData.macId!,"mallId":CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in            
             print(responseDict)
             print(responseDict.valueForKey("payment_url"))
             let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
@@ -150,7 +178,7 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
             profileView.paymentUrl = responseDict.valueForKey("payment_url")! as! String
             self.navigationController?.pushViewController(profileView, animated: true)
             LoadingView.hide()
-        }
+        }*/
         
         
     }

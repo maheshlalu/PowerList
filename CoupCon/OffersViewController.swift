@@ -37,6 +37,8 @@ class OffersViewController: UIViewController {
         
         let offerString :String =  self.offersDic?.valueForKey("Offers") as! String
        let  offersListArry = NSArray(array: offerString.componentsSeparatedByString("#"))
+        print(offerString)
+        print(offersListArry)
         for (index ,offerCode ) in offersListArry.enumerate() {
             self.offersCodes.appendString(self.getTheofferDisplayString(offerCode as! String))
             if index != offersListArry.count-1 {
