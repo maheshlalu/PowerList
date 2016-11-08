@@ -57,8 +57,6 @@ public class CXDataService: NSObject {
     }
     
     public func synchDataToServerAndServerToMoblile(urlstring:String, parameters:[String: AnyObject]? = nil ,completion:(responseDict:NSDictionary) -> Void){
-    
-        
         if Reachability.isConnectedToNetwork() == true{
         print(urlstring)
         print(parameters)

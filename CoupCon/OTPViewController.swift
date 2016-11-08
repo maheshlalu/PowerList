@@ -8,13 +8,33 @@
 
 import UIKit
 
-class OTPViewController: UIViewController,SWRevealViewControllerDelegate {
+class OTPViewController: UIViewController,SWRevealViewControllerDelegate,UITextFieldDelegate {
     var window: UIWindow?
-
+    var otpEmail:String!
+    
+    @IBOutlet weak var backImgView: UIImageView!
+    @IBOutlet weak var otpTxtField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.navigationItem.setHidesBackButton(true, animated:true);
+        let navigation:UINavigationItem = navigationItem
+        navigation.title = "OTP SCREEN"
+        self.otpTxtField.delegate = self
+        print("\(otpEmail)")
+        
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(CXSigninViewController.keyboardWillShow(_:)),
+                                                         name: UIKeyboardWillShowNotification,
+                                                         object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(CXSigninViewController.keyboardWillHide(_:)),
+                                                         name: UIKeyboardWillHideNotification,
+                                                         object: nil)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(CXSigninViewController.handleTap(_:)))
+        self.view.addGestureRecognizer(tap)
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,22 +42,42 @@ class OTPViewController: UIViewController,SWRevealViewControllerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.backImgView.endEditing(true)
+    }
 
     @IBAction func otpSubmitAction(sender: AnyObject) {
-        let firstName = NSUserDefaults.standardUserDefaults().valueForKey("FIRST_NAME") as? String
-        let lastName = NSUserDefaults.standardUserDefaults().valueForKey("LAST_NAME") as? String
-        //let mobile = NSUserDefaults.standardUserDefaults().valueForKey("FULL_NAME") as? String
-        let email = NSUserDefaults.standardUserDefaults().valueForKey("USER_EMAIL") as? String
-        let password = NSUserDefaults.standardUserDefaults().valueForKey("PASSWORD") as? String
-        //let imageData = NSUserDefaults.standardUserDefaults().valueForKey("IMG_DATA") as? String
         
-        
-        let userRegisterDic: NSDictionary = NSDictionary(objects: [CXAppConfig.sharedInstance.getAppMallID(),email!,"DEVICES",password!,firstName!,lastName!,"","","false"],
-                                                         forKeys: ["orgId","userEmailId","dt","password","firstName","lastName","gender","filePath","isLoginWithFB"])
-        CX_SocialIntegration.sharedInstance.registerWithSocialNewtWokrk(userRegisterDic, completion: { (responseDict) in
+        // http://storeongo.com:8081/MobileAPIs/verifyOTP?ownerId=530&consumerEmail=cxsample@gmail.com&otp=538849
+        if otpTxtField.text != ""{
+            //Comparing the Entered OTP With SMS OTP
+            self.comparingFieldWithOTP()
             
-        })
+        }else{
+            showAlertView("Field Can't Be Empty!!!", status: 0)
+        }
+        
+    }
+    
+    func comparingFieldWithOTP(){
+    
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getComparingOTP(), parameters: ["ownerId":CXAppConfig.sharedInstance.getAppMallID(),"consumerEmail":otpEmail! as String,"otp":self.otpTxtField.text!]) { (responseDict) in
+            LoadingView.hide()
+            print(responseDict)
+            let status: Int = Int(responseDict.valueForKey("status") as! String)!
+            let message = responseDict.valueForKey("message") as! String
+            
+            if status == 1{
+                // Leading to HomeView
+                self.showAlertView(message, status: 0)
+                let appDel = (UIApplication.sharedApplication().delegate) as! AppDelegate
+                appDel.applicationNavigationFlow()
+        
+            }else{
+                // Error
+                self.showAlertView(message, status: 0)
+            }
+        }
     }
     
     func leadToHomeScreen() {
@@ -62,5 +102,51 @@ class OTPViewController: UIViewController,SWRevealViewControllerDelegate {
         
     }
     
+    func handleTap(sender: UITapGestureRecognizer? = nil) {
+        // handling code
+        self.view.endEditing(true)
+    }
+    
+    func keyboardWillShow(sender: NSNotification) {
+        if let keyboardSize = (sender.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            if view.frame.origin.y == 0{
+                self.view.frame.origin.y = -(keyboardSize.height-60)
+            }
+            else {
+                
+            }
+        }
+    }
+    
+    func keyboardWillHide(sender: NSNotification) {
+        if ((sender.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue()) != nil {
+            if view.frame.origin.y != 0 {
+                self.view.frame.origin.y = 0
+            }
+            else {
+                
+            }
+        }
+    }
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        self.backImgView.resignFirstResponder()
+    }
+
+    
+    //Showing Alert
+    func showAlertView(message:String, status:Int) {
+        let alert = UIAlertController(title:message, message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+        let okAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default) {
+            UIAlertAction in
+            
+            if status == 1 {
+                
+            }else{
+                
+            }
+        }
+        alert.addAction(okAction)
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
  
 }

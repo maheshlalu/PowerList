@@ -46,15 +46,6 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
         self.passwordTf.clipsToBounds = true
         self.passwordTf.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
         
-        self.checkboxBtn.layer.borderColor = UIColor.whiteColor().CGColor
-        self.checkboxBtn.layer.borderWidth = 1
-        self.checkboxBtn.layer.cornerRadius = 5
-        self.checkboxBtn.clipsToBounds = true
-        
-        self.loginBtn.layer.borderColor = UIColor.whiteColor().CGColor
-        self.loginBtn.layer.borderWidth = 1
-        self.loginBtn.layer.cornerRadius = 5
-        self.loginBtn.clipsToBounds = true
         
         self.facebookBtn.delegate = self
         self.facebookBtn.readPermissions = ["public_profile", "email", "user_friends"];
@@ -133,7 +124,7 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
     }
     
     @IBAction func signUpBtnAction(sender: AnyObject) {
-        
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("IMG_DATA")
         let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         let profile = storyBoard.instantiateViewControllerWithIdentifier("SignUpViewController") as! SignUpViewController
         self.navigationController?.pushViewController(profile, animated: true)

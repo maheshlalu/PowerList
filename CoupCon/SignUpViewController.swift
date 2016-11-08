@@ -36,10 +36,10 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
         
         self.setUPTheNavigationProperty()
         
-        
+        self.automaticallyAdjustsScrollViewInsets = false
         self.navigationController?.navigationBarHidden = false
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        self.editDPImage.layer.cornerRadius = 80
+        self.editDPImage.layer.cornerRadius = 85
         self.editDPImage.clipsToBounds = true
         self.editDPImage.layer.borderWidth = 5.0
         
@@ -76,11 +76,18 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
         self.editDPImage.endEditing(true)
     }
     
+    @IBAction func editImgBtnAction(sender: AnyObject) {
+        imagePickerAction(sender)
+    }
     func setUPTheNavigationProperty(){
+        
         navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.translucent = true
+        self.navigationController!.navigationBar.barTintColor = CXAppConfig.sharedInstance.getAppTheamColor()
+        self.view.backgroundColor = UIColor.whiteColor()
+        
+        let navigation:UINavigationItem = navigationItem
+        //let image = UIImage(named: "logo_white")
+        navigation.title = "Sign Up"
         
     }
     
@@ -124,7 +131,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
                 self.confirmPwdTxtField.errorMessage = "Unequal Password"
                 return
             }else{
-                self.pwdTxtField.errorMessage = nil
+                self.confirmPwdTxtField.errorMessage = nil
             }
             
             self.sendSignUpDetails()
@@ -139,12 +146,36 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
     }
     
     func sendSignUpDetails() {
-        savingDataInUserDefaults()
         
-        self.signUp()
-        return
+        if NSUserDefaults.standardUserDefaults().valueForKey("IMG_DATA") == nil{
+            let alert = UIAlertController(title:"Please Upload Profile Image", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+            let okAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default) {
+                UIAlertAction in
+                
+            }
+            let anywayAction = UIAlertAction(title: "SignUp Anyway!!!", style: UIAlertActionStyle.Destructive) {
+                UIAlertAction in
+                
+                let image = self.editDPImage.image! as UIImage
+                let imageData = NSData(data: UIImagePNGRepresentation(image)!)
+                NSUserDefaults.standardUserDefaults().setObject(imageData, forKey: "IMG_DATA")
+                self.showOTPAlertView()
+                
+            }
+            alert.addAction(okAction)
+            alert.addAction(anywayAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+        } else {
+            
+            showOTPAlertView()
+            
+        }
+    }
+    
+    func showOTPAlertView(){
         
-        let alert = UIAlertController(title: "CoupoCon", message: "Enter Valid Mobile Number To Get OTP", preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: "Coupocon", message: "You will get an OTP for below number...\n(You can change the number if you want...) ", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addTextFieldWithConfigurationHandler(configurationTextField)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Destructive, handler:handleCancel))
         alert.addAction(UIAlertAction(title: "Submit", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
@@ -152,95 +183,63 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
             if self.alertTextField?.text?.characters.count < 10 {
                 self.showAlertView("Please Enter Valid Mobile Number", status: 0)
             }else{
-                //let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-                //let profile = storyBoard.instantiateViewControllerWithIdentifier("OTP_VIEW") as! OTPViewController
-                //self.signUp()
-                // self.navigationController?.pushViewController(profile, animated: true)
+                //Validating User EmailId for OTP
+                 self.savingDataInUserDefaults()
+                self.signUp()
+                
             }
             
+            
         }))
-        //        self.presentViewController(alert, animated: true, completion: {
-        //            print("completion block")
-        //        })
+        self.presentViewController(alert, animated: true, completion: nil)
+        
     }
     
-    func signUp(){
-        
-        LoadingView.show("loading", animated: true)
-
-        let firstName = NSUserDefaults.standardUserDefaults().valueForKey("FIRST_NAME") as? String
-        let lastName = NSUserDefaults.standardUserDefaults().valueForKey("LAST_NAME") as? String
-        //let mobile = NSUserDefaults.standardUserDefaults().valueForKey("FULL_NAME") as? String
-        let email = NSUserDefaults.standardUserDefaults().valueForKey("USER_EMAIL") as? String
-        let password = NSUserDefaults.standardUserDefaults().valueForKey("PASSWORD") as? String
-        let imageData = NSUserDefaults.standardUserDefaults().valueForKey("IMG_DATA") as? NSData
-        LoadingView.show("Uploading", animated: true)
-
-        if imageData != nil {
-            CXDataService.sharedInstance.imageUpload(imageData!, completion: { (Response) in
-                print(Response)
-                let status: Int = Int(Response.valueForKey("status") as! String)!
-                if status == 1{
-                    let imgStr = Response.valueForKey("filePath") as! String
-                    let userRegisterDic: NSDictionary = NSDictionary(objects: [CXAppConfig.sharedInstance.getAppMallID(),email!,"DEVICES",password!,firstName!,lastName!,"",imgStr,"false"],
-                        forKeys: ["orgId","userEmailId","dt","password","firstName","lastName","gender","filePath","isLoginWithFB"])
-                    CX_SocialIntegration.sharedInstance.registerWithSocialNewtWokrk(userRegisterDic, completion: { (responseDict) in
-                        self.leadToHomeScreen()
-                        LoadingView.hide()
-                    })
-                    //NSUserDefaults.standardUserDefaults().setObject(Response.valueForKey("filePath"), forKey: "IMG_URL")
-                    
-                }
-            })
-        }else{
-            let userRegisterDic: NSDictionary = NSDictionary(objects: [CXAppConfig.sharedInstance.getAppMallID(),email!,"DEVICES",password!,firstName!,lastName!,"","","false"],
-                                                             forKeys: ["orgId","userEmailId","dt","password","firstName","lastName","gender","filePath","isLoginWithFB"])
-            CX_SocialIntegration.sharedInstance.registerWithSocialNewtWokrk(userRegisterDic, completion: { (responseDict) in
-                self.leadToHomeScreen()
+    func emailCheckingForOTP(){
+        // http://storeongo.com:8081/ MobileAPIs/accountVerification?ownerId=530&consumerEmail=cxsample@gmail.com
+        LoadingView.show("Checking Entered Email...", animated: true)
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getVarifyingEmailOTP(), parameters: ["ownerId":CXAppConfig.sharedInstance.getAppMallID(),"consumerEmail":emailTxtField.text! as String]) { (responseDict) in
+            LoadingView.hide()
+            print(responseDict)
+            let status: Int = Int(responseDict.valueForKey("status") as! String)!
+            let message = responseDict.valueForKey("message") as! String
+            
+            if status == 1{
+                // If Status is 1 then the user email id is already regesterd with email.Can't able to send OTP. Which means give another email.
+              self.showAlertView(message, status: 0)
+                return
+            }else{
+                //Sending the OTP to given mobile number (status is -1 or 0). Eligible to send OTP.
+                LoadingView.show("Loading...", animated: true)
+                self.sendingOTPForGivenNumber()
                 LoadingView.hide()
-            })
-
+            }
+            
         }
-        
-
-        
-//        if imageData != ""{
-//        let userRegisterDic: NSDictionary = NSDictionary(objects: [CXAppConfig.sharedInstance.getAppMallID(),email!,"DEVICES",password!,firstName!,lastName!,"",imageData!,"false"],
-//                                                         forKeys: ["orgId","userEmailId","dt","password","firstName","lastName","gender","filePath","isLoginWithFB"])
-//        CX_SocialIntegration.sharedInstance.registerWithSocialNewtWokrk(userRegisterDic, completion: { (responseDict) in
-//            self.leadToHomeScreen()
-//            LoadingView.hide()
-//        })
-//        }else{
-//        self.showAlertView("Please Upload Profile Image", status: 0)
-//            
-//        }
+  
     }
     
-    
-    
-    func leadToHomeScreen() {
-        //HomeViewController
-        let wFrame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height)
-        self.window = UIWindow.init(frame: wFrame)
+    func sendingOTPForGivenNumber(){
         
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let homeView = storyBoard.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
-        let menuVC = storyBoard.instantiateViewControllerWithIdentifier("LeftViewController") as! LeftViewController
+        //http://storeongo.com:8081/MobileAPIs/sendCoupoconSMS? ownerId=530& consumerEmail=cxsample@gmail.com& mobile=919581552229
         
-        let menuVCNav = UINavigationController(rootViewController: menuVC)
-        menuVCNav.navigationBarHidden = true
-        
-        let navHome = UINavigationController(rootViewController: homeView)
-        navHome.navigationBarHidden = true
-        
-        let revealVC = SWRevealViewController(rearViewController: menuVCNav, frontViewController: navHome)
-        revealVC.delegate = self
-        self.window?.rootViewController = revealVC
-        self.window?.makeKeyAndVisible()
-        
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getSendingOTP(), parameters: ["ownerId":CXAppConfig.sharedInstance.getAppMallID(),"consumerEmail":emailTxtField.text! as String,"mobile":"91\(self.alertTextField.text!)"]) { (responseDict) in
+            
+            print(responseDict)
+            let status: Int = Int(responseDict.valueForKey("status") as! String)!
+            
+            if status == 1{
+                // OTP SENT
+                NSUserDefaults.standardUserDefaults().setObject(responseDict.valueForKey("OTP"), forKey: "OTP")
+                self.showAlertView("OTP sent Successfully!!!", status: 100)
+               //After sending the OTP to given number, pushing to OTPViewController
+       
+            }else{
+                // OTP NOT SENT
+                self.showAlertView("Something Went Wrong!! Pleace check Email!!!", status: 0)
+            }
+        }
     }
-    
     
     func configurationTextField(alertTextField: UITextField!)
     {
@@ -248,6 +247,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
         alertTextField.delegate = self
         alertTextField.frame = CGRectMake(0, 0, 100, 60)
         alertTextField.placeholder = "Mobile"
+        alertTextField.text = self.mobileTextField.text
         alertTextField.font = UIFont.systemFontOfSize(15)
         alertTextField.autocorrectionType = UITextAutocorrectionType.No
         alertTextField.keyboardType = UIKeyboardType.NumberPad
@@ -267,9 +267,48 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
         NSUserDefaults.standardUserDefaults().setObject(self.emailTxtField.text, forKey: "USER_EMAIL")
         NSUserDefaults.standardUserDefaults().setObject(self.firstNameTxtField.text, forKey: "FIRST_NAME")
         NSUserDefaults.standardUserDefaults().setObject(self.lastNameTxtField.text, forKey: "LAST_NAME")
-        NSUserDefaults.standardUserDefaults().setObject(self.mobileTextField.text, forKey: "MOBILE")
+        NSUserDefaults.standardUserDefaults().setObject(self.alertTextField.text, forKey: "MOBILE")
         NSUserDefaults.standardUserDefaults().setObject(self.confirmPwdTxtField.text, forKey: "PASSWORD")
         NSUserDefaults.standardUserDefaults().synchronize()
+    }
+    
+    func signUp(){
+        
+        LoadingView.show("Loading...", animated: true)
+
+        let firstName = NSUserDefaults.standardUserDefaults().valueForKey("FIRST_NAME") as? String
+        let lastName = NSUserDefaults.standardUserDefaults().valueForKey("LAST_NAME") as? String
+        //let mobile = NSUserDefaults.standardUserDefaults().valueForKey("FULL_NAME") as? String
+        let email = NSUserDefaults.standardUserDefaults().valueForKey("USER_EMAIL") as? String
+        let password = NSUserDefaults.standardUserDefaults().valueForKey("PASSWORD") as? String
+        let imageData = NSUserDefaults.standardUserDefaults().valueForKey("IMG_DATA") as? NSData
+        LoadingView.show("Regestiring...", animated: true)
+        
+        if imageData != nil {
+            CXDataService.sharedInstance.imageUpload(imageData!, completion: { (Response) in
+                print(Response)
+                let status: Int = Int(Response.valueForKey("status") as! String)!
+                if status == 1{
+                    let imgStr = Response.valueForKey("filePath") as! String
+                    let userRegisterDic: NSDictionary = NSDictionary(objects: [CXAppConfig.sharedInstance.getAppMallID(),email!,"DEVICES",password!,firstName!,lastName!,"",imgStr,"false"],
+                        forKeys: ["orgId","userEmailId","dt","password","firstName","lastName","gender","filePath","isLoginWithFB"])
+                    CX_SocialIntegration.sharedInstance.registerWithSocialNewtWokrk(userRegisterDic, completion: { (responseDict) in
+                        print(responseDict)
+                        self.emailCheckingForOTP()
+                        LoadingView.hide()
+                    })
+                    //NSUserDefaults.standardUserDefaults().setObject(Response.valueForKey("filePath"), forKey: "IMG_URL")
+                }
+            })
+        }else{
+            let userRegisterDic: NSDictionary = NSDictionary(objects: [CXAppConfig.sharedInstance.getAppMallID(),email!,"DEVICES",password!,firstName!,lastName!,"","","false"],
+                                                             forKeys: ["orgId","userEmailId","dt","password","firstName","lastName","gender","filePath","isLoginWithFB"])
+            CX_SocialIntegration.sharedInstance.registerWithSocialNewtWokrk(userRegisterDic, completion: { (responseDict) in
+                print(responseDict)
+                self.emailCheckingForOTP()
+                LoadingView.hide()
+            })
+        }
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
@@ -291,6 +330,15 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
         let alert = UIAlertController(title:message, message: nil, preferredStyle: UIAlertControllerStyle.Alert)
         let okAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default) {
             UIAlertAction in
+            
+            if status == 100 {
+                let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+                let profile = storyBoard.instantiateViewControllerWithIdentifier("OTP_VIEW") as! OTPViewController
+                profile.otpEmail = NSUserDefaults.standardUserDefaults().valueForKey("USER_EMAIL") as? String
+                self.navigationController?.pushViewController(profile, animated: true)
+            }else{
+                
+            }
         }
         alert.addAction(okAction)
         self.presentViewController(alert, animated: true, completion: nil)
