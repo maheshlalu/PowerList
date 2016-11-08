@@ -16,6 +16,7 @@
 		111C7D0B1DC08E7D00D4FC09 /* membershipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111C7D0A1DC08E7D00D4FC09 /* membershipTableViewCell.swift */; };
 		111C7D0D1DC0CD4F00D4FC09 /* HowToUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111C7D0C1DC0CD4F00D4FC09 /* HowToUseViewController.swift */; };
 		1127C6B31DBE453100D92FF7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1127C6B21DBE453100D92FF7 /* LoadingView.swift */; };
+		11414C951DD1CA7C00FDD9A2 /* OTP .rtf in Resources */ = {isa = PBXBuildFile; fileRef = 11414C941DD1CA7C00FDD9A2 /* OTP .rtf */; };
 		115CA1C21DC1D35100BE9D57 /* DemoPopupViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115CA1C01DC1D35100BE9D57 /* DemoPopupViewController2.swift */; };
 		115CA1C31DC1D35100BE9D57 /* DemoPopupViewController2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 115CA1C11DC1D35100BE9D57 /* DemoPopupViewController2.storyboard */; };
 		115CA1C71DC1D3B700BE9D57 /* PopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115CA1C41DC1D3B700BE9D57 /* PopupController.swift */; };
@@ -118,6 +119,7 @@
 		111C7D0A1DC08E7D00D4FC09 /* membershipTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = membershipTableViewCell.swift; sourceTree = "<group>"; };
 		111C7D0C1DC0CD4F00D4FC09 /* HowToUseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToUseViewController.swift; sourceTree = "<group>"; };
 		1127C6B21DBE453100D92FF7 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		11414C941DD1CA7C00FDD9A2 /* OTP .rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "OTP .rtf"; sourceTree = "<group>"; };
 		115CA1C01DC1D35100BE9D57 /* DemoPopupViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoPopupViewController2.swift; sourceTree = "<group>"; };
 		115CA1C11DC1D35100BE9D57 /* DemoPopupViewController2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DemoPopupViewController2.storyboard; sourceTree = "<group>"; };
 		115CA1C41DC1D3B700BE9D57 /* PopupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupController.swift; sourceTree = "<group>"; };
@@ -474,6 +476,7 @@
 		18ED4A411DB617DB00A612BA /* OtherResources */ = {
 			isa = PBXGroup;
 			children = (
+				11414C941DD1CA7C00FDD9A2 /* OTP .rtf */,
 				18ED4A421DB6180500A612BA /* KIImagePager.h */,
 				18ED4A431DB6180500A612BA /* KIImagePager.m */,
 			);
@@ -642,6 +645,7 @@
 				189E7C7B1DB7722000A48CE2 /* OfferTableViewCell.xib in Resources */,
 				181C04DB1DB0BA4D006C05FF /* Roboto-Bold.ttf in Resources */,
 				111C7D091DC07E4200D4FC09 /* membershipTableViewCell.xib in Resources */,
+				11414C951DD1CA7C00FDD9A2 /* OTP .rtf in Resources */,
 				181C04DC1DB0BA4D006C05FF /* Roboto-Italic.ttf in Resources */,
 				181781B31DD0609A00A935FB /* Readme.txt in Resources */,
 				11D37EEC1DB8D75C0014F202 /* RedeemTableViewCell.xib in Resources */,

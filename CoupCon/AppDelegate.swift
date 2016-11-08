@@ -17,8 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        let navigationBarAppearace = UINavigationBar.appearance()
+        navigationBarAppearace.tintColor = UIColor.whiteColor()
+        navigationBarAppearace.barTintColor = CXAppConfig.sharedInstance.getAppTheamColor()
+        
+        let myAttributeTxtColor = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        let myAttribute = [ NSFontAttributeName: UIFont(name: "Roboto-Regular", size: 18.0)!]
+        navigationBarAppearace.titleTextAttributes = myAttribute
+        navigationBarAppearace.titleTextAttributes = myAttributeTxtColor
+        
+        
         self.configure()
-        applicationNavigationFlow()
+       //applicationNavigationFlow()
         self.setUpMagicalDB()
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         

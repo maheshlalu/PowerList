@@ -45,6 +45,12 @@
 	<string>MobileAPIs/updateUserDetails?</string>
 	<key>photoUpload</key>
 	<string>Services/uploadFileFromAndroidToServer</string>
+	<key>varifyingEmailForOTP</key>
+	<string>MobileAPIs/accountVerification?</string>
+	<key>sendingOTP</key>
+	<string>MobileAPIs/sendCoupoconSMS?</string>
+	<key>comparingOTP</key>
+	<string>MobileAPIs/verifyOTP?</string>
 	<key>AppBgColr</key>
 	<array>
 		<string>235</string>

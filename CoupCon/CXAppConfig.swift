@@ -61,6 +61,7 @@ class CXAppConfig {
         return config!.valueForKey("placeOrder") as! String
     }
     
+    
     //updateProfile
     
     func getupdateProfileUrl() -> String {
@@ -81,6 +82,19 @@ class CXAppConfig {
     func getSidePanelList() -> NSArray{
         
         return config!.valueForKey("SidePanelList") as! NSArray
+    }
+    
+    // getOTPAPIs
+    
+    func getVarifyingEmailOTP() -> String{
+        return config!.valueForKey("varifyingEmailForOTP") as! String
+    }
+    
+    func getSendingOTP() -> String{
+        return config!.valueForKey("sendingOTP") as! String
+    }
+    func getComparingOTP() -> String{
+        return config!.valueForKey("comparingOTP") as! String
     }
 
 
