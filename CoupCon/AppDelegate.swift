@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
         
         
         self.configure()
-       //applicationNavigationFlow()
+         applicationNavigationFlow()
         self.setUpMagicalDB()
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         

@@ -224,7 +224,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
         //http://storeongo.com:8081/MobileAPIs/sendCoupoconSMS? ownerId=530& consumerEmail=cxsample@gmail.com& mobile=919581552229
         
         CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getSendingOTP(), parameters: ["ownerId":CXAppConfig.sharedInstance.getAppMallID(),"consumerEmail":emailTxtField.text! as String,"mobile":"91\(self.alertTextField.text!)"]) { (responseDict) in
-            
+           // sleep(1000)
             print(responseDict)
             let status: Int = Int(responseDict.valueForKey("status") as! String)!
             

@@ -90,6 +90,12 @@ extension CXPayMentController : UIWebViewDelegate {
     
     
     func changeTheUserActiveStaus(){
+        //storeongo.com:8081/MobileAPIs/userActivation?ownerId=530&consumerEmail=cxsample@gmail.com&userStatus=active
+        let userProfileData:UserProfile = CXAppConfig.sharedInstance.getTheUserDetails()
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("storeongo.com:8081/MobileAPIs/userActivation?", parameters: ["ownerId":CXAppConfig.sharedInstance.getAppMallID(),"consumerEmail":userProfileData.emailId!,"userStatus":"active"]) { (responseDict) in
+            
+        }
+        
 //        let userProfileData:UserProfile = CXAppConfig.sharedInstance.getTheUserDetails()
 //
 //        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("http://storeongo.com:8081/MobileAPIs/changeJobStatus?", parameters: ["providerEmail":"","mallId":"","jobId":"","jobStatusId":""]) { (responseDict) in

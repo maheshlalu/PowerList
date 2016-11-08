@@ -106,10 +106,9 @@ class DemoPopupViewController2: UIViewController, PopupContentViewController, UI
         CXDataService.sharedInstance.getTheAppDataFromServer(["type":"macidinfo","mallId":CXAppConfig.sharedInstance.getAppMallID(),"jobId":CXAppConfig.sharedInstance.getMacJobID()]) { (responseDict) in
             self.redeemJsonArr = ((responseDict.valueForKey("jobs") as? NSArray)!)
             let dict = self.redeemJsonArr.firstObject as! NSDictionary
-            let currentJobStatus = dict.valueForKey("Current_Job_Status") as! String
+            let currentJobStatus = dict.valueForKey("userStatus") as! String
             LoadingView.hide()
-            if currentJobStatus != "Active"{
-                
+            if currentJobStatus == "Active" || currentJobStatus == ""{
                 let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
                 let redeemView = storyBoard.instantiateViewControllerWithIdentifier("REDEEM_HISTORY") as! ReedemViewController
                 redeemView.showBackBtn = true
