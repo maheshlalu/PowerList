@@ -278,7 +278,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
 
         let firstName = NSUserDefaults.standardUserDefaults().valueForKey("FIRST_NAME") as? String
         let lastName = NSUserDefaults.standardUserDefaults().valueForKey("LAST_NAME") as? String
-        //let mobile = NSUserDefaults.standardUserDefaults().valueForKey("FULL_NAME") as? String
+       // let mobile = NSUserDefaults.standardUserDefaults().valueForKey("FULL_NAME") as? String
         let email = NSUserDefaults.standardUserDefaults().valueForKey("USER_EMAIL") as? String
         let password = NSUserDefaults.standardUserDefaults().valueForKey("PASSWORD") as? String
         let imageData = NSUserDefaults.standardUserDefaults().valueForKey("IMG_DATA") as? NSData
