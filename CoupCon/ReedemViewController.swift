@@ -191,14 +191,14 @@ class ReedemViewController: UIViewController,UITableViewDataSource,UITableViewDe
                 if (offerCodeStr != ""){
                     if offerCodeStr == codeStr{
                         textField6.resignFirstResponder()
-                        print("Code is Equal to OfferCode")
+                       // print("Code is Equal to OfferCode")
                         self.offerReedem()
                     }else{
                         self.showAlertView("Please Check Code Once!!!", status: 0)
                     }
                 }else{
                      textField6.resignFirstResponder()
-                    print("OfferCode is not available")
+                   // print("OfferCode is not available")
                 }
                 
             default:

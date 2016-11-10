@@ -34,9 +34,14 @@ class OTPViewController: UIViewController,SWRevealViewControllerDelegate,UITextF
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(CXSigninViewController.handleTap(_:)))
         self.view.addGestureRecognizer(tap)
+        
+    //    self.updateThePhoneNumber()
+        
     
     }
-
+    
+    
+  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -48,7 +53,7 @@ class OTPViewController: UIViewController,SWRevealViewControllerDelegate,UITextF
 
     @IBAction func otpSubmitAction(sender: AnyObject) {
         
-        // http://storeongo.com:8081/MobileAPIs/verifyOTP?ownerId=530&consumerEmail=cxsample@gmail.com&otp=538849
+       // http://storeongo.com:8081/MobileAPIs/verifyOTP?ownerId=530&consumerEmail=cxsample@gmail.com&otp=538849
         if otpTxtField.text != ""{
             //Comparing the Entered OTP With SMS OTP
             self.comparingFieldWithOTP()

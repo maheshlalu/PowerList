@@ -141,7 +141,7 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
     func sendThePayMentDetailsToServer(amount:String){
         let userProfileData:UserProfile = CXAppConfig.sharedInstance.getTheUserDetails()
         LoadingView.show("Loading...", animated: true)
-        var urlString : String = String("http://54.179.48.83:9000/CoupoconPG/payments?")
+       /* var urlString : String = String("http://54.179.48.83:9000/CoupoconPG/payments?")
         urlString.appendContentsOf("name="+userProfileData.firstName!)
         urlString.appendContentsOf("&email="+userProfileData.emailId!)
         urlString.appendContentsOf("&amount="+amount)
@@ -168,17 +168,16 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
         }
         print(profileView.paymentUrl)
         self.navigationController?.pushViewController(profileView, animated: true)
-        LoadingView.hide()
+        LoadingView.hide()*/
         
-       /* CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("http://54.179.48.83:9000/CoupoconPG/payments?", parameters: ["name":userProfileData.firstName!,"email":userProfileData.emailId!,"amount":amount,"description":"","phone":"8096380038","macId":userProfileData.macId!,"mallId":CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in            
-            print(responseDict)
-            print(responseDict.valueForKey("payment_url"))
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("http://54.179.48.83:9000/CoupoconPG/payments?", parameters: ["name":userProfileData.firstName!,"email":userProfileData.emailId!,"amount":amount,"description":"Coupocon Payment","phone":"8096380038","macId":userProfileData.macId!,"mallId":CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in
+           // print(responseDict.valueForKey("payment_url"))
             let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
             let profileView = storyBoard.instantiateViewControllerWithIdentifier("CXPayMentController") as! CXPayMentController
-            profileView.paymentUrl = responseDict.valueForKey("payment_url")! as! String
+            profileView.paymentUrl =  NSURL(string: responseDict.valueForKey("payment_url")! as! String)
             self.navigationController?.pushViewController(profileView, animated: true)
             LoadingView.hide()
-        }*/
+        }
         
         
     }

@@ -62,21 +62,20 @@ extension CXPayMentController : UIWebViewDelegate {
         activity.startAnimating()
     }
     func webViewDidFinishLoad(webView: UIWebView){
-        print(self.webRequestArry.lastObject)
+        //print(self.webRequestArry.lastObject)
         LoadingView.hide()
         let lastRequest : String = String(self.webRequestArry.lastObject!)
         print(lastRequest)
         if ((lastRequest.rangeOfString("paymentOrderResponse")) != nil)  {
             LoadingView.show("Processing...", animated: true)
             CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(lastRequest, completion: { (responseDict) in
-                print(responseDict)
+               // print(responseDict)
                 let status : String = (responseDict.valueForKey("status") as? String)!
                 if status == "Completed" {
                     self.changeTheUserActiveStaus()
                 }else{
                     
                 }
-                self.navigationController?.popViewControllerAnimated(true)
                 LoadingView.hide()
             })
         }
@@ -90,23 +89,26 @@ extension CXPayMentController : UIWebViewDelegate {
     
     
     func changeTheUserActiveStaus(){
-        //storeongo.com:8081/MobileAPIs/userActivation?ownerId=530&consumerEmail=cxsample@gmail.com&userStatus=active
-        let userProfileData:UserProfile = CXAppConfig.sharedInstance.getTheUserDetails()
-        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("storeongo.com:8081/MobileAPIs/userActivation?", parameters: ["ownerId":CXAppConfig.sharedInstance.getAppMallID(),"consumerEmail":userProfileData.emailId!,"userStatus":"active"]) { (responseDict) in
-            
+        
+        CX_SocialIntegration.sharedInstance.updateTheSaveConsumerProperty(["ownerId":CXAppConfig.sharedInstance.getAppMallID(),"consumerEmail":CXAppConfig.sharedInstance.getEmail(),"propName":"userStatus","propValue":"active"]) { (resPonce) in
+            self.navigationController?.popToRootViewControllerAnimated(true)
+
         }
+
+        //storeongo.com:8081/MobileAPIs/userActivation?ownerId=530&consumerEmail=cxsample@gmail.com&userStatus=active
+//        let userProfileData:UserProfile = CXAppConfig.sharedInstance.getTheUserDetails()
+//        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("storeongo.com:8081/MobileAPIs/userActivation?", parameters: ["ownerId":CXAppConfig.sharedInstance.getAppMallID(),"consumerEmail":userProfileData.emailId!,"userStatus":"active"]) { (responseDict) in
+//        }
         
 //        let userProfileData:UserProfile = CXAppConfig.sharedInstance.getTheUserDetails()
 //
 //        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("http://storeongo.com:8081/MobileAPIs/changeJobStatus?", parameters: ["providerEmail":"","mallId":"","jobId":"","jobStatusId":""]) { (responseDict) in
 //            
 //        }
-        
         //http://storeongo.com:8081/MobileAPIs/changeJobStatus?providerEmail=balabca.chandra72@gmail.com&mallId=20217&jobId=197201&jobStatusId=167594
         
     }
 }
-
 
 /*
  

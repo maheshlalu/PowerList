@@ -23,6 +23,8 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
     @IBOutlet weak var facebookBtn:  FBSDKLoginButton!
     @IBOutlet weak var gmailBtn: GIDSignInButton!
     @IBOutlet weak var credientailsView: UIView!
+    var alertTextField:UITextField! = nil
+
     var window: UIWindow?
 
     override func viewDidLoad() {
@@ -137,15 +139,81 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         //print("Response \(result)")
+        LoadingView.show("Loading...", animated: true)
         FBSDKGraphRequest.init(graphPath: "me", parameters: ["fields":"first_name,email,last_name,gender,picture.type(large),id"]).startWithCompletionHandler { (connection, result, error) -> Void in
             print ("FB Result is \(result)")
             if result != nil {
                 CX_SocialIntegration.sharedInstance.applicationRegisterWithFaceBook(result as! NSDictionary, completion: { (resPonce) in
-                    self.leadToHomeScreen()
+                    
+                    CX_SocialIntegration.sharedInstance.chekTheEmailForSendingTheOTP({ (resPonce) in
+                        if resPonce {
+                            //If respoce is true show the alertview with textField
+                            self.showTheAletView()
+
+                        }else{
+                        self.leadToHomeScreen()
+                        LoadingView.hide()
+                        }
+                    })
+                    
+                    
                 })
             }
         }
         
+    }
+    
+    func configurationTextField(alertTextField: UITextField!)
+    {
+        print("generating the TextField")
+        alertTextField.delegate = self
+        alertTextField.frame = CGRectMake(0, 0, 100, 60)
+        alertTextField.placeholder = "Pleased Enter Mobile Number"
+       // alertTextField.text = self.mobileTextField.text
+        alertTextField.font = UIFont.systemFontOfSize(15)
+        alertTextField.autocorrectionType = UITextAutocorrectionType.No
+        alertTextField.keyboardType = UIKeyboardType.NumberPad
+        alertTextField.returnKeyType = UIReturnKeyType.Done
+        alertTextField.clearButtonMode = UITextFieldViewMode.WhileEditing;
+        alertTextField.contentVerticalAlignment = UIControlContentVerticalAlignment.Center
+        self.alertTextField = alertTextField
+    }
+    
+    
+    
+    func showTheAletView(){
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let profile = storyBoard.instantiateViewControllerWithIdentifier("MOBILE_VIEW") as! OTPTextViewController
+        //profile.otpEmail = CXAppConfig.sharedInstance.getTheUserData().userEmail
+        self.navigationController?.pushViewController(profile, animated: true)
+        return
+        
+        let alert = UIAlertController(title: "Coupocon", message: "You will get an OTP for below number...\n(You can change the number if you want...) ", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addTextFieldWithConfigurationHandler(configurationTextField)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Destructive, handler:{(UIAlertAction)in
+            //If Click the Cancel Navigate Back and Delete UserData and UserId
+            
+        }))
+        alert.addAction(UIAlertAction(title: "Submit", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction)in
+            print("Item : \(self.alertTextField.text)")
+            if self.alertTextField?.text?.characters.count < 10 {
+                self.showAlertView("Please Enter Valid Mobile Number", status: 0)
+            }else{
+                //Validating User EmailId for OTP
+                CX_SocialIntegration.sharedInstance.sendingOTPForGivenNumber(self.alertTextField.text!, completion: { (resPonce) in
+                    if resPonce {
+                        let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+                        let profile = storyBoard.instantiateViewControllerWithIdentifier("OTP_VIEW") as! OTPViewController
+                        profile.otpEmail = CXAppConfig.sharedInstance.getTheUserData().userEmail
+                        self.navigationController?.pushViewController(profile, animated: true)
+                    }
+                })
+            }
+            
+            
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     // Login Action
@@ -237,10 +305,19 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
         //let gender = dic["gender"] as! String
         let  profilePic = dic["picture"] as! String
         let  email = dic["email"] as! String
-        
-        
+        LoadingView.show("Loading...", animated: true)
         CX_SocialIntegration.sharedInstance.applicationRegisterWithGooglePlus(dic) { (resPonce) in
-            self.leadToHomeScreen()
+            CX_SocialIntegration.sharedInstance.chekTheEmailForSendingTheOTP({ (resPonce) in
+                if resPonce {
+                    //If respoce is true show the alertview with textField
+                    self.showTheAletView()
+                    
+                }else{
+                    self.leadToHomeScreen()
+                    LoadingView.hide()
+                }
+            })
+            
         }
 
         print("\(email)\(firstName)\(lastName)\(profilePic)\(orgID)")
@@ -249,7 +326,7 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
         NSUserDefaults.standardUserDefaults().synchronize()
         
         //self.registeringWithSillyMonks(email,firstname:firstName, lastname: lastName, gender: gender, profilePic:profilePic)
-        self.showAlertView("Login successfully.", status: 1)
+        //self.showAlertView("Login successfully.", status: 1)
         
     }
     

@@ -196,6 +196,45 @@ class CXAppConfig {
         
     }
     
+    //MARK: User ID Saving
+    func saveEmail(userID:String){
+        NSUserDefaults.standardUserDefaults().setObject(userID, forKey: "EMAIL")
+    }
+    
+    func getEmail() ->String{
+        
+        if(NSUserDefaults.standardUserDefaults().objectForKey("EMAIL") == nil)
+        {
+            print("NULL")
+            return ""
+            
+        }else{
+            
+            return NSUserDefaults.standardUserDefaults().valueForKey("EMAIL") as! String
+        }
+        
+    }
+    
+    
+    //MARK: User ID Saving
+    func savePhoneNumber(userID:String){
+        NSUserDefaults.standardUserDefaults().setObject(userID, forKey: "PHONE")
+    }
+    
+    func getPhoneNumber() ->String{
+        
+        if(NSUserDefaults.standardUserDefaults().objectForKey("PHONE") == nil)
+        {
+            print("NULL")
+            return ""
+            
+        }else{
+            
+            return NSUserDefaults.standardUserDefaults().valueForKey("PHONE") as! String
+        }
+        
+    }
+    
     
     //MARK: User MacJob Id Saving
     func saveMacJobID(macJobId:String){

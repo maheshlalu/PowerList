@@ -33,6 +33,7 @@
 		11D37EEC1DB8D75C0014F202 /* RedeemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11D37EE91DB8D75C0014F202 /* RedeemTableViewCell.xib */; };
 		11D37EED1DB8D75C0014F202 /* ReedemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D37EEA1DB8D75C0014F202 /* ReedemViewController.swift */; };
 		11D37EF01DB8DA140014F202 /* ProfileMembershipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D37EEF1DB8DA140014F202 /* ProfileMembershipViewController.swift */; };
+		180085F81DD49EAD00BE8D70 /* OTPTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180085F71DD49EAD00BE8D70 /* OTPTextViewController.swift */; };
 		18057E2F1DAFA33B0017F038 /* ICSDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18057E2C1DAFA33B0017F038 /* ICSDrawerController.m */; };
 		18057E301DAFA33B0017F038 /* ICSDropShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18057E2E1DAFA33B0017F038 /* ICSDropShadowView.m */; };
 		18057E3E1DAFC37C0017F038 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18057E3B1DAFC37C0017F038 /* FBSDKCoreKit.framework */; };
@@ -137,6 +138,7 @@
 		11D37EE91DB8D75C0014F202 /* RedeemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RedeemTableViewCell.xib; sourceTree = "<group>"; };
 		11D37EEA1DB8D75C0014F202 /* ReedemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReedemViewController.swift; sourceTree = "<group>"; };
 		11D37EEF1DB8DA140014F202 /* ProfileMembershipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileMembershipViewController.swift; sourceTree = "<group>"; };
+		180085F71DD49EAD00BE8D70 /* OTPTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPTextViewController.swift; sourceTree = "<group>"; };
 		18057E2B1DAFA33B0017F038 /* ICSDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICSDrawerController.h; sourceTree = "<group>"; };
 		18057E2C1DAFA33B0017F038 /* ICSDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICSDrawerController.m; sourceTree = "<group>"; };
 		18057E2D1DAFA33B0017F038 /* ICSDropShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICSDropShadowView.h; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 				111C7D0C1DC0CD4F00D4FC09 /* HowToUseViewController.swift */,
 				115CA1C91DC1E45500BE9D57 /* DealsCollectionViewCell.swift */,
 				115CA1CA1DC1E45500BE9D57 /* DealsCollectionViewCell.xib */,
+				180085F71DD49EAD00BE8D70 /* OTPTextViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -834,6 +837,7 @@
 				18ED4A4A1DB6486500A612BA /* AboutUsViewController.swift in Sources */,
 				18ED4A461DB62F7C00A612BA /* CustomNavBar.swift in Sources */,
 				1127C6B31DBE453100D92FF7 /* LoadingView.swift in Sources */,
+				180085F81DD49EAD00BE8D70 /* OTPTextViewController.swift in Sources */,
 				18C160511DB222820083F16D /* DealsViewController.swift in Sources */,
 				18C90C4A1DAF7CED0053F8D7 /* HomeViewController.swift in Sources */,
 				11D37EF01DB8DA140014F202 /* ProfileMembershipViewController.swift in Sources */,

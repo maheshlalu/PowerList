@@ -102,6 +102,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
         
     }
     
+    
+    func updateTheMobileNumber(){
+        //http://storeongo.com:8081/MobileAPIs/saveConsumerProperty?ownerId=20217&consumerEmail=yernagulamahesh@gmail.com&propName=mobileNo&propValue=8096380038
+        
+        
+    }
+    
     func setUpSidePanl(){
         
         let wFrame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height)

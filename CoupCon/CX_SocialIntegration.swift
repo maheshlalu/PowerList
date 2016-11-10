@@ -38,7 +38,7 @@ class CX_SocialIntegration: NSObject {
                 let email: String = (userDataDic.objectForKey("email") as? String)!
                 let fbID : String = (userDataDic.objectForKey("id") as? String)!
                 let userPic : String = (userDataDic.valueForKeyPath("picture.data.url") as? String)!
-
+                CXAppConfig.sharedInstance.saveEmail(email)
                 //picture,data,url
                 let userRegisterDic: NSDictionary = NSDictionary(objects: [CXAppConfig.sharedInstance.getAppMallID(),email,"DEVICES",fbID,strFirstName,strLastName,gender,userPic,"true"],
                                                                  forKeys: ["orgId","userEmailId","dt","password","firstName","lastName","gender","filePath","isLoginWithFB"])
@@ -148,6 +148,7 @@ class CX_SocialIntegration: NSObject {
                 enProduct?.macIdJobId = CXAppConfig.resultString(userData.valueForKey("macIdJobId")!)
                 CXAppConfig.sharedInstance.saveUserID((enProduct?.userId)!)
                 CXAppConfig.sharedInstance.saveMacJobID((enProduct?.macIdJobId)!)
+                CXAppConfig.sharedInstance.saveEmail((enProduct?.emailId)!)
             }
         }) { (success, error) in
             if success == true {
@@ -160,6 +161,19 @@ class CX_SocialIntegration: NSObject {
         
     }
     
+    
+    func updateTheSaveConsumerProperty(parameters:NSDictionary,completion:(resPonce:Bool) -> Void){
+        LoadingView.show("Loading", animated: true)
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("http://storeongo.com:8081/MobileAPIs/saveConsumerProperty?", parameters: parameters as? [String : AnyObject]) { (responseDict) in
+            completion(resPonce: true)
+            LoadingView.hide()
+        }
+        
+        //http://storeongo.com:8081/MobileAPIs/saveConsumerProperty?ownerId=20217&consumerEmail=yernagulamahesh@gmail.com&propName=mobileNo&propValue=8096380038
+        
+        
+
+    }
     //MARK: Google Plus
     
     func applicationRegisterWithGooglePlus(userDataDic : NSDictionary,completion:(resPonce:Bool) -> Void) {
@@ -180,7 +194,7 @@ class CX_SocialIntegration: NSObject {
         
         CXDataService.sharedInstance.getTheAppDataFromServer(["type" : "macidinfo","mallId" : CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in
             let email: String = (userDataDic.objectForKey("email") as? String)!
-            
+            print(responseDict)
             if !self.checkTheUserRegisterWithApp(email, macidInfoResultDic: responseDict).isRegistred {
                 //Register with app
                 let strFirstName: String =  userDataDic["given_name"] as! String
@@ -190,7 +204,7 @@ class CX_SocialIntegration: NSObject {
                 let email: String = (userDataDic.objectForKey("email") as? String)!
                 let GoogleID : String = (userDataDic.objectForKey("sub") as? String)!
                 let userPic : String = (userDataDic.objectForKey("picture") as? String)!
-
+                CXAppConfig.sharedInstance.saveEmail(email)
                 //picture,data,url
                 
                 let userRegisterDic: NSDictionary = NSDictionary(objects: [CXAppConfig.sharedInstance.getAppMallID(),email,"DEVICES",GoogleID,strFirstName,strLastName,"",userPic,"true",userPic],
@@ -218,6 +232,50 @@ class CX_SocialIntegration: NSObject {
         
     }
     
+    func chekTheEmailForSendingTheOTP(completion:(resPonce:Bool) -> Void){
+        
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getVarifyingEmailOTP(), parameters: ["ownerId":CXAppConfig.sharedInstance.getAppMallID(),"consumerEmail":CXAppConfig.sharedInstance.getEmail()]) { (responseDict) in
+            LoadingView.hide()
+            print(responseDict)
+            let status: Int = Int(responseDict.valueForKey("status") as! String)!
+            let message = responseDict.valueForKey("message") as! String
+            if status == 1{
+                // If Status is 1 then the user email id is already regesterd with email.Can't able to send OTP. Which means give another email.
+               // self.showAlertView(message, status: 0)
+                completion(resPonce: false)
+                return
+            }else{
+                //Sending the OTP to given mobile number (status is -1 or 0). Eligible to send OTP.
+                //LoadingView.show("Loading...", animated: true)
+              //  self.sendingOTPForGivenNumber()
+                completion(resPonce: true)
+                LoadingView.hide()
+            }
+            
+        }
+    }
+    
+    func sendingOTPForGivenNumber(mobileNumber:String,completion:(resPonce:Bool) -> Void){
+        
+        //http://storeongo.com:8081/MobileAPIs/sendCoupoconSMS? ownerId=530& consumerEmail=cxsample@gmail.com& mobile=919581552229
+        
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getSendingOTP(), parameters: ["ownerId":CXAppConfig.sharedInstance.getAppMallID(),"consumerEmail":CXAppConfig.sharedInstance.getEmail(),"mobile":mobileNumber]) { (responseDict) in
+            // sleep(1000)
+            print(responseDict)
+            let status: Int = Int(responseDict.valueForKey("status") as! String)!
+            
+            if status == 1{
+                // OTP SENT
+                NSUserDefaults.standardUserDefaults().setObject(responseDict.valueForKey("OTP"), forKey: "OTP")
+                //self.showAlertView("OTP sent Successfully!!!", status: 100)
+                //After sending the OTP to given number, pushing to OTPViewController
+                completion(resPonce: true)
+            }else{
+                // OTP NOT SENT
+               // self.showAlertView("Something Went Wrong!! Pleace check Email!!!", status: 0)
+            }
+        }
+    }
     
     
 }

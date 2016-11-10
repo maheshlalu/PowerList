@@ -35,6 +35,7 @@ class OffersViewController: UIViewController {
     
     func getTheOfferCodes() ->NSMutableString{
         
+        print(self.offersDic)
         let offerString :String =  self.offersDic?.valueForKey("Offers") as! String
        let  offersListArry = NSArray(array: offerString.componentsSeparatedByString("#"))
         print(offerString)
@@ -172,7 +173,7 @@ class OffersViewController: UIViewController {
         
         jsonDic.setObject(offerDic.valueForKey("Name")!, forKey: "OfferName")
         jsonDic.setObject(offerDic.valueForKey("ItemCode")!, forKey: "OfferId")
-        jsonDic.setObject(offerDic.valueForKey("Code")!, forKey: "OfferCode")
+        jsonDic.setObject(CXAppConfig.resultString(self.offersDic!.valueForKey("id")!), forKey: "OfferCode")
         
         print(jsonDic)
         

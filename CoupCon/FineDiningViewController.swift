@@ -69,7 +69,7 @@ class FineDiningViewController: UIViewController {
         let container = DemoPopupViewController2.instance()
         container.closeHandler = { _ in
             popup.dismiss()
-            print("pop up closed")
+            //print("pop up closed")
         }
         popup.show(container)
         
