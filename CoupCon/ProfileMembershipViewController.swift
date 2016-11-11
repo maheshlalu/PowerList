@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileMembershipViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ProfileMembershipViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var oneYearBtn: UIButton!
     @IBOutlet weak var sixMonthsBtn: UIButton!
@@ -17,17 +17,26 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
     @IBOutlet weak var dpImageView: UIImageView!
     @IBOutlet weak var detailsTableView: UITableView!
     
+    @IBOutlet weak var subscribeBtn: UIButton!
+    @IBOutlet weak var codeTextView: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         membershipBtnLabels()
         
+        codeTextView.delegate = self
+        
         let nib = UINib(nibName: "membershipTableViewCell", bundle: nil)
         self.detailsTableView.registerNib(nib, forCellReuseIdentifier: "membershipTableViewCell")
-        
+        self.view.backgroundColor = CXAppConfig.sharedInstance.getAppBGColor()
         self.setUPTheNavigationProperty()
         self.setUpSideMenu()
+        self.detailsTableView.removeFromSuperview()
+       
+        self.subscribeBtn.layer.cornerRadius = 8.0
         
-    }
+       // self.view.backgroundColor = UIColor(patternImage: UIImage(named: "leftpanel_image")!)
+        
+           }
     
     func membershipBtnLabels(){
         
@@ -60,7 +69,7 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
     func setUPTheNavigationProperty(){
         navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController!.navigationBar.barTintColor = CXAppConfig.sharedInstance.getAppTheamColor()
-        self.view.backgroundColor = UIColor.whiteColor()
+        //self.view.backgroundColor = UIColor.whiteColor()
         
         /* navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
          navigationController?.navigationBar.shadowImage = UIImage()
@@ -72,9 +81,118 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
+      
         
-        return 3
+        return 2
         
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        if textField.maxLength == 6{
+            print("its 6 chars \(textField.text!)")
+        }
+        return true
+    }
+    
+    
+    func inActiveTheJob(parameterDic:NSDictionary,jobId:String){
+        
+        var jsonData : NSData = NSData()
+        do {
+            jsonData = try NSJSONSerialization.dataWithJSONObject(parameterDic, options: NSJSONWritingOptions.PrettyPrinted)
+            // here "jsonData" is the dictionary encoded in JSON data
+        } catch let error as NSError {
+            print(error)
+        }
+        let jsonStringFormat = String(data: jsonData, encoding: NSUTF8StringEncoding)
+        
+        CX_SocialIntegration.sharedInstance.updateTheSaveConsumerProperty(["ownerId":CXAppConfig.sharedInstance.getAppMallID(),"jobId":jobId,"jsonString":jsonStringFormat!]) { (resPonce) in
+            
+            print(resPonce)
+            self.navigationController?.popToRootViewControllerAnimated(true)
+            
+        }
+    }
+    
+    func activeTheUser(parameterDic:NSDictionary,jobId:String){
+        var jsonData : NSData = NSData()
+        do {
+            jsonData = try NSJSONSerialization.dataWithJSONObject(parameterDic, options: NSJSONWritingOptions.PrettyPrinted)
+            // here "jsonData" is the dictionary encoded in JSON data
+        } catch let error as NSError {
+            print(error)
+        }
+        let jsonStringFormat = String(data: jsonData, encoding: NSUTF8StringEncoding)
+        print(jsonStringFormat)
+      
+        
+        CX_SocialIntegration.sharedInstance.updateTheSaveConsumerProperty(["ownerId":CXAppConfig.sharedInstance.getAppMallID(),"jobId":jobId,"jsonString":jsonStringFormat!]) { (resPonce) in
+            self.navigationController?.popToRootViewControllerAnimated(true)
+            
+        }
+        
+            //    http://storeongo.com:8081/MobileAPIs/updateMultipleProperties/jobId=200400&jsonString={"PaymentType":"249","ValidTill":"11-11-2017","userStatus":"active"}&ownerId=20217
+    }
+    
+    
+    @IBAction func subscribeBtnAction(sender: AnyObject) {
+        //http://storeongo.com:8081/Services/getMasters?type=Consumer%20Codes&mallId=20217&keyWord=28DIF9
+        LoadingView.show("Loading...", animated: true)
+        CXDataService.sharedInstance.getTheAppDataFromServer(["type":"Consumer Codes","mallId":CXAppConfig.sharedInstance.getAppMallID(),"keyWord":self.codeTextView.text!]) { (responseDict) in
+            //print(responseDict)
+            let list : NSArray = NSArray(array: (responseDict.valueForKey("jobs") as? NSArray)!)
+            if list.count == 0 {
+                //Code not valid
+                
+            }else{
+                //Active The User
+                let dic : NSDictionary = (list.lastObject as? NSDictionary)!
+
+                let payMent : String = dic.valueForKey("SubscriptionType")! as! String
+                var validTill : String = String()
+                let jsondDic : NSMutableDictionary = NSMutableDictionary()
+                jsondDic.setObject(dic.valueForKey("SubscriptionType")!, forKey: "PaymentType")
+                
+                if (payMent == "RS99") {
+                    //One Month
+                    validTill = CXAppConfig.sharedInstance.getExpiresDate(0) as String
+                }else if (payMent == "RS149") {
+                    //six Months
+                    validTill = CXAppConfig.sharedInstance.getExpiresDate(1) as String
+
+                }else if (payMent == "RS249") {
+                    //One Year
+                    validTill = CXAppConfig.sharedInstance.getExpiresDate(2) as String
+
+                }
+                
+                jsondDic.setObject("Active", forKey: "userStatus")
+                jsondDic.setObject(validTill, forKey: "ValidTill")
+
+               self.activeTheUser(jsondDic, jobId:CXAppConfig.sharedInstance.getMacJobID())
+                
+                
+                // inactive the job also key is Current_Job_Status
+                
+               /* let inactivedic : NSMutableDictionary = NSMutableDictionary()
+                //inactivedic.setObject(dic.valueForKey("SubscriptionType")!, forKey: "PaymentType")
+                //inactivedic.setObject("11-11-2017", forKey: "ValidTill")
+                inactivedic.setObject("Inactive", forKey: "Current_Job_Status")
+                self.inActiveTheJob(inactivedic, jobId:"200105")*/
+
+                
+                //SubscriptionType
+            }
+
+            LoadingView.hide()
+        }
+        
+        /*
+         CXDataService.sharedInstance.getTheAppDataFromServer(["type":"Consumer Codes","mallId":CXAppConfig.sharedInstance.getAppMallID(),"keyWord":self.codeTextView.text!]) { (responseDict) in
+         
+         print(Dictionary)
+         }
+         */
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
@@ -90,7 +208,7 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
         
         if indexPath.row == 0{
             
-            cell.nameLbl.text = "Not Available"
+            cell.nameLbl.text = CXAppConfig.sharedInstance.getPhoneNumber()
             cell.descriptionLbl.text = "Phone"
             cell.imageLbl.setImage(UIImage(named: "phone20"), forState:.Normal)
 
@@ -170,11 +288,30 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
         self.navigationController?.pushViewController(profileView, animated: true)
         LoadingView.hide()*/
         
-        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("http://54.179.48.83:9000/CoupoconPG/payments?", parameters: ["name":userProfileData.firstName!,"email":userProfileData.emailId!,"amount":amount,"description":"Coupocon Payment","phone":"8096380038","macId":userProfileData.macId!,"mallId":CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("http://54.179.48.83:9000/CoupoconPG/payments?", parameters: ["name":userProfileData.firstName!,"email":userProfileData.emailId!,"amount":amount,"description":"Coupocon Payment","phone":CXAppConfig.sharedInstance.getPhoneNumber(),"macId":userProfileData.macId!,"mallId":CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in
            // print(responseDict.valueForKey("payment_url"))
             let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
             let profileView = storyBoard.instantiateViewControllerWithIdentifier("CXPayMentController") as! CXPayMentController
             profileView.paymentUrl =  NSURL(string: responseDict.valueForKey("payment_url")! as! String)
+            profileView.completion = { _ in responseDict
+                //let payMent : String = dic.valueForKey("SubscriptionType")! as! String
+                var validTill : String = String()
+                let jsondDic : NSMutableDictionary = NSMutableDictionary()
+                jsondDic.setObject(amount, forKey: "PaymentType")
+                if (amount == "99") {
+                    //One Month
+                    validTill = CXAppConfig.sharedInstance.getExpiresDate(0) as String
+                }else if (amount == "149") {
+                    //six Months
+                    validTill = CXAppConfig.sharedInstance.getExpiresDate(1) as String
+                }else if (amount == "249") {
+                    //One Year
+                    validTill = CXAppConfig.sharedInstance.getExpiresDate(2) as String
+                }
+                jsondDic.setObject("Active", forKey: "userStatus")
+                jsondDic.setObject(validTill, forKey: "ValidTill")
+                self.activeTheUser(jsondDic, jobId:CXAppConfig.sharedInstance.getMacJobID())
+            }
             self.navigationController?.pushViewController(profileView, animated: true)
             LoadingView.hide()
         }

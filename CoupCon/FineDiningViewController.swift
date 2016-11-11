@@ -121,6 +121,17 @@ class FineDiningViewController: UIViewController {
         
     }
     
+    @IBAction func locationButtonAction(sender: AnyObject) {
+        
+        let sourceLatitude = 17.4436
+        let sourceLongtitude = 78.4458
+        let destinationLatitude = Double(dealsDic.valueForKey("Latitude")! as! String)
+        let destinationLongtitude = Double(dealsDic.valueForKey("Longitude")! as! String)
+        let googleMapUrlString = String.localizedStringWithFormat("http://maps.google.com/?saddr=%f,%f&daddr=%f,%f", sourceLatitude, sourceLongtitude, destinationLatitude!, destinationLongtitude!)
+        UIApplication.sharedApplication().openURL(NSURL(string:
+            googleMapUrlString)!)
+        
+    }
     func addSubview(subView:UIView, toView parentView:UIView) {
         parentView.addSubview(subView)
         
@@ -136,7 +147,7 @@ class FineDiningViewController: UIViewController {
     @IBAction func offerButtonAction(sender: UIButton) {
         
         sender.backgroundColor = CXAppConfig.sharedInstance.getAppTheamColor()
-        mapBtn.backgroundColor = UIColor.lightGrayColor()
+        //mapBtn.backgroundColor = UIColor.lightGrayColor()
         self.aboutBtn.backgroundColor = UIColor.lightGrayColor()
         let offersController : OffersViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("OffersViewController") as? OffersViewController)!
         offersController.offersDic = NSDictionary(dictionary: self.dealsDic)
@@ -150,7 +161,7 @@ class FineDiningViewController: UIViewController {
     @IBAction func aboutButtonAction(sender: UIButton) {
         
         sender.backgroundColor = CXAppConfig.sharedInstance.getAppTheamColor()
-        mapBtn.backgroundColor = UIColor.lightGrayColor()
+        //mapBtn.backgroundColor = UIColor.lightGrayColor()
         self.offerBtn.backgroundColor = UIColor.lightGrayColor()
         
         let newViewController : AboutUsViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("AboutUsViewController") as? AboutUsViewController)!

@@ -164,7 +164,8 @@ class CX_SocialIntegration: NSObject {
     
     func updateTheSaveConsumerProperty(parameters:NSDictionary,completion:(resPonce:Bool) -> Void){
         LoadingView.show("Loading", animated: true)
-        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("http://storeongo.com:8081/MobileAPIs/saveConsumerProperty?", parameters: parameters as? [String : AnyObject]) { (responseDict) in
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("http://storeongo.com:8081/MobileAPIs/updateMultipleProperties?", parameters: parameters as? [String : AnyObject]) { (responseDict) in
+            print(responseDict)
             completion(resPonce: true)
             LoadingView.hide()
         }

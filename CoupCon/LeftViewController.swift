@@ -14,9 +14,9 @@ import UIKit
     @IBOutlet weak var leftTableview: UITableView!
     @IBOutlet weak var dpNameLbl: UILabel!
     
-    let managedObjectContext:NSManagedObjectContext! = nil//Birthday Offers"
+    let managedObjectContext:NSManagedObjectContext! = nil//Birthday Offers"//Redemption History
     var previousSelectedIndex  : NSIndexPath = NSIndexPath()
-    var nameArray = ["HOME","PROFILE & MEMBERSHIP","REDEEM & HISTORY","BIRTHDAY OFFERS","HOW TO USE","HELP","SIGN OUT"]
+    var nameArray = ["HOME","PROFILE & MEMBERSHIP","REDEMPTION HISTORY","BIRTHDAY OFFERS","HOW TO USE","HELP","SIGN OUT"]
     var imageArray = ["HomeImage","Profile & membershipImage","sidePanelRedeem20","bthDayOffer","HowtoUseImage","Helpimage","PowerBtn"]
     
     override func viewDidLoad() {
@@ -117,7 +117,7 @@ import UIKit
             let navCntl = UINavigationController(rootViewController: aboutUs)
             revealController.pushFrontViewController(navCntl, animated: true)
             
-        }else if itemName == "REDEEM & HISTORY"{
+        }else if itemName == "REDEMPTION HISTORY"{
             let redeem = storyBoard.instantiateViewControllerWithIdentifier("REDEEM_HISTORY") as! ReedemViewController
             let navCntl = UINavigationController(rootViewController: redeem)
             revealController.pushFrontViewController(navCntl, animated: true)

@@ -30,6 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
         self.configure()
         applicationNavigationFlow()
         self.setUpMagicalDB()
+        
+//        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+//        let documentsDirectory = paths[0]
+        
+    
+        
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         var configureError: NSError?
@@ -80,6 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
         }
         
     }
+    
     
     
   
@@ -239,6 +246,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "CX.Coupcon.CoupCon" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+        print(urls)
         return urls[urls.count-1]
     }()
     
@@ -311,4 +319,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
         LoadingView.setConfig(config)
     }
 }
+
+//http://storeongo.com:8081/Services/getMasters?type=Consumer%20Codes&mallId=20217&keyWord=28DIF9
+
 

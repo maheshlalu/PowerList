@@ -9,11 +9,13 @@
 import UIKit
 
 class CXPayMentController: UIViewController {
-    
+    typealias CompletionBlock = (responceDic:NSDictionary) -> Void
+
     var paymentUrl : NSURL! = nil
     var webRequestArry: NSMutableArray = NSMutableArray()
     @IBOutlet weak var payMentWebView: UIWebView!
       var activity: UIActivityIndicatorView = UIActivityIndicatorView()
+    var completion: CompletionBlock = { reason in print(reason) }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,7 +74,8 @@ extension CXPayMentController : UIWebViewDelegate {
                // print(responseDict)
                 let status : String = (responseDict.valueForKey("status") as? String)!
                 if status == "Completed" {
-                    self.changeTheUserActiveStaus()
+                    //self.changeTheUserActiveStaus()
+                    self.completion(responceDic: responseDict)
                 }else{
                     
                 }
@@ -92,8 +95,16 @@ extension CXPayMentController : UIWebViewDelegate {
         
         CX_SocialIntegration.sharedInstance.updateTheSaveConsumerProperty(["ownerId":CXAppConfig.sharedInstance.getAppMallID(),"consumerEmail":CXAppConfig.sharedInstance.getEmail(),"propName":"userStatus","propValue":"active"]) { (resPonce) in
             self.navigationController?.popToRootViewControllerAnimated(true)
+            
+            
 
         }
+        /*
+         
+         http://storeongo.com:8081/MobileAPIs/updateMultipleProperties/jobId=200400&jsonString={"PaymentType":"249","ValidTill":"11-11-2017","userStatus":"active"}&ownerId=20217
+         
+         
+         */
 
         //storeongo.com:8081/MobileAPIs/userActivation?ownerId=530&consumerEmail=cxsample@gmail.com&userStatus=active
 //        let userProfileData:UserProfile = CXAppConfig.sharedInstance.getTheUserDetails()

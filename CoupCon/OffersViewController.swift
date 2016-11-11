@@ -175,7 +175,7 @@ class OffersViewController: UIViewController {
         jsonDic.setObject(offerDic.valueForKey("ItemCode")!, forKey: "OfferId")
         jsonDic.setObject(CXAppConfig.resultString(self.offersDic!.valueForKey("id")!), forKey: "OfferCode")
         
-        print(jsonDic)
+       // print(jsonDic)
         
         CXAppConfig.sharedInstance.setRedeemDictionary(jsonDic)
 

@@ -284,4 +284,39 @@ class CXAppConfig {
         return userProfileData
     }
     
+    func getExpiresDate(mode:NSInteger) -> NSString{
+        
+        let currDate = NSDate()
+        var endDate = NSDate()
+        let dateComponent = NSDateComponents()
+        let cal = NSCalendar.currentCalendar()
+        print(currDate)
+        
+        switch mode {
+        case 0:
+            
+            dateComponent.month = 1
+            endDate = cal.dateByAddingComponents(dateComponent, toDate: currDate, options: NSCalendarOptions(rawValue: 0))!
+            
+        case 1:
+            
+            dateComponent.month = 6
+            endDate = cal.dateByAddingComponents(dateComponent, toDate: currDate, options: NSCalendarOptions(rawValue: 0))!
+            
+        case 2:
+            
+            dateComponent.year = 1
+            endDate = cal.dateByAddingComponents(dateComponent, toDate: currDate, options: NSCalendarOptions(rawValue: 0))!
+            
+        default:
+            print("No matches found")
+        }
+        
+        let myFormatter = NSDateFormatter()
+        myFormatter.dateFormat = "dd-MM-yyyy"
+        let expiryDate = myFormatter.stringFromDate(endDate)
+        return expiryDate
+        
+    }
+    
 }

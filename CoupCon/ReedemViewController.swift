@@ -71,7 +71,7 @@ class ReedemViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     func navigatingFromSidePanel() {
         
-        enterRedeemCodeLbl.text = "YOUR REDEEM HISTORY"
+        enterRedeemCodeLbl.text = "REDEMPTION HISTORY"
         codeStackView.hidden = true
         yourRedeemHistoryLbl.hidden = true
         self.RedeemTableView.removeFromSuperview()
