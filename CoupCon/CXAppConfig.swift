@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import Reachability
 class CXAppConfig {
     
     /// the singleton
@@ -317,6 +317,12 @@ class CXAppConfig {
         let expiryDate = myFormatter.stringFromDate(endDate)
         return expiryDate
         
+    }
+    
+    
+    func isReachability()-> Bool{
+        let reachablity : Reachability = Reachability(hostname:"www.google.co")
+        return reachablity.isReachable()
     }
     
 }

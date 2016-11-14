@@ -31,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
         applicationNavigationFlow()
         self.setUpMagicalDB()
         
+
+        
 //        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
 //        let documentsDirectory = paths[0]
         

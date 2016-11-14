@@ -28,7 +28,8 @@ public class CXDataService: NSObject {
     
     public func getTheAppDataFromServer(parameters:[String: AnyObject]? = nil ,completion:(responseDict:NSDictionary) -> Void){
         
-         if Reachability.isConnectedToNetwork() == true{
+        
+         if CXAppConfig.sharedInstance.isReachability() == true{
             
             print(CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getMasterUrl())
             print(parameters)
@@ -57,7 +58,7 @@ public class CXDataService: NSObject {
     }
     
     public func synchDataToServerAndServerToMoblile(urlstring:String, parameters:[String: AnyObject]? = nil ,completion:(responseDict:NSDictionary) -> Void){
-        if Reachability.isConnectedToNetwork() == true{
+        if CXAppConfig.sharedInstance.isReachability() == true{
         print(urlstring)
         print(parameters)
         
@@ -83,7 +84,7 @@ public class CXDataService: NSObject {
     public func imageUpload(imageData:NSData,completion:(Response:NSDictionary) -> Void){
         
         
-        if Reachability.isConnectedToNetwork() == true {
+        if CXAppConfig.sharedInstance.isReachability() == true {
 
             let mutableRequest : AFHTTPRequestSerializer = AFHTTPRequestSerializer()
             let request1 : NSMutableURLRequest =    mutableRequest.multipartFormRequestWithMethod("POST", URLString: CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getphotoUploadUrl(), parameters: ["refFileName": self.generateBoundaryString()], constructingBodyWithBlock: { (formatData:AFMultipartFormData) in
@@ -144,7 +145,7 @@ public class CXDataService: NSObject {
         */
         //print(parameters)
         
-        if Reachability.isConnectedToNetwork() == true {
+        if CXAppConfig.sharedInstance.isReachability() == true {
             
             Alamofire.request(.GET,"https://api.withfloats.com/Discover/v2/floatingPoint/bizFloats?", parameters: parameters)
                 .validate()

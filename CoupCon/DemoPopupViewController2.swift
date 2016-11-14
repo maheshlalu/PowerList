@@ -30,14 +30,11 @@ class DemoPopupViewController2: UIViewController, PopupContentViewController, UI
         super.viewDidAppear(animated)
         self.view.layer.cornerRadius = 4
     }
-    
     /*let screenSize: CGRect = UIScreen.mainScreen().bounds
      then you can access the width and height like this:
-     
      let screenWidth = screenSize.width
      let screenHeight = screenSize.height
      if you want 75% of your screen's width you can go:
-     
      let screenWidth = screenSize.width * 0.75*/
     
     func testFunc() {
@@ -108,22 +105,16 @@ class DemoPopupViewController2: UIViewController, PopupContentViewController, UI
             let dict = self.redeemJsonArr.firstObject as! NSDictionary
             let currentJobStatus = dict.valueForKey("userStatus") as! String
             LoadingView.hide()
-            //|| currentJobStatus == ""
-            if currentJobStatus == "Active" {
+            if currentJobStatus.compare("Active", options: .CaseInsensitiveSearch, range: nil, locale: nil) == NSComparisonResult.OrderedSame  {
                 let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
                 let redeemView = storyBoard.instantiateViewControllerWithIdentifier("REDEEM_HISTORY") as! ReedemViewController
                 redeemView.showBackBtn = true
                 self.navigationController?.pushViewController(redeemView, animated: true)
-                
             }else{
-            
                 let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
                 let profileView = storyBoard.instantiateViewControllerWithIdentifier("PROFILE_MEMBERSHIP") as! ProfileMembershipViewController
                 self.navigationController?.pushViewController(profileView, animated: true)
-                
             }
-
-            
         }
     }
     

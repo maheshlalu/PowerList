@@ -34,6 +34,7 @@
 		11D37EED1DB8D75C0014F202 /* ReedemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D37EEA1DB8D75C0014F202 /* ReedemViewController.swift */; };
 		11D37EF01DB8DA140014F202 /* ProfileMembershipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D37EEF1DB8DA140014F202 /* ProfileMembershipViewController.swift */; };
 		180085F81DD49EAD00BE8D70 /* OTPTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180085F71DD49EAD00BE8D70 /* OTPTextViewController.swift */; };
+		1800D6191DD9D548006B7492 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1800D6181DD9D548006B7492 /* SystemConfiguration.framework */; };
 		18057E2F1DAFA33B0017F038 /* ICSDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18057E2C1DAFA33B0017F038 /* ICSDrawerController.m */; };
 		18057E301DAFA33B0017F038 /* ICSDropShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18057E2E1DAFA33B0017F038 /* ICSDropShadowView.m */; };
 		18057E3E1DAFC37C0017F038 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18057E3B1DAFC37C0017F038 /* FBSDKCoreKit.framework */; };
@@ -74,7 +75,6 @@
 		18D1605E1DB8C903009FF71D /* UserProfile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D1605C1DB8C903009FF71D /* UserProfile+CoreDataProperties.swift */; };
 		18D160621DB8E074009FF71D /* CX_SocialIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D160601DB8DFFA009FF71D /* CX_SocialIntegration.swift */; };
 		18D160631DB8E088009FF71D /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D1605D1DB8C903009FF71D /* UserProfile.swift */; };
-		18DDE5211DCC8B7D00083409 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDE5201DCC8B7D00083409 /* Reachability.swift */; };
 		18ED49F51DB4B07200A612BA /* FineDiningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED49F41DB4B07200A612BA /* FineDiningViewController.swift */; };
 		18ED49FC1DB4C5B100A612BA /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED49FA1DB4C5B100A612BA /* HomeCollectionViewCell.swift */; };
 		18ED49FD1DB4C5B100A612BA /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18ED49FB1DB4C5B100A612BA /* HomeCollectionViewCell.xib */; };
@@ -139,6 +139,7 @@
 		11D37EEA1DB8D75C0014F202 /* ReedemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReedemViewController.swift; sourceTree = "<group>"; };
 		11D37EEF1DB8DA140014F202 /* ProfileMembershipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileMembershipViewController.swift; sourceTree = "<group>"; };
 		180085F71DD49EAD00BE8D70 /* OTPTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPTextViewController.swift; sourceTree = "<group>"; };
+		1800D6181DD9D548006B7492 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		18057E2B1DAFA33B0017F038 /* ICSDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICSDrawerController.h; sourceTree = "<group>"; };
 		18057E2C1DAFA33B0017F038 /* ICSDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICSDrawerController.m; sourceTree = "<group>"; };
 		18057E2D1DAFA33B0017F038 /* ICSDropShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICSDropShadowView.h; sourceTree = "<group>"; };
@@ -190,7 +191,6 @@
 		18D1605C1DB8C903009FF71D /* UserProfile+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserProfile+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		18D1605D1DB8C903009FF71D /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		18D160601DB8DFFA009FF71D /* CX_SocialIntegration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CX_SocialIntegration.swift; sourceTree = "<group>"; };
-		18DDE5201DCC8B7D00083409 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		18ED49F41DB4B07200A612BA /* FineDiningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FineDiningViewController.swift; sourceTree = "<group>"; };
 		18ED49FA1DB4C5B100A612BA /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		18ED49FB1DB4C5B100A612BA /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -226,6 +226,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1800D6191DD9D548006B7492 /* SystemConfiguration.framework in Frameworks */,
 				1184381D1DC86A1200DFE2FD /* AFNetworking.framework in Frameworks */,
 				18057E401DAFC37C0017F038 /* FBSDKShareKit.framework in Frameworks */,
 				18057E3E1DAFC37C0017F038 /* FBSDKCoreKit.framework in Frameworks */,
@@ -342,7 +343,6 @@
 				181C04E51DB0EC4F006C05FF /* CXProjectConfiguration.plist */,
 				18D1605C1DB8C903009FF71D /* UserProfile+CoreDataProperties.swift */,
 				18D1605D1DB8C903009FF71D /* UserProfile.swift */,
-				18DDE5201DCC8B7D00083409 /* Reachability.swift */,
 			);
 			name = AppDataManager;
 			sourceTree = "<group>";
@@ -519,6 +519,7 @@
 		693C31B5FFCFE8EF86A243C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1800D6181DD9D548006B7492 /* SystemConfiguration.framework */,
 				1184381C1DC86A1200DFE2FD /* AFNetworking.framework */,
 				DEB40090EE11D5B76565BB03 /* Pods_CoupCon.framework */,
 				C9FF100D70C4BCD9B1EF4A14 /* Pods_CoupConTests.framework */,
@@ -854,7 +855,6 @@
 				18C90C061DAF78DF0053F8D7 /* CXSigninViewController.swift in Sources */,
 				115CA1CB1DC1E45500BE9D57 /* DealsCollectionViewCell.swift in Sources */,
 				110DD1C81DB0AD9C001F9BC1 /* TableViewCell.swift in Sources */,
-				18DDE5211DCC8B7D00083409 /* Reachability.swift in Sources */,
 				18057E301DAFA33B0017F038 /* ICSDropShadowView.m in Sources */,
 				111C7D0D1DC0CD4F00D4FC09 /* HowToUseViewController.swift in Sources */,
 				11D37EED1DB8D75C0014F202 /* ReedemViewController.swift in Sources */,

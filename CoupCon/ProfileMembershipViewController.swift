@@ -19,6 +19,7 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
     
     @IBOutlet weak var subscribeBtn: UIButton!
     @IBOutlet weak var codeTextView: UITextField!
+    @IBOutlet weak var MemberShipLbl: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         membershipBtnLabels()
@@ -31,12 +32,26 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
         self.setUPTheNavigationProperty()
         self.setUpSideMenu()
         self.detailsTableView.removeFromSuperview()
-       
+       self.checkTheUserActive()
         self.subscribeBtn.layer.cornerRadius = 8.0
         
        // self.view.backgroundColor = UIColor(patternImage: UIImage(named: "leftpanel_image")!)
         
            }
+    
+    
+    func checkTheUserActive(){
+       // http://storeongo.com:8081/MobileAPIs/userVerification?mallId=20217&consumerEmail=cxsample@gmail.com
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("http://storeongo.com:8081/MobileAPIs/userVerification?", parameters: ["consumerEmail":CXAppConfig.sharedInstance.getEmail(),"mallId":CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in
+            print(responseDict)
+            let status : String = (responseDict.valueForKey("userStatus") as?String)!
+            if status.compare("active", options: .CaseInsensitiveSearch, range: nil, locale: nil) == NSComparisonResult.OrderedSame {
+                print(responseDict)
+                return
+            }
+            
+        }
+    }
     
     func membershipBtnLabels(){
         
@@ -89,7 +104,7 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         if textField.maxLength == 6{
-            print("its 6 chars \(textField.text!)")
+           // print("its 6 chars \(textField.text!)")
         }
         return true
     }
@@ -112,6 +127,8 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
             self.navigationController?.popToRootViewControllerAnimated(true)
             
         }
+        
+        //http://storeongo.com:8081/MobileAPIs/changeJobStatus?providerEmail=kushalkanna@gmail.com&mallId=17018&jobId=177971&jobStatusId=167192
     }
     
     func activeTheUser(parameterDic:NSDictionary,jobId:String){
@@ -126,13 +143,15 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
         print(jsonStringFormat)
       
         
-        CX_SocialIntegration.sharedInstance.updateTheSaveConsumerProperty(["ownerId":CXAppConfig.sharedInstance.getAppMallID(),"jobId":jobId,"jsonString":jsonStringFormat!]) { (resPonce) in
+        CX_SocialIntegration.sharedInstance.updateTheSaveConsumerProperty(["ownerId":CXAppConfig.sharedInstance.getAppMallID(),"jobId":jobId,"jsonString":jsonStringFormat!]) { (resPonce) in     0
+            
             self.navigationController?.popToRootViewControllerAnimated(true)
             
         }
         
             //    http://storeongo.com:8081/MobileAPIs/updateMultipleProperties/jobId=200400&jsonString={"PaymentType":"249","ValidTill":"11-11-2017","userStatus":"active"}&ownerId=20217
     }
+    
     
     
     @IBAction func subscribeBtnAction(sender: AnyObject) {
@@ -147,7 +166,15 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
             }else{
                 //Active The User
                 let dic : NSDictionary = (list.lastObject as? NSDictionary)!
-
+                print(dic)
+                
+                let jobStatus : String = (dic.valueForKey("Current_Job_Status") as? String)!
+                if jobStatus.compare("Inactive", options: .CaseInsensitiveSearch, range: nil, locale: nil) == NSComparisonResult.OrderedSame {
+                    
+                    
+                    return
+                }
+                
                 let payMent : String = dic.valueForKey("SubscriptionType")! as! String
                 var validTill : String = String()
                 let jsondDic : NSMutableDictionary = NSMutableDictionary()
@@ -159,31 +186,33 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
                 }else if (payMent == "RS149") {
                     //six Months
                     validTill = CXAppConfig.sharedInstance.getExpiresDate(1) as String
-
+                    
                 }else if (payMent == "RS249") {
                     //One Year
                     validTill = CXAppConfig.sharedInstance.getExpiresDate(2) as String
-
+                    
                 }
                 
                 jsondDic.setObject("Active", forKey: "userStatus")
                 jsondDic.setObject(validTill, forKey: "ValidTill")
-
-               self.activeTheUser(jsondDic, jobId:CXAppConfig.sharedInstance.getMacJobID())
                 
+                self.activeTheUser(jsondDic, jobId:CXAppConfig.sharedInstance.getMacJobID())
                 
                 // inactive the job also key is Current_Job_Status
                 
-               /* let inactivedic : NSMutableDictionary = NSMutableDictionary()
-                //inactivedic.setObject(dic.valueForKey("SubscriptionType")!, forKey: "PaymentType")
+                let inactivedic : NSMutableDictionary = NSMutableDictionary()
+                inactivedic.setObject(dic.valueForKey("jobTypeId")!, forKey: "PaymentType")
                 //inactivedic.setObject("11-11-2017", forKey: "ValidTill")
-                inactivedic.setObject("Inactive", forKey: "Current_Job_Status")
-                self.inActiveTheJob(inactivedic, jobId:"200105")*/
-
+                //inactivedic.setObject("Inactive", forKey: "Current_Job_Status")
+                ///self.inActiveTheJob(inactivedic, jobId:"200105")
                 
+                
+                CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("http://storeongo.com:8081/MobileAPIs/changeJobStatus?", parameters: ["providerEmail":CXAppConfig.sharedInstance.getEmail(),"mallId":CXAppConfig.sharedInstance.getAppMallID(),"jobId":CXAppConfig.resultString(dic.valueForKey("id")!),"jobStatusId":dic.valueForKey("jobTypeId")!]) { (responseDict) in
+                    print(responseDict)
+                }
                 //SubscriptionType
             }
-
+            
             LoadingView.hide()
         }
         

@@ -1831,7 +1831,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Oxp-1p-edZ" userLabel="ScecondRowStackView">
                                         <rect key="frame" x="50" y="425" width="376" height="122"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="2RN-3Z-81n">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="2RN-3Z-81n">
                                                 <rect key="frame" x="0.0" y="0.0" width="122" height="122"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1842,7 +1842,7 @@
                                                     <action selector="oneMonthAccessBtnAction:" destination="yw1-WG-Kmc" eventType="touchUpInside" id="qcz-gB-zYM"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="5ud-Hs-rV6">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="5ud-Hs-rV6">
                                                 <rect key="frame" x="127" y="0.0" width="122" height="122"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" image="6months">
@@ -1852,7 +1852,7 @@
                                                     <action selector="sixMonthsAccessBtnAction:" destination="yw1-WG-Kmc" eventType="touchUpInside" id="dFm-WO-h5p"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="TX3-ug-gwo">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="TX3-ug-gwo">
                                                 <rect key="frame" x="254" y="0.0" width="122" height="122"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" image="1year">
@@ -1938,10 +1938,10 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="xUS-A2-Kte">
                                         <rect key="frame" x="16" y="248" width="172" height="30"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1fO-8K-gC7" userLabel="FirstRowStackView">
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1fO-8K-gC7" userLabel="FirstRowStackView">
                                                 <rect key="frame" x="0.0" y="0.0" width="91" height="30"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TmM-Pa-ger">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TmM-Pa-ger">
                                                         <rect key="frame" x="0.0" y="0.0" width="91" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -1971,7 +1971,7 @@
                                                     </mask>
                                                 </variation>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aC6-9E-Mc1">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aC6-9E-Mc1">
                                                 <rect key="frame" x="110" y="0.0" width="62" height="30"/>
                                                 <color key="backgroundColor" red="0.92941176470588238" green="0.10196078431372549" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -2134,6 +2134,7 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="MemberShipLbl" destination="a0r-nS-isT" id="o2M-9r-Cls"/>
                         <outlet property="codeTextView" destination="TmM-Pa-ger" id="LM4-ms-o3w"/>
                         <outlet property="detailsTableView" destination="trd-7p-7NR" id="nYF-vz-9cY"/>
                         <outlet property="dpImageView" destination="qht-Db-MXI" id="v7T-NO-KsO"/>
@@ -3032,6 +3033,9 @@
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="25"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                    <rect key="frame" x="0.0" y="0.0" width="380" height="33"/>
+                                                </variation>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="KaW-5L-O4A">
                                                 <rect key="frame" x="20" y="64" width="353" height="88"/>
@@ -3041,6 +3045,9 @@
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
+                                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="0.0" y="0.0" width="380" height="22"/>
+                                                        </variation>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Your Offer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="De8-fP-0wc">
                                                         <rect key="frame" x="20" y="50" width="256" height="25"/>
@@ -3055,7 +3062,8 @@
                                                                 <exclude reference="Icd-eP-t03"/>
                                                             </mask>
                                                         </variation>
-                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="0.0" y="27" width="380" height="22"/>
                                                             <mask key="constraints">
                                                                 <exclude reference="Icd-eP-t03"/>
                                                             </mask>
@@ -3074,7 +3082,8 @@
                                                                 <exclude reference="EGZ-Xx-ziB"/>
                                                             </mask>
                                                         </variation>
-                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="0.0" y="54" width="380" height="22"/>
                                                             <mask key="constraints">
                                                                 <exclude reference="EGZ-Xx-ziB"/>
                                                             </mask>
@@ -3093,14 +3102,17 @@
                                                                 <exclude reference="lWZ-kU-Fiy"/>
                                                             </mask>
                                                         </variation>
-                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="0.0" y="81" width="380" height="22"/>
                                                             <mask key="constraints">
                                                                 <exclude reference="lWZ-kU-Fiy"/>
                                                             </mask>
                                                         </variation>
                                                     </label>
                                                 </subviews>
-                                                <variation key="heightClass=regular-widthClass=compact" axis="vertical"/>
+                                                <variation key="heightClass=regular-widthClass=compact" axis="vertical" misplaced="YES">
+                                                    <rect key="frame" x="0.0" y="40" width="380" height="103"/>
+                                                </variation>
                                             </stackView>
                                         </subviews>
                                         <constraints>
