@@ -73,7 +73,7 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
         layout.itemSize = CGSize(width: screenWidth, height: 185)
         homecollectionview!.collectionViewLayout = layout
         
-        
+        self.getTheFavourites()
        /* let menuItem = UIBarButtonItem(image: UIImage(named: "reveal-icon"), style: .Plain, target: self.revealViewController(), action: "revealToggle:")
         self.navigationItem.leftBarButtonItem = menuItem
         
@@ -81,6 +81,10 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
         
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())*/
         // Do any additional setup after loading the view.
+    }
+    
+    func getTheFavourites(){
+        CXDataService.sharedInstance.getTheLikesFromServer()
     }
     
     

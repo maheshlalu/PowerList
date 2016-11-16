@@ -17,7 +17,7 @@ import UIKit
     let managedObjectContext:NSManagedObjectContext! = nil//Birthday Offers"//Redemption History
     var previousSelectedIndex  : NSIndexPath = NSIndexPath()
     var nameArray = ["HOME","PROFILE & MEMBERSHIP","REDEMPTION HISTORY","FAVOURITES","BIRTHDAY OFFERS","HOW TO USE","HELP","SIGN OUT"]
-    var imageArray = ["HomeImage","Profile & membershipImage","sidePanelRedeem20","","bthDayOffer","HowtoUseImage","Helpimage","PowerBtn"]
+    var imageArray = ["HomeImage","Profile & membershipImage","sidePanelRedeem20","favourites","bthDayOffer","HowtoUseImage","Helpimage","PowerBtn"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -147,11 +147,18 @@ import UIKit
             backItem.title = "Birthday Offers"
             navigationItem.backBarButtonItem = backItem
             revealController.pushFrontViewController(navCntl, animated: true)
-//FAVOURITES
+            //FAVOURITES
         }else if itemName == "FAVOURITES"{
-            
-            showAlertView("Are You Sure??", status: 1)
-            
+            var dealsVc : DealsViewController = DealsViewController()
+            let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+            dealsVc = storyBoard.instantiateViewControllerWithIdentifier("DealsViewController") as! DealsViewController
+            let navCntl = UINavigationController(rootViewController: dealsVc)
+            navCntl.navigationItem.title = "Favourites"
+            dealsVc.isFromFavorites = true
+            let backItem = UIBarButtonItem()
+            backItem.title = "Favourites"
+            navigationItem.backBarButtonItem = backItem
+            revealController.pushFrontViewController(navCntl, animated: true)
         }
         
     }
@@ -173,7 +180,8 @@ import UIKit
                 // for Google signout
                 GIDSignIn.sharedInstance().signOut()
                 GIDSignIn.sharedInstance().disconnect()
-                appDelVar.application(UIApplication.sharedApplication(), didFinishLaunchingWithOptions: nil)
+                appDelVar.applicationNavigationFlow()
+               // appDelVar.application(UIApplication.sharedApplication(), didFinishLaunchingWithOptions: nil)
                 //self.navigationController?.popViewControllerAnimated(true)
             }
         }

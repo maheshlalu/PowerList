@@ -10,25 +10,42 @@ import UIKit
 
 class DealsViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
  var screenWidth:CGFloat! = nil
-    var dealsArray : NSArray! = nil
+    var dealsArray : NSMutableArray! = nil
     
     var dealsDic : NSDictionary?
     var selectedName: String!
+    var isFromFavorites : Bool = false
     @IBOutlet weak var collectionview: UICollectionView!
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.dealsArray = NSArray()
+        self.dealsArray = NSMutableArray()
         self.automaticallyAdjustsScrollViewInsets = false
         let nib = UINib(nibName: "DealsCollectionViewCell", bundle: nil)
         self.collectionview.registerNib(nib, forCellWithReuseIdentifier: "DealsCollectionViewCell")
         self.collectionview.backgroundColor = UIColor.clearColor()
         // print("\(self.dealsDic) \(self.dealsDic!.allKeys)")
+        
+        if self.isFromFavorites {
+            self.navigationController?.navigationBarHidden = false
+            self.navigationItem.setHidesBackButton(true, animated:true);
+            let navigation:UINavigationItem = navigationItem
+            navigation.title  = "Favourites"
+            let stores : NSArray = CX_Stores.MR_findAll()
+            for dic in stores {
+                let store : CX_Stores = dic as! CX_Stores
+                self.dealsArray.addObject(CXDataService.sharedInstance.convertStringToDictionary(store.json!))
+            }
+            self.addTheBarButtonItem()
+            self.setUpSideMenu()
+        }else{
         self.getTheDealsFromServer()
         self.addTheBarButtonItem()
         if selectedName == "Birthday Offers" {
             self.setUpSideMenu()
         }
+        }
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -36,6 +53,8 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
         self.navigationController?.navigationBarHidden = false
         self.navigationController!.navigationBar.barTintColor = CXAppConfig.sharedInstance.getAppTheamColor()
         self.view.backgroundColor = UIColor.whiteColor()
+        
+      
     }
     
     
@@ -44,7 +63,7 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
         LoadingView.show("Loading...", animated: true)
         CXDataService.sharedInstance.getTheAppDataFromServer(["type":selectedName,"mallId":CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in
             //print(responseDict)
-            self.dealsArray = NSArray(array: (responseDict.valueForKey("jobs") as? NSArray)!)
+            self.dealsArray = NSMutableArray(array: (responseDict.valueForKey("jobs") as? NSArray)!)
             self.collectionview.reloadData()
             LoadingView.hide()
         }
@@ -69,7 +88,6 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
         let sendButton = UIBarButtonItem(image: UIImage(named: "search"), style: .Plain, target: self, action: #selector(DealsViewController.searchButtonAction))
         sendButton.tintColor = UIColor.whiteColor()
        // self.navigationController!.navigationBar.barTintColor = UIColor(red: 160.0/255, green: 57.0/255, blue: 135.0/255, alpha: 0.0)
-        
         //myLabel.backgroundColor = UIColor(red: 50.0/255, green: 150.0/255, blue: 65.0/255, alpha: 1.0)
 
         self.navigationItem.rightBarButtonItem = sendButton
@@ -120,7 +138,13 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
             cell.dealArea.text = categoryDic.valueForKey("Location") as? String
         }
         cell.callBtn.tag = indexPath.item+1
+        cell.likeBtn.tag = indexPath.item+1
+        
+        cell.likeBtn.selected = CXDataService.sharedInstance.productIsAddedinList(CXAppConfig.resultString(categoryDic.valueForKey("id")!))
+
         cell.callBtn.addTarget(self, action: #selector(DealsViewController.phoneBtnAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        cell.likeBtn.addTarget(self, action: #selector(DealsViewController.likeBtnAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+
         return cell
     }
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -177,14 +201,33 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
  
     }
     
-   
+    func likeBtnAction(button : UIButton!){
+       LoadingView.show("Loading...", animated: true)
+        let dealsDict : NSDictionary = self.dealsArray[button.tag-1] as! NSDictionary
+        let productId = CXAppConfig.resultString(dealsDict.valueForKey("id")!)
+        CXDataService.sharedInstance.productAddedToFavorites(productId, likeStatus: button.selected ? "-1":"1",product: dealsDict) { (responseDict) in
+            button.selected = !button.selected
+            LoadingView.hide()
+            dispatch_async(dispatch_get_main_queue(),{
+                if self.isFromFavorites {
+                    self.dealsArray.removeAllObjects()
+                    let stores : NSArray = CX_Stores.MR_findAll()
+                    for dic in stores {
+                        let store : CX_Stores = dic as! CX_Stores
+                        self.dealsArray.addObject(CXDataService.sharedInstance.convertStringToDictionary(store.json!))
+                        self.collectionview.reloadData()
+                    }
+                }
 
+                
+            })
+        }
+    }
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-   
 
 }

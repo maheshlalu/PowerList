@@ -22,6 +22,7 @@ class FineDiningViewController: UIViewController {
     
     @IBOutlet weak var backLbl: UIButton!
     @IBOutlet weak var pagerView: KIImagePager!
+    @IBOutlet weak var likeButton: UIButton!
     var coverPageImagesList: NSMutableArray!
 
     override func viewDidLoad() {
@@ -45,6 +46,9 @@ class FineDiningViewController: UIViewController {
         navigationController?.navigationBarHidden = true
         UIApplication.sharedApplication().statusBarHidden = true
         self.imageViewAimations()
+        
+        self.likeButton.selected = CXDataService.sharedInstance.productIsAddedinList(CXAppConfig.resultString(dealsDic.valueForKey("id")!))
+
     }
     
     
@@ -102,7 +106,7 @@ class FineDiningViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        
+        self.navigationController?.navigationBarHidden = true
     }
     
     func constructTheOfferReedemJson(){
@@ -246,7 +250,14 @@ class FineDiningViewController: UIViewController {
         })
     }
     @IBAction func likeBtnAction(sender: AnyObject) {
-        
+        let button : UIButton = (sender as? UIButton)!
+        LoadingView.show("Loading...", animated: true)
+        let dealsDict : NSDictionary = self.dealsDic
+        let productId = CXAppConfig.resultString(dealsDict.valueForKey("id")!)
+        CXDataService.sharedInstance.productAddedToFavorites(productId, likeStatus: button.selected ? "-1":"1",product: dealsDict) { (responseDict) in
+            button.selected = !button.selected
+            LoadingView.hide()
+        }
         
     }
 
