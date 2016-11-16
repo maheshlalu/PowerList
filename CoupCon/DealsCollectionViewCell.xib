@@ -34,6 +34,7 @@
                                     <constraint firstAttribute="width" constant="40" id="mBI-ai-w18"/>
                                 </constraints>
                                 <state key="normal" image="heart_unselected"/>
+                                <state key="selected" image="heart_selected"/>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l2V-lb-THr">
                                 <rect key="frame" x="0.0" y="151" width="422" height="34"/>
@@ -136,6 +137,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="heart_selected" width="40" height="40"/>
         <image name="heart_unselected" width="40" height="40"/>
         <image name="homeScreenCellBG" width="581" height="56"/>
         <image name="phoneCallImg" width="40" height="40"/>

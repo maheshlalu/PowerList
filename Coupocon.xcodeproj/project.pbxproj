@@ -83,6 +83,8 @@
 		18D1605E1DB8C903009FF71D /* UserProfile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D1605C1DB8C903009FF71D /* UserProfile+CoreDataProperties.swift */; };
 		18D160621DB8E074009FF71D /* CX_SocialIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D160601DB8DFFA009FF71D /* CX_SocialIntegration.swift */; };
 		18D160631DB8E088009FF71D /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D1605D1DB8C903009FF71D /* UserProfile.swift */; };
+		18D29F021DDC48DE00569AC9 /* CX_Stores+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D29F001DDC48DE00569AC9 /* CX_Stores+CoreDataProperties.swift */; };
+		18D29F031DDC48DE00569AC9 /* CX_Stores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D29F011DDC48DE00569AC9 /* CX_Stores.swift */; };
 		18ED49F51DB4B07200A612BA /* FineDiningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED49F41DB4B07200A612BA /* FineDiningViewController.swift */; };
 		18ED49FC1DB4C5B100A612BA /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED49FA1DB4C5B100A612BA /* HomeCollectionViewCell.swift */; };
 		18ED49FD1DB4C5B100A612BA /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18ED49FB1DB4C5B100A612BA /* HomeCollectionViewCell.xib */; };
@@ -208,6 +210,8 @@
 		18D1605C1DB8C903009FF71D /* UserProfile+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserProfile+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		18D1605D1DB8C903009FF71D /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		18D160601DB8DFFA009FF71D /* CX_SocialIntegration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CX_SocialIntegration.swift; sourceTree = "<group>"; };
+		18D29F001DDC48DE00569AC9 /* CX_Stores+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CX_Stores+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		18D29F011DDC48DE00569AC9 /* CX_Stores.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CX_Stores.swift; sourceTree = "<group>"; };
 		18ED49F41DB4B07200A612BA /* FineDiningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FineDiningViewController.swift; sourceTree = "<group>"; };
 		18ED49FA1DB4C5B100A612BA /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		18ED49FB1DB4C5B100A612BA /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -369,6 +373,8 @@
 		181C04E21DB0EC41006C05FF /* AppDataManager */ = {
 			isa = PBXGroup;
 			children = (
+				18D29F001DDC48DE00569AC9 /* CX_Stores+CoreDataProperties.swift */,
+				18D29F011DDC48DE00569AC9 /* CX_Stores.swift */,
 				1127C6B21DBE453100D92FF7 /* LoadingView.swift */,
 				18D160601DB8DFFA009FF71D /* CX_SocialIntegration.swift */,
 				181C04E31DB0EC4F006C05FF /* CXAppConfig.swift */,
@@ -911,6 +917,7 @@
 				181C04E61DB0EC4F006C05FF /* CXAppConfig.swift in Sources */,
 				110B61E11DC729ED006496E7 /* TextFieldMaximumLength.swift in Sources */,
 				110DD1C71DB0AD9C001F9BC1 /* LeftViewController.swift in Sources */,
+				18D29F031DDC48DE00569AC9 /* CX_Stores.swift in Sources */,
 				18D1605E1DB8C903009FF71D /* UserProfile+CoreDataProperties.swift in Sources */,
 				1144E0501DDC3F0F00EDC6C4 /* NiceButton.swift in Sources */,
 				1144E0511DDC3F0F00EDC6C4 /* DropDown.swift in Sources */,
@@ -922,6 +929,7 @@
 				1144E0551DDC3F0F00EDC6C4 /* DPDConstants.swift in Sources */,
 				18C90C471DAF7CC30053F8D7 /* SWRevealViewController.m in Sources */,
 				189E7C7A1DB7722000A48CE2 /* OfferTableViewCell.swift in Sources */,
+				18D29F021DDC48DE00569AC9 /* CX_Stores+CoreDataProperties.swift in Sources */,
 				181C04EB1DB0F3F3006C05FF /* HomeTableCell.swift in Sources */,
 				18C1603F1DB1FE740083F16D /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */,
 				18ED4A4E1DB6489E00A612BA /* OffersViewController.swift in Sources */,

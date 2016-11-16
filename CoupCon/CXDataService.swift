@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 import AFNetworking
-
+import MagicalRecord
 private var _SingletonSharedInstance:CXDataService! = CXDataService()
 
 public class CXDataService: NSObject {
@@ -61,7 +61,7 @@ public class CXDataService: NSObject {
         if CXAppConfig.sharedInstance.isReachability() == true{
         print(urlstring)
         print(parameters)
-        
+        LoadingView.show("Loading...", animated: true)
         Alamofire.request(.POST,urlstring, parameters: parameters)
             .validate()
             .responseJSON { response in
@@ -69,9 +69,11 @@ public class CXDataService: NSObject {
                 case .Success:
                    // print("Validation Successful\(response.result.value)")
                     completion(responseDict: (response.result.value as? NSDictionary)!)
+                    LoadingView.hide()
                     break
                 case .Failure(let error):
                     print(error)
+                    LoadingView.hide()
                 }
         }
         }else{
@@ -196,5 +198,101 @@ public class CXDataService: NSObject {
         return jsonDict
     }
     
+    
+    func productAddedToFavorites(jobID:String,likeStatus:String,product:NSDictionary,completion:(responseDict:NSDictionary) -> Void){
+       // "http://sillymonksapp.com:8081/Services/saveOrUpdateSocialActivity?orgId=3&userId="+userId+"&jobId="+jobId+"&noOfLikes=1"
+        self.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl() + CXAppConfig.sharedInstance.getProductLikeMethod(), parameters: ["orgId":CXAppConfig.sharedInstance.getAppMallID(),"userId":CXAppConfig.sharedInstance.getUserID(),"jobId":jobID,"noOfLikes":likeStatus]) { (responseDict) in
+            print(responseDict)
+            if likeStatus == "1"{
+                self.productAddedToFavouritesList(product, isAdded: true)
+            }else{
+                self.productAddedToFavouritesList(product, isAdded: false)
+            }
+            
+            completion(responseDict: responseDict)
+        }
+ 
+    }
+    
+    
+    func productAddedToFavouritesList(product:NSDictionary,isAdded:Bool){
+        
+        if isAdded && !self.productIsAddedinList(CXAppConfig.resultString(product.valueForKey("id")!)){
+            //Added to list
+            MagicalRecord.saveWithBlock({ (localContext) in
+                    let enProduct = CX_Stores.MR_createInContext(localContext) as! CX_Stores
+                    enProduct.storeID = CXAppConfig.resultString(product.valueForKey("id")!)
+                    let jsonString = self.convertDictionayToString(product)
+                    enProduct.json = jsonString as String
+            }) { (success, error) in
+                if success == true {
+                    
+                } else {
+                    print("Error\(error)")
+                }
+            }
+
+        }else{
+            let predicate: NSPredicate = NSPredicate(format: "storeID == \(CXAppConfig.resultString(product.valueForKey("id")!))")
+            CX_Stores.MR_deleteAllMatchingPredicate(predicate)
+            //Remove from list
+            
+        }
+    }
+    
+    func productIsAddedinList(productID:String)->Bool{
+     
+        let predicate: NSPredicate = NSPredicate(format: "storeID == \(productID)")
+        let fetchRequest = NSFetchRequest(entityName: "CX_Stores") //
+        fetchRequest.predicate = predicate
+        let productCatList :NSArray = CX_Stores.MR_executeFetchRequest(fetchRequest)
+        let list : NSMutableArray = NSMutableArray(array: productCatList)
+        if list.count == 0 {
+            //MR_deleteAllMatchingPredicate
+            return false
+        }
+        return true
+    }
+    
+    
+    func getTheLikesFromServer(){
+        if (CX_Stores.MR_findAll().count != 0) {
+            return
+        }
+
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("\(CXAppConfig.sharedInstance.getBaseUrl())Services/favourites?", parameters: ["orgId":CXAppConfig.sharedInstance.getAppMallID(),"userId":CXAppConfig.sharedInstance.getUserID()]) { (responseDict) in
+            //This project i am using cxstores entity for saving favourites
+            print(responseDict)
+            let products:NSArray = NSArray(array: (responseDict.valueForKey("jobs") as? NSArray)!)
+            MagicalRecord.saveWithBlock({ (localContext) in
+                for prod in products {
+                    let enProduct = CX_Stores.MR_createInContext(localContext) as! CX_Stores
+                    enProduct.storeID = CXAppConfig.resultString(prod.valueForKey("id")!)
+                    let jsonString = self.convertDictionayToString(prod as! NSDictionary)
+                    enProduct.json = jsonString as String
+                }
+                
+            }) { (success, error) in
+                if success == true {
+                   
+                } else {
+                    print("Error\(error)")
+                }
+            }
+            
+        }
+    }
+    
+    /*
+     
+     @NSManaged var createdById: String?
+     @NSManaged var favourite: String?
+     @NSManaged var itemCode: String?
+     @NSManaged var json: String?
+     @NSManaged var name: String?
+     @NSManaged var storeID: String?
+     @NSManaged var type: String?
+
+     */
     
 }
