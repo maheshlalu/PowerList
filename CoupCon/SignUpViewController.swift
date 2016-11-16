@@ -159,7 +159,10 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
                 let image = self.editDPImage.image! as UIImage
                 let imageData = NSData(data: UIImagePNGRepresentation(image)!)
                 NSUserDefaults.standardUserDefaults().setObject(imageData, forKey: "IMG_DATA")
-                self.showOTPAlertView()
+                // self.showOTPAlertView()
+                self.savingDataInUserDefaults()
+                self.signUp()
+                
                 
             }
             alert.addAction(okAction)
@@ -167,10 +170,20 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
             self.presentViewController(alert, animated: true, completion: nil)
             
         } else {
+            self.savingDataInUserDefaults()
+            self.signUp()
             
-            showOTPAlertView()
             
         }
+    }
+    
+    func leadingToOTPTextViewController(){
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let profile = storyBoard.instantiateViewControllerWithIdentifier("MOBILE_VIEW") as! OTPTextViewController
+        profile.otpEmail = emailTxtField.text! as String
+        profile.fromSignUp = true
+        self.navigationController?.pushViewController(profile, animated: true)
     }
     
     func showOTPAlertView(){
@@ -206,12 +219,13 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
             
             if status == 1{
                 // If Status is 1 then the user email id is already regesterd with email.Can't able to send OTP. Which means give another email.
-              self.showAlertView(message, status: 0)
+              self.showAlertView("\(message).Please give another email!!!", status: 0)
+                    self.emailTxtField.errorMessage = "Invalid Email"
                 return
             }else{
                 //Sending the OTP to given mobile number (status is -1 or 0). Eligible to send OTP.
                 LoadingView.show("Loading...", animated: true)
-                self.sendingOTPForGivenNumber()
+                self.leadingToOTPTextViewController()
                 LoadingView.hide()
             }
             
@@ -267,7 +281,6 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
         NSUserDefaults.standardUserDefaults().setObject(self.emailTxtField.text, forKey: "USER_EMAIL")
         NSUserDefaults.standardUserDefaults().setObject(self.firstNameTxtField.text, forKey: "FIRST_NAME")
         NSUserDefaults.standardUserDefaults().setObject(self.lastNameTxtField.text, forKey: "LAST_NAME")
-        NSUserDefaults.standardUserDefaults().setObject(self.alertTextField.text, forKey: "MOBILE")
         NSUserDefaults.standardUserDefaults().setObject(self.confirmPwdTxtField.text, forKey: "PASSWORD")
         NSUserDefaults.standardUserDefaults().synchronize()
     }
@@ -294,8 +307,13 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
                         forKeys: ["orgId","userEmailId","dt","password","firstName","lastName","gender","filePath","isLoginWithFB"])
                     CX_SocialIntegration.sharedInstance.registerWithSocialNewtWokrk(userRegisterDic, completion: { (responseDict) in
                         print(responseDict)
-                        self.emailCheckingForOTP()
                         LoadingView.hide()
+                        let status: Int = Int(responseDict.valueForKey("status") as! String)!
+                        if status == 1{
+                        self.emailCheckingForOTP()
+                        }else{
+                        self.showAlertView("Something Went Wrong!!Please Give Another Email", status: 0)
+                        }
                     })
                     //NSUserDefaults.standardUserDefaults().setObject(Response.valueForKey("filePath"), forKey: "IMG_URL")
                 }

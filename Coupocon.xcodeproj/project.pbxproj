@@ -17,6 +17,14 @@
 		111C7D0D1DC0CD4F00D4FC09 /* HowToUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111C7D0C1DC0CD4F00D4FC09 /* HowToUseViewController.swift */; };
 		1127C6B31DBE453100D92FF7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1127C6B21DBE453100D92FF7 /* LoadingView.swift */; };
 		11414C951DD1CA7C00FDD9A2 /* OTP .rtf in Resources */ = {isa = PBXBuildFile; fileRef = 11414C941DD1CA7C00FDD9A2 /* OTP .rtf */; };
+		1144E0501DDC3F0F00EDC6C4 /* NiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1144E0471DDC3F0F00EDC6C4 /* NiceButton.swift */; };
+		1144E0511DDC3F0F00EDC6C4 /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1144E0481DDC3F0F00EDC6C4 /* DropDown.swift */; };
+		1144E0521DDC3F0F00EDC6C4 /* DropDown+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1144E0491DDC3F0F00EDC6C4 /* DropDown+Appearance.swift */; };
+		1144E0531DDC3F0F00EDC6C4 /* DropDownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1144E04A1DDC3F0F00EDC6C4 /* DropDownCell.swift */; };
+		1144E0541DDC3F0F00EDC6C4 /* DropDownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1144E04B1DDC3F0F00EDC6C4 /* DropDownCell.xib */; };
+		1144E0551DDC3F0F00EDC6C4 /* DPDConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1144E04D1DDC3F0F00EDC6C4 /* DPDConstants.swift */; };
+		1144E0561DDC3F0F00EDC6C4 /* DPDKeyboardListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1144E04E1DDC3F0F00EDC6C4 /* DPDKeyboardListener.swift */; };
+		1144E0571DDC3F0F00EDC6C4 /* DPDUIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1144E04F1DDC3F0F00EDC6C4 /* DPDUIView+Extension.swift */; };
 		115CA1C21DC1D35100BE9D57 /* DemoPopupViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115CA1C01DC1D35100BE9D57 /* DemoPopupViewController2.swift */; };
 		115CA1C31DC1D35100BE9D57 /* DemoPopupViewController2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 115CA1C11DC1D35100BE9D57 /* DemoPopupViewController2.storyboard */; };
 		115CA1C71DC1D3B700BE9D57 /* PopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115CA1C41DC1D3B700BE9D57 /* PopupController.swift */; };
@@ -121,6 +129,15 @@
 		111C7D0C1DC0CD4F00D4FC09 /* HowToUseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToUseViewController.swift; sourceTree = "<group>"; };
 		1127C6B21DBE453100D92FF7 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		11414C941DD1CA7C00FDD9A2 /* OTP .rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "OTP .rtf"; sourceTree = "<group>"; };
+		1144E0471DDC3F0F00EDC6C4 /* NiceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NiceButton.swift; sourceTree = "<group>"; };
+		1144E0481DDC3F0F00EDC6C4 /* DropDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
+		1144E0491DDC3F0F00EDC6C4 /* DropDown+Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DropDown+Appearance.swift"; sourceTree = "<group>"; };
+		1144E04A1DDC3F0F00EDC6C4 /* DropDownCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownCell.swift; sourceTree = "<group>"; };
+		1144E04B1DDC3F0F00EDC6C4 /* DropDownCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropDownCell.xib; sourceTree = "<group>"; };
+		1144E04C1DDC3F0F00EDC6C4 /* DropDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDown.h; sourceTree = "<group>"; };
+		1144E04D1DDC3F0F00EDC6C4 /* DPDConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPDConstants.swift; sourceTree = "<group>"; };
+		1144E04E1DDC3F0F00EDC6C4 /* DPDKeyboardListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPDKeyboardListener.swift; sourceTree = "<group>"; };
+		1144E04F1DDC3F0F00EDC6C4 /* DPDUIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DPDUIView+Extension.swift"; sourceTree = "<group>"; };
 		115CA1C01DC1D35100BE9D57 /* DemoPopupViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoPopupViewController2.swift; sourceTree = "<group>"; };
 		115CA1C11DC1D35100BE9D57 /* DemoPopupViewController2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DemoPopupViewController2.storyboard; sourceTree = "<group>"; };
 		115CA1C41DC1D3B700BE9D57 /* PopupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupController.swift; sourceTree = "<group>"; };
@@ -264,6 +281,22 @@
 			name = TextFieldModificationFiles;
 			sourceTree = "<group>";
 		};
+		1144E0461DDC3F0500EDC6C4 /* DropDown */ = {
+			isa = PBXGroup;
+			children = (
+				1144E0471DDC3F0F00EDC6C4 /* NiceButton.swift */,
+				1144E0481DDC3F0F00EDC6C4 /* DropDown.swift */,
+				1144E0491DDC3F0F00EDC6C4 /* DropDown+Appearance.swift */,
+				1144E04A1DDC3F0F00EDC6C4 /* DropDownCell.swift */,
+				1144E04B1DDC3F0F00EDC6C4 /* DropDownCell.xib */,
+				1144E04C1DDC3F0F00EDC6C4 /* DropDown.h */,
+				1144E04D1DDC3F0F00EDC6C4 /* DPDConstants.swift */,
+				1144E04E1DDC3F0F00EDC6C4 /* DPDKeyboardListener.swift */,
+				1144E04F1DDC3F0F00EDC6C4 /* DPDUIView+Extension.swift */,
+			);
+			name = DropDown;
+			sourceTree = "<group>";
+		};
 		115CA1B61DC1BEB800BE9D57 /* PopUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -401,6 +434,7 @@
 		18C90C021DAF78DF0053F8D7 /* CoupCon */ = {
 			isa = PBXGroup;
 			children = (
+				1144E0461DDC3F0500EDC6C4 /* DropDown */,
 				181781B41DD06AD100A935FB /* PayMent */,
 				110B61DF1DC729C4006496E7 /* TextFieldModificationFiles */,
 				115CA1B61DC1BEB800BE9D57 /* PopUp */,
@@ -670,6 +704,7 @@
 				115CA1CC1DC1E45500BE9D57 /* DealsCollectionViewCell.xib in Resources */,
 				18C90C501DAF7EA60053F8D7 /* reveal-icon@2x.png in Resources */,
 				110DD1C91DB0AD9C001F9BC1 /* TableViewCell.xib in Resources */,
+				1144E0541DDC3F0F00EDC6C4 /* DropDownCell.xib in Resources */,
 				18C90C0E1DAF78DF0053F8D7 /* Assets.xcassets in Resources */,
 				18ED49FD1DB4C5B100A612BA /* HomeCollectionViewCell.xib in Resources */,
 				18C90C091DAF78DF0053F8D7 /* Main.storyboard in Resources */,
@@ -860,9 +895,12 @@
 				118DBBE71DB9FFB7000AF9EE /* SkyFloatingLabelTextField.swift in Sources */,
 				18C90C061DAF78DF0053F8D7 /* CXSigninViewController.swift in Sources */,
 				115CA1CB1DC1E45500BE9D57 /* DealsCollectionViewCell.swift in Sources */,
+				1144E0571DDC3F0F00EDC6C4 /* DPDUIView+Extension.swift in Sources */,
 				110DD1C81DB0AD9C001F9BC1 /* TableViewCell.swift in Sources */,
+				1144E0521DDC3F0F00EDC6C4 /* DropDown+Appearance.swift in Sources */,
 				18057E301DAFA33B0017F038 /* ICSDropShadowView.m in Sources */,
 				111C7D0D1DC0CD4F00D4FC09 /* HowToUseViewController.swift in Sources */,
+				1144E0561DDC3F0F00EDC6C4 /* DPDKeyboardListener.swift in Sources */,
 				11D37EED1DB8D75C0014F202 /* ReedemViewController.swift in Sources */,
 				181781B81DD06DE800A935FB /* CXPayMentController.swift in Sources */,
 				18C90C041DAF78DF0053F8D7 /* AppDelegate.swift in Sources */,
@@ -874,10 +912,14 @@
 				110B61E11DC729ED006496E7 /* TextFieldMaximumLength.swift in Sources */,
 				110DD1C71DB0AD9C001F9BC1 /* LeftViewController.swift in Sources */,
 				18D1605E1DB8C903009FF71D /* UserProfile+CoreDataProperties.swift in Sources */,
+				1144E0501DDC3F0F00EDC6C4 /* NiceButton.swift in Sources */,
+				1144E0511DDC3F0F00EDC6C4 /* DropDown.swift in Sources */,
+				1144E0531DDC3F0F00EDC6C4 /* DropDownCell.swift in Sources */,
 				18ED4A501DB659F100A612BA /* Station.swift in Sources */,
 				189E7C771DB7447800A48CE2 /* SearchViewController.swift in Sources */,
 				18057E2F1DAFA33B0017F038 /* ICSDrawerController.m in Sources */,
 				115CA1C81DC1D3B700BE9D57 /* FTPopOverMenu.m in Sources */,
+				1144E0551DDC3F0F00EDC6C4 /* DPDConstants.swift in Sources */,
 				18C90C471DAF7CC30053F8D7 /* SWRevealViewController.m in Sources */,
 				189E7C7A1DB7722000A48CE2 /* OfferTableViewCell.swift in Sources */,
 				181C04EB1DB0F3F3006C05FF /* HomeTableCell.swift in Sources */,

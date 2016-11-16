@@ -275,8 +275,10 @@ class CX_SocialIntegration: NSObject {
                 // OTP NOT SENT
                // self.showAlertView("Something Went Wrong!! Pleace check Email!!!", status: 0)
             }
+            
         }
+        
+        
     }
-    
     
 }

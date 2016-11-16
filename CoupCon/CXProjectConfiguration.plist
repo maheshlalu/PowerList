@@ -51,6 +51,10 @@
 	<string>MobileAPIs/sendCoupoconSMS?</string>
 	<key>comparingOTP</key>
 	<string>MobileAPIs/verifyOTP?</string>
+	<key>updateUserDetails</key>
+	<string>MobileAPIs/updateMultipleProperties?</string>
+	<key>productLike</key>
+	<string>Services/saveOrUpdateSocialActivity?</string>
 	<key>AppBgColr</key>
 	<array>
 		<string>232</string>

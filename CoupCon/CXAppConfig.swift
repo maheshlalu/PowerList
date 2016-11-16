@@ -96,7 +96,16 @@ class CXAppConfig {
     func getComparingOTP() -> String{
         return config!.valueForKey("comparingOTP") as! String
     }
-
+    
+    func getUpdatedUserDetails() -> String{
+        return config!.valueForKey("updateUserDetails") as! String
+    }
+    
+    //productLike
+    
+    func getProductLikeMethod() -> String{
+        return config!.valueForKey("productLike") as! String
+    }
 
     func getAppTheamColor() -> UIColor {
         
