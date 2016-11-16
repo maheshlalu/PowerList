@@ -68,7 +68,7 @@ extension CXPayMentController : UIWebViewDelegate {
         LoadingView.hide()
         let lastRequest : String = String(self.webRequestArry.lastObject!)
         print(lastRequest)
-        if ((lastRequest.rangeOfString("paymentOrderResponse")) != nil)  {
+        if ((lastRequest.rangeOfString("paymentorderresponse")) != nil)  {
             LoadingView.show("Processing...", animated: true)
             CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(lastRequest, completion: { (responseDict) in
                // print(responseDict)

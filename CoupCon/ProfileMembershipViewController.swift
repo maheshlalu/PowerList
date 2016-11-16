@@ -316,8 +316,8 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
         print(profileView.paymentUrl)
         self.navigationController?.pushViewController(profileView, animated: true)
         LoadingView.hide()*/
-        
-        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("http://54.179.48.83:9000/CoupoconPG/payments?", parameters: ["name":userProfileData.firstName!,"email":userProfileData.emailId!,"amount":amount,"description":"Coupocon Payment","phone":CXAppConfig.sharedInstance.getPhoneNumber(),"macId":userProfileData.macId!,"mallId":CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in
+        //http://test.com:9000/OngoStoresPG/coupoconPG?name=vinodha&email=vinodhapudari@gmail.com&amount=10&description=Test%20api&phone=9660008880&macId=101&mallId=2
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("http://54.179.48.83:9000/OngoStoresPG/coupoconPG?", parameters: ["name":userProfileData.firstName!,"email":userProfileData.emailId!,"amount":amount,"description":"Coupocon Payment","phone":CXAppConfig.sharedInstance.getPhoneNumber(),"macId":userProfileData.macId!,"mallId":CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in
            // print(responseDict.valueForKey("payment_url"))
             let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
             let profileView = storyBoard.instantiateViewControllerWithIdentifier("CXPayMentController") as! CXPayMentController

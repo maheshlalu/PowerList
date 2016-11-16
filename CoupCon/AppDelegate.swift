@@ -243,7 +243,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
         let callBack:Bool
         // print("***************************url Schemaaa:", url.scheme);
         
-        if url.scheme == "fb144823225979761" {
+        if url.scheme == "fb1256046541124360" {
             callBack = FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
         } else {
             callBack =  GIDSignIn.sharedInstance().handleURL(url, sourceApplication: sourceApplication, annotation: annotation)

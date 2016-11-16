@@ -23,13 +23,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb278005239212205</string>
-			</array>
-		</dict>
-		<dict>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>fb144823225979761</string>
+				<string>fb1256046541124360</string>
 			</array>
 		</dict>
 		<dict>
@@ -60,7 +54,7 @@
 	<key>CFBundleVersion</key>
 	<string>2</string>
 	<key>FacebookAppID</key>
-	<string>144823225979761</string>
+	<string>1256046541124360</string>
 	<key>FacebookDisplayName</key>
 	<string>Cupocon</string>
 	<key>LSApplicationQueriesSchemes</key>

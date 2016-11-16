@@ -21,13 +21,14 @@ class FineDiningViewController: UIViewController {
      weak var currentViewController: UIViewController?
     
     @IBOutlet weak var backLbl: UIButton!
+    @IBOutlet weak var pagerView: KIImagePager!
+    var coverPageImagesList: NSMutableArray!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(dealsDic)
         constructTheOfferReedemJson()
-        
         self.aboutBtn.backgroundColor = CXAppConfig.sharedInstance.getAppTheamColor()
-        self.dealBackgroundImg.setImageWithURL(NSURL(string:(dealsDic.valueForKey("BackgroundImage_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
+       // self.dealBackgroundImg.setImageWithURL(NSURL(string:(dealsDic.valueForKey("BackgroundImage_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
         NSUserDefaults.standardUserDefaults().setObject(dealsDic.valueForKey("Image_URL"), forKey: "POPUP_LOGO")
         
         self.backLbl.titleLabel?.text = dealsDic.valueForKey("Name") as?String
@@ -43,23 +44,28 @@ class FineDiningViewController: UIViewController {
         
         navigationController?.navigationBarHidden = true
         UIApplication.sharedApplication().statusBarHidden = true
-        
+        self.imageViewAimations()
     }
     
     
     func imageViewAimations(){
         
        // var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(timerCall()), userInfo: nil, repeats: true)
-        
 
-        
-        let attachementsList : NSMutableArray = NSMutableArray()
+        self.coverPageImagesList = NSMutableArray()
         let attachements: NSArray = dealsDic.valueForKey("Attachments") as! NSArray
-        if attachements.count > 0 {
-            let attachment:NSDictionary = attachements.objectAtIndex(0) as! NSDictionary
-        attachementsList.addObject(attachment.valueForKey("URL") as! String)
+        
+        for imageDic in attachements {
+            self.coverPageImagesList.addObject(imageDic.valueForKey("URL") as! String)
         }
-       //self.dealBackgroundImg.animationImages = attachementsList
+        self.coverPageImagesList.addObject((dealsDic.valueForKey("BackgroundImage_URL") as?String)!)
+        self.pagerView.delegate = self
+        self.pagerView.dataSource = self
+        self.pagerView.checkWetherToToggleSlideshowTimer()
+        self.pagerView.slideshowTimeInterval = 3
+        self.pagerView.reloadData()
+        
+        
     }
     
     func timerCall(){
@@ -266,4 +272,19 @@ class FineDiningViewController: UIViewController {
     private func callNumber(phoneNumber:String) {
         UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(phoneNumber)")!)
     }
+}
+
+extension FineDiningViewController:KIImagePagerDelegate,KIImagePagerDataSource {
+    
+    //    }
+    
+    func contentModeForImage(image: UInt, inPager pager: KIImagePager!) -> UIViewContentMode {
+        
+        return .ScaleAspectFill
+    }
+    
+    func arrayWithImages(pager: KIImagePager!) -> [AnyObject]! {
+        return self.coverPageImagesList as [AnyObject]
+    }
+    
 }
