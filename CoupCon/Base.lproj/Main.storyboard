@@ -565,7 +565,6 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="cityLbl" destination="7QF-Aq-f3B" id="MjA-zH-a7g"/>
                         <outlet property="dpNameLbl" destination="Ocz-Ux-Pjy" id="a3q-3W-ccD"/>
                         <outlet property="leftTableview" destination="Hdr-Sc-Ifz" id="dcw-zR-d5K"/>
                         <outlet property="userImage" destination="XFq-IB-AEN" id="U0t-ic-Orq"/>
@@ -573,7 +572,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qpZ-KO-gSI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="346.5" y="-131.25"/>
+            <point key="canvasLocation" x="100.5" y="-130.5"/>
         </scene>
         <!--Signin View Controller-->
         <scene sceneID="jc3-AE-022">
