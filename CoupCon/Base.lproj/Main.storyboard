@@ -1534,6 +1534,7 @@
                         <outlet property="aboutBtn" destination="jf1-Jh-1LN" id="aOI-ss-mcE"/>
                         <outlet property="backLbl" destination="Tus-5h-i3u" id="wph-YO-QAw"/>
                         <outlet property="containerView" destination="Tlk-qP-fHZ" id="g22-Ck-yQz"/>
+                        <outlet property="likeButton" destination="xr4-Wo-YPB" id="zGj-Ou-yUk"/>
                         <outlet property="offerBtn" destination="sHs-AS-zyr" id="OME-nl-mCJ"/>
                         <outlet property="pagerView" destination="P96-lH-NXH" id="Jaf-0V-RHt"/>
                     </connections>
