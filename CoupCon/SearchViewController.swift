@@ -23,8 +23,7 @@ class SearchViewController: UIViewController {
         self.searchCollectionView.registerNib(nib, forCellWithReuseIdentifier: "DealsCollectionViewCell")
         self.searchCollectionView.backgroundColor = UIColor.clearColor() //CXAppConfig.sharedInstance.getAppBGColor()
         self.searchBar.becomeFirstResponder()
-        
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "appBg")!)
+
 
         // Do any additional setup after loading the view.
     }

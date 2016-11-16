@@ -25,6 +25,7 @@
 		1144E0551DDC3F0F00EDC6C4 /* DPDConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1144E04D1DDC3F0F00EDC6C4 /* DPDConstants.swift */; };
 		1144E0561DDC3F0F00EDC6C4 /* DPDKeyboardListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1144E04E1DDC3F0F00EDC6C4 /* DPDKeyboardListener.swift */; };
 		1144E0571DDC3F0F00EDC6C4 /* DPDUIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1144E04F1DDC3F0F00EDC6C4 /* DPDUIView+Extension.swift */; };
+		115A574A1DDCA02E0063E8F6 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A57491DDCA02E0063E8F6 /* HelpViewController.swift */; };
 		115CA1C21DC1D35100BE9D57 /* DemoPopupViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115CA1C01DC1D35100BE9D57 /* DemoPopupViewController2.swift */; };
 		115CA1C31DC1D35100BE9D57 /* DemoPopupViewController2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 115CA1C11DC1D35100BE9D57 /* DemoPopupViewController2.storyboard */; };
 		115CA1C71DC1D3B700BE9D57 /* PopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115CA1C41DC1D3B700BE9D57 /* PopupController.swift */; };
@@ -140,6 +141,7 @@
 		1144E04D1DDC3F0F00EDC6C4 /* DPDConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPDConstants.swift; sourceTree = "<group>"; };
 		1144E04E1DDC3F0F00EDC6C4 /* DPDKeyboardListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPDKeyboardListener.swift; sourceTree = "<group>"; };
 		1144E04F1DDC3F0F00EDC6C4 /* DPDUIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DPDUIView+Extension.swift"; sourceTree = "<group>"; };
+		115A57491DDCA02E0063E8F6 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		115CA1C01DC1D35100BE9D57 /* DemoPopupViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoPopupViewController2.swift; sourceTree = "<group>"; };
 		115CA1C11DC1D35100BE9D57 /* DemoPopupViewController2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DemoPopupViewController2.storyboard; sourceTree = "<group>"; };
 		115CA1C41DC1D3B700BE9D57 /* PopupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupController.swift; sourceTree = "<group>"; };
@@ -511,6 +513,7 @@
 				18C90C491DAF7CED0053F8D7 /* HomeViewController.swift */,
 				18C160501DB222820083F16D /* DealsViewController.swift */,
 				18ED49F41DB4B07200A612BA /* FineDiningViewController.swift */,
+				115A57491DDCA02E0063E8F6 /* HelpViewController.swift */,
 				189E7C761DB7447800A48CE2 /* SearchViewController.swift */,
 			);
 			name = Controllers;
@@ -913,6 +916,7 @@
 				18ED49FC1DB4C5B100A612BA /* HomeCollectionViewCell.swift in Sources */,
 				18ED4A4C1DB6488700A612BA /* MapViewController.swift in Sources */,
 				18ED4A441DB6180500A612BA /* KIImagePager.m in Sources */,
+				115A574A1DDCA02E0063E8F6 /* HelpViewController.swift in Sources */,
 				11D37EEB1DB8D75C0014F202 /* RedeemTableViewCell.swift in Sources */,
 				181C04E61DB0EC4F006C05FF /* CXAppConfig.swift in Sources */,
 				110B61E11DC729ED006496E7 /* TextFieldMaximumLength.swift in Sources */,
