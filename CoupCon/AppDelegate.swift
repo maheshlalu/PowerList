@@ -9,7 +9,9 @@
 import UIKit
 import CoreData
 import FBSDKCoreKit
-
+import Firebase
+import FirebaseInstanceID
+import FirebaseMessaging
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDelegate, GIDSignInDelegate {
     
@@ -45,8 +47,67 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
         GIDSignIn.sharedInstance().delegate = self
         //self.constructTheOfferReedemJson()
+        registerForPushNotifications(application)
+        // Override point for customization after application launch.
+        // Use Firebase library to configure APIs
+        FIRApp.configure()
+        
+
         return true
     }
+    
+    func application(application: UIApplication) {
+       
+        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+        application.registerUserNotificationSettings(settings)
+        application.registerForRemoteNotifications()
+
+      
+    }
+    
+    func registerForPushNotifications(application: UIApplication) {
+        let notificationSettings = UIUserNotificationSettings(
+            forTypes: [.Badge, .Sound, .Alert], categories: nil)
+        application.registerUserNotificationSettings(notificationSettings)
+    }
+
+    
+    func showAlertView(message:String, status:Int) {
+        let alert = UIAlertController(title:message, message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+        let okAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default) {
+            UIAlertAction in
+            
+            if status == 100 {
+                
+            }else{
+                
+            }
+        }
+        alert.addAction(okAction)
+        self.window?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
+
+    }
+    
+    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+        if notificationSettings.types != .None {
+            application.registerForRemoteNotifications()
+        }
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
+        var tokenString = ""
+        
+        for i in 0..<deviceToken.length {
+            tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
+        }
+        
+        //Tricky line
+        FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.Unknown)
+        print("Device Token:", tokenString)
+    }
+    
+   
     
     func constructTheOfferReedemJson(){
         /*

@@ -140,6 +140,13 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         //print("Response \(result)")
         LoadingView.show("Loading...", animated: true)
+        
+        if (error == nil){
+            if result.isCancelled {
+                LoadingView.hide()
+                return
+            }
+        }
         FBSDKGraphRequest.init(graphPath: "me", parameters: ["fields":"first_name,email,last_name,gender,picture.type(large),id"]).startWithCompletionHandler { (connection, result, error) -> Void in
             print ("FB Result is \(result)")
             if result != nil {

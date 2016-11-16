@@ -2,27 +2,39 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>454116202484-33qe5mvf2ttp49s96dqahr4me91nuft1.apps.googleusercontent.com</string>
+	<string>945740101159-qgt2hltstdiq9egq3oqnbng1h4fs3pea.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.454116202484-33qe5mvf2ttp49s96dqahr4me91nuft1</string>
+	<string>com.googleusercontent.apps.945740101159-qgt2hltstdiq9egq3oqnbng1h4fs3pea</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDV5G2OboyIrDZqe2_Ex4DgG1w4FnOtAH8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>945740101159</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.creativexperts.cupocon</string>
 	<key>PROJECT_ID</key>
-	<string>cupocon</string>
+	<string>coupocon-7351d</string>
+	<key>STORAGE_BUCKET</key>
+	<string>coupocon-7351d.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false/>
+	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
 	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
 	<false/>
 	<key>IS_GCM_ENABLED</key>
-	<false/>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:454116202484:ios:cf60f2a29e6fb715</string>
+	<string>1:945740101159:ios:cf60f2a29e6fb715</string>
+	<key>DATABASE_URL</key>
+	<string>https://coupocon-7351d.firebaseio.com</string>
 </dict>
 </plist>

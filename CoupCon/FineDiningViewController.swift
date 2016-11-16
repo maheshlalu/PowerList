@@ -46,6 +46,26 @@ class FineDiningViewController: UIViewController {
         
     }
     
+    
+    func imageViewAimations(){
+        
+       // var timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(timerCall()), userInfo: nil, repeats: true)
+        
+
+        
+        let attachementsList : NSMutableArray = NSMutableArray()
+        let attachements: NSArray = dealsDic.valueForKey("Attachments") as! NSArray
+        if attachements.count > 0 {
+            let attachment:NSDictionary = attachements.objectAtIndex(0) as! NSDictionary
+        attachementsList.addObject(attachment.valueForKey("URL") as! String)
+        }
+       //self.dealBackgroundImg.animationImages = attachementsList
+    }
+    
+    func timerCall(){
+        
+    }
+    
     @IBAction func backBtnAction(sender: UIButton) {
         self.navigationController?.popViewControllerAnimated(true)
         

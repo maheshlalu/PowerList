@@ -16,8 +16,8 @@ import UIKit
     
     let managedObjectContext:NSManagedObjectContext! = nil//Birthday Offers"//Redemption History
     var previousSelectedIndex  : NSIndexPath = NSIndexPath()
-    var nameArray = ["HOME","PROFILE & MEMBERSHIP","REDEMPTION HISTORY","BIRTHDAY OFFERS","HOW TO USE","HELP","SIGN OUT"]
-    var imageArray = ["HomeImage","Profile & membershipImage","sidePanelRedeem20","bthDayOffer","HowtoUseImage","Helpimage","PowerBtn"]
+    var nameArray = ["HOME","PROFILE & MEMBERSHIP","REDEMPTION HISTORY","FAVOURITES","BIRTHDAY OFFERS","HOW TO USE","HELP","SIGN OUT"]
+    var imageArray = ["HomeImage","Profile & membershipImage","sidePanelRedeem20","","bthDayOffer","HowtoUseImage","Helpimage","PowerBtn"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +33,7 @@ import UIKit
         self.userImage.layer.borderColor = UIColor.whiteColor().CGColor
         self.userImage.layer.cornerRadius = 60
         self.userImage.layer.borderWidth = 5
+        
         self.userImage.clipsToBounds = true
         
         self.dpNameLbl.text = userProfileData.firstName
@@ -146,7 +147,11 @@ import UIKit
             backItem.title = "Birthday Offers"
             navigationItem.backBarButtonItem = backItem
             revealController.pushFrontViewController(navCntl, animated: true)
-
+//FAVOURITES
+        }else if itemName == "FAVOURITES"{
+            
+            showAlertView("Are You Sure??", status: 1)
+            
         }
         
     }

@@ -64,7 +64,7 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
         }
         self.getTheGalleryItems()
         self.addTheBarButtonItem()
-       // self.view.backgroundColor = UIColor(patternImage: UIImage(named: "appBg")!)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "appBg")!)
         
         
         

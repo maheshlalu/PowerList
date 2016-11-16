@@ -204,7 +204,7 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
                 inactivedic.setObject(dic.valueForKey("jobTypeId")!, forKey: "PaymentType")
                 //inactivedic.setObject("11-11-2017", forKey: "ValidTill")
                 //inactivedic.setObject("Inactive", forKey: "Current_Job_Status")
-                ///self.inActiveTheJob(inactivedic, jobId:"200105")
+                ///self.inActiveTheJob(inactivedic, jobId:"200105") 
                 
                 
                 CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("http://storeongo.com:8081/MobileAPIs/changeJobStatus?", parameters: ["providerEmail":CXAppConfig.sharedInstance.getEmail(),"mallId":CXAppConfig.sharedInstance.getAppMallID(),"jobId":CXAppConfig.resultString(dic.valueForKey("id")!),"jobStatusId":dic.valueForKey("jobTypeId")!]) { (responseDict) in

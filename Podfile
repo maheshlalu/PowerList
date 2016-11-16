@@ -10,6 +10,9 @@ pod 'Google/SignIn'
 pod 'SDWebImage', '~> 3.8'
 pod 'AFNetworking', '~> 3.1'
 pod 'Reachability', '~> 3.2'
+pod 'Firebase/Core'
+pod 'Firebase/Messaging'
+
   # Pods for CoupCon
 
   target 'CoupoconTests' do
