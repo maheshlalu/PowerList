@@ -25,12 +25,15 @@ class HowToUseViewController: UIViewController {
     func setUpSideMenu(){
         
         let menuItem = UIBarButtonItem(image: UIImage(named: "sidePanelMenu"), style: .Plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
-        menuItem.tintColor = UIColor.grayColor()
+        menuItem.tintColor = UIColor.whiteColor()
         
         self.navigationItem.leftBarButtonItem = menuItem
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         
+        self.navigationItem.setHidesBackButton(false, animated:true);
+        let navigation:UINavigationItem = navigationItem
+        navigation.title  = "HOW TO USE"
         //self.sideMenuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), forControlEvents: .TouchUpOutside)
     }
     

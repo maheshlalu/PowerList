@@ -129,8 +129,11 @@ import UIKit
             revealController.pushFrontViewController(navCntl, animated: true)
             
         }else if itemName == "HELP" {
-            //            let wishlist = storyBoard.instantiateViewControllerWithIdentifier("WISHLIST") as! NowfloatWishlistViewController
-            //            self.navController.pushViewController(wishlist, animated: true)
+            
+            showAlertView("Coming Soon!!!", status: 0)
+//            let help = storyBoard.instantiateViewControllerWithIdentifier("HelpViewController") as! HelpViewController
+//            let navCntl = UINavigationController(rootViewController: help)
+//            revealController.pushFrontViewController(navCntl, animated: true)
             
         }else if itemName == "SIGN OUT"{
             
