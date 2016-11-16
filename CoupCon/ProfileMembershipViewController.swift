@@ -38,39 +38,67 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
        // self.view.backgroundColor = UIColor(patternImage: UIImage(named: "leftpanel_image")!)
         
            }
-    
+    /*
+     userStatus
+     
+     CXDataService.sharedInstance.getTheAppDataFromServer(["type" : "macidinfo","mallId" : CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in
+ValidTill
+     */
     
     func checkTheUserActive(){
-       // http://storeongo.com:8081/MobileAPIs/userVerification?mallId=20217&consumerEmail=cxsample@gmail.com
+        
+        CXDataService.sharedInstance.getTheAppDataFromServer(["type" : "macidinfo","mallId" : CXAppConfig.sharedInstance.getAppMallID(),"keyWord":CXAppConfig.sharedInstance.getEmail()]) { (responseDict) in
+            //if status == "1" {
+            print(responseDict)
+            let resultArray : NSArray = NSArray(array: (responseDict.valueForKey("jobs") as? NSArray)!)
+            let macIdDict : NSDictionary = (resultArray.lastObject as? NSDictionary)!
+                let userStatus : String = (macIdDict.valueForKey("userStatus") as?String)!
+                if userStatus.compare("active", options: .CaseInsensitiveSearch, range: nil, locale: nil) == NSComparisonResult.OrderedSame {
+                    self.stopTheUsrAccessBility(true, titleText: "Your Subscription Valid Till \((macIdDict.valueForKey("ValidTill") as?String)!)")
+                    return
+                }else{
+                    self.stopTheUsrAccessBility(false, titleText: "")
+            }
+           // }else{
+            
+           // }
+            
+        }
+
+        
+     /*  // http://storeongo.com:8081/MobileAPIs/userVerification?mallId=20217&consumerEmail=cxsample@gmail.com
         CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("http://storeongo.com:8081/MobileAPIs/userVerification?", parameters: ["consumerEmail":CXAppConfig.sharedInstance.getEmail(),"mallId":CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in
             print(responseDict)
             let status : String = (responseDict.valueForKey("status") as?String)!
             if status == "1" {
                 let userStatus : String = (responseDict.valueForKey("userStatus") as?String)!
                 if userStatus.compare("active", options: .CaseInsensitiveSearch, range: nil, locale: nil) == NSComparisonResult.OrderedSame {
-                    self.stopTheUsrAccessBility(true, titleText: "test")
+                    self.stopTheUsrAccessBility(true, titleText: "Your subscription valid Till")
                     
                     return
                 }
             }else{
-                self.stopTheUsrAccessBility(false, titleText: "test")
+                self.stopTheUsrAccessBility(false, titleText: "")
 
             }
-        }
+        }*/
     }
+    //Your subscription valid Till
     
     
     func stopTheUsrAccessBility(isAccess:Bool,titleText:String){
+        print(titleText)
         if isAccess == true{
             //Add the black transperent view with label for valid date
             let transperentView:UIView = UIView(frame: self.view.frame)
             transperentView.backgroundColor = UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 0.8)
             self.view.addSubview(transperentView)
             self.view.userInteractionEnabled = false
-            let validLbl : UILabel = UILabel(frame:CGRect(x: 0, y: 0, width: 200, height: 50) )
+            let validLbl : UILabel = UILabel(frame:CGRect(x: 50, y: 0, width: UIScreen.mainScreen().bounds.size.width, height: 50) )
             transperentView.addSubview(validLbl)
             validLbl.text = titleText
-            validLbl.textColor = CXAppConfig.sharedInstance.getAppTheamColor()
+            validLbl.textAlignment = NSTextAlignment.Center
+            validLbl.textColor = UIColor.whiteColor()
             validLbl.center = CGPoint(x: UIScreen.mainScreen().bounds.size.width/2, y: UIScreen.mainScreen().bounds.size.height/2)
         
         }else{
@@ -129,6 +157,8 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
         return 2
         
     }
+    
+
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         if textField.maxLength == 6{

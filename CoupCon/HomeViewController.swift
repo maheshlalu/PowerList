@@ -64,8 +64,6 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
         }
         self.getTheGalleryItems()
         self.addTheBarButtonItem()
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "appBg")!)
-        
         
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -291,7 +289,7 @@ extension HomeViewController:KIImagePagerDelegate,KIImagePagerDataSource {
     
     func contentModeForImage(image: UInt, inPager pager: KIImagePager!) -> UIViewContentMode {
         
-        return .ScaleAspectFill
+        return .ScaleToFill
     }
     
     func arrayWithImages(pager: KIImagePager!) -> [AnyObject]! {
