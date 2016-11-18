@@ -124,16 +124,18 @@ import UIKit
             revealController.pushFrontViewController(navCntl, animated: true)
             
         }else if itemName == "HOW TO USE"{
-            let howToUse = storyBoard.instantiateViewControllerWithIdentifier("HOW_TO_USE") as! HowToUseViewController
+            
+            let storyBoard = UIStoryboard(name: "PagerMain", bundle: NSBundle.mainBundle())
+            let howToUse = storyBoard.instantiateViewControllerWithIdentifier("HowToUseViewController") as! HowToUseViewController
             let navCntl = UINavigationController(rootViewController: howToUse)
             revealController.pushFrontViewController(navCntl, animated: true)
             
         }else if itemName == "HELP" {
             
-            showAlertView("Coming Soon!!!", status: 0)
-//            let help = storyBoard.instantiateViewControllerWithIdentifier("HelpViewController") as! HelpViewController
-//            let navCntl = UINavigationController(rootViewController: help)
-//            revealController.pushFrontViewController(navCntl, animated: true)
+            //showAlertView("Coming Soon!!!", status: 0)
+            let help = storyBoard.instantiateViewControllerWithIdentifier("HelpViewController") as! HelpViewController
+            let navCntl = UINavigationController(rootViewController: help)
+            revealController.pushFrontViewController(navCntl, animated: true)
             
         }else if itemName == "SIGN OUT"{
             

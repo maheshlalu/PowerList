@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="71" id="KGk-i7-Jjw" userLabel="HelpTableViewCell" customClass="HelpTableViewCell" customModule="Coupocon" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="71"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVe-Jj-X8a">
+                        <rect key="frame" x="8" y="8" width="304" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="gIa-Zr-jXz"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oth-rj-htH">
+                        <rect key="frame" x="8" y="31" width="304" height="25"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="highlightedColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="Z2R-os-FLp">
+                        <rect key="frame" x="130" y="37" width="60" height="25"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVU-yP-g88">
+                                <rect key="frame" x="0.0" y="0.0" width="27" height="25"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="HelpFacebookOmage"/>
+                                <connections>
+                                    <action selector="facebookBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="cr4-zM-QH0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X96-p7-O8w">
+                                <rect key="frame" x="34" y="0.0" width="26" height="25"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="HelpInstagramImage"/>
+                                <connections>
+                                    <action selector="instagramBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="mrg-Vu-WjF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="ONM-fH-R2w"/>
+                            <constraint firstAttribute="height" constant="25" id="QoT-vf-f7x"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="IVe-Jj-X8a" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="1Zc-66-JA8"/>
+                    <constraint firstAttribute="trailing" secondItem="oth-rj-htH" secondAttribute="trailing" constant="8" id="2FA-eT-Kb4"/>
+                    <constraint firstItem="Z2R-os-FLp" firstAttribute="top" secondItem="IVe-Jj-X8a" secondAttribute="bottom" constant="8" id="3HC-NS-Ry3"/>
+                    <constraint firstItem="oth-rj-htH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="4wh-pt-lVu"/>
+                    <constraint firstAttribute="bottom" secondItem="oth-rj-htH" secondAttribute="bottom" constant="14" id="7uu-24-ka4"/>
+                    <constraint firstItem="IVe-Jj-X8a" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Oz1-HZ-MLj"/>
+                    <constraint firstItem="Z2R-os-FLp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="Phu-rS-IKj"/>
+                    <constraint firstItem="oth-rj-htH" firstAttribute="top" secondItem="IVe-Jj-X8a" secondAttribute="bottom" constant="2" id="bcj-cx-WU6"/>
+                    <constraint firstItem="Z2R-os-FLp" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="d5D-fV-4oV"/>
+                    <constraint firstAttribute="trailing" secondItem="IVe-Jj-X8a" secondAttribute="trailing" constant="8" id="dLv-Pf-O29"/>
+                    <constraint firstItem="Z2R-os-FLp" firstAttribute="top" secondItem="IVe-Jj-X8a" secondAttribute="bottom" constant="10" id="jdk-Ay-lbK"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="Phu-rS-IKj"/>
+                        <exclude reference="jdk-Ay-lbK"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="buttonStackView" destination="Z2R-os-FLp" id="EaO-jG-76D"/>
+                <outlet property="descriptionLabel" destination="oth-rj-htH" id="c3o-Y3-s3N"/>
+                <outlet property="nameLabel" destination="IVe-Jj-X8a" id="p5B-je-4Im"/>
+            </connections>
+            <point key="canvasLocation" x="532" y="467.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="HelpFacebookOmage" width="528" height="528"/>
+        <image name="HelpInstagramImage" width="20" height="20"/>
+    </resources>
+</document>

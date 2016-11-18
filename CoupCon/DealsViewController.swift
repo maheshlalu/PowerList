@@ -218,8 +218,6 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
                         self.collectionview.reloadData()
                     }
                 }
-
-                
             })
         }
     }

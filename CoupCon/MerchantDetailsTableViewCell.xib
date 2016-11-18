@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+            <string>Roboto-Bold</string>
+        </mutableArray>
+        <mutableArray key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="67" id="KGk-i7-Jjw" customClass="MerchantDetailsTableViewCell" customModule="Coupocon" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W77-bQ-9bB">
+                        <rect key="frame" x="8" y="8" width="72" height="72"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="72" id="Fk0-tq-IwN"/>
+                            <constraint firstAttribute="width" constant="72" id="eEa-Yg-UVa"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3Q2-fG-zvL">
+                        <rect key="frame" x="90" y="8" width="222" height="72"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhS-K5-d2G">
+                                <rect key="frame" x="0.0" y="0.0" width="222" height="18"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="13"/>
+                                <color key="textColor" red="0.95294117649999999" green="0.4039215686" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bars and Night Clubs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPR-Ai-mUH">
+                                <rect key="frame" x="0.0" y="18" width="222" height="18"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLn-eN-XAX">
+                                <rect key="frame" x="0.0" y="36" width="222" height="18"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon-Sun 09:00pm - 20:00pm" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owH-YF-n3N">
+                                <rect key="frame" x="0.0" y="54" width="222" height="18"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="3Q2-fG-zvL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="4Ba-FA-bNi"/>
+                    <constraint firstItem="W77-bQ-9bB" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="7xM-oF-7Os"/>
+                    <constraint firstItem="3Q2-fG-zvL" firstAttribute="leading" secondItem="W77-bQ-9bB" secondAttribute="trailing" constant="10" id="8ae-gb-39y"/>
+                    <constraint firstAttribute="bottom" secondItem="3Q2-fG-zvL" secondAttribute="bottom" constant="7" id="Hwb-c0-W5H"/>
+                    <constraint firstItem="W77-bQ-9bB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="JBu-sM-H48"/>
+                    <constraint firstItem="W77-bQ-9bB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Pam-Ge-XXd"/>
+                    <constraint firstAttribute="trailing" secondItem="3Q2-fG-zvL" secondAttribute="trailing" constant="8" id="xJt-hw-I0K"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="categoryTitleLbl" destination="xhS-K5-d2G" id="STT-dB-jJ0"/>
+                <outlet property="categoryTypeLbl" destination="gPR-Ai-mUH" id="2PZ-PI-Hqe"/>
+                <outlet property="iconImgView" destination="W77-bQ-9bB" id="IHR-Sj-5j0"/>
+                <outlet property="timingsLbl" destination="owH-YF-n3N" id="obu-r5-yvE"/>
+                <outlet property="timingsTitleLbl" destination="NLn-eN-XAX" id="ML2-ob-cHV"/>
+            </connections>
+            <point key="canvasLocation" x="354" y="305"/>
+        </tableViewCell>
+    </objects>
+</document>

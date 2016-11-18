@@ -25,7 +25,6 @@
 		1144E0551DDC3F0F00EDC6C4 /* DPDConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1144E04D1DDC3F0F00EDC6C4 /* DPDConstants.swift */; };
 		1144E0561DDC3F0F00EDC6C4 /* DPDKeyboardListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1144E04E1DDC3F0F00EDC6C4 /* DPDKeyboardListener.swift */; };
 		1144E0571DDC3F0F00EDC6C4 /* DPDUIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1144E04F1DDC3F0F00EDC6C4 /* DPDUIView+Extension.swift */; };
-		115A574A1DDCA02E0063E8F6 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A57491DDCA02E0063E8F6 /* HelpViewController.swift */; };
 		115CA1C21DC1D35100BE9D57 /* DemoPopupViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115CA1C01DC1D35100BE9D57 /* DemoPopupViewController2.swift */; };
 		115CA1C31DC1D35100BE9D57 /* DemoPopupViewController2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 115CA1C11DC1D35100BE9D57 /* DemoPopupViewController2.storyboard */; };
 		115CA1C71DC1D3B700BE9D57 /* PopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115CA1C41DC1D3B700BE9D57 /* PopupController.swift */; };
@@ -64,6 +63,14 @@
 		181C04E71DB0EC4F006C05FF /* CXDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181C04E41DB0EC4F006C05FF /* CXDataService.swift */; };
 		181C04E81DB0EC4F006C05FF /* CXProjectConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 181C04E51DB0EC4F006C05FF /* CXProjectConfiguration.plist */; };
 		181C04EB1DB0F3F3006C05FF /* HomeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181C04EA1DB0F3F3006C05FF /* HomeTableCell.swift */; };
+		183763E31DDEE2B700378F7F /* MerchantDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183763E21DDEE2B700378F7F /* MerchantDetailsTableViewCell.xib */; };
+		183763E51DDEE30100378F7F /* MerchantDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183763E41DDEE30100378F7F /* MerchantDetailsTableViewCell.swift */; };
+		183763E71DDEEB4A00378F7F /* MerchantLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183763E61DDEEB4A00378F7F /* MerchantLocationTableViewCell.swift */; };
+		183763E91DDEEB5400378F7F /* MerchantLocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183763E81DDEEB5400378F7F /* MerchantLocationTableViewCell.xib */; };
+		183763EE1DDF2C0000378F7F /* PagerMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183763ED1DDF2C0000378F7F /* PagerMain.storyboard */; };
+		189AB5F21DDD8F0300749C6F /* HelpTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189AB5EF1DDD8F0300749C6F /* HelpTableViewCell.swift */; };
+		189AB5F31DDD8F0300749C6F /* HelpTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189AB5F01DDD8F0300749C6F /* HelpTableViewCell.xib */; };
+		189AB5F41DDD8F0300749C6F /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189AB5F11DDD8F0300749C6F /* HelpViewController.swift */; };
 		189E7C771DB7447800A48CE2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E7C761DB7447800A48CE2 /* SearchViewController.swift */; };
 		189E7C7A1DB7722000A48CE2 /* OfferTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E7C781DB7722000A48CE2 /* OfferTableViewCell.swift */; };
 		189E7C7B1DB7722000A48CE2 /* OfferTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189E7C791DB7722000A48CE2 /* OfferTableViewCell.xib */; };
@@ -141,7 +148,6 @@
 		1144E04D1DDC3F0F00EDC6C4 /* DPDConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPDConstants.swift; sourceTree = "<group>"; };
 		1144E04E1DDC3F0F00EDC6C4 /* DPDKeyboardListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPDKeyboardListener.swift; sourceTree = "<group>"; };
 		1144E04F1DDC3F0F00EDC6C4 /* DPDUIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DPDUIView+Extension.swift"; sourceTree = "<group>"; };
-		115A57491DDCA02E0063E8F6 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		115CA1C01DC1D35100BE9D57 /* DemoPopupViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoPopupViewController2.swift; sourceTree = "<group>"; };
 		115CA1C11DC1D35100BE9D57 /* DemoPopupViewController2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DemoPopupViewController2.storyboard; sourceTree = "<group>"; };
 		115CA1C41DC1D3B700BE9D57 /* PopupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupController.swift; sourceTree = "<group>"; };
@@ -183,6 +189,14 @@
 		181C04E41DB0EC4F006C05FF /* CXDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CXDataService.swift; sourceTree = "<group>"; };
 		181C04E51DB0EC4F006C05FF /* CXProjectConfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CXProjectConfiguration.plist; sourceTree = "<group>"; };
 		181C04EA1DB0F3F3006C05FF /* HomeTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableCell.swift; sourceTree = "<group>"; };
+		183763E21DDEE2B700378F7F /* MerchantDetailsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MerchantDetailsTableViewCell.xib; sourceTree = "<group>"; };
+		183763E41DDEE30100378F7F /* MerchantDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MerchantDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		183763E61DDEEB4A00378F7F /* MerchantLocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MerchantLocationTableViewCell.swift; sourceTree = "<group>"; };
+		183763E81DDEEB5400378F7F /* MerchantLocationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MerchantLocationTableViewCell.xib; sourceTree = "<group>"; };
+		183763ED1DDF2C0000378F7F /* PagerMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PagerMain.storyboard; sourceTree = "<group>"; };
+		189AB5EF1DDD8F0300749C6F /* HelpTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpTableViewCell.swift; sourceTree = "<group>"; };
+		189AB5F01DDD8F0300749C6F /* HelpTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpTableViewCell.xib; sourceTree = "<group>"; };
+		189AB5F11DDD8F0300749C6F /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		189E7C761DB7447800A48CE2 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		189E7C781DB7722000A48CE2 /* OfferTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferTableViewCell.swift; sourceTree = "<group>"; };
 		189E7C791DB7722000A48CE2 /* OfferTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OfferTableViewCell.xib; sourceTree = "<group>"; };
@@ -391,6 +405,10 @@
 		181C04E91DB0F3C9006C05FF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				183763E61DDEEB4A00378F7F /* MerchantLocationTableViewCell.swift */,
+				183763E81DDEEB5400378F7F /* MerchantLocationTableViewCell.xib */,
+				183763E21DDEE2B700378F7F /* MerchantDetailsTableViewCell.xib */,
+				183763E41DDEE30100378F7F /* MerchantDetailsTableViewCell.swift */,
 				189E7C781DB7722000A48CE2 /* OfferTableViewCell.swift */,
 				189E7C791DB7722000A48CE2 /* OfferTableViewCell.xib */,
 				18ED49FE1DB4FEE100A612BA /* CollectionViewCell.swift */,
@@ -405,6 +423,14 @@
 				180085F71DD49EAD00BE8D70 /* OTPTextViewController.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		183763EA1DDF2AE900378F7F /* HowToUsePager */ = {
+			isa = PBXGroup;
+			children = (
+				183763ED1DDF2C0000378F7F /* PagerMain.storyboard */,
+			);
+			name = HowToUsePager;
 			sourceTree = "<group>";
 		};
 		18C1603C1DB1FE240083F16D /* SdWebImage */ = {
@@ -442,6 +468,7 @@
 		18C90C021DAF78DF0053F8D7 /* CoupCon */ = {
 			isa = PBXGroup;
 			children = (
+				183763EA1DDF2AE900378F7F /* HowToUsePager */,
 				1144E0461DDC3F0500EDC6C4 /* DropDown */,
 				181781B41DD06AD100A935FB /* PayMent */,
 				110B61DF1DC729C4006496E7 /* TextFieldModificationFiles */,
@@ -513,8 +540,10 @@
 				18C90C491DAF7CED0053F8D7 /* HomeViewController.swift */,
 				18C160501DB222820083F16D /* DealsViewController.swift */,
 				18ED49F41DB4B07200A612BA /* FineDiningViewController.swift */,
-				115A57491DDCA02E0063E8F6 /* HelpViewController.swift */,
 				189E7C761DB7447800A48CE2 /* SearchViewController.swift */,
+				189AB5EF1DDD8F0300749C6F /* HelpTableViewCell.swift */,
+				189AB5F01DDD8F0300749C6F /* HelpTableViewCell.xib */,
+				189AB5F11DDD8F0300749C6F /* HelpViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -693,19 +722,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183763E91DDEEB5400378F7F /* MerchantLocationTableViewCell.xib in Resources */,
 				181C04E81DB0EC4F006C05FF /* CXProjectConfiguration.plist in Resources */,
 				181C04DA1DB0BA4D006C05FF /* Roboto-Black.ttf in Resources */,
 				189E7C7B1DB7722000A48CE2 /* OfferTableViewCell.xib in Resources */,
 				181C04DB1DB0BA4D006C05FF /* Roboto-Bold.ttf in Resources */,
+				183763EE1DDF2C0000378F7F /* PagerMain.storyboard in Resources */,
 				111C7D091DC07E4200D4FC09 /* membershipTableViewCell.xib in Resources */,
 				11414C951DD1CA7C00FDD9A2 /* OTP .rtf in Resources */,
 				181C04DC1DB0BA4D006C05FF /* Roboto-Italic.ttf in Resources */,
 				181781B31DD0609A00A935FB /* Readme.txt in Resources */,
+				183763E31DDEE2B700378F7F /* MerchantDetailsTableViewCell.xib in Resources */,
 				11D37EEC1DB8D75C0014F202 /* RedeemTableViewCell.xib in Resources */,
 				181C04DD1DB0BA4D006C05FF /* Roboto-Light.ttf in Resources */,
 				181C04DE1DB0BA4D006C05FF /* Roboto-Medium.ttf in Resources */,
 				181C04DF1DB0BA4D006C05FF /* Roboto-Regular.ttf in Resources */,
 				181C04E01DB0BA4D006C05FF /* RobotoCondensed-Bold.ttf in Resources */,
+				189AB5F31DDD8F0300749C6F /* HelpTableViewCell.xib in Resources */,
 				18ED4A011DB4FEE100A612BA /* CollectionViewCell.xib in Resources */,
 				115CA1C31DC1D35100BE9D57 /* DemoPopupViewController2.storyboard in Resources */,
 				181C04E11DB0BA4D006C05FF /* RobotoCondensed-Light.ttf in Resources */,
@@ -911,12 +944,13 @@
 				111C7D0D1DC0CD4F00D4FC09 /* HowToUseViewController.swift in Sources */,
 				1144E0561DDC3F0F00EDC6C4 /* DPDKeyboardListener.swift in Sources */,
 				11D37EED1DB8D75C0014F202 /* ReedemViewController.swift in Sources */,
+				189AB5F21DDD8F0300749C6F /* HelpTableViewCell.swift in Sources */,
+				189AB5F41DDD8F0300749C6F /* HelpViewController.swift in Sources */,
 				181781B81DD06DE800A935FB /* CXPayMentController.swift in Sources */,
 				18C90C041DAF78DF0053F8D7 /* AppDelegate.swift in Sources */,
 				18ED49FC1DB4C5B100A612BA /* HomeCollectionViewCell.swift in Sources */,
 				18ED4A4C1DB6488700A612BA /* MapViewController.swift in Sources */,
 				18ED4A441DB6180500A612BA /* KIImagePager.m in Sources */,
-				115A574A1DDCA02E0063E8F6 /* HelpViewController.swift in Sources */,
 				11D37EEB1DB8D75C0014F202 /* RedeemTableViewCell.swift in Sources */,
 				181C04E61DB0EC4F006C05FF /* CXAppConfig.swift in Sources */,
 				110B61E11DC729ED006496E7 /* TextFieldMaximumLength.swift in Sources */,
@@ -926,6 +960,8 @@
 				1144E0501DDC3F0F00EDC6C4 /* NiceButton.swift in Sources */,
 				1144E0511DDC3F0F00EDC6C4 /* DropDown.swift in Sources */,
 				1144E0531DDC3F0F00EDC6C4 /* DropDownCell.swift in Sources */,
+				183763E51DDEE30100378F7F /* MerchantDetailsTableViewCell.swift in Sources */,
+				183763E71DDEEB4A00378F7F /* MerchantLocationTableViewCell.swift in Sources */,
 				18ED4A501DB659F100A612BA /* Station.swift in Sources */,
 				189E7C771DB7447800A48CE2 /* SearchViewController.swift in Sources */,
 				18057E2F1DAFA33B0017F038 /* ICSDrawerController.m in Sources */,
@@ -1032,7 +1068,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "e403cb00-d7f0-4fcb-bd43-7964bacb09c1";
+				PROVISIONING_PROFILE = "51987c44-84d2-4ba5-9d5f-beaec1c4ef1e";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1072,7 +1108,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "e403cb00-d7f0-4fcb-bd43-7964bacb09c1";
+				PROVISIONING_PROFILE = "51987c44-84d2-4ba5-9d5f-beaec1c4ef1e";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1096,7 +1132,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.creativexperts.cupocon;
 				PRODUCT_NAME = Coupocon;
-				PROVISIONING_PROFILE = "e403cb00-d7f0-4fcb-bd43-7964bacb09c1";
+				PROVISIONING_PROFILE = "51987c44-84d2-4ba5-9d5f-beaec1c4ef1e";
 				SWIFT_OBJC_BRIDGING_HEADER = "CoupCon-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1120,7 +1156,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.creativexperts.cupocon;
 				PRODUCT_NAME = Coupocon;
-				PROVISIONING_PROFILE = "e403cb00-d7f0-4fcb-bd43-7964bacb09c1";
+				PROVISIONING_PROFILE = "51987c44-84d2-4ba5-9d5f-beaec1c4ef1e";
 				SWIFT_OBJC_BRIDGING_HEADER = "CoupCon-Bridging-Header.h";
 			};
 			name = Release;

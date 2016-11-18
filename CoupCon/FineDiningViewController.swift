@@ -26,6 +26,9 @@ class FineDiningViewController: UIViewController {
     var coverPageImagesList: NSMutableArray!
 
     override func viewDidLoad() {
+        
+        print(dealsDic)
+        
         super.viewDidLoad()
         constructTheOfferReedemJson()
         self.aboutBtn.backgroundColor = CXAppConfig.sharedInstance.getAppTheamColor()

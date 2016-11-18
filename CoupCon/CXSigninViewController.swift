@@ -314,11 +314,13 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
         let  email = dic["email"] as! String
         LoadingView.show("Loading...", animated: true)
         CX_SocialIntegration.sharedInstance.applicationRegisterWithGooglePlus(dic) { (resPonce) in
+            LoadingView.show("Loading...", animated: true)
             CX_SocialIntegration.sharedInstance.chekTheEmailForSendingTheOTP({ (resPonce) in
                 if resPonce {
                     //If respoce is true show the alertview with textField
                     self.showTheAletView()
-                    
+                    LoadingView.hide()
+
                 }else{
                     self.leadToHomeScreen()
                     LoadingView.hide()
