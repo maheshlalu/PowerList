@@ -20,46 +20,47 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTJ-C1-1Je">
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="iohfdaisohdfoh aiohfdiqloah iolhdijha IIJHDJIHa dikjA" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTJ-C1-1Je">
                         <rect key="frame" x="5" y="5" width="274" height="40"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                     </textView>
                     <webView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FhF-t5-Yib">
                         <rect key="frame" x="5" y="5" width="310" height="40"/>
                         <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                     </webView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mapIconGray" translatesAutoresizingMaskIntoConstraints="NO" id="LUB-dG-E5b">
-                        <rect key="frame" x="277" y="8" width="35" height="35"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o45-Sc-GD2">
+                        <rect key="frame" x="275" y="5" width="40" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="35" id="3k6-kC-RdQ"/>
-                            <constraint firstAttribute="height" constant="35" id="k4R-IJ-Olk"/>
+                            <constraint firstAttribute="height" constant="40" id="Au9-U3-jUI"/>
+                            <constraint firstAttribute="width" constant="40" id="tyI-2n-wrl"/>
                         </constraints>
-                    </imageView>
+                        <state key="normal" image="mapIconGray"/>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
+                    <constraint firstItem="o45-Sc-GD2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="0wa-Cs-5Qb"/>
                     <constraint firstItem="iTJ-C1-1Je" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="8PI-21-7JK"/>
+                    <constraint firstAttribute="trailing" secondItem="o45-Sc-GD2" secondAttribute="trailing" constant="5" id="99R-Oo-kY6"/>
                     <constraint firstAttribute="trailing" secondItem="FhF-t5-Yib" secondAttribute="trailing" constant="5" id="CRA-u7-4Aw"/>
                     <constraint firstItem="iTJ-C1-1Je" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="EhY-WQ-Mvt"/>
-                    <constraint firstItem="LUB-dG-E5b" firstAttribute="centerY" secondItem="iTJ-C1-1Je" secondAttribute="centerY" id="FX8-3I-VMB"/>
                     <constraint firstAttribute="bottom" secondItem="FhF-t5-Yib" secondAttribute="bottom" constant="4" id="Ml0-EZ-c43"/>
                     <constraint firstItem="FhF-t5-Yib" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="PYU-7c-8dE"/>
                     <constraint firstAttribute="bottom" secondItem="iTJ-C1-1Je" secondAttribute="bottom" constant="4" id="XSF-PD-zWf"/>
                     <constraint firstItem="FhF-t5-Yib" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Xoy-4L-7Md"/>
                     <constraint firstItem="FhF-t5-Yib" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-3" id="lF6-w1-Ccs"/>
                     <constraint firstAttribute="trailing" secondItem="iTJ-C1-1Je" secondAttribute="trailing" constant="41" id="mbv-4A-LeB"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="LUB-dG-E5b" secondAttribute="trailing" id="uIk-E6-NNB"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="aboutWebView" destination="FhF-t5-Yib" id="I38-AF-SXm"/>
-                <outlet property="locationImageView" destination="LUB-dG-E5b" id="Nri-cp-iC8"/>
                 <outlet property="locationTextView" destination="iTJ-C1-1Je" id="BTH-lw-WFC"/>
+                <outlet property="mapBtn" destination="o45-Sc-GD2" id="sa6-8c-1m6"/>
             </connections>
-            <point key="canvasLocation" x="647" y="556"/>
+            <point key="canvasLocation" x="561" y="448"/>
         </tableViewCell>
     </objects>
     <resources>
