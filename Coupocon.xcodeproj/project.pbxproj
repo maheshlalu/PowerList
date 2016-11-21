@@ -14,7 +14,7 @@
 		110DD1C91DB0AD9C001F9BC1 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 110DD1C61DB0AD9C001F9BC1 /* TableViewCell.xib */; };
 		111C7D091DC07E4200D4FC09 /* membershipTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 111C7D081DC07E4200D4FC09 /* membershipTableViewCell.xib */; };
 		111C7D0B1DC08E7D00D4FC09 /* membershipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111C7D0A1DC08E7D00D4FC09 /* membershipTableViewCell.swift */; };
-		111C7D0D1DC0CD4F00D4FC09 /* HowToUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111C7D0C1DC0CD4F00D4FC09 /* HowToUseViewController.swift */; };
+		111C7D0D1DC0CD4F00D4FC09 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111C7D0C1DC0CD4F00D4FC09 /* TutorialViewController.swift */; };
 		1127C6B31DBE453100D92FF7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1127C6B21DBE453100D92FF7 /* LoadingView.swift */; };
 		11414C951DD1CA7C00FDD9A2 /* OTP .rtf in Resources */ = {isa = PBXBuildFile; fileRef = 11414C941DD1CA7C00FDD9A2 /* OTP .rtf */; };
 		1144E0501DDC3F0F00EDC6C4 /* NiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1144E0471DDC3F0F00EDC6C4 /* NiceButton.swift */; };
@@ -41,6 +41,9 @@
 		11D37EEC1DB8D75C0014F202 /* RedeemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11D37EE91DB8D75C0014F202 /* RedeemTableViewCell.xib */; };
 		11D37EED1DB8D75C0014F202 /* ReedemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D37EEA1DB8D75C0014F202 /* ReedemViewController.swift */; };
 		11D37EF01DB8DA140014F202 /* ProfileMembershipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D37EEF1DB8DA140014F202 /* ProfileMembershipViewController.swift */; };
+		11FC0D121DE2FEA50065F1D3 /* PagerMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11FC0D111DE2FEA50065F1D3 /* PagerMain.storyboard */; };
+		11FC0D141DE300880065F1D3 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FC0D131DE300880065F1D3 /* TutorialPageViewController.swift */; };
+		11FC0D181DE303D90065F1D3 /* BannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FC0D171DE303D90065F1D3 /* BannerViewController.swift */; };
 		180085F81DD49EAD00BE8D70 /* OTPTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180085F71DD49EAD00BE8D70 /* OTPTextViewController.swift */; };
 		1800D6191DD9D548006B7492 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1800D6181DD9D548006B7492 /* SystemConfiguration.framework */; };
 		18057E2F1DAFA33B0017F038 /* ICSDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18057E2C1DAFA33B0017F038 /* ICSDrawerController.m */; };
@@ -67,7 +70,6 @@
 		183763E51DDEE30100378F7F /* MerchantDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183763E41DDEE30100378F7F /* MerchantDetailsTableViewCell.swift */; };
 		183763E71DDEEB4A00378F7F /* MerchantLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183763E61DDEEB4A00378F7F /* MerchantLocationTableViewCell.swift */; };
 		183763E91DDEEB5400378F7F /* MerchantLocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183763E81DDEEB5400378F7F /* MerchantLocationTableViewCell.xib */; };
-		183763EE1DDF2C0000378F7F /* PagerMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183763ED1DDF2C0000378F7F /* PagerMain.storyboard */; };
 		189AB5F21DDD8F0300749C6F /* HelpTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189AB5EF1DDD8F0300749C6F /* HelpTableViewCell.swift */; };
 		189AB5F31DDD8F0300749C6F /* HelpTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189AB5F01DDD8F0300749C6F /* HelpTableViewCell.xib */; };
 		189AB5F41DDD8F0300749C6F /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189AB5F11DDD8F0300749C6F /* HelpViewController.swift */; };
@@ -136,7 +138,7 @@
 		110DD1C61DB0AD9C001F9BC1 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		111C7D081DC07E4200D4FC09 /* membershipTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = membershipTableViewCell.xib; sourceTree = "<group>"; };
 		111C7D0A1DC08E7D00D4FC09 /* membershipTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = membershipTableViewCell.swift; sourceTree = "<group>"; };
-		111C7D0C1DC0CD4F00D4FC09 /* HowToUseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToUseViewController.swift; sourceTree = "<group>"; };
+		111C7D0C1DC0CD4F00D4FC09 /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		1127C6B21DBE453100D92FF7 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		11414C941DD1CA7C00FDD9A2 /* OTP .rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "OTP .rtf"; sourceTree = "<group>"; };
 		1144E0471DDC3F0F00EDC6C4 /* NiceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NiceButton.swift; sourceTree = "<group>"; };
@@ -165,6 +167,9 @@
 		11D37EE91DB8D75C0014F202 /* RedeemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RedeemTableViewCell.xib; sourceTree = "<group>"; };
 		11D37EEA1DB8D75C0014F202 /* ReedemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReedemViewController.swift; sourceTree = "<group>"; };
 		11D37EEF1DB8DA140014F202 /* ProfileMembershipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileMembershipViewController.swift; sourceTree = "<group>"; };
+		11FC0D111DE2FEA50065F1D3 /* PagerMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PagerMain.storyboard; sourceTree = "<group>"; };
+		11FC0D131DE300880065F1D3 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
+		11FC0D171DE303D90065F1D3 /* BannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerViewController.swift; sourceTree = "<group>"; };
 		180085F71DD49EAD00BE8D70 /* OTPTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPTextViewController.swift; sourceTree = "<group>"; };
 		1800D6181DD9D548006B7492 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		18057E2B1DAFA33B0017F038 /* ICSDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICSDrawerController.h; sourceTree = "<group>"; };
@@ -193,7 +198,6 @@
 		183763E41DDEE30100378F7F /* MerchantDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MerchantDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		183763E61DDEEB4A00378F7F /* MerchantLocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MerchantLocationTableViewCell.swift; sourceTree = "<group>"; };
 		183763E81DDEEB5400378F7F /* MerchantLocationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MerchantLocationTableViewCell.xib; sourceTree = "<group>"; };
-		183763ED1DDF2C0000378F7F /* PagerMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PagerMain.storyboard; sourceTree = "<group>"; };
 		189AB5EF1DDD8F0300749C6F /* HelpTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpTableViewCell.swift; sourceTree = "<group>"; };
 		189AB5F01DDD8F0300749C6F /* HelpTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpTableViewCell.xib; sourceTree = "<group>"; };
 		189AB5F11DDD8F0300749C6F /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
@@ -417,7 +421,6 @@
 				18ED49FB1DB4C5B100A612BA /* HomeCollectionViewCell.xib */,
 				181C04EA1DB0F3F3006C05FF /* HomeTableCell.swift */,
 				18ED4A451DB62F7C00A612BA /* CustomNavBar.swift */,
-				111C7D0C1DC0CD4F00D4FC09 /* HowToUseViewController.swift */,
 				115CA1C91DC1E45500BE9D57 /* DealsCollectionViewCell.swift */,
 				115CA1CA1DC1E45500BE9D57 /* DealsCollectionViewCell.xib */,
 				180085F71DD49EAD00BE8D70 /* OTPTextViewController.swift */,
@@ -428,7 +431,10 @@
 		183763EA1DDF2AE900378F7F /* HowToUsePager */ = {
 			isa = PBXGroup;
 			children = (
-				183763ED1DDF2C0000378F7F /* PagerMain.storyboard */,
+				11FC0D171DE303D90065F1D3 /* BannerViewController.swift */,
+				11FC0D131DE300880065F1D3 /* TutorialPageViewController.swift */,
+				111C7D0C1DC0CD4F00D4FC09 /* TutorialViewController.swift */,
+				11FC0D111DE2FEA50065F1D3 /* PagerMain.storyboard */,
 			);
 			name = HowToUsePager;
 			sourceTree = "<group>";
@@ -727,7 +733,7 @@
 				181C04DA1DB0BA4D006C05FF /* Roboto-Black.ttf in Resources */,
 				189E7C7B1DB7722000A48CE2 /* OfferTableViewCell.xib in Resources */,
 				181C04DB1DB0BA4D006C05FF /* Roboto-Bold.ttf in Resources */,
-				183763EE1DDF2C0000378F7F /* PagerMain.storyboard in Resources */,
+				11FC0D121DE2FEA50065F1D3 /* PagerMain.storyboard in Resources */,
 				111C7D091DC07E4200D4FC09 /* membershipTableViewCell.xib in Resources */,
 				11414C951DD1CA7C00FDD9A2 /* OTP .rtf in Resources */,
 				181C04DC1DB0BA4D006C05FF /* Roboto-Italic.ttf in Resources */,
@@ -940,14 +946,16 @@
 				1144E0571DDC3F0F00EDC6C4 /* DPDUIView+Extension.swift in Sources */,
 				110DD1C81DB0AD9C001F9BC1 /* TableViewCell.swift in Sources */,
 				1144E0521DDC3F0F00EDC6C4 /* DropDown+Appearance.swift in Sources */,
+				11FC0D141DE300880065F1D3 /* TutorialPageViewController.swift in Sources */,
 				18057E301DAFA33B0017F038 /* ICSDropShadowView.m in Sources */,
-				111C7D0D1DC0CD4F00D4FC09 /* HowToUseViewController.swift in Sources */,
+				111C7D0D1DC0CD4F00D4FC09 /* TutorialViewController.swift in Sources */,
 				1144E0561DDC3F0F00EDC6C4 /* DPDKeyboardListener.swift in Sources */,
 				11D37EED1DB8D75C0014F202 /* ReedemViewController.swift in Sources */,
 				189AB5F21DDD8F0300749C6F /* HelpTableViewCell.swift in Sources */,
 				189AB5F41DDD8F0300749C6F /* HelpViewController.swift in Sources */,
 				181781B81DD06DE800A935FB /* CXPayMentController.swift in Sources */,
 				18C90C041DAF78DF0053F8D7 /* AppDelegate.swift in Sources */,
+				11FC0D181DE303D90065F1D3 /* BannerViewController.swift in Sources */,
 				18ED49FC1DB4C5B100A612BA /* HomeCollectionViewCell.swift in Sources */,
 				18ED4A4C1DB6488700A612BA /* MapViewController.swift in Sources */,
 				18ED4A441DB6180500A612BA /* KIImagePager.m in Sources */,

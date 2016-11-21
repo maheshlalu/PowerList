@@ -109,13 +109,14 @@ class OTPTextViewController: UIViewController,UITextFieldDelegate {
             
             if status == 1{
                 // If Status is 1 then the user email id is already regesterd with email.Can't able to send OTP. Which means give another email.
-                self.showAlertView(message, status: 0)
+                self.showAlertView(message, status: 200)
                 return
             }else{
                 //Sending the OTP to given mobile number (status is -1 or 0). Eligible to send OTP.
                 LoadingView.show("Loading...", animated: true)
                 self.sendingOTPForGivenNumber()
                 LoadingView.hide()
+                
             }
             
         }
@@ -142,7 +143,7 @@ class OTPTextViewController: UIViewController,UITextFieldDelegate {
             }
         }
     }
-    
+
 
     
     
@@ -189,8 +190,9 @@ class OTPTextViewController: UIViewController,UITextFieldDelegate {
                 profile.otpEmail = CXAppConfig.sharedInstance.getTheUserData().userEmail
                 self.navigationController?.pushViewController(profile, animated: true)
                 
-            }else{
-                
+            }else if status == 200{
+                let appDel = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDel.setUpSidePanl()
             }
         }
         alert.addAction(okAction)

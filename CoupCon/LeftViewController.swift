@@ -126,7 +126,7 @@ import UIKit
         }else if itemName == "HOW TO USE"{
             
             let storyBoard = UIStoryboard(name: "PagerMain", bundle: NSBundle.mainBundle())
-            let howToUse = storyBoard.instantiateViewControllerWithIdentifier("HowToUseViewController") as! HowToUseViewController
+            let howToUse = storyBoard.instantiateViewControllerWithIdentifier("TutorialViewController") as! TutorialViewController
             let navCntl = UINavigationController(rootViewController: howToUse)
             revealController.pushFrontViewController(navCntl, animated: true)
             

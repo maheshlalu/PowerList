@@ -252,7 +252,6 @@ class CX_SocialIntegration: NSObject {
                 completion(resPonce: true)
                 LoadingView.hide()
             }
-            
         }
     }
     
