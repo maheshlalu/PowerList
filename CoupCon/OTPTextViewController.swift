@@ -69,7 +69,7 @@ class OTPTextViewController: UIViewController,UITextFieldDelegate {
             
         }else{
             
-            if mobileTxtField.text?.characters.count < limitLength{
+            if mobileTxtField.text?.characters.count != limitLength{
                 self.showAlertView("Please Enter Valid Mobile Number!!!!", status: 0)
                 
             }else{

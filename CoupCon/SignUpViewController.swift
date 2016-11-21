@@ -113,7 +113,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
             self.mobileTextField.text?.characters.count > 0 {
             
             
-            if self.mobileTextField.text?.characters.count < 10 {
+            if self.mobileTextField.text!.characters.count != 10 {
                 self.mobileTextField.errorMessage = "Invalid Mobile"
                 return
             }else{
