@@ -97,12 +97,17 @@ class ReedemViewController: UIViewController,UITableViewDataSource,UITableViewDe
     func setUpSideMenu(){
         
         let menuItem = UIBarButtonItem(image: UIImage(named: "sidePanelMenu"), style: .Plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
-        menuItem.tintColor = UIColor.grayColor()
+        menuItem.tintColor = UIColor.whiteColor()
         self.navigationItem.leftBarButtonItem = menuItem
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        
+        
+        let navigation:UINavigationItem = navigationItem
+        navigation.title  = "Redemption History"
+        
         
         //self.sideMenuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), forControlEvents: .TouchUpOutside)
     }

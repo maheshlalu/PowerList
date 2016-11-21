@@ -193,7 +193,7 @@ import UIKit
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) {
             UIAlertAction in
             if status == 1 {
-                
+                self.previousSelectedIndex = NSIndexPath(forRow: 0, inSection: 0)
             }
         }
         alert.addAction(okAction)

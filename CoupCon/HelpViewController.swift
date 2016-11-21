@@ -16,9 +16,6 @@ class HelpViewController: UIViewController,UITableViewDataSource,UITableViewDele
     
     @IBOutlet weak var helpTableView: UITableView!
     
-    //var nameArray = ["TIME","REACH US","ADDRESS","LINK US"]
-    //var discriptionArray = ["09:00am-20:00pm","9642392328","h.no-51 \n himayathnagar \n hyderabad"]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,15 +33,21 @@ class HelpViewController: UIViewController,UITableViewDataSource,UITableViewDele
         self.helpTableView.registerNib(nib, forCellReuseIdentifier: "HelpTableViewCell")
         
         
-        navigationBar()
+        setUpSideMenu()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    func navigationBar(){
+    func setUpSideMenu(){
         
-        self.navigationItem.setHidesBackButton(false, animated:true);
+        let menuItem = UIBarButtonItem(image: UIImage(named: "sidePanelMenu"), style: .Plain, target: self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)))
+        menuItem.tintColor = UIColor.whiteColor()
+        self.navigationItem.leftBarButtonItem = menuItem
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        // navigationController?.setNavigationBarHidden(false, animated: true)
         let navigation:UINavigationItem = navigationItem
-        navigation.title  = "Add Event"
+        navigation.title  = "Help"
+        //self.sideMenuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), forControlEvents: .TouchUpOutside)
     }
     
     

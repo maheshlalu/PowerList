@@ -20,12 +20,14 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
     @IBOutlet weak var subscribeBtn: UIButton!
     @IBOutlet weak var codeTextView: UITextField!
     @IBOutlet weak var MemberShipLbl: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         membershipBtnLabels()
         
         codeTextView.delegate = self
-        
+        self.automaticallyAdjustsScrollViewInsets = false
         let nib = UINib(nibName: "membershipTableViewCell", bundle: nil)
         self.detailsTableView.registerNib(nib, forCellReuseIdentifier: "membershipTableViewCell")
         self.view.backgroundColor = CXAppConfig.sharedInstance.getAppBGColor()
@@ -34,16 +36,7 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
         self.detailsTableView.removeFromSuperview()
        self.checkTheUserActive()
         self.subscribeBtn.layer.cornerRadius = 8.0
-        
-       // self.view.backgroundColor = UIColor(patternImage: UIImage(named: "leftpanel_image")!)
-        
-           }
-    /*
-     userStatus
-     
-     CXDataService.sharedInstance.getTheAppDataFromServer(["type" : "macidinfo","mallId" : CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in
-ValidTill
-     */
+    }
     
     func checkTheUserActive(){
         
@@ -134,6 +127,8 @@ ValidTill
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         
+        let navigation:UINavigationItem = navigationItem
+        navigation.title  = "Profile & Membership"
         //self.sideMenuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), forControlEvents: .TouchUpOutside)
     }
     

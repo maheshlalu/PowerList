@@ -52,7 +52,7 @@ class TutorialViewController: UIViewController {
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         // navigationController?.setNavigationBarHidden(false, animated: true)
         let navigation:UINavigationItem = navigationItem
-        navigation.title  = "HOW TO USE"
+        navigation.title  = "How To Use"
         //self.sideMenuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), forControlEvents: .TouchUpOutside)
     }
 }
