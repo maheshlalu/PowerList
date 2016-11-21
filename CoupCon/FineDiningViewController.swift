@@ -32,11 +32,11 @@ class FineDiningViewController: UIViewController {
         super.viewDidLoad()
         constructTheOfferReedemJson()
         self.aboutBtn.backgroundColor = CXAppConfig.sharedInstance.getAppTheamColor()
-       // self.dealBackgroundImg.setImageWithURL(NSURL(string:(dealsDic.valueForKey("BackgroundImage_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
+        // self.dealBackgroundImg.setImageWithURL(NSURL(string:(dealsDic.valueForKey("BackgroundImage_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
         NSUserDefaults.standardUserDefaults().setObject(dealsDic.valueForKey("Image_URL"), forKey: "POPUP_LOGO")
         
         self.backLbl.titleLabel?.text = dealsDic.valueForKey("Name") as?String
-
+        
         let offersController : AboutUsViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("AboutUsViewController") as? AboutUsViewController)!
         offersController.offersDic = NSDictionary(dictionary: self.dealsDic)
         self.currentViewController = offersController
@@ -51,9 +51,30 @@ class FineDiningViewController: UIViewController {
         self.imageViewAimations()
         
         self.likeButton.selected = CXDataService.sharedInstance.productIsAddedinList(CXAppConfig.resultString(dealsDic.valueForKey("id")!))
-
+        
+        //self.hideMapButton()
+        
+        self.mapBtn.hidden = true
     }
     
+    
+    func hideMapButton(){
+        
+       /* print(dealsDic.valueForKey("Latitude"))
+      
+        if (((dealsDic.valueForKey("") as? String)) != nil) {
+            self.mapBtn.hidden = true
+
+        }else{
+            
+        if ((dealsDic?.valueForKey("Latitude") as? [AnyObject]) != nil) {
+            
+        }else{
+            self.mapBtn.hidden = false
+            }
+        }
+        */
+    }
     
     func imageViewAimations(){
         
@@ -155,15 +176,21 @@ class FineDiningViewController: UIViewController {
     }
     
     @IBAction func locationButtonAction(sender: AnyObject) {
+        if ((dealsDic?.valueForKey("Latitude") as? [AnyObject]) != nil) {
+            return;
+        }else{
+        }
         
-        let sourceLatitude = 17.4436
-        let sourceLongtitude = 78.4458
+//        let sourceLatitude = 17.4436
+//        let sourceLongtitude = 78.4458
+//        
+        
         let destinationLatitude = Double(dealsDic.valueForKey("Latitude")! as! String)
         let destinationLongtitude = Double(dealsDic.valueForKey("Longitude")! as! String)
-        let googleMapUrlString = String.localizedStringWithFormat("http://maps.google.com/?saddr=%f,%f&daddr=%f,%f", sourceLatitude, sourceLongtitude, destinationLatitude!, destinationLongtitude!)
+        let googleMapUrlString = String.localizedStringWithFormat("http://maps.google.com/?daddr=%f,%f", destinationLatitude!, destinationLongtitude!)
         UIApplication.sharedApplication().openURL(NSURL(string:
             googleMapUrlString)!)
-        
+        //saddr=%f,%f&
     }
     func addSubview(subView:UIView, toView parentView:UIView) {
         parentView.addSubview(subView)
@@ -175,6 +202,8 @@ class FineDiningViewController: UIViewController {
         parentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[subView]|",
             options: [], metrics: nil, views: viewBindingsDict))
     }
+    
+    
     
     
     @IBAction func offerButtonAction(sender: UIButton) {
