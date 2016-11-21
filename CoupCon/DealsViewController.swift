@@ -190,15 +190,52 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
     
     func phoneBtnAction(button : UIButton!){
         
-        let dealsDict : NSDictionary = self.dealsArray[button.tag-1] as! NSDictionary
-        let phoneNumber = dealsDict.valueForKey("PhoneNumber") as?String
-        if (phoneNumber != nil) {
-            if  UIApplication.sharedApplication().canOpenURL(NSURL(string: "tel://\(phoneNumber!)")!) {
-                UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(phoneNumber!)")!)
-
-            }
+        let dealsDataDict : NSDictionary = self.dealsArray[button.tag-1] as! NSDictionary
+//        let phoneNumber = dealsDict.valueForKey("PhoneNumber") as?String
+//        if (phoneNumber != nil) {
+//            if  UIApplication.sharedApplication().canOpenURL(NSURL(string: "tel://\(phoneNumber!)")!) {
+//                UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(phoneNumber!)")!)
+//
+//            }
+//        }
+        
+        
+        var addressArray : NSMutableArray = NSMutableArray()
+        
+        if ((dealsDataDict.valueForKey("PhoneNumber") as? [String]) != nil) {
+            //Array
+            addressArray  = NSMutableArray(array: (dealsDataDict.valueForKey("PhoneNumber"))! as! NSArray)
+        }else{
+            //String
+            let primaryNumber = dealsDataDict.valueForKeyPath("PhoneNumber") as! String!
+            addressArray.addObject(primaryNumber)
+            
+            
         }
+        
+        if addressArray.count == 1 {
+            self.callNumber((addressArray.lastObject as? String)!)
+            
+        }else{
+            
+            let alert = UIAlertController(title: "Mobile", message: "Please Select Number", preferredStyle: .ActionSheet) // 1
+            
+            for item in addressArray {
+                let firstAction = UIAlertAction(title: item as! String, style: .Default) { (alert: UIAlertAction!) -> Void in
+                    self.callNumber(alert.title!)
+                } // 2
+                alert.addAction(firstAction) // 4
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (alert: UIAlertAction!) -> Void in
+            }
+            alert.addAction(cancelAction)
+            presentViewController(alert, animated: true, completion:nil)
+        }
+
  
+    }
+    private func callNumber(phoneNumber:String) {
+        UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(phoneNumber)")!)
     }
     
     func likeBtnAction(button : UIButton!){
