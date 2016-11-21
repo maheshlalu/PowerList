@@ -294,10 +294,43 @@ class FineDiningViewController: UIViewController {
     }
 
     @IBAction func callBtnAction(sender: AnyObject) {
-        let primaryNumber = self.dealsDic.valueForKeyPath("Phone number") as! String!
-        if primaryNumber != ""{
-             callNumber(primaryNumber!)
+//        if primaryNumber != ""{
+//             callNumber(primaryNumber!)
+//        }
+        
+         var addressArray : NSMutableArray = NSMutableArray()
+        
+        if ((dealsDic?.valueForKey("PhoneNumber") as? [String]) != nil) {
+            //Array
+             addressArray  = NSMutableArray(array: (dealsDic?.valueForKey("PhoneNumber"))! as! NSArray)
+        }else{
+            //String
+            let primaryNumber = self.dealsDic.valueForKeyPath("PhoneNumber") as! String!
+             addressArray.addObject(primaryNumber)
+      
+            
         }
+        
+        if addressArray.count == 1 {
+            self.callNumber((addressArray.lastObject as? String)!)
+
+        }else{
+     
+        let alert = UIAlertController(title: "Mobile", message: "Please Select Number", preferredStyle: .ActionSheet) // 1
+        
+        for item in addressArray {
+            let firstAction = UIAlertAction(title: item as! String, style: .Default) { (alert: UIAlertAction!) -> Void in
+                self.callNumber(alert.title!)
+            } // 2
+            alert.addAction(firstAction) // 4
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (alert: UIAlertAction!) -> Void in
+        }
+        alert.addAction(cancelAction)
+        presentViewController(alert, animated: true, completion:nil)
+        }
+       // let actionSheetController: UIAlertController = UIAlertController(title: "Please select Phone Number", message: "Option to select", preferredStyle: .ActionSheet)
+
  
     }
     
@@ -305,8 +338,9 @@ class FineDiningViewController: UIViewController {
         
         let description = "Coupcon"
         let url = self.dealsDic.valueForKey("publicURL") as? String
+        let encodedPublicUrl = String(UTF8String: url!.cStringUsingEncoding(NSUTF8StringEncoding)!)
         
-        let activityViewController:UIActivityViewController = UIActivityViewController(activityItems: [description,url!], applicationActivities: nil)
+        let activityViewController:UIActivityViewController = UIActivityViewController(activityItems: [description,encodedPublicUrl!], applicationActivities: nil)
         activityViewController.excludedActivityTypes = [UIActivityTypePrint, UIActivityTypePostToWeibo, UIActivityTypeCopyToPasteboard, UIActivityTypeAddToReadingList, UIActivityTypePostToVimeo]
         self.presentViewController(activityViewController, animated: true, completion: nil)
         

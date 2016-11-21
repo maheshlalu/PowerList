@@ -16,7 +16,7 @@ import UIKit
     
     let managedObjectContext:NSManagedObjectContext! = nil//Birthday Offers"//Redemption History
     var previousSelectedIndex  : NSIndexPath = NSIndexPath()
-    var nameArray = ["HOME","PROFILE & MEMBERSHIP","REDEMPTION HISTORY","FAVOURITES","BIRTHDAY OFFERS","HOW TO USE","HELP","SIGN OUT"]
+    var nameArray = ["HOME","PROFILE & MEMBERSHIP","REDEMPTION HISTORY","FAVOURITES","BIRTHDAY OFFERS","HOW TO USE","ABOUT US","SIGN OUT"]
     var imageArray = ["HomeImage","Profile & membershipImage","sidePanelRedeem20","favourites","bthDayOffer","HowtoUseImage","Helpimage","PowerBtn"]
     
     override func viewDidLoad() {
@@ -130,7 +130,7 @@ import UIKit
             let navCntl = UINavigationController(rootViewController: howToUse)
             revealController.pushFrontViewController(navCntl, animated: true)
             
-        }else if itemName == "HELP" {
+        }else if itemName == "ABOUT US" {
             
             //showAlertView("Coming Soon!!!", status: 0)
             let help = storyBoard.instantiateViewControllerWithIdentifier("HelpViewController") as! HelpViewController

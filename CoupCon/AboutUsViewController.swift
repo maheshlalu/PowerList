@@ -169,7 +169,7 @@ extension AboutUsViewController : UITableViewDelegate,UITableViewDataSource {
         detailCell.mapBtn.hidden = true
         let aboutTxt :String =  self.offersDic?.valueForKey("Description") as! String
         //let aboutTxt :String =  self.offersDic?.valueForKey("Offers") as! String
-        // self.aboutTextView.text = aboutTxt
+        // self.aboutT.extView.text = aboutTxt
         let descriptionTxt = "<span style=\"font-family: Roboto-Regular; font-size: 13\">\(aboutTxt)</span>"
         print(aboutTxt)
         detailCell.aboutWebView.loadHTMLString(descriptionTxt, baseURL: nil)

@@ -39,10 +39,10 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
     }
     
     func checkTheUserActive(){
-        
+        LoadingView.show("Loading...", animated: true)
         CXDataService.sharedInstance.getTheAppDataFromServer(["type" : "macidinfo","mallId" : CXAppConfig.sharedInstance.getAppMallID(),"keyWord":CXAppConfig.sharedInstance.getEmail()]) { (responseDict) in
+            LoadingView.hide()
             //if status == "1" {
-            print(responseDict)
             let resultArray : NSArray = NSArray(array: (responseDict.valueForKey("jobs") as? NSArray)!)
             let macIdDict : NSDictionary = (resultArray.lastObject as? NSDictionary)!
                 let userStatus : String = (macIdDict.valueForKey("userStatus") as?String)!
