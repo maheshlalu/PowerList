@@ -80,6 +80,28 @@ class AboutUsViewController: UIViewController {
     
     func parsingAboutUsDetails(){
         
+        
+        let keys = ["jobTypeName","Timings","Image_URL","Address","PhoneNumber","Latitude","Longitude","Location"]
+        let dictionaryKeys : NSArray = (offersDic?.allKeys)!
+        var isContains : Bool = false
+        
+        for string in keys {
+            
+            if dictionaryKeys.containsObject(string) {
+                isContains = true
+            }else{
+                isContains = false
+                break
+            }
+            
+            //let contained = dictionaryKeys!.contains("2")
+           // dictionaryKeys.contains(6)
+
+        }
+       
+        if isContains {
+      
+        
         self.merchantDict = NSMutableDictionary()
         self.merchantDict! .setObject((offersDic?.valueForKey("jobTypeName"))!, forKey: "Category")
         self.merchantDict! .setObject((offersDic?.valueForKey("Timings"))!, forKey: "Timings")
@@ -95,7 +117,6 @@ class AboutUsViewController: UIViewController {
             let longitudeArray : NSArray = (offersDic?.valueForKey("Longitude"))! as! NSArray
             let location : NSArray = (offersDic?.valueForKey("Location"))! as! NSArray
           //  print("\(addressArray)\(phoneArray)\(latitudeArray)\(longitudeArray)\(location)")
-            
             for var i = 0; i < addressArray.count; i += 1 {
                 let locationStruct : StoreLocations = StoreLocations(Latitude: latitudeArray[i] as! String, longitude: longitudeArray[i] as! String , location: location[i] as! String, phoneNumber: phoneArray[i] as! String, address: addressArray[i] as! String)
                 storeLocationArray.append(locationStruct)
@@ -104,7 +125,9 @@ class AboutUsViewController: UIViewController {
             
             
         }else{
-            //String
+
+        //String
+        print(offersDic?.allKeys)
             
             let locationStruct : StoreLocations = StoreLocations(Latitude: offersDic?.valueForKey("Latitude") as! String, longitude: (offersDic?.valueForKey("Longitude"))! as! String, location: (offersDic?.valueForKey("Location")) as! String, phoneNumber: (offersDic?.valueForKey("PhoneNumber")) as! String, address: (offersDic?.valueForKey("Address")) as! String)
             storeLocationArray.append(locationStruct)
@@ -116,6 +139,8 @@ class AboutUsViewController: UIViewController {
         //Latitude
         //Longitude
     }
+        
+    }
     
     
 }
@@ -125,10 +150,15 @@ extension AboutUsViewController : UITableViewDelegate,UITableViewDataSource {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
-        let aboutTxt :String =  self.offersDic?.valueForKey("Description") as! String
-        if aboutTxt.isEmpty {
-            return 2
+        if ((self.merchantDict?.valueForKey("Description")) != nil){
+            let aboutTxt :String =  self.offersDic?.valueForKey("Description") as! String
+            if aboutTxt.isEmpty {
+                return 2
+            }
+        }else{
+            return 1
         }
+       
         return 3
     }
     
@@ -146,7 +176,11 @@ extension AboutUsViewController : UITableViewDelegate,UITableViewDataSource {
         tableView.allowsSelection = false
         if indexPath.section == 0 {
             let detailCell:MerchantDetailsTableViewCell = (tableView.dequeueReusableCellWithIdentifier("MerchantDetailsTableViewCell", forIndexPath: indexPath)as? MerchantDetailsTableViewCell)!
-            detailCell.iconImgView.setImageWithURL(NSURL(string:(self.merchantDict!.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
+            
+            if ((self.merchantDict?.valueForKey("Image_URL")) != nil){
+                detailCell.iconImgView.setImageWithURL(NSURL(string:(self.merchantDict!.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
+            }
+        
             return detailCell
             
         }else if indexPath.section == 1 {

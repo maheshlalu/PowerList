@@ -3,7 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>MALL_ID</key>
-	<string>20217</string>
+	<string>6</string>
+	<key>testUrl</key>
+	<string>http://apps.storeongo.com:8081/</string>
 	<key>AppTheamColor</key>
 	<array>
 		<string>237</string>

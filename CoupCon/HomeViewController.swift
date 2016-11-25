@@ -156,12 +156,16 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
         
         CXDataService.sharedInstance.getTheAppDataFromServer(["type":"Stores","mallId":CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in
             let jobs : NSArray =  responseDict.valueForKey("jobs")! as! NSArray
+            if jobs.count == 0 {
+                
+            }else{
             let jobDic : NSDictionary = (jobs.lastObject as? NSDictionary)!
             let attachMents : NSArray =  jobDic.valueForKey("Attachments")! as! NSArray
             for attachMent in attachMents {
                 let galaryData : NSDictionary = (attachMent as? NSDictionary)!
                 if galaryData.valueForKey("isBannerImage") as? String == "true" {
                     self.coverPageImagesList.addObject((galaryData.valueForKey("URL") as? String)!)
+                }
                 }
             }
             self.pagerView.checkWetherToToggleSlideshowTimer()

@@ -95,6 +95,9 @@
 		18D160631DB8E088009FF71D /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D1605D1DB8C903009FF71D /* UserProfile.swift */; };
 		18D29F021DDC48DE00569AC9 /* CX_Stores+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D29F001DDC48DE00569AC9 /* CX_Stores+CoreDataProperties.swift */; };
 		18D29F031DDC48DE00569AC9 /* CX_Stores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D29F011DDC48DE00569AC9 /* CX_Stores.swift */; };
+		18EA0EF11DE6B965007EC6E2 /* AboutCoupoconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EA0EF01DE6B965007EC6E2 /* AboutCoupoconViewController.swift */; };
+		18EA0EF41DE6BA8E007EC6E2 /* AboutUsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EA0EF21DE6BA8E007EC6E2 /* AboutUsTableViewCell.swift */; };
+		18EA0EF51DE6BA8E007EC6E2 /* AboutUsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EA0EF31DE6BA8E007EC6E2 /* AboutUsTableViewCell.xib */; };
 		18ED49F51DB4B07200A612BA /* FineDiningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED49F41DB4B07200A612BA /* FineDiningViewController.swift */; };
 		18ED49FC1DB4C5B100A612BA /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED49FA1DB4C5B100A612BA /* HomeCollectionViewCell.swift */; };
 		18ED49FD1DB4C5B100A612BA /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18ED49FB1DB4C5B100A612BA /* HomeCollectionViewCell.xib */; };
@@ -232,6 +235,9 @@
 		18D160601DB8DFFA009FF71D /* CX_SocialIntegration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CX_SocialIntegration.swift; sourceTree = "<group>"; };
 		18D29F001DDC48DE00569AC9 /* CX_Stores+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CX_Stores+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		18D29F011DDC48DE00569AC9 /* CX_Stores.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CX_Stores.swift; sourceTree = "<group>"; };
+		18EA0EF01DE6B965007EC6E2 /* AboutCoupoconViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutCoupoconViewController.swift; sourceTree = "<group>"; };
+		18EA0EF21DE6BA8E007EC6E2 /* AboutUsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsTableViewCell.swift; sourceTree = "<group>"; };
+		18EA0EF31DE6BA8E007EC6E2 /* AboutUsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutUsTableViewCell.xib; sourceTree = "<group>"; };
 		18ED49F41DB4B07200A612BA /* FineDiningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FineDiningViewController.swift; sourceTree = "<group>"; };
 		18ED49FA1DB4C5B100A612BA /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		18ED49FB1DB4C5B100A612BA /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -353,6 +359,7 @@
 				111C7D081DC07E4200D4FC09 /* membershipTableViewCell.xib */,
 				11D37EEF1DB8DA140014F202 /* ProfileMembershipViewController.swift */,
 				181781B21DD0609A00A935FB /* Readme.txt */,
+				18EA0EF01DE6B965007EC6E2 /* AboutCoupoconViewController.swift */,
 			);
 			name = SidePanel;
 			sourceTree = "<group>";
@@ -409,6 +416,8 @@
 		181C04E91DB0F3C9006C05FF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				18EA0EF21DE6BA8E007EC6E2 /* AboutUsTableViewCell.swift */,
+				18EA0EF31DE6BA8E007EC6E2 /* AboutUsTableViewCell.xib */,
 				183763E61DDEEB4A00378F7F /* MerchantLocationTableViewCell.swift */,
 				183763E81DDEEB5400378F7F /* MerchantLocationTableViewCell.xib */,
 				183763E21DDEE2B700378F7F /* MerchantDetailsTableViewCell.xib */,
@@ -729,6 +738,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				183763E91DDEEB5400378F7F /* MerchantLocationTableViewCell.xib in Resources */,
+				18EA0EF51DE6BA8E007EC6E2 /* AboutUsTableViewCell.xib in Resources */,
 				181C04E81DB0EC4F006C05FF /* CXProjectConfiguration.plist in Resources */,
 				181C04DA1DB0BA4D006C05FF /* Roboto-Black.ttf in Resources */,
 				189E7C7B1DB7722000A48CE2 /* OfferTableViewCell.xib in Resources */,
@@ -928,6 +938,7 @@
 				18ED4A461DB62F7C00A612BA /* CustomNavBar.swift in Sources */,
 				1127C6B31DBE453100D92FF7 /* LoadingView.swift in Sources */,
 				180085F81DD49EAD00BE8D70 /* OTPTextViewController.swift in Sources */,
+				18EA0EF11DE6B965007EC6E2 /* AboutCoupoconViewController.swift in Sources */,
 				18C160511DB222820083F16D /* DealsViewController.swift in Sources */,
 				18C90C4A1DAF7CED0053F8D7 /* HomeViewController.swift in Sources */,
 				11D37EF01DB8DA140014F202 /* ProfileMembershipViewController.swift in Sources */,
@@ -948,6 +959,7 @@
 				1144E0521DDC3F0F00EDC6C4 /* DropDown+Appearance.swift in Sources */,
 				11FC0D141DE300880065F1D3 /* TutorialPageViewController.swift in Sources */,
 				18057E301DAFA33B0017F038 /* ICSDropShadowView.m in Sources */,
+				18EA0EF41DE6BA8E007EC6E2 /* AboutUsTableViewCell.swift in Sources */,
 				111C7D0D1DC0CD4F00D4FC09 /* TutorialViewController.swift in Sources */,
 				1144E0561DDC3F0F00EDC6C4 /* DPDKeyboardListener.swift in Sources */,
 				11D37EED1DB8D75C0014F202 /* ReedemViewController.swift in Sources */,

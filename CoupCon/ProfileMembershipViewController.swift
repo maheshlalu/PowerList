@@ -394,8 +394,7 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
                 jsondDic.setObject(validTill, forKey: "ValidTill")
                 self.activeTheUser(jsondDic, jobId:CXAppConfig.sharedInstance.getMacJobID())
             }
-            self.navigationController?.pushViewController(profileView, animated: true)
-            LoadingView.hide()
+              LoadingView.hide()
         }
         
         
