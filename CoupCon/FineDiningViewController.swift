@@ -305,17 +305,20 @@ class FineDiningViewController: UIViewController {
              addressArray  = NSMutableArray(array: (dealsDic?.valueForKey("PhoneNumber"))! as! NSArray)
         }else{
             //String
-            let primaryNumber = self.dealsDic.valueForKeyPath("PhoneNumber") as! String!
-             addressArray.addObject(primaryNumber)
+            if ((self.dealsDic.valueForKey("PhoneNumber")) != nil){
+                let primaryNumber = self.dealsDic.valueForKeyPath("PhoneNumber") as! String!
+                addressArray.addObject(primaryNumber)
+            }
       
             
         }
-        
+        if addressArray.count == 0 {
+            return
+        }
         if addressArray.count == 1 {
             self.callNumber((addressArray.lastObject as? String)!)
 
         }else{
-     
         let alert = UIAlertController(title: "Mobile", message: "Please Select Number", preferredStyle: .ActionSheet) // 1
         
         for item in addressArray {
@@ -338,13 +341,19 @@ class FineDiningViewController: UIViewController {
         
         let description = "Coupcon"
         let url = self.dealsDic.valueForKey("publicURL") as? String
-        let encodedPublicUrl = String(UTF8String: url!.cStringUsingEncoding(NSUTF8StringEncoding)!)
+        //let encodedPublicUrl = String(UTF8String: url!.cStringUsingEncoding(NSUTF8StringEncoding)!)
         
-        let activityViewController:UIActivityViewController = UIActivityViewController(activityItems: [description,encodedPublicUrl!], applicationActivities: nil)
+        let encodedPublicUrl = url!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+        print(encodedPublicUrl)
+        
+        let activityViewController:UIActivityViewController = UIActivityViewController(activityItems: [description,encodedPublicUrl], applicationActivities: nil)
         activityViewController.excludedActivityTypes = [UIActivityTypePrint, UIActivityTypePostToWeibo, UIActivityTypeCopyToPasteboard, UIActivityTypeAddToReadingList, UIActivityTypePostToVimeo]
         self.presentViewController(activityViewController, animated: true, completion: nil)
         
     }
+    
+    
+    
     
     private func callNumber(phoneNumber:String) {
         UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(phoneNumber)")!)
@@ -362,6 +371,18 @@ extension FineDiningViewController:KIImagePagerDelegate,KIImagePagerDataSource {
     
     func arrayWithImages(pager: KIImagePager!) -> [AnyObject]! {
         return self.coverPageImagesList as [AnyObject]
+    }
+    
+}
+
+extension String {
+    
+    /// Returns a new string made from the `String` by replacing all characters not in the unreserved
+    /// character set (As defined by RFC3986) with percent encoded characters.
+    
+    func stringByAddingPercentEncodingForURLQueryParameter(needsLove:String) -> String? {
+        let safeURL = needsLove.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+        return safeURL
     }
     
 }

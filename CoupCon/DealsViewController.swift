@@ -207,8 +207,11 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
             addressArray  = NSMutableArray(array: (dealsDataDict.valueForKey("PhoneNumber"))! as! NSArray)
         }else{
             //String
-            let primaryNumber = dealsDataDict.valueForKeyPath("PhoneNumber") as! String!
-            addressArray.addObject(primaryNumber)
+            
+            if ((dealsDataDict.valueForKey("PhoneNumber")) != nil){
+                let primaryNumber = dealsDataDict.valueForKeyPath("PhoneNumber") as! String!
+                addressArray.addObject(primaryNumber)
+            }
             
             
         }
@@ -235,6 +238,8 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
  
     }
     private func callNumber(phoneNumber:String) {
+        print(phoneNumber)
+
         UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(phoneNumber)")!)
     }
     
