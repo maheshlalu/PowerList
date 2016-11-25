@@ -63,5 +63,9 @@
 		<string>232</string>
 		<string>232</string>
 	</array>
+	<key>paymentProductionUrl</key>
+	<string>http://54.179.48.83/OngoStoresPG/coupoconPG?</string>
+	<key>paymentTestBaseURL</key>
+	<string>http://54.179.48.83:9000/OngoStoresPG/coupoconPG?</string>
 </dict>
 </plist>

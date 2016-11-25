@@ -197,7 +197,7 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
       
         
         CX_SocialIntegration.sharedInstance.updateTheSaveConsumerProperty(["ownerId":CXAppConfig.sharedInstance.getAppMallID(),"jobId":jobId,"jsonString":jsonStringFormat!]) { (resPonce) in     0
-            
+            self.checkTheUserActive()
             self.navigationController?.popToRootViewControllerAnimated(true)
             
         }
@@ -260,7 +260,7 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
                 ///self.inActiveTheJob(inactivedic, jobId:"200105") 
                 
                 
-                CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("http://storeongo.com:8081/MobileAPIs/changeJobStatus?", parameters: ["providerEmail":CXAppConfig.sharedInstance.getEmail(),"mallId":CXAppConfig.sharedInstance.getAppMallID(),"jobId":CXAppConfig.resultString(dic.valueForKey("id")!),"jobStatusId":dic.valueForKey("jobTypeId")!]) { (responseDict) in
+                CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("\(CXAppConfig.sharedInstance.getBaseUrl())MobileAPIs/changeJobStatus?", parameters: ["providerEmail":CXAppConfig.sharedInstance.getEmail(),"mallId":CXAppConfig.sharedInstance.getAppMallID(),"jobId":CXAppConfig.resultString(dic.valueForKey("id")!),"jobStatusId":dic.valueForKey("jobTypeId")!]) { (responseDict) in
                     print(responseDict)
                 }
                 //SubscriptionType
@@ -370,7 +370,9 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
         self.navigationController?.pushViewController(profileView, animated: true)
         LoadingView.hide()*/
         //http://test.com:9000/OngoStoresPG/coupoconPG?name=vinodha&email=vinodhapudari@gmail.com&amount=10&description=Test%20api&phone=9660008880&macId=101&mallId=2
-        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("http://54.179.48.83:9000/OngoStoresPG/coupoconPG?", parameters: ["name":userProfileData.firstName!,"email":userProfileData.emailId!,"amount":amount,"description":"Coupocon Payment","phone":CXAppConfig.sharedInstance.getPhoneNumber(),"macId":userProfileData.macId!,"mallId":CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in
+        
+        //CXAppConfig.sharedInstance.getPaymentGateWayUrl()
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getPaymentGateWayUrl(), parameters: ["name":userProfileData.firstName!,"email":userProfileData.emailId!,"amount":amount,"description":"Coupocon Payment","phone":CXAppConfig.sharedInstance.getPhoneNumber(),"macId":userProfileData.macId!,"mallId":CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in
            // print(responseDict.valueForKey("payment_url"))
             let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
             let profileView = storyBoard.instantiateViewControllerWithIdentifier("CXPayMentController") as! CXPayMentController
@@ -394,6 +396,16 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
                 jsondDic.setObject(validTill, forKey: "ValidTill")
                 self.activeTheUser(jsondDic, jobId:CXAppConfig.sharedInstance.getMacJobID())
             }
+            
+            profileView.goBackcompletion = { _ in
+                self.navigationController?.popViewControllerAnimated(true)
+            }
+            
+            let backItem = UIBarButtonItem()
+            self.title = ""
+            self.navigationController?.navigationItem.backBarButtonItem = backItem
+            
+            self.navigationController?.pushViewController(profileView, animated: true)
               LoadingView.hide()
         }
         

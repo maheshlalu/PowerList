@@ -64,6 +64,16 @@ class CXAppConfig {
         return config!.valueForKey("placeOrder") as! String
     }
     
+    //Get Payment URL
+    
+    func getPaymentGateWayUrl() -> String{
+        // return config!.value(forKey: "payMentGateWay") as! String //oldPaymentURL
+        return config!.valueForKey("paymentTestBaseURL") as! String// TestUrlfor payment
+        // return config!.value(forKey: "paymentProductionUrl") as! String// productionurl for payment
+        
+        
+    }
+    
     
     //updateProfile
     

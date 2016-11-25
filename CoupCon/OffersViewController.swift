@@ -52,7 +52,7 @@ class OffersViewController: UIViewController {
     func getTheOffers(){
         // http://storeongo.com:8081/Services/getOffers?mallId=20217&%20consumerEmail=yernagulamahesh@gmail.com&macJobId=195735&%20productId=196429prefferedJobs=196663
         LoadingView.show("Loading...", animated: true)
-        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("http://storeongo.com:8081/Services/getOffers?", parameters: ["mallId":CXAppConfig.sharedInstance.getAppMallID(),"consumerEmail":CXAppConfig.sharedInstance.getTheUserData().userEmail,"macJobId":CXAppConfig.sharedInstance.getTheUserData().macIdJobId,"productId":CXAppConfig.resultString(self.offersDic!.valueForKey("id")!),"prefferedJobs":self.getTheOfferCodes()]) { (responseDict) in
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("\(CXAppConfig.sharedInstance.getBaseUrl())Services/getOffers?", parameters: ["mallId":CXAppConfig.sharedInstance.getAppMallID(),"consumerEmail":CXAppConfig.sharedInstance.getTheUserData().userEmail,"macJobId":CXAppConfig.sharedInstance.getTheUserData().macIdJobId,"productId":CXAppConfig.resultString(self.offersDic!.valueForKey("id")!),"prefferedJobs":self.getTheOfferCodes()]) { (responseDict) in
             self.offersList   =  NSMutableArray(array: (responseDict.valueForKey("jobs") as? NSArray!)!)
             LoadingView.hide()
             self.offersTableView.reloadData()

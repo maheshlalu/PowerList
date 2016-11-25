@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+//H.No.3-6-698,\nStreet no.11,\nHimayathNagar, \nHyderabad-500029\n
 class AboutCoupoconViewController: UIViewController {
 
     
@@ -24,7 +24,7 @@ class AboutCoupoconViewController: UIViewController {
         self.aboutTableView.registerNib(nib, forCellReuseIdentifier: "AboutUsTableViewCell")
        self.aboutTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 80, right: 0)
         
-        cateGoryData = NSDictionary(objects: ["09:00Am-20:00Pm","H.No.3-6-698,\nStreet no.11,\nHimayathNagar, \nHyderabad-500029\n","Coupocon is a tailor made book which understands the need of a retail business module and need for an organisation to retain customer loyalty. Our aim is to provide our customers with the best deals and thereby bridge the gap between the vendors and customers. We have meticulously worked on a concept saving book which aims at getting best deals for our privilege customers at Area restaurants, attractions, shopping destinations, watch stores, spectacle stores and more!","tt"], forKeys: ["Timings" as NSCopying,"Reach Us At" as NSCopying,"About Us" as NSCopying,"Like Us At" as NSCopying])
+        cateGoryData = NSDictionary(objects: [   "09:00-20:00","","Coupocon is a tailor made Mobile App which understands the need of a retail business module and need for an organisation to retain customer loyalty. Our aim is to provide our customers with the best deals and thereby bridge the gap between the vendors and customers. We have meticulously worked on a concept saving Mobile App which aims at getting best deals for our privilege customers at Area restaurants, attractions, shopping destinations, watch stores, spectacle stores and more!","tt"], forKeys: ["Timings" as NSCopying,"Reach Us At" as NSCopying,"About Us" as NSCopying,"Like Us At" as NSCopying])
         
         KeyArray = ["Timings","Reach Us At","About Us","Like Us At"]
         

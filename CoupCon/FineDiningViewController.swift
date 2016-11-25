@@ -35,7 +35,7 @@ class FineDiningViewController: UIViewController {
         // self.dealBackgroundImg.setImageWithURL(NSURL(string:(dealsDic.valueForKey("BackgroundImage_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
         NSUserDefaults.standardUserDefaults().setObject(dealsDic.valueForKey("Image_URL"), forKey: "POPUP_LOGO")
         
-        self.backLbl.titleLabel?.text = dealsDic.valueForKey("Name") as?String
+        self.backLbl.setTitle(dealsDic.valueForKey("Name") as?String, forState: .Normal)
         
         let offersController : AboutUsViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("AboutUsViewController") as? AboutUsViewController)!
         offersController.offersDic = NSDictionary(dictionary: self.dealsDic)

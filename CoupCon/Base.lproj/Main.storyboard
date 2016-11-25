@@ -117,14 +117,16 @@
                         <color key="backgroundColor" red="0.2784313725" green="0.68627450980000004" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="t3a-eA-CNX" firstAttribute="top" secondItem="zpC-VV-TZ8" secondAttribute="bottom" constant="-3" id="2oC-kt-vrg">
-                                <variation key="heightClass=regular-widthClass=compact" constant="4"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="24"/>
                             </constraint>
                             <constraint firstItem="zpC-VV-TZ8" firstAttribute="leading" secondItem="IVm-DV-zi3" secondAttribute="leading" id="ChH-4G-B9U"/>
                             <constraint firstAttribute="trailing" secondItem="t3a-eA-CNX" secondAttribute="trailing" id="O2H-hT-OgE"/>
                             <constraint firstItem="t3a-eA-CNX" firstAttribute="leading" secondItem="IVm-DV-zi3" secondAttribute="leading" id="P8D-lh-qiU"/>
                             <constraint firstItem="ZDj-1M-TSe" firstAttribute="top" secondItem="t3a-eA-CNX" secondAttribute="bottom" id="Qjy-vE-GxL"/>
                             <constraint firstAttribute="trailing" secondItem="zpC-VV-TZ8" secondAttribute="trailing" id="jQi-Z4-SjO"/>
-                            <constraint firstItem="zpC-VV-TZ8" firstAttribute="top" secondItem="CMd-kq-ffC" secondAttribute="bottom" id="lJ1-HI-pTh"/>
+                            <constraint firstItem="zpC-VV-TZ8" firstAttribute="top" secondItem="CMd-kq-ffC" secondAttribute="bottom" id="lJ1-HI-pTh">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
+                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -166,7 +168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c4q-8G-duv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-240" y="-260.25"/>
+            <point key="canvasLocation" x="217.5" y="-249.75"/>
         </scene>
         <!--Deals View Controller-->
         <scene sceneID="zvX-UF-vCx">
@@ -1637,14 +1639,14 @@
                                 <exclude reference="PcX-Zl-Ehd"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="wmx-kl-cct"/>
+                                <exclude reference="yDx-A8-dbG"/>
                                 <exclude reference="hyC-Ry-Qfe"/>
                                 <exclude reference="plj-qm-xOa"/>
                                 <exclude reference="xs4-2d-Fwc"/>
                                 <exclude reference="2mK-sA-JJU"/>
                                 <exclude reference="KLj-ke-Tls"/>
                                 <exclude reference="ebg-kn-a8J"/>
-                                <exclude reference="wmx-kl-cct"/>
-                                <exclude reference="yDx-A8-dbG"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -1653,14 +1655,14 @@
                                 <include reference="PcX-Zl-Ehd"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="wmx-kl-cct"/>
+                                <include reference="yDx-A8-dbG"/>
                                 <include reference="hyC-Ry-Qfe"/>
                                 <include reference="plj-qm-xOa"/>
                                 <include reference="xs4-2d-Fwc"/>
                                 <include reference="2mK-sA-JJU"/>
                                 <include reference="KLj-ke-Tls"/>
                                 <include reference="ebg-kn-a8J"/>
-                                <include reference="wmx-kl-cct"/>
-                                <include reference="yDx-A8-dbG"/>
                             </mask>
                         </variation>
                     </view>

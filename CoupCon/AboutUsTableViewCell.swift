@@ -20,7 +20,7 @@ class AboutUsTableViewCell: UITableViewCell {
     
     @IBAction func callBtnAction(sender: UIButton) {
         
-        UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(9063-903903)")!)
+        UIApplication.sharedApplication().openURL(NSURL(string: "tel://\("9063903903")")!)
 
     }
     

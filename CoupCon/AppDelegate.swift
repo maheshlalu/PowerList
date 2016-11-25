@@ -384,6 +384,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
     }
 }
 
+
+//MARK: Version
+
+
+func checkVersion(){
+    
+    let nsObject: AnyObject? = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"]
+    
+    //Then just cast the object as a String, but be careful, you may want to double check for nil
+    let version = nsObject as! String
+    
+    
+    
+}
+
 //http://storeongo.com:8081/Services/getMasters?type=Consumer%20Codes&mallId=20217&keyWord=28DIF9
 
 

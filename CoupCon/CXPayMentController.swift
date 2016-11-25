@@ -10,12 +10,15 @@ import UIKit
 
 class CXPayMentController: UIViewController {
     typealias CompletionBlock = (responceDic:NSDictionary) -> Void
+    typealias goBackCompletionBlock = (isGoBack:Bool) -> Void
+
 
     var paymentUrl : NSURL! = nil
     var webRequestArry: NSMutableArray = NSMutableArray()
     @IBOutlet weak var payMentWebView: UIWebView!
       var activity: UIActivityIndicatorView = UIActivityIndicatorView()
     var completion: CompletionBlock = { reason in print(reason) }
+    var goBackcompletion: goBackCompletionBlock = { reason in print(reason) }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +32,44 @@ class CXPayMentController: UIViewController {
         self.activity = UIActivityIndicatorView()
         self.activity.tintColor = CXAppConfig.sharedInstance.getAppTheamColor()
 
+        
+
+        let backItem = UIBarButtonItem(image: UIImage(named: "back-120"), landscapeImagePhone: nil, style:  .Plain, target: self, action: #selector(CXPayMentController.goBack))
+             //   backItem.title = "Back"
+        //back-120
+        //navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+        self.navigationItem.leftBarButtonItem = backItem
+
+        
         // Do any additional setup after loading the view.
     }
+    
+    func goBack()
+    {
+        self.showAlertView("", status: 0)
+    }
 
+    
+    func showAlertView(message:String, status:Int) {
+
+        let refreshAlert = UIAlertController(title: "", message: "Do you want to cancel this transaction and go back?", preferredStyle: .Alert)
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
+            print("Handle Ok logic here")
+            //Stay same place
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: { (action: UIAlertAction!) in
+            print("Handle Cancel Logic here")
+            //Go back
+            self.goBackcompletion(isGoBack: true)
+            self.navigationController?.popToRootViewControllerAnimated(true)
+
+        }))
+        
+        self.presentViewController(refreshAlert, animated: true, completion: nil)
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
