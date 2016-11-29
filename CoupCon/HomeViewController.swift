@@ -34,6 +34,7 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        self.automaticallyAdjustsScrollViewInsets = false
         self.title = "Coupocon"
         self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.setUpSideMenu()
@@ -88,19 +89,20 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
     
     func setUPTheNavigationProperty(){
         navigationController?.setNavigationBarHidden(false, animated: true)
-        self.navigationController!.navigationBar.barTintColor = CXAppConfig.sharedInstance.getAppTheamColor()
-        self.view.backgroundColor = UIColor.whiteColor()
+//        self.navigationController!.navigationBar.barTintColor = CXAppConfig.sharedInstance.getAppTheamColor()
+//        self.view.backgroundColor = UIColor.whiteColor()
 
-       /* navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.translucent = true*/
+        navigationController?.navigationBar.translucent = true
 
     }
     
     override func viewWillAppear(animated: Bool) {
         
         super.viewWillAppear(animated)
-        //self.navigationController?.navigationBarHidden = true
+        setUPTheNavigationProperty()
+    
     }
     
     func setUpSideMenu(){
@@ -148,6 +150,11 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
                 let backItem = UIBarButtonItem()
                 backItem.title = "Search Deals"
                 navigationItem.backBarButtonItem = backItem
+        
+        self.navigationController?.navigationBarHidden = false
+        self.navigationController?.navigationBar.translucent = false
+        self.navigationController!.navigationBar.barTintColor = CXAppConfig.sharedInstance.getAppTheamColor()
+        self.view.backgroundColor = UIColor.whiteColor()
         
         self.navigationController?.pushViewController(dealsVc, animated: true)
     }
@@ -273,14 +280,11 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
         let backItem = UIBarButtonItem()
         backItem.title = categoryDic.valueForKey("Name")! as? String
         navigationItem.backBarButtonItem = backItem
+        self.navigationController?.navigationBar.translucent = false
+        self.navigationController!.navigationBar.barTintColor = CXAppConfig.sharedInstance.getAppTheamColor()
         
         self.navigationController?.pushViewController(dealsVc, animated: true)
-        
-        var fineDinigVc : CXSigninViewController = CXSigninViewController()
-        //dealsVc = storyBoard.instantiateViewControllerWithIdentifier("DealsViewController") as! DealsViewController
-        //dealsVc.selectedName = categoryDic.valueForKey("Name")! as! String
-        fineDinigVc = storyBoard.instantiateViewControllerWithIdentifier("CXSigninViewController") as! CXSigninViewController
-        //self.navigationController?.pushViewController(fineDinigVc, animated: true)
+    
         
     }
     

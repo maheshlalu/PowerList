@@ -18,9 +18,10 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
     @IBOutlet weak var collectionview: UICollectionView!
   
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         self.dealsArray = NSMutableArray()
-        self.automaticallyAdjustsScrollViewInsets = false
+        self.navigationController?.navigationBar.hidden = false
         let nib = UINib(nibName: "DealsCollectionViewCell", bundle: nil)
         self.collectionview.registerNib(nib, forCellWithReuseIdentifier: "DealsCollectionViewCell")
         self.collectionview.backgroundColor = UIColor.clearColor()
@@ -39,18 +40,21 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
             self.addTheBarButtonItem()
             self.setUpSideMenu()
         }else{
-        self.getTheDealsFromServer()
-        self.addTheBarButtonItem()
-        if selectedName == "Birthday Offers" {
-            self.setUpSideMenu()
+            self.getTheDealsFromServer()
+            self.addTheBarButtonItem()
+            if selectedName == "Birthday Offers" {
+                self.setUpSideMenu()
+            }
         }
-        }
-
+        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBarHidden = false
+
+     //   self.navigationController?.navigationBar.hidden = false
+        self.navigationController?.navigationBar.translucent = false
         self.navigationController!.navigationBar.barTintColor = CXAppConfig.sharedInstance.getAppTheamColor()
         self.view.backgroundColor = UIColor.whiteColor()
         
@@ -78,6 +82,8 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.title = self.selectedName
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        self.navigationController?.navigationBar.hidden = false
+        
         
         //self.sideMenuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), forControlEvents: .TouchUpOutside)
     }
@@ -168,7 +174,7 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
 
         fineDinigVc = storyBoard.instantiateViewControllerWithIdentifier("FineDining") as! FineDiningViewController
         fineDinigVc.dealsDic = dealsDic
-        
+       
 //        let backItem = UIBarButtonItem()
 //        backItem.title = dealsDic.valueForKey("Name")! as? String
 //        navigationItem.backBarButtonItem = backItem

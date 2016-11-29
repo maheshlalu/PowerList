@@ -101,6 +101,7 @@ class FineDiningViewController: UIViewController {
     }
     
     @IBAction func backBtnAction(sender: UIButton) {
+        self.navigationController?.navigationBar.hidden = false
         self.navigationController?.popViewControllerAnimated(true)
         
     }

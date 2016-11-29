@@ -158,7 +158,7 @@ class OffersViewController: UIViewController {
         let terms = offerDic.valueForKey("TermsAndConditions")
         print(terms)
         
-        if (terms as? String == ""){
+        if (terms as? String == "" || terms as? String == nil){
             let popUpDict:[String: AnyObject] = [ "popUpLogo":logoImg,  "popUpName": popUpName!]
             NSNotificationCenter.defaultCenter().postNotificationName("ShowPopUp", object: nil)
             NSNotificationCenter.defaultCenter().postNotificationName("PopUpData", object: popUpDict)
