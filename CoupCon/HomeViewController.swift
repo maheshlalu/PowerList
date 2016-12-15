@@ -254,7 +254,11 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
 //        cell.layer.shouldRasterize = true
         
         let categoryDic : NSDictionary = self.storeCategoryArray[indexPath.item] as! NSDictionary
-       cell.categoryImageView.setImageWithURL(NSURL(string:(categoryDic.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
+        if ((categoryDic.valueForKey("Image_URL")) != nil){
+            cell.categoryImageView.setImageWithURL(NSURL(string:(categoryDic.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
+        }
+        
+       // cell.categoryImageView.setImageWithURL(NSURL(string:CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(categoryDic, sourceKey: "Image_URL")), usingActivityIndicatorStyle: .Gray)
         cell.subCategoryLbl.text =  categoryDic.valueForKey("Name") as? String
        // cell.subCategoryLbl.text = categoryDic
 

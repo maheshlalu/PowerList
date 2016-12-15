@@ -33,8 +33,8 @@ class FineDiningViewController: UIViewController {
         constructTheOfferReedemJson()
         self.aboutBtn.backgroundColor = CXAppConfig.sharedInstance.getAppTheamColor()
         // self.dealBackgroundImg.setImageWithURL(NSURL(string:(dealsDic.valueForKey("BackgroundImage_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
-        NSUserDefaults.standardUserDefaults().setObject(dealsDic.valueForKey("Image_URL"), forKey: "POPUP_LOGO")
-        
+        NSUserDefaults.standardUserDefaults().setObject( CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(dealsDic, sourceKey: "Image_URL"), forKey: "POPUP_LOGO")
+    
         self.backLbl.setTitle(dealsDic.valueForKey("Name") as?String, forState: .Normal)
         
         let offersController : AboutUsViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("AboutUsViewController") as? AboutUsViewController)!
@@ -83,10 +83,13 @@ class FineDiningViewController: UIViewController {
         self.coverPageImagesList = NSMutableArray()
         let attachements: NSArray = dealsDic.valueForKey("Attachments") as! NSArray
         
+       // let attachements: NSArray = CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(dealsDic, sourceKey: "Attachments") as! NSArray
+
+        
         for imageDic in attachements {
             self.coverPageImagesList.addObject(imageDic.valueForKey("URL") as! String)
         }
-        self.coverPageImagesList.addObject((dealsDic.valueForKey("BackgroundImage_URL") as?String)!)
+        self.coverPageImagesList.addObject(CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(dealsDic, sourceKey: "BackgroundImage_URL"))
         self.pagerView.delegate = self
         self.pagerView.dataSource = self
         self.pagerView.checkWetherToToggleSlideshowTimer()
@@ -141,8 +144,13 @@ class FineDiningViewController: UIViewController {
          */
         let jsonDic : NSMutableDictionary = NSMutableDictionary()
         jsonDic.setObject((dealsDic.valueForKey("Name") as?String)!, forKey: "ProductName")
-        jsonDic.setObject(dealsDic.valueForKey("Image_URL")!, forKey: "productLogo")//productLogo
-        jsonDic.setObject((dealsDic.valueForKey("BackgroundImage_URL") as?String)!, forKey: "ProductImage")
+        jsonDic.setObject(CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(dealsDic, sourceKey: "Image_URL"), forKey: "productLogo")//productLogo
+        
+        //Image_URL
+        
+      // jsonDic.setObject((dealsDic.valueForKey("BackgroundImage_URL") as?String)!, forKey: "ProductImage")
+        
+        jsonDic.setObject(CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(dealsDic, sourceKey: "BackgroundImage_URL"), forKey: "ProductImage")
         jsonDic.setObject(CXAppConfig.sharedInstance.getTheUserData().macId, forKey: "MacId")
         
         CXAppConfig.sharedInstance.setRedeemDictionary(jsonDic)
@@ -357,7 +365,9 @@ class FineDiningViewController: UIViewController {
     
     
     private func callNumber(phoneNumber:String) {
-        UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(phoneNumber)")!)
+        
+         UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(phoneNumber.stringByReplacingOccurrencesOfString(" ", withString: ""))")!)
+       // UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(phoneNumber)")!)
     }
 }
 

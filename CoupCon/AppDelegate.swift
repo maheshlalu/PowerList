@@ -35,7 +35,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
         self.setUpMagicalDB()
         
 
-        
+//        print( CXAppConfig.sharedInstance.validate("+919948870987"))
+//        
+//        print( CXAppConfig.sharedInstance.validate("040 40207312"))
+//        print( CXAppConfig.sharedInstance.validate("8096380038"))
+
+        // value = "+91 9948870987"
 //        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
 //        let documentsDirectory = paths[0]
         

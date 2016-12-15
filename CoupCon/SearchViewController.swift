@@ -58,7 +58,13 @@ class SearchViewController: UIViewController {
         
         
         let categoryDic : NSDictionary = self.searchResults[indexPath.item] as! NSDictionary
-        cell.dealsImageView.setImageWithURL(NSURL(string:(categoryDic.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
+        
+        if ((categoryDic.valueForKey("Image_URL")) != nil){
+             cell.dealsImageView.setImageWithURL(NSURL(string:(categoryDic.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
+        }
+        
+        
+        //cell.dealsImageView.setImageWithURL(NSURL(string:(categoryDic.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
         cell.dealName.text = categoryDic.valueForKey("Name") as?String
         if cell.dealArea.text == "Label"{
             cell.dealArea.text = ""

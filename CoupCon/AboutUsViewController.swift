@@ -80,35 +80,27 @@ class AboutUsViewController: UIViewController {
     
     func parsingAboutUsDetails(){
         
-        
         let keys = ["jobTypeName","Timings","Image_URL","Address","PhoneNumber","Latitude","Longitude","Location"]
         let dictionaryKeys : NSArray = (offersDic?.allKeys)!
         var isContains : Bool = false
-        
         for string in keys {
-            
             if dictionaryKeys.containsObject(string) {
                 isContains = true
             }else{
                 isContains = false
                 break
             }
-            
-            //let contained = dictionaryKeys!.contains("2")
-           // dictionaryKeys.contains(6)
+   
 
         }
        
         if isContains {
-      
-        
         self.merchantDict = NSMutableDictionary()
         self.merchantDict! .setObject((offersDic?.valueForKey("jobTypeName"))!, forKey: "Category")
         self.merchantDict! .setObject((offersDic?.valueForKey("Timings"))!, forKey: "Timings")
         self.merchantDict! .setObject((offersDic?.valueForKey("Image_URL"))!, forKey: "Image_URL")
         self.aboutTableView.reloadData()
         //jobTypeName
-        
         if ((offersDic?.valueForKey("Address") as? [String]) != nil) {
             //Array
             let addressArray : NSArray = (offersDic?.valueForKey("Address"))! as! NSArray
@@ -120,24 +112,12 @@ class AboutUsViewController: UIViewController {
             for var i = 0; i < addressArray.count; i += 1 {
                 let locationStruct : StoreLocations = StoreLocations(Latitude: latitudeArray[i] as! String, longitude: longitudeArray[i] as! String , location: location[i] as! String, phoneNumber: phoneArray[i] as! String, address: addressArray[i] as! String)
                 storeLocationArray.append(locationStruct)
-                print(storeLocationArray)
             }
-            
-            
         }else{
-
         //String
-        print(offersDic?.allKeys)
-            
             let locationStruct : StoreLocations = StoreLocations(Latitude: offersDic?.valueForKey("Latitude") as! String, longitude: (offersDic?.valueForKey("Longitude"))! as! String, location: (offersDic?.valueForKey("Location")) as! String, phoneNumber: (offersDic?.valueForKey("PhoneNumber")) as! String, address: (offersDic?.valueForKey("Address")) as! String)
             storeLocationArray.append(locationStruct)
-    
         }
-        
-        //Address 
-        //PhoneNumber
-        //Latitude
-        //Longitude
     }
         
     }

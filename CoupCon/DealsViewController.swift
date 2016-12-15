@@ -136,7 +136,14 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
 //        cell.layer.shouldRasterize = true
         
         let categoryDic : NSDictionary = self.dealsArray[indexPath.item] as! NSDictionary
-        cell.dealsImageView.setImageWithURL(NSURL(string:(categoryDic.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
+        
+        
+        if ((categoryDic.valueForKey("Image_URL")) != nil){
+             cell.dealsImageView.setImageWithURL(NSURL(string:(categoryDic.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
+        }
+        
+       // cell.dealsImageView.setImageWithURL(NSURL(string:(categoryDic.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
+        
         cell.dealName.text = categoryDic.valueForKey("Name") as?String
         if cell.dealArea.text == "Label"{
             cell.dealArea.text = ""
@@ -245,8 +252,18 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
     }
     private func callNumber(phoneNumber:String) {
         print(phoneNumber)
+ 
+//        if UIApplication.sharedApplication().canOpenURL(NSURL(string: "tel://\(phoneNumber))")!) {
+//            UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(phoneNumber))")!)
+//
+//        }
+        
+//        let telephoneURL = NSURL(string: "telprompt://\(phoneNumber.stringByReplacingOccurrencesOfString(" ", withString: ""))")
+        UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(phoneNumber.stringByReplacingOccurrencesOfString(" ", withString: ""))")!)
 
-        UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(phoneNumber)")!)
+//        if let telephoneURL = NSURL(string: "telprompt://\(phoneNumber.stringByReplacingOccurrencesOfString(" ", withString: ""))") {
+//            UIApplication.sharedApplication().openURL(telelphoneURL)
+//        }
     }
     
     func likeBtnAction(button : UIButton!){

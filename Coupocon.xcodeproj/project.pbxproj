@@ -1088,7 +1088,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "51987c44-84d2-4ba5-9d5f-beaec1c4ef1e";
+				PROVISIONING_PROFILE = "e403cb00-d7f0-4fcb-bd43-7964bacb09c1";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1128,7 +1128,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "51987c44-84d2-4ba5-9d5f-beaec1c4ef1e";
+				PROVISIONING_PROFILE = "e403cb00-d7f0-4fcb-bd43-7964bacb09c1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1152,7 +1152,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.creativexperts.cupocon;
 				PRODUCT_NAME = Coupocon;
-				PROVISIONING_PROFILE = "51987c44-84d2-4ba5-9d5f-beaec1c4ef1e";
+				PROVISIONING_PROFILE = "e403cb00-d7f0-4fcb-bd43-7964bacb09c1";
 				SWIFT_OBJC_BRIDGING_HEADER = "CoupCon-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1176,7 +1176,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.creativexperts.cupocon;
 				PRODUCT_NAME = Coupocon;
-				PROVISIONING_PROFILE = "51987c44-84d2-4ba5-9d5f-beaec1c4ef1e";
+				PROVISIONING_PROFILE = "e403cb00-d7f0-4fcb-bd43-7964bacb09c1";
 				SWIFT_OBJC_BRIDGING_HEADER = "CoupCon-Bridging-Header.h";
 			};
 			name = Release;

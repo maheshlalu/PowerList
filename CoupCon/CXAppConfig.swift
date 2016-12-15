@@ -38,8 +38,8 @@ class CXAppConfig {
      - Returns: the base url string from Config.plist      
      */
     func getBaseUrl() -> String {
-      //  return config!.valueForKey("BaseUrl") as! String //Production
-        return config!.valueForKey("testUrl") as! String //Testing
+        return config!.valueForKey("BaseUrl") as! String //Production
+        //return config!.valueForKey("testUrl") as! String //Testing
 
         //testUrl
     }
@@ -345,6 +345,47 @@ class CXAppConfig {
     func isReachability()-> Bool{
         let reachablity : Reachability = Reachability(hostname:"www.google.co")
         return reachablity.isReachable()
+    }
+    
+    
+    func getTheDataInDictionaryFromKey(sourceDic:NSDictionary,sourceKey:NSString) ->String{
+        let keyExists = sourceDic[sourceKey] != nil
+        if keyExists {
+            // now val is not nil and the Optional has been unwrapped, so use it
+            return self.resultString(sourceDic[sourceKey]!)
+        }
+        return ""
+        
+    }
+    
+    func validate(value: String) -> Bool {
+        
+   
+    let PHONE_REGEX = "^\\d{3}-\\d{3}-\\d{4}$"
+    let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
+    let result =  phoneTest.evaluateWithObject(value)
+    return result
+    }
+    
+    
+     func resultString(input: AnyObject) -> String{
+        if let value: AnyObject = input {
+            var reqType : String!
+            switch value {
+            case let i as NSNumber:
+                reqType = "\(i)"
+            case let s as NSString:
+                reqType = "\(s)"
+                break
+            case let a as NSArray:
+                reqType = "\(a.objectAtIndex(0))"
+                break
+            default:
+                reqType = "Invalid Format"
+            }
+            return reqType
+        }
+        return ""
     }
     
 }
