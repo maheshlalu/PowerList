@@ -10,7 +10,9 @@ import UIKit
 
 class FineDiningViewController: UIViewController {
     var dealsDic: NSDictionary!
-    
+    var subJobDic : NSDictionary!
+    var redeemJsonArr:NSArray! = nil
+
     @IBOutlet weak var mapBtn: UIButton!
     @IBOutlet weak var offerBtn: UIButton!
     @IBOutlet weak var aboutBtn: UIButton!
@@ -24,37 +26,75 @@ class FineDiningViewController: UIViewController {
     @IBOutlet weak var pagerView: KIImagePager!
     @IBOutlet weak var likeButton: UIButton!
     var coverPageImagesList: NSMutableArray!
+    
+    
+     var offersController : AboutUsViewController = AboutUsViewController()
 
     override func viewDidLoad() {
         
         print(dealsDic)
         
         super.viewDidLoad()
+        self.divideTheSubsInProducts()
+
         constructTheOfferReedemJson()
+
         self.aboutBtn.backgroundColor = CXAppConfig.sharedInstance.getAppTheamColor()
-        // self.dealBackgroundImg.setImageWithURL(NSURL(string:(dealsDic.valueForKey("BackgroundImage_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
         NSUserDefaults.standardUserDefaults().setObject( CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(dealsDic, sourceKey: "Image_URL"), forKey: "POPUP_LOGO")
-    
         self.backLbl.setTitle(dealsDic.valueForKey("Name") as?String, forState: .Normal)
+        self.view.backgroundColor = UIColor.whiteColor()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(FineDiningViewController.showPopUp(_:)), name: "ShowPopUp", object: nil)
+        navigationController?.navigationBarHidden = true
+        UIApplication.sharedApplication().statusBarHidden = true
+        self.imageViewAimations()
+        self.likeButton.selected = CXDataService.sharedInstance.productIsAddedinList(CXAppConfig.resultString(dealsDic.valueForKey("id")!))
+        //self.hideMapButton()
+        self.mapBtn.hidden = true
         
-        let offersController : AboutUsViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("AboutUsViewController") as? AboutUsViewController)!
-        offersController.offersDic = NSDictionary(dictionary: self.dealsDic)
+    }
+    
+    
+    
+    func changeTheSubJobs(withJsonDic:NSDictionary){
+        print(withJsonDic)
+        self.subJobDic =  withJsonDic
+        self.offersController = (self.storyboard?.instantiateViewControllerWithIdentifier("AboutUsViewController") as? AboutUsViewController)!
+        //offersController.offersDic = NSDictionary(dictionary: self.dealsDic)
+        offersController.offersDic = NSDictionary(dictionary: withJsonDic)
         self.currentViewController = offersController
         self.currentViewController!.view.translatesAutoresizingMaskIntoConstraints = false
         self.addChildViewController(self.currentViewController!)
         self.addSubview(self.currentViewController!.view, toView: self.containerView)
-        self.view.backgroundColor = UIColor.whiteColor()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(FineDiningViewController.showPopUp(_:)), name: "ShowPopUp", object: nil)
         
-        navigationController?.navigationBarHidden = true
-        UIApplication.sharedApplication().statusBarHidden = true
-        self.imageViewAimations()
+    }
+    
+    
+    func divideTheSubsInProducts(){
         
-        self.likeButton.selected = CXDataService.sharedInstance.productIsAddedinList(CXAppConfig.resultString(dealsDic.valueForKey("id")!))
+        //CreatedSubJobs
+        //http://apps.storeongo.com:8081/Services/getMasters?mallId=6&type=fine%20dining
         
-        //self.hideMapButton()
+        let createdJobs : NSArray = (self.dealsDic.valueForKey("CreatedSubJobs") as? NSArray)!
+        let locationsArray : NSMutableArray = NSMutableArray()
+        let totalSubJobsDic : NSMutableDictionary = NSMutableDictionary()
         
-        self.mapBtn.hidden = true
+        for subJobsDic in createdJobs {
+            let dic = subJobsDic as? NSDictionary
+            locationsArray.addObject((dic?.valueForKey("Location"))!)
+            totalSubJobsDic.setValue(dic, forKey: (dic?.valueForKey("Location"))! as! String)
+        }
+        
+        if locationsArray.count != 0 {
+            let key = locationsArray.objectAtIndex(0) as? String
+            self.changeTheSubJobs(totalSubJobsDic.valueForKey(key!)! as! NSDictionary)
+        }else{
+            self.subJobDic = NSMutableDictionary()
+            self.changeTheSubJobs(self.subJobDic)
+        }
+        print(locationsArray)
+        print(totalSubJobsDic)
+   
+        
     }
     
     
@@ -125,13 +165,45 @@ class FineDiningViewController: UIViewController {
             .didCloseHandler { _ in
         }
         let container = DemoPopupViewController2.instance()
+        
+        
         container.closeHandler = { _ in
             popup.dismiss()
             //print("pop up closed")
+            
+            
+        }
+        
+        container.reedemHandler = { _ in
+            popup.dismiss()
+            self.redeemCall()
+            
         }
         popup.show(container)
         
     }
+    
+    func redeemCall(){
+        //http://storeongo.com:8081/Services/getMasters? type=macidinfo&mallId=20217&jobId=196278
+        LoadingView.show("Loading...", animated: true)
+        CXDataService.sharedInstance.getTheAppDataFromServer(["type":"macidinfo","mallId":CXAppConfig.sharedInstance.getAppMallID(),"jobId":CXAppConfig.sharedInstance.getMacJobID()]) { (responseDict) in
+            self.redeemJsonArr = ((responseDict.valueForKey("jobs") as? NSArray)!)
+            let dict = self.redeemJsonArr.firstObject as! NSDictionary
+            let currentJobStatus = dict.valueForKey("userStatus") as! String
+            LoadingView.hide()
+            if currentJobStatus.compare("Active", options: .CaseInsensitiveSearch, range: nil, locale: nil) == NSComparisonResult.OrderedSame  {
+                let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+                let redeemView = storyBoard.instantiateViewControllerWithIdentifier("REDEEM_HISTORY") as! ReedemViewController
+                redeemView.showBackBtn = true
+                self.navigationController?.pushViewController(redeemView, animated: true)
+            }else{
+                let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+                let profileView = storyBoard.instantiateViewControllerWithIdentifier("PROFILE_MEMBERSHIP") as! ProfileMembershipViewController
+                self.navigationController?.pushViewController(profileView, animated: true)
+            }
+        }
+    }
+    
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = true
@@ -221,11 +293,18 @@ class FineDiningViewController: UIViewController {
         //mapBtn.backgroundColor = UIColor.lightGrayColor()
         self.aboutBtn.backgroundColor = UIColor.lightGrayColor()
         let offersController : OffersViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("OffersViewController") as? OffersViewController)!
-        offersController.offersDic = NSDictionary(dictionary: self.dealsDic)
+        offersController.subJobDic = NSDictionary(dictionary: self.subJobDic)
+        offersController.productDic = NSDictionary(dictionary: self.dealsDic)
         offersController.view.translatesAutoresizingMaskIntoConstraints = false
         
         self.cycleFromViewController(self.currentViewController!, toViewController: offersController)
         self.currentViewController = offersController
+        offersController.okAction = { _ in
+            let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+            let profileView = storyBoard.instantiateViewControllerWithIdentifier("PROFILE_MEMBERSHIP") as! ProfileMembershipViewController
+            self.navigationController?.pushViewController(profileView, animated: true)
+        }
+        
         
     }
     

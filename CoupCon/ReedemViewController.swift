@@ -264,34 +264,44 @@ class ReedemViewController: UIViewController,UITableViewDataSource,UITableViewDe
 //        jsonDic.setObject("itemcode_5", forKey: "OfferId")
 //        jsonDic.setObject(CXAppConfig.sharedInstance.getTheUserData().macId, forKey: "MacId")
         
-        let jsonListArray : NSMutableArray = NSMutableArray()
+        //SubscriptionJobId - SubscriptionJobItemCode ( present in macIdInfo)
+        //subJobId - item code in subjobs
         
-        jsonListArray.addObject(CXAppConfig.sharedInstance.getRedeemDictionary())
+        let jsonDic : NSMutableDictionary = NSMutableDictionary(dictionary: CXAppConfig.sharedInstance.getRedeemDictionary())
         
-        let listDic : NSDictionary = NSDictionary(object: jsonListArray, forKey: "list")
-        print(listDic)
         
-        var jsonData : NSData = NSData()
-        do {
-            jsonData = try NSJSONSerialization.dataWithJSONObject(listDic, options: NSJSONWritingOptions.PrettyPrinted)
-            // here "jsonData" is the dictionary encoded in JSON data
-        } catch let error as NSError {
-            print(error)
-        }
-        let jsonStringFormat = String(data: jsonData, encoding: NSUTF8StringEncoding)
-        
-        print(jsonStringFormat)
-
-        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getPlaceOrderUrl(), parameters: ["type":"RedeemHistory","json":jsonStringFormat!,"dt":"CAMPAIGNS","category":"Notifications","userId":CXAppConfig.sharedInstance.getAppMallID(),"consumerEmail":CXAppConfig.sharedInstance.getTheUserData().userEmail]) { (responseDict) in
-            print(responseDict)
-            let string = responseDict.valueForKeyPath("myHashMap.status") as! String
-            print(string)
-            
-            if string == "1"{
-                self.showAlertView("Product Redeemed Successfully!!!", status: 1)
+        CXDataService.sharedInstance.getTheAppDataFromServer(["type" : "macidinfo","mallId" : CXAppConfig.sharedInstance.getAppMallID(),"keyWord":CXAppConfig.sharedInstance.getEmail()]) { (responseDict) in
+            // let email: String = (userDataDic.objectForKey("email") as? String)!
+            let array   =  NSMutableArray(array: (responseDict.valueForKey("jobs") as? NSArray!)!)
+            CXAppConfig.sharedInstance.saveTheUserMacIDinfoData((array.lastObject as? NSDictionary)!)
+            jsonDic.setObject(CXAppConfig.sharedInstance.getSubscriptionJobItemCode(), forKey: "SubscriptionJobId") //SubscriptionJobItemCode from user macIdInfo
+            CXAppConfig.sharedInstance.setRedeemDictionary(jsonDic)
+            let jsonListArray : NSMutableArray = NSMutableArray()
+            jsonListArray.addObject(jsonDic)
+            let listDic : NSDictionary = NSDictionary(object: jsonListArray, forKey: "list")
+            var jsonData : NSData = NSData()
+            do {
+                jsonData = try NSJSONSerialization.dataWithJSONObject(listDic, options: NSJSONWritingOptions.PrettyPrinted)
+                // here "jsonData" is the dictionary encoded in JSON data
+            } catch let error as NSError {
+                print(error)
             }
-            LoadingView.hide()
+            let jsonStringFormat = String(data: jsonData, encoding: NSUTF8StringEncoding)
+            
+            CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getPlaceOrderUrl(), parameters: ["type":"RedeemHistory","json":jsonStringFormat!,"dt":"CAMPAIGNS","category":"Notifications","userId":CXAppConfig.sharedInstance.getAppMallID(),"consumerEmail":CXAppConfig.sharedInstance.getTheUserData().userEmail]) { (responseDict) in
+                print(responseDict)
+                let string = responseDict.valueForKeyPath("myHashMap.status") as! String
+                print(string)
+                
+                if string == "1"{
+                    self.showAlertView("Product Redeemed Successfully!!!", status: 1)
+                }
+                LoadingView.hide()
+            }
         }
+        
+        
+
         
     }
     

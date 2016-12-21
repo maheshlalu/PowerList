@@ -181,6 +181,7 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
 
         fineDinigVc = storyBoard.instantiateViewControllerWithIdentifier("FineDining") as! FineDiningViewController
         fineDinigVc.dealsDic = dealsDic
+        print(dealsDic)
        
 //        let backItem = UIBarButtonItem()
 //        backItem.title = dealsDic.valueForKey("Name")! as? String
@@ -196,7 +197,7 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
 //        if let cell = collectionView.cellForItemAtIndexPath(indexPath) {
 //            let label = cell.viewWithTag(50) as? UILabel
 //            label!.textColor = UIColor.redColor()
-//            
+//            .
 //        }
         
     }

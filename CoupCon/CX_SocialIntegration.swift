@@ -149,6 +149,8 @@ class CX_SocialIntegration: NSObject {
                 CXAppConfig.sharedInstance.saveUserID((enProduct?.userId)!)
                 CXAppConfig.sharedInstance.saveMacJobID((enProduct?.macIdJobId)!)
                 CXAppConfig.sharedInstance.saveEmail((enProduct?.emailId)!)
+            
+                self.getTheUserDetailsFromMacIdInfo()
             }
         }) { (success, error) in
             if success == true {
@@ -277,6 +279,19 @@ class CX_SocialIntegration: NSObject {
             
         }
         
+        
+    }
+    
+    func getTheUserDetailsFromMacIdInfo(){
+        
+        
+        CXDataService.sharedInstance.getTheAppDataFromServer(["type" : "macidinfo","mallId" : CXAppConfig.sharedInstance.getAppMallID(),"keyWord":CXAppConfig.sharedInstance.getEmail()]) { (responseDict) in
+           // let email: String = (userDataDic.objectForKey("email") as? String)!
+            
+           let array   =  NSMutableArray(array: (responseDict.valueForKey("jobs") as? NSArray!)!)
+            CXAppConfig.sharedInstance.saveTheUserMacIDinfoData((array.lastObject as? NSDictionary)!)
+            
+        }
         
     }
     

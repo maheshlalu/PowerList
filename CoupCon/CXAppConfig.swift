@@ -38,8 +38,8 @@ class CXAppConfig {
      - Returns: the base url string from Config.plist      
      */
     func getBaseUrl() -> String {
-        return config!.valueForKey("BaseUrl") as! String //Production
-        //return config!.valueForKey("testUrl") as! String //Testing
+        //return config!.valueForKey("BaseUrl") as! String //Production
+        return config!.valueForKey("testUrl") as! String //Testing
 
         //testUrl
     }
@@ -74,7 +74,15 @@ class CXAppConfig {
         
     }
     
+    //createOrUpdateSubscription
     
+    func getcreateOrUpdateSubscriptionUrl() -> String{
+        // return config!.value(forKey: "payMentGateWay") as! String //oldPaymentURL
+        return config!.valueForKey("createOrUpdateSubscription") as! String// TestUrlfor payment
+        // return config!.value(forKey: "paymentProductionUrl") as! String// productionurl for payment
+        
+        
+    }
     //updateProfile
     
     func getupdateProfileUrl() -> String {
@@ -237,6 +245,34 @@ class CXAppConfig {
         
     }
     
+    func saveTheUserMacIDinfoData(userDic:NSDictionary ){
+        NSUserDefaults.standardUserDefaults().setObject(userDic, forKey: "USER_MACID_DIC")
+
+    }
+    func getUserMacIDdic() ->NSDictionary{
+        
+        if(NSUserDefaults.standardUserDefaults().objectForKey("USER_MACID_DIC") == nil)
+        {
+            print("NULL")
+            return NSDictionary()
+            
+        }else{
+            
+            return NSUserDefaults.standardUserDefaults().valueForKey("USER_MACID_DIC") as! NSDictionary
+        }
+    }
+    
+    func getUserCurrentSubscriptionJobId() ->NSString{
+        let dic = self.getUserMacIDdic()
+      return  self.getTheDataInDictionaryFromKey(dic, sourceKey: "CurrentSubscriptionJobId")
+    }
+    
+    func getSubscriptionJobItemCode() ->NSString{
+        //SubscriptionJobItemCode
+        let dic = self.getUserMacIDdic()
+        return  self.getTheDataInDictionaryFromKey(dic, sourceKey: "SubscriptionJobItemCode")
+
+    }
     
     //MARK: User ID Saving
     func savePhoneNumber(userID:String){

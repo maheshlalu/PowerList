@@ -41,16 +41,20 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
     func checkTheUserActive(){
         LoadingView.show("Loading...", animated: true)
         CXDataService.sharedInstance.getTheAppDataFromServer(["type" : "macidinfo","mallId" : CXAppConfig.sharedInstance.getAppMallID(),"keyWord":CXAppConfig.sharedInstance.getEmail()]) { (responseDict) in
+            //CXAppConfig.sharedInstance.saveTheUserMacIDinfoData(responseDict)
+            let array   =  NSMutableArray(array: (responseDict.valueForKey("jobs") as? NSArray!)!)
+            CXAppConfig.sharedInstance.saveTheUserMacIDinfoData((array.lastObject as? NSDictionary)!)
+            
             LoadingView.hide()
             //if status == "1" {
             let resultArray : NSArray = NSArray(array: (responseDict.valueForKey("jobs") as? NSArray)!)
             let macIdDict : NSDictionary = (resultArray.lastObject as? NSDictionary)!
                 let userStatus : String = (macIdDict.valueForKey("userStatus") as?String)!
                 if userStatus.compare("active", options: .CaseInsensitiveSearch, range: nil, locale: nil) == NSComparisonResult.OrderedSame {
-                    self.stopTheUsrAccessBility(true, titleText: "Your Subscription Valid Till \((macIdDict.valueForKey("ValidTill") as?String)!)")
+                    //self.stopTheUsrAccessBility(true, titleText: "Your Subscription Valid Till \((macIdDict.valueForKey("ValidTill") as?String)!)")
                     return
                 }else{
-                    self.stopTheUsrAccessBility(false, titleText: "")
+                   // self.stopTheUsrAccessBility(false, titleText: "")
             }
            // }else{
             
@@ -196,6 +200,23 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
         print(jsonStringFormat)
       
         
+        //We change api call after payment last on 21/12/2016
+        
+        /*
+         After payment call this API
+         http://localhost:8081/MobileAPIs/createOrUpdateSubscription?mallId=6&consumerEmail=satyasasi.b@gmail.com&months=3&amount=99
+         
+         parameters :
+         mallID =
+         consumerEmail = mail id
+         Month =  1,6,12 for one month ,six months and one year respectively .
+         amount =
+         */
+        
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getcreateOrUpdateSubscriptionUrl(), parameters: ["mallId":"","consumerEmail":"","months":"","amount":""]) { (responseDict) in
+            
+        }
+        
         CX_SocialIntegration.sharedInstance.updateTheSaveConsumerProperty(["ownerId":CXAppConfig.sharedInstance.getAppMallID(),"jobId":jobId,"jsonString":jsonStringFormat!]) { (resPonce) in     0
             self.checkTheUserActive()
             self.navigationController?.popToRootViewControllerAnimated(true)
@@ -205,7 +226,28 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
             //    http://storeongo.com:8081/MobileAPIs/updateMultipleProperties/jobId=200400&jsonString={"PaymentType":"249","ValidTill":"11-11-2017","userStatus":"active"}&ownerId=20217
     }
     
-    
+    func updateTheUserSubscription(month:String,amount:String){
+        
+        //We change api call after payment last on 21/12/2016
+        
+        /*
+         After payment call this API
+         http://localhost:8081/MobileAPIs/createOrUpdateSubscription?mallId=6&consumerEmail=satyasasi.b@gmail.com&months=3&amount=99
+         
+         parameters :
+         mallID =
+         consumerEmail = mail id
+         Month =  1,6,12 for one month ,six months and one year respectively .
+         amount =
+         */
+        
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getcreateOrUpdateSubscriptionUrl(), parameters: ["mallId":CXAppConfig.sharedInstance.getAppMallID(),"consumerEmail":CXAppConfig.sharedInstance.getEmail(),"months":month,"amount":amount]) { (responseDict) in
+            self.checkTheUserActive()
+            self.navigationController?.popToRootViewControllerAnimated(true)
+        }
+        
+        
+    }
     
     @IBAction func subscribeBtnAction(sender: AnyObject) {
         //http://storeongo.com:8081/Services/getMasters?type=Consumer%20Codes&mallId=20217&keyWord=28DIF9
@@ -232,37 +274,49 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
                 var validTill : String = String()
                 let jsondDic : NSMutableDictionary = NSMutableDictionary()
                 jsondDic.setObject(dic.valueForKey("SubscriptionType")!, forKey: "PaymentType")
-                
+                var month : String = String()
+                var amount : String = String()
+
                 if (payMent == "RS99") {
+                    amount = "99"
+                    month = "1"
                     //One Month
-                    validTill = CXAppConfig.sharedInstance.getExpiresDate(0) as String
+                   // validTill = CXAppConfig.sharedInstance.getExpiresDate(0) as String
                 }else if (payMent == "RS149") {
                     //six Months
-                    validTill = CXAppConfig.sharedInstance.getExpiresDate(1) as String
+                    amount = "149"
+                    month = "6"
+                    //validTill = CXAppConfig.sharedInstance.getExpiresDate(1) as String
                     
                 }else if (payMent == "RS249") {
                     //One Year
-                    validTill = CXAppConfig.sharedInstance.getExpiresDate(2) as String
+                    amount = "249"
+                    month = "12"
+                    //validTill = CXAppConfig.sharedInstance.getExpiresDate(2) as String
                     
                 }
                 
-                jsondDic.setObject("Active", forKey: "userStatus")
-                jsondDic.setObject(validTill, forKey: "ValidTill")
+                //jsondDic.setObject("Active", forKey: "userStatus")
+                //jsondDic.setObject(validTill, forKey: "ValidTill")
                 
-                self.activeTheUser(jsondDic, jobId:CXAppConfig.sharedInstance.getMacJobID())
+               // self.activeTheUser(jsondDic, jobId:CXAppConfig.sharedInstance.getMacJobID())
+                
+                self.updateTheUserSubscription(month, amount: amount)
+
                 
                 // inactive the job also key is Current_Job_Status
                 
-                let inactivedic : NSMutableDictionary = NSMutableDictionary()
-                inactivedic.setObject(dic.valueForKey("jobTypeId")!, forKey: "PaymentType")
+               // let inactivedic : NSMutableDictionary = NSMutableDictionary()
+              //  inactivedic.setObject(dic.valueForKey("jobTypeId")!, forKey: "PaymentType")
+          
                 //inactivedic.setObject("11-11-2017", forKey: "ValidTill")
                 //inactivedic.setObject("Inactive", forKey: "Current_Job_Status")
                 ///self.inActiveTheJob(inactivedic, jobId:"200105") 
                 
                 
-                CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("\(CXAppConfig.sharedInstance.getBaseUrl())MobileAPIs/changeJobStatus?", parameters: ["providerEmail":CXAppConfig.sharedInstance.getEmail(),"mallId":CXAppConfig.sharedInstance.getAppMallID(),"jobId":CXAppConfig.resultString(dic.valueForKey("id")!),"jobStatusId":dic.valueForKey("jobTypeId")!]) { (responseDict) in
+              /*  CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("\(CXAppConfig.sharedInstance.getBaseUrl())MobileAPIs/changeJobStatus?", parameters: ["providerEmail":CXAppConfig.sharedInstance.getEmail(),"mallId":CXAppConfig.sharedInstance.getAppMallID(),"jobId":CXAppConfig.resultString(dic.valueForKey("id")!),"jobStatusId":dic.valueForKey("jobTypeId")!]) { (responseDict) in
                     print(responseDict)
-                }
+                }*/
                 //SubscriptionType
             }
             
@@ -379,22 +433,27 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
             profileView.paymentUrl =  NSURL(string: responseDict.valueForKey("payment_url")! as! String)
             profileView.completion = { _ in responseDict
                 //let payMent : String = dic.valueForKey("SubscriptionType")! as! String
-                var validTill : String = String()
+                var month : String = String()
                 let jsondDic : NSMutableDictionary = NSMutableDictionary()
                 jsondDic.setObject(amount, forKey: "PaymentType")
                 if (amount == "99") {
+                    month = "1"
                     //One Month
-                    validTill = CXAppConfig.sharedInstance.getExpiresDate(0) as String
+                  //  validTill = CXAppConfig.sharedInstance.getExpiresDate(0) as String
                 }else if (amount == "149") {
                     //six Months
-                    validTill = CXAppConfig.sharedInstance.getExpiresDate(1) as String
+                    month = "6"
+                   // validTill = CXAppConfig.sharedInstance.getExpiresDate(1) as String
                 }else if (amount == "249") {
                     //One Year
-                    validTill = CXAppConfig.sharedInstance.getExpiresDate(2) as String
+                    month = "12"
+                    //validTill = CXAppConfig.sharedInstance.getExpiresDate(2) as String
                 }
-                jsondDic.setObject("Active", forKey: "userStatus")
-                jsondDic.setObject(validTill, forKey: "ValidTill")
-                self.activeTheUser(jsondDic, jobId:CXAppConfig.sharedInstance.getMacJobID())
+               // jsondDic.setObject("Active", forKey: "userStatus")
+               // jsondDic.setObject(validTill, forKey: "ValidTill")
+               // self.activeTheUser(jsondDic, jobId:CXAppConfig.sharedInstance.getMacJobID())
+                
+                self.updateTheUserSubscription(month, amount: amount)
             }
             
             profileView.goBackcompletion = { _ in

@@ -10,6 +10,8 @@ import UIKit
 
 class DemoPopupViewController2: UIViewController, PopupContentViewController, UITextFieldDelegate{
     var closeHandler: (() -> Void)?
+    var reedemHandler: (() -> Void)?
+
     var redeemJsonArr:NSArray! = nil
     
     var termsArray:NSMutableArray!
@@ -93,11 +95,12 @@ class DemoPopupViewController2: UIViewController, PopupContentViewController, UI
     }
     
     @IBAction func redeemBtnAction(sender: AnyObject) {
-        redeemCall()
+        //redeemCall()
         closeHandler?()
+        reedemHandler?()
     }
     
-    func redeemCall(){
+   /* func redeemCall(){
         //http://storeongo.com:8081/Services/getMasters? type=macidinfo&mallId=20217&jobId=196278
         LoadingView.show("Loading...", animated: true)
         CXDataService.sharedInstance.getTheAppDataFromServer(["type":"macidinfo","mallId":CXAppConfig.sharedInstance.getAppMallID(),"jobId":CXAppConfig.sharedInstance.getMacJobID()]) { (responseDict) in
@@ -116,7 +119,7 @@ class DemoPopupViewController2: UIViewController, PopupContentViewController, UI
                 self.navigationController?.pushViewController(profileView, animated: true)
             }
         }
-    }
+    }*/
     
     
 

@@ -43,22 +43,11 @@ class AboutUsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(offersDic)
-        
-        
         self.aboutTableView.estimatedRowHeight = 50
         self.aboutTableView.rowHeight = UITableViewAutomaticDimension
-        
-        /* let aboutTxt :String =  self.offersDic?.valueForKey("Description") as! String
-         
-         //let aboutTxt :String =  self.offersDic?.valueForKey("Offers") as! String
-         // self.aboutTextView.text = aboutTxt
-         let descriptionTxt = "<span style=\"font-family: Roboto-Regular; font-size: 14\">\(aboutTxt)</span>"
-         
-         self.aboutWebView.loadHTMLString(descriptionTxt, baseURL: nil)*/
         self.view.backgroundColor = UIColor.clearColor()
         self.intializeNibs()
         self.parsingAboutUsDetails()
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
@@ -76,6 +65,12 @@ class AboutUsViewController: UIViewController {
         
         let locationNib = UINib(nibName: "MerchantLocationTableViewCell", bundle: nil)
         self.aboutTableView.registerNib(locationNib, forCellReuseIdentifier: "MerchantLocationTableViewCell")
+    }
+    
+    
+    func parseTheDetails(){
+        
+        
     }
     
     func parsingAboutUsDetails(){
@@ -99,7 +94,6 @@ class AboutUsViewController: UIViewController {
         self.merchantDict! .setObject((offersDic?.valueForKey("jobTypeName"))!, forKey: "Category")
         self.merchantDict! .setObject((offersDic?.valueForKey("Timings"))!, forKey: "Timings")
         self.merchantDict! .setObject((offersDic?.valueForKey("Image_URL"))!, forKey: "Image_URL")
-        self.aboutTableView.reloadData()
         //jobTypeName
         if ((offersDic?.valueForKey("Address") as? [String]) != nil) {
             //Array
@@ -119,7 +113,8 @@ class AboutUsViewController: UIViewController {
             storeLocationArray.append(locationStruct)
         }
     }
-        
+        self.aboutTableView.reloadData()
+
     }
     
     
@@ -130,7 +125,7 @@ extension AboutUsViewController : UITableViewDelegate,UITableViewDataSource {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
-        if ((self.merchantDict?.valueForKey("Description")) != nil){
+        if ((self.offersDic?.valueForKey("Description")) != nil){
             let aboutTxt :String =  self.offersDic?.valueForKey("Description") as! String
             if aboutTxt.isEmpty {
                 return 2
@@ -168,7 +163,7 @@ extension AboutUsViewController : UITableViewDelegate,UITableViewDataSource {
             let storeLocation : StoreLocations =  (self.storeLocationArray[indexPath.row] as? StoreLocations)!
             let addrssText : String = storeLocation.location + "\n " + storeLocation.address + "\n " + storeLocation.phoneNumber
             detailCell.locationTextView.text = addrssText
-            detailCell.locationTextView.font = CXAppConfig.sharedInstance.appLargeFont()
+            detailCell.locationTextView.font = CXAppConfig.sharedInstance.appMediumFont()
             detailCell.locationTextView.dataDetectorTypes = .PhoneNumber
             detailCell.aboutWebView.hidden = true
             detailCell.mapBtn.hidden = false
@@ -195,7 +190,8 @@ extension AboutUsViewController : UITableViewDelegate,UITableViewDataSource {
         if indexPath.section == 1 {
             return 80
         }
-        return 120
+        
+        return UIScreen.mainScreen().bounds.size.height/4.5
 
     }
     
