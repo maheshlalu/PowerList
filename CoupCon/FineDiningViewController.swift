@@ -7,11 +7,15 @@
 //
 
 import UIKit
-
+import ActionSheetPicker_3_0
 class FineDiningViewController: UIViewController {
     var dealsDic: NSDictionary!
     var subJobDic : NSDictionary!
     var redeemJsonArr:NSArray! = nil
+    
+    var locationsArray : NSMutableArray = NSMutableArray()
+    var totalsubJobDic : NSDictionary = NSDictionary()
+
 
     @IBOutlet weak var mapBtn: UIButton!
     @IBOutlet weak var offerBtn: UIButton!
@@ -27,9 +31,14 @@ class FineDiningViewController: UIViewController {
     @IBOutlet weak var likeButton: UIButton!
     var coverPageImagesList: NSMutableArray!
     
+    @IBOutlet weak var locationLbl: UILabel!
+    @IBOutlet weak var locationSelectBtn: UIButton!
+    
+    
     
      var offersController : AboutUsViewController = AboutUsViewController()
 
+  
     override func viewDidLoad() {
         
         print(dealsDic)
@@ -56,7 +65,6 @@ class FineDiningViewController: UIViewController {
     
     
     func changeTheSubJobs(withJsonDic:NSDictionary){
-        print(withJsonDic)
         self.subJobDic =  withJsonDic
         self.offersController = (self.storyboard?.instantiateViewControllerWithIdentifier("AboutUsViewController") as? AboutUsViewController)!
         //offersController.offersDic = NSDictionary(dictionary: self.dealsDic)
@@ -68,6 +76,17 @@ class FineDiningViewController: UIViewController {
         
     }
     
+    //MARK: Location Selection
+    @IBAction func locationSelectionAction(sender: AnyObject) {
+        ActionSheetMultipleStringPicker.showPickerWithTitle("Select Location", rows: [
+             self.locationsArray], initialSelection: [0], doneBlock: {
+                picker, values, indexes in
+                let firstValue: AnyObject! = indexes[0]
+                self.locationLbl.text = firstValue as? String
+                self.changeTheSubJobs(self.totalsubJobDic.valueForKey(firstValue as! String!)! as! NSDictionary)
+                return
+            }, cancelBlock: { ActionMultipleStringCancelBlock in return }, origin: sender)
+    }
     
     func divideTheSubsInProducts(){
         
@@ -86,14 +105,22 @@ class FineDiningViewController: UIViewController {
         
         if locationsArray.count != 0 {
             let key = locationsArray.objectAtIndex(0) as? String
+            self.locationLbl.text = key
             self.changeTheSubJobs(totalSubJobsDic.valueForKey(key!)! as! NSDictionary)
-        }else{
+        } else{
             self.subJobDic = NSMutableDictionary()
             self.changeTheSubJobs(self.subJobDic)
+            self.locationLbl.hidden = true
+            self.locationSelectBtn.hidden = true
         }
+        if locationsArray.count == 1{
+            self.locationSelectBtn.hidden = true
+            self.locationLbl.text = locationsArray[0] as? String
+        }
+        self.locationsArray = locationsArray
+        self.totalsubJobDic =  totalSubJobsDic
         print(locationsArray)
         print(totalSubJobsDic)
-   
         
     }
     
