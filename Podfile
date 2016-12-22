@@ -12,7 +12,7 @@ pod 'AFNetworking', '~> 3.1'
 pod 'Reachability', '~> 3.2'
 pod 'Firebase/Core'
 pod 'Firebase/Messaging'
-
+pod 'ActionSheetPicker-3.0'
   # Pods for CoupCon
 
   target 'CoupoconTests' do
