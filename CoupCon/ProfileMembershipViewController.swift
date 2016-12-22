@@ -21,7 +21,7 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
     @IBOutlet weak var codeTextView: UITextField!
     @IBOutlet weak var MemberShipLbl: UILabel!
     
-    
+    @IBOutlet weak var subscriptionStatusLbl: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         membershipBtnLabels()
@@ -52,9 +52,11 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
                 let userStatus : String = (macIdDict.valueForKey("userStatus") as?String)!
                 if userStatus.compare("active", options: .CaseInsensitiveSearch, range: nil, locale: nil) == NSComparisonResult.OrderedSame {
                     //self.stopTheUsrAccessBility(true, titleText: "Your Subscription Valid Till \((macIdDict.valueForKey("ValidTill") as?String)!)")
+                    self.subscriptionStatusLbl.text = "Your Subscription Valid Till \((macIdDict.valueForKey("ValidTill") as?String)!)"
                     return
                 }else{
                    // self.stopTheUsrAccessBility(false, titleText: "")
+                    self.subscriptionStatusLbl.text = "Please Subscribe!!!"
             }
            // }else{
             
@@ -226,7 +228,7 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
             //    http://storeongo.com:8081/MobileAPIs/updateMultipleProperties/jobId=200400&jsonString={"PaymentType":"249","ValidTill":"11-11-2017","userStatus":"active"}&ownerId=20217
     }
     
-    func updateTheUserSubscription(month:String,amount:String){
+    func updateTheUserSubscription(month:String,amount:String,code:String,isOfflineSbscribe:Bool){
         
         //We change api call after payment last on 21/12/2016
         
@@ -241,8 +243,15 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
          amount =
          */
         
-        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getcreateOrUpdateSubscriptionUrl(), parameters: ["mallId":CXAppConfig.sharedInstance.getAppMallID(),"consumerEmail":CXAppConfig.sharedInstance.getEmail(),"months":month,"amount":amount]) { (responseDict) in
+        var postDic = ["mallId":CXAppConfig.sharedInstance.getAppMallID(),"consumerEmail":CXAppConfig.sharedInstance.getEmail(),"months":month,"amount":amount]
+        
+        if isOfflineSbscribe {
+           postDic = ["mallId":CXAppConfig.sharedInstance.getAppMallID(),"consumerEmail":CXAppConfig.sharedInstance.getEmail(),"months":month,"amount":amount,"ConsumerCode":code]
+        }
+        
+        CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getcreateOrUpdateSubscriptionUrl(), parameters: postDic) { (responseDict) in
             self.checkTheUserActive()
+            self.codeTextView.text = ""
             self.navigationController?.popToRootViewControllerAnimated(true)
         }
         
@@ -257,7 +266,8 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
             let list : NSArray = NSArray(array: (responseDict.valueForKey("jobs") as? NSArray)!)
             if list.count == 0 {
                 //Code not valid
-                
+                self.showAlertView("Invalid Code", status: 0)
+
             }else{
                 //Active The User
                 let dic : NSDictionary = (list.lastObject as? NSDictionary)!
@@ -265,7 +275,9 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
                 
                 let jobStatus : String = (dic.valueForKey("Current_Job_Status") as? String)!
                 if jobStatus.compare("Inactive", options: .CaseInsensitiveSearch, range: nil, locale: nil) == NSComparisonResult.OrderedSame {
+                    //Show the alert for error code
                     
+                    self.showAlertView("Invalid Code", status: 0)
                     
                     return
                 }
@@ -301,7 +313,9 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
                 
                // self.activeTheUser(jsondDic, jobId:CXAppConfig.sharedInstance.getMacJobID())
                 
-                self.updateTheUserSubscription(month, amount: amount)
+               // self.updateTheUserSubscription(month, amount: amount)
+                //"Code"
+                self.updateTheUserSubscription(month, amount: amount, code: dic.valueForKey("Code")! as! String, isOfflineSbscribe: true)
 
                 
                 // inactive the job also key is Current_Job_Status
@@ -313,10 +327,16 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
                 //inactivedic.setObject("Inactive", forKey: "Current_Job_Status")
                 ///self.inActiveTheJob(inactivedic, jobId:"200105") 
                 
+                //This below Api call for Deactive the Code
+                //jobStatusId  from "Next_Job_Statuses" -> "Status_Id" in comsumer code
                 
-              /*  CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("\(CXAppConfig.sharedInstance.getBaseUrl())MobileAPIs/changeJobStatus?", parameters: ["providerEmail":CXAppConfig.sharedInstance.getEmail(),"mallId":CXAppConfig.sharedInstance.getAppMallID(),"jobId":CXAppConfig.resultString(dic.valueForKey("id")!),"jobStatusId":dic.valueForKey("jobTypeId")!]) { (responseDict) in
+                let nextJobStatus = dic.valueForKey("Next_Job_Statuses") as? NSArray
+                let statusIDdic = nextJobStatus?.lastObject as?NSDictionary
+                print(statusIDdic!.valueForKeyPath("Status_Id"))
+                
+                CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("\(CXAppConfig.sharedInstance.getBaseUrl())MobileAPIs/changeJobStatus?", parameters: ["providerEmail":CXAppConfig.sharedInstance.getEmail(),"mallId":CXAppConfig.sharedInstance.getAppMallID(),"jobId":CXAppConfig.resultString(dic.valueForKey("id")!),"jobStatusId":statusIDdic!.valueForKeyPath("Status_Id")!]) { (responseDict) in
                     print(responseDict)
-                }*/
+                }
                 //SubscriptionType
             }
             
@@ -329,6 +349,19 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
          print(Dictionary)
          }
          */
+    }
+    
+    
+    func showAlertView(message:String, status:Int) {
+        dispatch_async(dispatch_get_main_queue(), {
+            let alert = UIAlertController(title: "CoupCon", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            let okAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default) {
+                UIAlertAction in
+
+            }
+            alert.addAction(okAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+        })
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
@@ -395,37 +428,8 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
     func sendThePayMentDetailsToServer(amount:String){
         let userProfileData:UserProfile = CXAppConfig.sharedInstance.getTheUserDetails()
         LoadingView.show("Loading...", animated: true)
-       /* var urlString : String = String("http://54.179.48.83:9000/CoupoconPG/payments?")
-        urlString.appendContentsOf("name="+userProfileData.firstName!)
-        urlString.appendContentsOf("&email="+userProfileData.emailId!)
-        urlString.appendContentsOf("&amount="+amount)
-        urlString.appendContentsOf("&description="+"Coupocon Payment")
-        urlString.appendContentsOf("&phone="+"8096380038")
-        urlString.appendContentsOf("&macId="+userProfileData.macId!)
-        urlString.appendContentsOf("&mallId="+CXAppConfig.sharedInstance.getAppMallID())
-        print(urlString)
-        let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        let profileView = storyBoard.instantiateViewControllerWithIdentifier("CXPayMentController") as! CXPayMentController
-        let urlSet = NSMutableCharacterSet()
-        urlSet.formUnionWithCharacterSet(.URLFragmentAllowedCharacterSet())
-        urlSet.formUnionWithCharacterSet(.URLHostAllowedCharacterSet())
-        urlSet.formUnionWithCharacterSet(.URLPasswordAllowedCharacterSet())
-        urlSet.formUnionWithCharacterSet(.URLQueryAllowedCharacterSet())
-        urlSet.formUnionWithCharacterSet(.URLUserAllowedCharacterSet())
-        
-        if let urlwithPercentEscapes = urlString.stringByAddingPercentEncodingWithAllowedCharacters( urlSet) {
-            print(urlwithPercentEscapes)
-            
-            profileView.paymentUrl = NSURL(string: urlwithPercentEscapes)
-
-            // "http://www.mapquestapi.com/geocoding/v1/batch?key=YOUR_KEY_HERE&callback=renderBatch&location=Pottsville,PA&location=Red%20Lion&location=19036&location=1090%20N%20Charlotte%20St,%20Lancaster,%20PA"
-        }
-        print(profileView.paymentUrl)
-        self.navigationController?.pushViewController(profileView, animated: true)
-        LoadingView.hide()*/
         //http://test.com:9000/OngoStoresPG/coupoconPG?name=vinodha&email=vinodhapudari@gmail.com&amount=10&description=Test%20api&phone=9660008880&macId=101&mallId=2
         
-        //CXAppConfig.sharedInstance.getPaymentGateWayUrl()
         CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getPaymentGateWayUrl(), parameters: ["name":userProfileData.firstName!,"email":userProfileData.emailId!,"amount":amount,"description":"Coupocon Payment","phone":CXAppConfig.sharedInstance.getPhoneNumber(),"macId":userProfileData.macId!,"mallId":CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in
            // print(responseDict.valueForKey("payment_url"))
             let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
@@ -453,7 +457,8 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
                // jsondDic.setObject(validTill, forKey: "ValidTill")
                // self.activeTheUser(jsondDic, jobId:CXAppConfig.sharedInstance.getMacJobID())
                 
-                self.updateTheUserSubscription(month, amount: amount)
+               // self.updateTheUserSubscription(month, amount: amount)
+                self.updateTheUserSubscription(month, amount: amount, code: "", isOfflineSbscribe: false)
             }
             
             profileView.goBackcompletion = { _ in

@@ -254,7 +254,6 @@ class ReedemViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     func offerReedem(){
         LoadingView.show("Loading...", animated: true)
-
         /*
          json={"list"":[{"ProductName":"Tabla","ProductDescription":"description","ProductImage":"https://s3-ap-southeast-1.amazonaws.com/storeongocontent/jobs/jobFldAttachments/20217_1477488244540.png","OfferName":"25 off on lunch","ProductId":"196429","OfferId":"9876543210","MacId":"102716-BHJAFCFH"}]}&dt=CAMPAIGNS&category=Notifications&userId=20217&consumerEmail=cxsample@gmail.com
          
