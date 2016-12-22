@@ -40,12 +40,13 @@ class DemoPopupViewController2: UIViewController, PopupContentViewController, UI
      let screenWidth = screenSize.width * 0.75*/
     
     func testFunc() {
-        str += "- \(termsArray[i])\n"
-        termsConditionTxtView.text = str
-        if i == termsArray.count - 1 {
-            timer.invalidate()
+        var appendStr = ""
+        for text in self.termsArray {
+            let str = text as? String
+            appendStr += "- \(str!)\n"
         }
-        i += 1
+        termsConditionTxtView.text = appendStr
+
     }
     
     func methodOfReceivedNotification(notification:NSNotification)  {
@@ -54,22 +55,17 @@ class DemoPopupViewController2: UIViewController, PopupContentViewController, UI
         let imageUrlStr = popUpDic["popUpLogo"] as! String
         let lblDesc = popUpDic["popUpName"] as! String
         let terms = popUpDic["terms"]
-        print(terms)
-        
         if terms == nil{
             //termsArray.addObject("No Terms and Conditions to Show")
             
         }else{
-            
-            termsArray = terms as! NSMutableArray
-            
+            termsArray =  NSMutableArray(array: NSArray(array: terms!.componentsSeparatedByString("#")))
         }
         
         productImageView.sd_setImageWithURL(NSURL(string:imageUrlStr))
         productDesLbl.text = lblDesc
-        
         if (termsArray != nil) {
-            timer = NSTimer.scheduledTimerWithTimeInterval(0.0, target: self, selector: #selector(DemoPopupViewController2.testFunc), userInfo: nil, repeats: true)
+            self.testFunc()
         } else {
             termsConditionTxtView.text = "- Terms and Conditions Not Available"
         }

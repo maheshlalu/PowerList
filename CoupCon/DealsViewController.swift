@@ -25,7 +25,6 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
         let nib = UINib(nibName: "DealsCollectionViewCell", bundle: nil)
         self.collectionview.registerNib(nib, forCellWithReuseIdentifier: "DealsCollectionViewCell")
         self.collectionview.backgroundColor = UIColor.clearColor()
-        // print("\(self.dealsDic) \(self.dealsDic!.allKeys)")
         
         if self.isFromFavorites {
             self.navigationController?.navigationBarHidden = false
@@ -66,7 +65,6 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
        // selectedName = "Fine Dining"
         LoadingView.show("Loading...", animated: true)
         CXDataService.sharedInstance.getTheAppDataFromServer(["type":selectedName,"mallId":CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in
-            //print(responseDict)
             self.dealsArray = NSMutableArray(array: (responseDict.valueForKey("jobs") as? NSArray)!)
             self.collectionview.reloadData()
             LoadingView.hide()
@@ -181,7 +179,6 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
 
         fineDinigVc = storyBoard.instantiateViewControllerWithIdentifier("FineDining") as! FineDiningViewController
         fineDinigVc.dealsDic = dealsDic
-        print(dealsDic)
        
 //        let backItem = UIBarButtonItem()
 //        backItem.title = dealsDic.valueForKey("Name")! as? String
@@ -252,7 +249,6 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
  
     }
     private func callNumber(phoneNumber:String) {
-        print(phoneNumber)
  
 //        if UIApplication.sharedApplication().canOpenURL(NSURL(string: "tel://\(phoneNumber))")!) {
 //            UIApplication.sharedApplication().openURL(NSURL(string: "tel://\(phoneNumber))")!)
@@ -278,7 +274,6 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
                 if self.isFromFavorites {
                     self.dealsArray.removeAllObjects()
                     let stores : NSArray = CX_Stores.MR_findAll()
-                    print(stores.description)
                     if stores.count == 0{
                         self.dealsArray.removeAllObjects()
                         self.collectionview.reloadData()

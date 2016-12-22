@@ -42,7 +42,6 @@ class AboutUsViewController: UIViewController {
     @IBOutlet weak var aboutTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(offersDic)
         self.aboutTableView.estimatedRowHeight = 50
         self.aboutTableView.rowHeight = UITableViewAutomaticDimension
         self.view.backgroundColor = UIColor.clearColor()
@@ -102,7 +101,6 @@ class AboutUsViewController: UIViewController {
             let latitudeArray : NSArray = (offersDic?.valueForKey("Latitude"))! as! NSArray
             let longitudeArray : NSArray = (offersDic?.valueForKey("Longitude"))! as! NSArray
             let location : NSArray = (offersDic?.valueForKey("Location"))! as! NSArray
-          //  print("\(addressArray)\(phoneArray)\(latitudeArray)\(longitudeArray)\(location)")
             for var i = 0; i < addressArray.count; i += 1 {
                 let locationStruct : StoreLocations = StoreLocations(Latitude: latitudeArray[i] as! String, longitude: longitudeArray[i] as! String , location: location[i] as! String, phoneNumber: phoneArray[i] as! String, address: addressArray[i] as! String)
                 storeLocationArray.append(locationStruct)
@@ -180,7 +178,6 @@ extension AboutUsViewController : UITableViewDelegate,UITableViewDataSource {
         //let aboutTxt :String =  self.offersDic?.valueForKey("Offers") as! String
         // self.aboutT.extView.text = aboutTxt
         let descriptionTxt = "<span style=\"font-family: Roboto-Regular; font-size: 13\">\(aboutTxt)</span>"
-        print(aboutTxt)
         detailCell.aboutWebView.loadHTMLString(descriptionTxt, baseURL: nil)
         return detailCell
     }

@@ -289,6 +289,7 @@ extension HomeViewController:UICollectionViewDataSource,UICollectionViewDelegate
         
         self.navigationController?.pushViewController(dealsVc, animated: true)
     
+        CXAppConfig.sharedInstance.setSelectedCategory((categoryDic.valueForKey("Name")! as? String)!)
         
     }
     

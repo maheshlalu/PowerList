@@ -27,8 +27,6 @@ class CXAppConfig {
     func loadConfig() {
         if let path = NSBundle.mainBundle().pathForResource("CXProjectConfiguration", ofType: "plist") {
             config = NSDictionary(contentsOfFile: path)
-            
-            print(config)
         }
     }
     
@@ -222,6 +220,24 @@ class CXAppConfig {
         }else{
             
             return NSUserDefaults.standardUserDefaults().valueForKey("USERID") as! String
+        }
+        
+    }
+    
+    func setSelectedCategory(userID:String){
+        NSUserDefaults.standardUserDefaults().setObject(userID, forKey: "categoryName")
+    }
+    
+    func getSelectedCategory() ->String{
+        
+        if(NSUserDefaults.standardUserDefaults().objectForKey("categoryName") == nil)
+        {
+            print("NULL")
+            return ""
+            
+        }else{
+            
+            return NSUserDefaults.standardUserDefaults().valueForKey("categoryName") as! String
         }
         
     }

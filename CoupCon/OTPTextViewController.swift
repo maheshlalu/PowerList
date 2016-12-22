@@ -63,6 +63,7 @@ class OTPTextViewController: UIViewController,UITextFieldDelegate {
         //        appDel.applicationNavigationFlow()
         //
         //        return
+        self.view.endEditing(true)
         
         if (mobileTxtField.text?.characters.count == 0 || selectCityBtn.titleLabel?.text == "Select City"){
             self.showAlertView("Fields can't be empty!!", status: 0)

@@ -86,7 +86,6 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
     
     
     func stopTheUsrAccessBility(isAccess:Bool,titleText:String){
-        print(titleText)
         if isAccess == true{
             //Add the black transperent view with label for valid date
             let transperentView:UIView = UIView(frame: self.view.frame)
@@ -168,6 +167,10 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
         return true
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
     func inActiveTheJob(parameterDic:NSDictionary,jobId:String){
         
@@ -181,8 +184,6 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
         let jsonStringFormat = String(data: jsonData, encoding: NSUTF8StringEncoding)
         
         CX_SocialIntegration.sharedInstance.updateTheSaveConsumerProperty(["ownerId":CXAppConfig.sharedInstance.getAppMallID(),"jobId":jobId,"jsonString":jsonStringFormat!]) { (resPonce) in
-            
-            print(resPonce)
             self.navigationController?.popToRootViewControllerAnimated(true)
             
         }
@@ -199,7 +200,6 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
             print(error)
         }
         let jsonStringFormat = String(data: jsonData, encoding: NSUTF8StringEncoding)
-        print(jsonStringFormat)
       
         
         //We change api call after payment last on 21/12/2016
@@ -271,8 +271,6 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
             }else{
                 //Active The User
                 let dic : NSDictionary = (list.lastObject as? NSDictionary)!
-                print(dic)
-                
                 let jobStatus : String = (dic.valueForKey("Current_Job_Status") as? String)!
                 if jobStatus.compare("Inactive", options: .CaseInsensitiveSearch, range: nil, locale: nil) == NSComparisonResult.OrderedSame {
                     //Show the alert for error code
@@ -329,13 +327,9 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
                 
                 //This below Api call for Deactive the Code
                 //jobStatusId  from "Next_Job_Statuses" -> "Status_Id" in comsumer code
-                
                 let nextJobStatus = dic.valueForKey("Next_Job_Statuses") as? NSArray
                 let statusIDdic = nextJobStatus?.lastObject as?NSDictionary
-                print(statusIDdic!.valueForKeyPath("Status_Id"))
-                
                 CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("\(CXAppConfig.sharedInstance.getBaseUrl())MobileAPIs/changeJobStatus?", parameters: ["providerEmail":CXAppConfig.sharedInstance.getEmail(),"mallId":CXAppConfig.sharedInstance.getAppMallID(),"jobId":CXAppConfig.resultString(dic.valueForKey("id")!),"jobStatusId":statusIDdic!.valueForKeyPath("Status_Id")!]) { (responseDict) in
-                    print(responseDict)
                 }
                 //SubscriptionType
             }
@@ -406,7 +400,6 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBarHidden = false
-        print(self.navigationController)
     }
     
     @IBAction func oneMonthAccessBtnAction(sender: AnyObject) {

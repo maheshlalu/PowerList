@@ -38,9 +38,6 @@ class OffersViewController: UIViewController {
     
     
     func getTheOfferCodes() ->NSMutableString{
-        
-        print(self.subJobDic)
-        
         let keyExists = self.subJobDic![ "Offers"] != nil
         if !keyExists {
             // now val is not nil and the Optional has been unwrapped, so use it
@@ -118,15 +115,13 @@ class OffersViewController: UIViewController {
         let cell : OfferTableViewCell = (tableView.dequeueReusableCellWithIdentifier("OfferTableViewCell", forIndexPath: indexPath) as? OfferTableViewCell)!
         tableView.separatorStyle = .None
         cell.selectionStyle = .None
-        
         let offerDic : NSDictionary = self.offersList[indexPath.row] as! NSDictionary
-        print(offerDic)
         cell.offersLblText.text = offerDic.valueForKey("Name") as? String
         cell.redeemBtn.layer.cornerRadius = 8.0
         
+        
         //isRedeemed
         let isReedemed = CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(offerDic, sourceKey: "isRedeemed")
- 
         if(isReedemed.caseInsensitiveCompare("yes") == NSComparisonResult.OrderedSame){
             cell.backgroundColor = UIColor(red: 233.0/255.0, green: 233.0/255.0, blue: 233.0/255.0, alpha: 1.0)
 
@@ -159,45 +154,72 @@ class OffersViewController: UIViewController {
   
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        // Free Coupons
         let offerDic : NSDictionary = self.offersList[indexPath.row] as! NSDictionary
         
-        //isRedeemed
         let isReedemed = CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(offerDic, sourceKey: "isRedeemed")
         
         if(isReedemed.caseInsensitiveCompare("yes") == NSComparisonResult.OrderedSame){
-            
             self.showAlertView("Do you want to redeem this offer again?", status: 0)
             
-        }else{
-            
-            let logoImg = NSUserDefaults.standardUserDefaults().valueForKey("POPUP_LOGO") as! String
-            let popUpName = offerDic.valueForKey("Name") as? String
-            // guard let terms = offerDic.valueForKey("TermsAndConditions") as? NSArray else{()}
-            let terms = offerDic.valueForKey("TermsAndConditions")
-            if (terms as? String == "" || terms as? String == nil){
-                let popUpDict:[String: AnyObject] = [ "popUpLogo":logoImg,  "popUpName": popUpName!]
-                NSNotificationCenter.defaultCenter().postNotificationName("ShowPopUp", object: nil)
-                NSNotificationCenter.defaultCenter().postNotificationName("PopUpData", object: popUpDict)
-            }else{
-                let popUpDict:[String: AnyObject] = [ "popUpLogo":logoImg,  "popUpName": popUpName!,"terms":terms!]
-                NSNotificationCenter.defaultCenter().postNotificationName("ShowPopUp", object: nil)
-                NSNotificationCenter.defaultCenter().postNotificationName("PopUpData", object: popUpDict)
+        }else if (CXAppConfig.sharedInstance.getSelectedCategory() == "Free Coupons"){
+            //User want use free coupons user must subscribe with 6 months validity and more
+            CXDataService.sharedInstance.getTheAppDataFromServer(["type" : "macidinfo","mallId" : CXAppConfig.sharedInstance.getAppMallID(),"keyWord":CXAppConfig.sharedInstance.getEmail()]) { (responseDict) in
+                // let email: String = (userDataDic.objectForKey("email") as? String)!
+                let array   =  NSMutableArray(array: (responseDict.valueForKey("jobs") as? NSArray!)!)
+                let userDic = (array.lastObject as? NSDictionary)!
+                CXAppConfig.sharedInstance.saveTheUserMacIDinfoData(userDic)
+                let payMentType =  userDic.valueForKey("PaymentType") as? String
+                if (payMentType == "149" || payMentType == "249" ){
+                    self.redeemTheOffer(offerDic)
+                }else{
+                    self.showAlertView("If you want to redeem free coupons please subscribe with 6months or more..", status: 0)
+                }
+                //"PaymentType"
             }
-            
-            let jsonDic : NSMutableDictionary = NSMutableDictionary(dictionary: CXAppConfig.sharedInstance.getRedeemDictionary())
-            
-            jsonDic.setObject(CXAppConfig.resultString(self.productDic!.valueForKey("id")!), forKey: "ProductId")
-            jsonDic.setObject(offerDic.valueForKey("Name")!, forKey: "OfferName")
-            jsonDic.setObject(offerDic.valueForKey("ItemCode")!, forKey: "OfferId")
-            //jsonDic.setObject(CXAppConfig.sharedInstance.getSubscriptionJobItemCode(), forKey: "SubscriptionJobId") //SubscriptionJobItemCode from user macIdInfo
-            jsonDic.setObject(CXAppConfig.resultString(self.subJobDic!.valueForKey("ItemCode")!), forKey: "subJobId") //Item code in Offers
-            jsonDic.setObject(CXAppConfig.resultString(self.subJobDic!.valueForKey("Code")!), forKey: "OfferCode")
-            print(jsonDic)
-            
-            CXAppConfig.sharedInstance.setRedeemDictionary(jsonDic)
+        }else{
+            self.redeemTheOffer(offerDic)
         }
     }
+    
+    
+    func redeemTheOffer(offerDic:NSDictionary){
+    
+        let logoImg = NSUserDefaults.standardUserDefaults().valueForKey("POPUP_LOGO") as! String
+        let popUpName = offerDic.valueForKey("Name") as? String
+        let offerString :String =  CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(self.subJobDic!, sourceKey: "Terms and conditions")
+        let  offersListArry = NSArray(array: offerString.componentsSeparatedByString("#"))
+        var termArray = ""
+        for (index ,offerCode ) in offersListArry.enumerate() {
+            let result = offerCode.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.,").invertedSet)
+            termArray += result
+            if index != offersListArry.count-1 {
+                termArray += ("#")
+            }
+        }
+        
+        if (termArray  == ""){
+            let popUpDict:[String: AnyObject] = [ "popUpLogo":logoImg,  "popUpName": popUpName!]
+            NSNotificationCenter.defaultCenter().postNotificationName("ShowPopUp", object: nil)
+            NSNotificationCenter.defaultCenter().postNotificationName("PopUpData", object: popUpDict)
+        }else{
+            let popUpDict:[String: AnyObject] = [ "popUpLogo":logoImg,  "popUpName": popUpName!,"terms":termArray]
+            NSNotificationCenter.defaultCenter().postNotificationName("ShowPopUp", object: nil)
+            NSNotificationCenter.defaultCenter().postNotificationName("PopUpData", object: popUpDict)
+        }
+        
+        let jsonDic : NSMutableDictionary = NSMutableDictionary(dictionary: CXAppConfig.sharedInstance.getRedeemDictionary())
+        
+        jsonDic.setObject(CXAppConfig.resultString(self.productDic!.valueForKey("id")!), forKey: "ProductId")
+        jsonDic.setObject(offerDic.valueForKey("Name")!, forKey: "OfferName")
+        jsonDic.setObject(offerDic.valueForKey("ItemCode")!, forKey: "OfferId")
+        //jsonDic.setObject(CXAppConfig.sharedInstance.getSubscriptionJobItemCode(), forKey: "SubscriptionJobId") //SubscriptionJobItemCode from user macIdInfo
+        jsonDic.setObject(CXAppConfig.resultString(self.subJobDic!.valueForKey("ItemCode")!), forKey: "subJobId") //Item code in Offers
+        jsonDic.setObject(CXAppConfig.resultString(self.subJobDic!.valueForKey("Code")!), forKey: "OfferCode")
+        CXAppConfig.sharedInstance.setRedeemDictionary(jsonDic)
+    
+    }
+    
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {
@@ -222,7 +244,6 @@ class OffersViewController: UIViewController {
         jsonListArray.addObject(jsonDic)
         
         let listDic : NSDictionary = NSDictionary(object: jsonListArray, forKey: "list")
-        print(listDic)
         
     }
     

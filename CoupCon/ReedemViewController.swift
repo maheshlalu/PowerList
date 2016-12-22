@@ -188,7 +188,7 @@ class ReedemViewController: UIViewController,UITableViewDataSource,UITableViewDe
                 textField6.becomeFirstResponder()
                 
             case textField6:
-                
+                self.view.endEditing(true)
                 let Code = "\(textField1.text!)\(textField2.text!)\(textF3.text!)\(textField4.text!)\(textField5.text!)\(textField6.text!)"
                 let codeStr = Code.uppercaseString
                 let jsonListArray : NSMutableArray = NSMutableArray()
@@ -242,9 +242,7 @@ class ReedemViewController: UIViewController,UITableViewDataSource,UITableViewDe
     func redeemHistoryApiCall(){
         LoadingView.show("Loading...", animated: true)
         CXDataService.sharedInstance.getTheAppDataFromServer(["type":"RedeemHistory","mallId":CXAppConfig.sharedInstance.getAppMallID(),"refTypeProperty1":"MacId","refId1":CXAppConfig.sharedInstance.getTheUserData().macIdJobId]) { (responseDict) in
-            print(responseDict)
             self.redeemHistoryJobsArr = responseDict.valueForKey("jobs") as! NSArray
-            print(self.redeemHistoryJobsArr.count)
             self.RedeemTableView.reloadData()
             LoadingView.hide()
             
@@ -292,10 +290,7 @@ class ReedemViewController: UIViewController,UITableViewDataSource,UITableViewDe
             let jsonStringFormat = String(data: jsonData, encoding: NSUTF8StringEncoding)
             
             CXDataService.sharedInstance.synchDataToServerAndServerToMoblile(CXAppConfig.sharedInstance.getBaseUrl()+CXAppConfig.sharedInstance.getPlaceOrderUrl(), parameters: ["type":"RedeemHistory","json":jsonStringFormat!,"dt":"CAMPAIGNS","category":"Notifications","userId":CXAppConfig.sharedInstance.getAppMallID(),"consumerEmail":CXAppConfig.sharedInstance.getTheUserData().userEmail]) { (responseDict) in
-                print(responseDict)
                 let string = responseDict.valueForKeyPath("myHashMap.status") as! String
-                print(string)
-                
                 if string == "1"{
                     self.showAlertView("Product Redeemed Successfully!!!", status: 1)
                 }

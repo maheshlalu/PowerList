@@ -1839,7 +1839,7 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="numberPad"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="alphabet"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
                                                 <integer key="value" value="1"/>
@@ -1855,7 +1855,7 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="numberPad"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="alphabet"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
                                                 <integer key="value" value="1"/>
@@ -1871,7 +1871,7 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="numberPad"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="alphabet"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
                                                 <integer key="value" value="1"/>
@@ -1887,7 +1887,7 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="numberPad"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="alphabet"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
                                                 <integer key="value" value="1"/>
@@ -1903,7 +1903,7 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="numberPad"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="alphabet"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
                                                 <integer key="value" value="1"/>
@@ -1919,7 +1919,7 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="numberPad"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="alphabet"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
                                                 <integer key="value" value="1"/>

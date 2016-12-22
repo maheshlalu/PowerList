@@ -40,14 +40,9 @@ class FineDiningViewController: UIViewController {
 
   
     override func viewDidLoad() {
-        
-        print(dealsDic)
-        
         super.viewDidLoad()
         self.divideTheSubsInProducts()
-
         constructTheOfferReedemJson()
-
         self.aboutBtn.backgroundColor = CXAppConfig.sharedInstance.getAppTheamColor()
         NSUserDefaults.standardUserDefaults().setObject( CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(dealsDic, sourceKey: "Image_URL"), forKey: "POPUP_LOGO")
         self.backLbl.setTitle(dealsDic.valueForKey("Name") as?String, forState: .Normal)
@@ -68,6 +63,9 @@ class FineDiningViewController: UIViewController {
         self.subJobDic =  withJsonDic
         self.offersController = (self.storyboard?.instantiateViewControllerWithIdentifier("AboutUsViewController") as? AboutUsViewController)!
         //offersController.offersDic = NSDictionary(dictionary: self.dealsDic)
+        self.offerBtn.backgroundColor = UIColor.lightGrayColor()
+        self.aboutBtn.backgroundColor = CXAppConfig.sharedInstance.getAppTheamColor()
+
         offersController.offersDic = NSDictionary(dictionary: withJsonDic)
         self.currentViewController = offersController
         self.currentViewController!.view.translatesAutoresizingMaskIntoConstraints = false
@@ -119,9 +117,7 @@ class FineDiningViewController: UIViewController {
         }
         self.locationsArray = locationsArray
         self.totalsubJobDic =  totalSubJobsDic
-        print(locationsArray)
-        print(totalSubJobsDic)
-        
+ 
     }
     
     
@@ -342,7 +338,7 @@ class FineDiningViewController: UIViewController {
         self.offerBtn.backgroundColor = UIColor.lightGrayColor()
         
         let newViewController : AboutUsViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("AboutUsViewController") as? AboutUsViewController)!
-        newViewController.offersDic = NSDictionary(dictionary: self.dealsDic)
+        newViewController.offersDic = NSDictionary(dictionary: self.subJobDic)
         newViewController.view.translatesAutoresizingMaskIntoConstraints = false
         self.cycleFromViewController(self.currentViewController!, toViewController: newViewController)
         self.currentViewController = newViewController
@@ -415,13 +411,13 @@ class FineDiningViewController: UIViewController {
         
          var addressArray : NSMutableArray = NSMutableArray()
         
-        if ((dealsDic?.valueForKey("PhoneNumber") as? [String]) != nil) {
+        if ((self.subJobDic?.valueForKey("PhoneNumber") as? [String]) != nil) {
             //Array
-             addressArray  = NSMutableArray(array: (dealsDic?.valueForKey("PhoneNumber"))! as! NSArray)
+             addressArray  = NSMutableArray(array: (self.subJobDic?.valueForKey("PhoneNumber"))! as! NSArray)
         }else{
             //String
-            if ((self.dealsDic.valueForKey("PhoneNumber")) != nil){
-                let primaryNumber = self.dealsDic.valueForKeyPath("PhoneNumber") as! String!
+            if ((self.subJobDic.valueForKey("PhoneNumber")) != nil){
+                let primaryNumber = self.subJobDic.valueForKeyPath("PhoneNumber") as! String!
                 addressArray.addObject(primaryNumber)
             }
       
@@ -456,11 +452,7 @@ class FineDiningViewController: UIViewController {
         
         let description = "Coupcon"
         let url = self.dealsDic.valueForKey("publicURL") as? String
-        //let encodedPublicUrl = String(UTF8String: url!.cStringUsingEncoding(NSUTF8StringEncoding)!)
-        
         let encodedPublicUrl = url!.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
-        print(encodedPublicUrl)
-        
         let activityViewController:UIActivityViewController = UIActivityViewController(activityItems: [description,encodedPublicUrl], applicationActivities: nil)
         activityViewController.excludedActivityTypes = [UIActivityTypePrint, UIActivityTypePostToWeibo, UIActivityTypeCopyToPasteboard, UIActivityTypeAddToReadingList, UIActivityTypePostToVimeo]
         self.presentViewController(activityViewController, animated: true, completion: nil)
