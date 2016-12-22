@@ -152,13 +152,17 @@ class ReedemViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {
-        tableView.rowHeight = 150
+        
         return 150
         
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0
+        return 5
+    }
+    
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 5
     }
     
     func textFieldDidChange(textField: UITextField){

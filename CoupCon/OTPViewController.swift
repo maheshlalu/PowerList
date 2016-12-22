@@ -56,7 +56,16 @@ class OTPViewController: UIViewController,SWRevealViewControllerDelegate,UITextF
        // http://storeongo.com:8081/MobileAPIs/verifyOTP?ownerId=530&consumerEmail=cxsample@gmail.com&otp=538849
         if otpTxtField.text != ""{
             //Comparing the Entered OTP With SMS OTP
-            self.comparingFieldWithOTP()
+            let optText = self.otpTxtField.text
+            
+            if optText?.caseInsensitiveCompare("cc2312") == NSComparisonResult.OrderedSame {
+                //cc2312
+                // if user enter cc2312 in textfiled for testing purpose user navate to home screen directly
+                let appDel = (UIApplication.sharedApplication().delegate) as! AppDelegate
+                appDel.applicationNavigationFlow()
+            }else{
+                self.comparingFieldWithOTP()
+            }
             
         }else{
             showAlertView("Field Can't Be Empty!!!", status: 0)

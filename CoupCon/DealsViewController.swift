@@ -278,20 +278,21 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
                 if self.isFromFavorites {
                     self.dealsArray.removeAllObjects()
                     let stores : NSArray = CX_Stores.MR_findAll()
-                    for dic in stores {
-                        let store : CX_Stores = dic as! CX_Stores
-                        self.dealsArray.addObject(CXDataService.sharedInstance.convertStringToDictionary(store.json!))
+                    print(stores.description)
+                    if stores.count == 0{
+                        self.dealsArray.removeAllObjects()
                         self.collectionview.reloadData()
+                
+                    }else{
+                        for dic in stores {
+                            let store : CX_Stores = dic as! CX_Stores
+                            self.dealsArray.addObject(CXDataService.sharedInstance.convertStringToDictionary(store.json!))
+                            self.collectionview.reloadData()
+                        }
                     }
                 }
             })
         }
     }
-   
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
 }

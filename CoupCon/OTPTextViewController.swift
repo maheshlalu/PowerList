@@ -139,7 +139,7 @@ class OTPTextViewController: UIViewController,UITextFieldDelegate {
                 
             }else{
                 // OTP NOT SENT
-                self.showAlertView("Something Went Wrong!! Pleace check Email!!!", status: 0)
+                self.showAlertView("Something Went Wrong!! Pleace check Email!!!", status: 300)
             }
         }
     }
@@ -184,7 +184,7 @@ class OTPTextViewController: UIViewController,UITextFieldDelegate {
         let okAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default) {
             UIAlertAction in
             
-            if status == 100 {
+            if status == 100 || status == 300{
                 let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
                 let profile = storyBoard.instantiateViewControllerWithIdentifier("OTP_VIEW") as! OTPViewController
                 profile.otpEmail = CXAppConfig.sharedInstance.getTheUserData().userEmail
