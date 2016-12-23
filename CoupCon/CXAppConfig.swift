@@ -410,6 +410,15 @@ class CXAppConfig {
         
     }
     
+    func getTheResultJobs(sourceDic:NSDictionary,sourceKey:NSString) ->NSArray{
+        let keyExists = sourceDic[sourceKey] != nil
+        if keyExists {
+            // now val is not nil and the Optional has been unwrapped, so use it
+            return (sourceDic[sourceKey] as?NSArray)!
+        }
+        return NSArray()
+    }
+    
     func validate(value: String) -> Bool {
         
    

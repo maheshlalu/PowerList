@@ -43,11 +43,14 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
         CXDataService.sharedInstance.getTheAppDataFromServer(["type" : "macidinfo","mallId" : CXAppConfig.sharedInstance.getAppMallID(),"keyWord":CXAppConfig.sharedInstance.getEmail()]) { (responseDict) in
             //CXAppConfig.sharedInstance.saveTheUserMacIDinfoData(responseDict)
             let array   =  NSMutableArray(array: (responseDict.valueForKey("jobs") as? NSArray!)!)
+            if array.count != 0 {
             CXAppConfig.sharedInstance.saveTheUserMacIDinfoData((array.lastObject as? NSDictionary)!)
-            
             LoadingView.hide()
             //if status == "1" {
             let resultArray : NSArray = NSArray(array: (responseDict.valueForKey("jobs") as? NSArray)!)
+                if resultArray.count == 0{
+                    return
+                }
             let macIdDict : NSDictionary = (resultArray.lastObject as? NSDictionary)!
                 let userStatus : String = (macIdDict.valueForKey("userStatus") as?String)!
                 if userStatus.compare("active", options: .CaseInsensitiveSearch, range: nil, locale: nil) == NSComparisonResult.OrderedSame {
@@ -61,7 +64,7 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
            // }else{
             
            // }
-            
+        }
         }
 
         

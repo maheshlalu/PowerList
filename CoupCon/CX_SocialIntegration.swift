@@ -64,7 +64,9 @@ class CX_SocialIntegration: NSObject {
     
     
     func checkTheUserRegisterWithApp(userEmail:String , macidInfoResultDic : NSDictionary) -> (isRegistred:Bool, userDic:NSDictionary){
-        let resultArray : NSArray = NSArray(array: (macidInfoResultDic.valueForKey("jobs") as? NSArray)!)
+        
+       // let resultArray : NSArray = NSArray(array: (macidInfoResultDic.valueForKey("jobs") as? NSArray)!)
+        let resultArray : NSArray = NSArray(array: CXAppConfig.sharedInstance.getTheResultJobs(macidInfoResultDic, sourceKey: "jobs"))
         for mackIDInfoDic in resultArray {
             let email: String = (mackIDInfoDic.objectForKey("Email") as? String)!
             if  email == userEmail {
@@ -289,7 +291,9 @@ class CX_SocialIntegration: NSObject {
            // let email: String = (userDataDic.objectForKey("email") as? String)!
             
            let array   =  NSMutableArray(array: (responseDict.valueForKey("jobs") as? NSArray!)!)
-            CXAppConfig.sharedInstance.saveTheUserMacIDinfoData((array.lastObject as? NSDictionary)!)
+            if array.count != 0{
+                CXAppConfig.sharedInstance.saveTheUserMacIDinfoData((array.lastObject as? NSDictionary)!)
+            }
             
         }
         

@@ -208,7 +208,6 @@ public class CXDataService: NSObject {
             }else{
                 self.productAddedToFavouritesList(product, isAdded: false)
             }
-            
             completion(responseDict: responseDict)
         }
  
@@ -262,7 +261,7 @@ public class CXDataService: NSObject {
 
         CXDataService.sharedInstance.synchDataToServerAndServerToMoblile("\(CXAppConfig.sharedInstance.getBaseUrl())Services/favourites?", parameters: ["orgId":CXAppConfig.sharedInstance.getAppMallID(),"userId":CXAppConfig.sharedInstance.getUserID()]) { (responseDict) in
             //This project i am using cxstores entity for saving favourites
-            print(responseDict)
+            //print(responseDict)
             let products:NSArray = NSArray(array: (responseDict.valueForKey("jobs") as? NSArray)!)
             MagicalRecord.saveWithBlock({ (localContext) in
                 for prod in products {

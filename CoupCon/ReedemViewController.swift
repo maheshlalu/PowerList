@@ -274,6 +274,9 @@ class ReedemViewController: UIViewController,UITableViewDataSource,UITableViewDe
         CXDataService.sharedInstance.getTheAppDataFromServer(["type" : "macidinfo","mallId" : CXAppConfig.sharedInstance.getAppMallID(),"keyWord":CXAppConfig.sharedInstance.getEmail()]) { (responseDict) in
             // let email: String = (userDataDic.objectForKey("email") as? String)!
             let array   =  NSMutableArray(array: (responseDict.valueForKey("jobs") as? NSArray!)!)
+            if array.count == 0{
+                return
+            }
             CXAppConfig.sharedInstance.saveTheUserMacIDinfoData((array.lastObject as? NSDictionary)!)
             jsonDic.setObject(CXAppConfig.sharedInstance.getSubscriptionJobItemCode(), forKey: "SubscriptionJobId") //SubscriptionJobItemCode from user macIdInfo
             CXAppConfig.sharedInstance.setRedeemDictionary(jsonDic)

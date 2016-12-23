@@ -167,6 +167,7 @@ class OffersViewController: UIViewController {
             CXDataService.sharedInstance.getTheAppDataFromServer(["type" : "macidinfo","mallId" : CXAppConfig.sharedInstance.getAppMallID(),"keyWord":CXAppConfig.sharedInstance.getEmail()]) { (responseDict) in
                 // let email: String = (userDataDic.objectForKey("email") as? String)!
                 let array   =  NSMutableArray(array: (responseDict.valueForKey("jobs") as? NSArray!)!)
+                if array.count != 0 {
                 let userDic = (array.lastObject as? NSDictionary)!
                 CXAppConfig.sharedInstance.saveTheUserMacIDinfoData(userDic)
                 let payMentType =  userDic.valueForKey("PaymentType") as? String
@@ -176,6 +177,7 @@ class OffersViewController: UIViewController {
                     self.showAlertView("If you want to redeem free coupons please subscribe with 6months or more..", status: 0)
                 }
                 //"PaymentType"
+                }
             }
         }else{
             self.redeemTheOffer(offerDic)

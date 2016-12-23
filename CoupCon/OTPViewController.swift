@@ -52,7 +52,7 @@ class OTPViewController: UIViewController,SWRevealViewControllerDelegate,UITextF
     }
 
     @IBAction func otpSubmitAction(sender: AnyObject) {
-        
+        self.view.endEditing(true)
        // http://storeongo.com:8081/MobileAPIs/verifyOTP?ownerId=530&consumerEmail=cxsample@gmail.com&otp=538849
         if otpTxtField.text != ""{
             //Comparing the Entered OTP With SMS OTP
