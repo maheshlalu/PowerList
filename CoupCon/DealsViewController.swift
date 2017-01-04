@@ -135,9 +135,10 @@ class DealsViewController: UIViewController,UICollectionViewDataSource,UICollect
         
         let categoryDic : NSDictionary = self.dealsArray[indexPath.item] as! NSDictionary
         
+       // CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(categoryDic, sourceKey: "BackgroundImage_URL")
         
         if ((categoryDic.valueForKey("Image_URL")) != nil){
-             cell.dealsImageView.setImageWithURL(NSURL(string:(categoryDic.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
+             cell.dealsImageView.setImageWithURL(NSURL(string:CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(categoryDic, sourceKey: "BackgroundImage_URL")), usingActivityIndicatorStyle: .Gray)
         }
         
        // cell.dealsImageView.setImageWithURL(NSURL(string:(categoryDic.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)

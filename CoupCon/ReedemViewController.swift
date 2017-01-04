@@ -27,7 +27,32 @@ class ReedemViewController: UIViewController,UITableViewDataSource,UITableViewDe
     var showBackBtn:Bool! = false
     let TEXT_FIELD_LIMIT = 1
     var redeemHistoryJobsArr:NSArray! = nil
-    
+    /*Submit Action */
+    @IBAction func subMitAction(sender: AnyObject) {
+        
+        let Code = "\(textField1.text!)\(textField2.text!)\(textF3.text!)\(textField4.text!)\(textField5.text!)\(textField6.text!)"
+        let codeStr = Code.uppercaseString
+        let jsonListArray : NSMutableArray = NSMutableArray()
+        jsonListArray.addObject(CXAppConfig.sharedInstance.getRedeemDictionary())
+        
+        let OfferCode = jsonListArray.valueForKeyPath("OfferCode") as! NSArray
+        let offerCodeStr = OfferCode[0] as! String
+        //OCS72K
+        if (offerCodeStr != ""){
+            if offerCodeStr == codeStr{
+                textField6.resignFirstResponder()
+                // print("Code is Equal to OfferCode")
+                self.offerReedem()
+            }else{
+                self.showAlertView("Please Check Code Once!!!", status: 0)
+            }
+        }else{
+            textField6.resignFirstResponder()
+            // print("OfferCode is not available")
+        }
+
+    }
+    @IBOutlet weak var subMitBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,6 +78,14 @@ class ReedemViewController: UIViewController,UITableViewDataSource,UITableViewDe
         textField5.addTarget(self, action: #selector(ReedemViewController.textFieldDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
         textField6.addTarget(self, action: #selector(ReedemViewController.textFieldDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
         
+        
+        /*SubMit Button */
+        self.subMitBtn.backgroundColor = CXAppConfig.sharedInstance.getAppTheamColor()
+        self.subMitBtn.layer.cornerRadius = 8.0
+        self.subMitBtn.layer.borderWidth = 2
+        self.subMitBtn.layer.borderColor = UIColor.whiteColor().CGColor
+        self.subMitBtn.clipsToBounds = true
+        
     }
     
     func redeemViewAligner(){
@@ -64,6 +97,7 @@ class ReedemViewController: UIViewController,UITableViewDataSource,UITableViewDe
             RedeemTableView.separatorStyle = .None
 
         }else{
+            self.subMitBtn.hidden = true
             navigatingFromSidePanel()
         }
         
@@ -189,27 +223,7 @@ class ReedemViewController: UIViewController,UITableViewDataSource,UITableViewDe
                 
             case textField6:
                 self.view.endEditing(true)
-                let Code = "\(textField1.text!)\(textField2.text!)\(textF3.text!)\(textField4.text!)\(textField5.text!)\(textField6.text!)"
-                let codeStr = Code.uppercaseString
-                let jsonListArray : NSMutableArray = NSMutableArray()
-                jsonListArray.addObject(CXAppConfig.sharedInstance.getRedeemDictionary())
-                
-                let OfferCode = jsonListArray.valueForKeyPath("OfferCode") as! NSArray
-                let offerCodeStr = OfferCode[0] as! String
-                //OCS72K
-                if (offerCodeStr != ""){
-                    if offerCodeStr == codeStr{
-                        textField6.resignFirstResponder()
-                       // print("Code is Equal to OfferCode")
-                        self.offerReedem()
-                    }else{
-                        self.showAlertView("Please Check Code Once!!!", status: 0)
-                    }
-                }else{
-                     textField6.resignFirstResponder()
-                   // print("OfferCode is not available")
-                }
-                
+                break
             default:
                 break
             }

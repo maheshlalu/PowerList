@@ -170,7 +170,7 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
             let attachMents : NSArray =  jobDic.valueForKey("Attachments")! as! NSArray
             for attachMent in attachMents {
                 let galaryData : NSDictionary = (attachMent as? NSDictionary)!
-                if galaryData.valueForKey("isBannerImage") as? String == "true" {
+                if galaryData.valueForKey("isBannerImage") as? String == "true" && !(galaryData.valueForKey("URL") as? String)!.isEmpty {
                     self.coverPageImagesList.addObject((galaryData.valueForKey("URL") as? String)!)
                 }
                 }

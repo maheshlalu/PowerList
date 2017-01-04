@@ -22,6 +22,11 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
     @IBOutlet weak var MemberShipLbl: UILabel!
     
     @IBOutlet weak var subscriptionStatusLbl: UILabel!
+    
+    typealias goBackToHomePage = (isGoBack:Bool) -> Void
+    var goBackToHomePagecompletion: goBackToHomePage = { reason in print(reason) }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         membershipBtnLabels()
@@ -36,6 +41,19 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
         self.detailsTableView.removeFromSuperview()
        self.checkTheUserActive()
         self.subscribeBtn.layer.cornerRadius = 8.0
+        
+        
+        let backItem = UIBarButtonItem(image: UIImage(named: "back-120"), landscapeImagePhone: nil, style:  .Plain, target: self, action: #selector(ProfileMembershipViewController.goBack))
+        //   backItem.title = "Back"
+        //back-120
+        //navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+        self.navigationItem.leftBarButtonItem = backItem
+    }
+    
+    func goBack()
+    {
+        
+        self.goBackToHomePagecompletion(isGoBack: true)
     }
     
     func checkTheUserActive(){
@@ -55,7 +73,7 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
                 let userStatus : String = (macIdDict.valueForKey("userStatus") as?String)!
                 if userStatus.compare("active", options: .CaseInsensitiveSearch, range: nil, locale: nil) == NSComparisonResult.OrderedSame {
                     //self.stopTheUsrAccessBility(true, titleText: "Your Subscription Valid Till \((macIdDict.valueForKey("ValidTill") as?String)!)")
-                    self.subscriptionStatusLbl.text = "Your Subscription Valid Till \((macIdDict.valueForKey("ValidTill") as?String)!)"
+                    self.subscriptionStatusLbl.text = "Your Subscription Valid Till \(CXAppConfig.sharedInstance.setTheDateFormate((macIdDict.valueForKey("ValidTill") as?String)!))"
                     return
                 }else{
                    // self.stopTheUsrAccessBility(false, titleText: "")

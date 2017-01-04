@@ -117,6 +117,14 @@ import UIKit
         }else if itemName == "PROFILE & MEMBERSHIP"{
             let aboutUs = storyBoard.instantiateViewControllerWithIdentifier("PROFILE_MEMBERSHIP") as! ProfileMembershipViewController
             let navCntl = UINavigationController(rootViewController: aboutUs)
+            aboutUs.goBackToHomePagecompletion = { _ in
+                let homeView = storyBoard.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
+                let navCntl = UINavigationController(rootViewController: homeView)
+                revealController.pushFrontViewController(navCntl, animated: true)
+                self.previousSelectedIndex = NSIndexPath(forRow: 0, inSection: 0)
+                tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            }
+            
             revealController.pushFrontViewController(navCntl, animated: true)
             
         }else if itemName == "REDEMPTION HISTORY"{

@@ -449,4 +449,19 @@ class CXAppConfig {
         return ""
     }
     
+    
+    func setTheDateFormate(date:String) ->String{
+
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy"//this your string date format
+        dateFormatter.timeZone = NSTimeZone(name: "UTC")
+        let dateStr = dateFormatter.dateFromString(date)
+        
+        dateFormatter.dateFormat = "dd/MM/yyyy"///this is you want to convert format MMM EEEE HH:mm
+        dateFormatter.timeZone = NSTimeZone(name: "UTC")
+        let timeStamp = dateFormatter.stringFromDate(dateStr!)
+
+        return timeStamp
+    }
+    
 }
