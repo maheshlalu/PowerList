@@ -222,11 +222,23 @@ class FineDiningViewController: UIViewController {
             }else{
                 let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
                 let profileView = storyBoard.instantiateViewControllerWithIdentifier("PROFILE_MEMBERSHIP") as! ProfileMembershipViewController
+                profileView.goBackToHomePagecompletion = { _ in
+                    self.navigationController?.popViewControllerAnimated(true)
+                }
                 self.navigationController?.pushViewController(profileView, animated: true)
             }
         }
     }
     
+    /*
+     aboutUs.goBackToHomePagecompletion = { _ in
+     let homeView = storyBoard.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
+     let navCntl = UINavigationController(rootViewController: homeView)
+     revealController.pushFrontViewController(navCntl, animated: true)
+     self.previousSelectedIndex = NSIndexPath(forRow: 0, inSection: 0)
+     tableView.deselectRowAtIndexPath(indexPath, animated: true)
+     }
+     */
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = true

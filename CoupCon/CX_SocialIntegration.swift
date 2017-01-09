@@ -271,6 +271,7 @@ class CX_SocialIntegration: NSObject {
             if status == 1{
                 // OTP SENT
                 NSUserDefaults.standardUserDefaults().setObject(responseDict.valueForKey("OTP"), forKey: "OTP")
+                self.getTheUserDetailsFromMacIdInfo()
                 //self.showAlertView("OTP sent Successfully!!!", status: 100)
                 //After sending the OTP to given number, pushing to OTPViewController
                 completion(resPonce: true)

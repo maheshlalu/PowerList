@@ -290,12 +290,19 @@ class CXAppConfig {
 
     }
     
-    //MARK: User ID Saving
+    //MARK: Phone Number  Saving
     func savePhoneNumber(userID:String){
         NSUserDefaults.standardUserDefaults().setObject(userID, forKey: "PHONE")
     }
     
     func getPhoneNumber() ->String{
+        
+        
+       let macIDData =  self.getUserMacIDdic()
+        
+        //mobileNo
+        
+       return  self.getTheDataInDictionaryFromKey(macIDData, sourceKey: "mobileNo")
         
         if(NSUserDefaults.standardUserDefaults().objectForKey("PHONE") == nil)
         {

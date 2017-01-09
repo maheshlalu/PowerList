@@ -26,6 +26,7 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
     typealias goBackToHomePage = (isGoBack:Bool) -> Void
     var goBackToHomePagecompletion: goBackToHomePage = { reason in print(reason) }
     
+    var isFromSidePanel = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,8 +53,22 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
     
     func goBack()
     {
+        if isFromSidePanel {
+            self.goBackToHomePagecompletion(isGoBack: true)
+
+        }else{
+            self.goBackToHomePagecompletion(isGoBack: true)
+        }
         
-        self.goBackToHomePagecompletion(isGoBack: true)
+      
+        
+//        if self.goBackToHomePagecompletion(isGoBack: true){
+//            
+//        }else{
+//            
+//        }
+    
+        
     }
     
     func checkTheUserActive(){
@@ -280,6 +295,10 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
     }
     
     @IBAction func subscribeBtnAction(sender: AnyObject) {
+        if self.codeTextView.text!.isEmpty {
+            self.showAlertView("Please enter code", status: 0)
+
+        }else{
         //http://storeongo.com:8081/Services/getMasters?type=Consumer%20Codes&mallId=20217&keyWord=28DIF9
         LoadingView.show("Loading...", animated: true)
         CXDataService.sharedInstance.getTheAppDataFromServer(["type":"Consumer Codes","mallId":CXAppConfig.sharedInstance.getAppMallID(),"keyWord":self.codeTextView.text!]) { (responseDict) in
@@ -357,7 +376,7 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
             
             LoadingView.hide()
         }
-        
+        }
         /*
          CXDataService.sharedInstance.getTheAppDataFromServer(["type":"Consumer Codes","mallId":CXAppConfig.sharedInstance.getAppMallID(),"keyWord":self.codeTextView.text!]) { (responseDict) in
          
