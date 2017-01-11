@@ -124,6 +124,7 @@ class OffersViewController: UIViewController {
         let isReedemed = CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(offerDic, sourceKey: "isRedeemed")
         if(isReedemed.caseInsensitiveCompare("yes") == NSComparisonResult.OrderedSame){
             cell.backgroundColor = UIColor(red: 233.0/255.0, green: 233.0/255.0, blue: 233.0/255.0, alpha: 1.0)
+            cell.redeemBtn.backgroundColor = UIColor(red: 233.0/255.0, green: 233.0/255.0, blue: 233.0/255.0, alpha: 1.0)
 
         }else{
             cell.backgroundColor = UIColor.whiteColor()

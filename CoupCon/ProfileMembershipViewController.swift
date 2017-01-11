@@ -307,6 +307,7 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
             if list.count == 0 {
                 //Code not valid
                 self.showAlertView("Invalid Code", status: 0)
+                LoadingView.hide()
 
             }else{
                 //Active The User
@@ -316,7 +317,8 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
                     //Show the alert for error code
                     
                     self.showAlertView("Invalid Code", status: 0)
-                    
+                    LoadingView.hide()
+
                     return
                 }
                 
