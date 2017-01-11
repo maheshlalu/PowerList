@@ -11,14 +11,14 @@ import UIKit
 class SearchViewController: UIViewController {
     
     var screenWidth:CGFloat! = nil
-    var searchResults : NSArray! = nil
+    var searchResults : NSMutableArray! = nil
     
     @IBOutlet weak var searchBar: UISearchBar!
 
     @IBOutlet weak var searchCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.searchResults = NSArray()
+        self.searchResults = NSMutableArray()
         let nib = UINib(nibName: "DealsCollectionViewCell", bundle: nil)
         self.searchCollectionView.registerNib(nib, forCellWithReuseIdentifier: "DealsCollectionViewCell")
         self.searchCollectionView.backgroundColor = UIColor.clearColor() //CXAppConfig.sharedInstance.getAppBGColor()
@@ -153,11 +153,20 @@ extension SearchViewController:UISearchBarDelegate{
     }
     
     func doSearch () {
+        self.searchResults = NSMutableArray()
         //http://storeongo.com:8081/Services/getMasters?type=allProducts&mallId=20217&keyWord=night
         LoadingView.show("Loading...", animated: true)
         CXDataService.sharedInstance.getTheAppDataFromServer(["type":"allProducts","keyWord":self.searchBar.text!,"mallId":CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in
             let jobs : NSArray =  responseDict.valueForKey("jobs")! as! NSArray
-            self.searchResults = jobs
+            
+            for searchDic in jobs {
+                let resultDic = searchDic as? NSDictionary
+                let name : String = CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(resultDic!, sourceKey: "Name")
+                if !name.isEmpty {
+                    self.searchResults.addObject(resultDic!)
+                }
+            }
+           // self.searchResults = jobs
             self.searchCollectionView.reloadData()
             LoadingView.hide()
         }
