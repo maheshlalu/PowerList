@@ -337,6 +337,9 @@ class FineDiningViewController: UIViewController {
         offersController.okAction = { _ in
             let storyBoard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
             let profileView = storyBoard.instantiateViewControllerWithIdentifier("PROFILE_MEMBERSHIP") as! ProfileMembershipViewController
+            profileView.goBackToHomePagecompletion = { _ in
+                self.navigationController?.popViewControllerAnimated(true)
+            }
             self.navigationController?.pushViewController(profileView, animated: true)
         }
         
