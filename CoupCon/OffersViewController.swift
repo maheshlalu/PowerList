@@ -45,6 +45,9 @@ class OffersViewController: UIViewController {
         }
         //self.subJobDic?.valueForKey("Offers") as! String
         let offerString :String =  CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(self.subJobDic!, sourceKey: "Offers")
+        if offerString.isEmpty{
+            return ""
+        }
        let  offersListArry = NSArray(array: offerString.componentsSeparatedByString("#"))
         for (index ,offerCode ) in offersListArry.enumerate() {
             self.offersCodes.appendString(self.getTheofferDisplayString(offerCode as! String))
