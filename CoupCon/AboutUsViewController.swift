@@ -35,6 +35,8 @@ class AboutUsViewController: UIViewController {
     var offersDic : NSDictionary?
     var merchantDict : NSMutableDictionary?
     
+    var mainCategoryDic : NSDictionary?
+    
     var storeLocationArray = [StoreLocations]()
     
     @IBOutlet weak var aboutTextView: UITextView!
@@ -87,7 +89,6 @@ class AboutUsViewController: UIViewController {
    
 
         }
-       
         if isContains {
         self.merchantDict = NSMutableDictionary()
         self.merchantDict! .setObject((offersDic?.valueForKey("jobTypeName"))!, forKey: "Category")
@@ -146,14 +147,20 @@ extension AboutUsViewController : UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        /*
+         categoryTypeLbl: UILabel!
+         @IBOutlet weak var timingsLbl: UILabel!
+
+         */
         tableView.allowsSelection = false
         if indexPath.section == 0 {
             let detailCell:MerchantDetailsTableViewCell = (tableView.dequeueReusableCellWithIdentifier("MerchantDetailsTableViewCell", forIndexPath: indexPath)as? MerchantDetailsTableViewCell)!
-            
-            if ((self.merchantDict?.valueForKey("Image_URL")) != nil){
+            if ((self.merchantDict?.valueForKey("Image_URL")) != nil && (self.merchantDict?.valueForKey("Timings")) != nil){
                 detailCell.iconImgView.setImageWithURL(NSURL(string:(self.merchantDict!.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
+                 detailCell.timingsLbl.text = CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(self.merchantDict!, sourceKey: "Timings")
             }
-        
+            detailCell.categoryTypeLbl.text = CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(self.mainCategoryDic!, sourceKey: "jobTypeName")
+
             return detailCell
             
         }else if indexPath.section == 1 {

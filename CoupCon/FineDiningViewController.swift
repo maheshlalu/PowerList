@@ -9,6 +9,7 @@
 import UIKit
 import ActionSheetPicker_3_0
 class FineDiningViewController: UIViewController {
+    
     var dealsDic: NSDictionary!
     var subJobDic : NSDictionary!
     var redeemJsonArr:NSArray! = nil
@@ -65,7 +66,7 @@ class FineDiningViewController: UIViewController {
         //offersController.offersDic = NSDictionary(dictionary: self.dealsDic)
         self.offerBtn.backgroundColor = UIColor.lightGrayColor()
         self.aboutBtn.backgroundColor = CXAppConfig.sharedInstance.getAppTheamColor()
-
+        offersController.mainCategoryDic = self.dealsDic
         offersController.offersDic = NSDictionary(dictionary: withJsonDic)
         self.currentViewController = offersController
         self.currentViewController!.view.translatesAutoresizingMaskIntoConstraints = false
@@ -354,6 +355,7 @@ class FineDiningViewController: UIViewController {
         
         let newViewController : AboutUsViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("AboutUsViewController") as? AboutUsViewController)!
         newViewController.offersDic = NSDictionary(dictionary: self.subJobDic)
+        newViewController.mainCategoryDic = self.dealsDic
         newViewController.view.translatesAutoresizingMaskIntoConstraints = false
         self.cycleFromViewController(self.currentViewController!, toViewController: newViewController)
         self.currentViewController = newViewController

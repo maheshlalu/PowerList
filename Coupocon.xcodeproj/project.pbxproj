@@ -1151,6 +1151,7 @@
 					"$(PROJECT_DIR)/CoupCon/FB",
 				);
 				INFOPLIST_FILE = CoupCon/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.creativexperts.cupocon;
 				PRODUCT_NAME = Coupocon;
@@ -1175,6 +1176,7 @@
 					"$(PROJECT_DIR)/CoupCon/FB",
 				);
 				INFOPLIST_FILE = CoupCon/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.creativexperts.cupocon;
 				PRODUCT_NAME = Coupocon;
