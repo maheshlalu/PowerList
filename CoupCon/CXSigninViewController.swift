@@ -354,5 +354,7 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
         })
     }
     
+    @IBAction func forgotPasswordAction(sender: UIButton) {
+    }
 }
 
