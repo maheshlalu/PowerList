@@ -36,6 +36,8 @@
 		118DBBE71DB9FFB7000AF9EE /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118DBBE41DB9FFB7000AF9EE /* SkyFloatingLabelTextField.swift */; };
 		118DBBE81DB9FFB7000AF9EE /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118DBBE51DB9FFB7000AF9EE /* SkyFloatingLabelTextFieldWithIcon.swift */; };
 		118DBBE91DB9FFB7000AF9EE /* UITextField+fixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118DBBE61DB9FFB7000AF9EE /* UITextField+fixCaretPosition.swift */; };
+		118FB8811E3F51A200E70699 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118FB8801E3F51A200E70699 /* ForgotPasswordViewController.swift */; };
+		118FB8831E3F51AF00E70699 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118FB8821E3F51AF00E70699 /* ChangePasswordViewController.swift */; };
 		11904BF81DBDC56C009B768E /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11904BF71DBDC56C009B768E /* OTPViewController.swift */; };
 		11D37EEB1DB8D75C0014F202 /* RedeemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D37EE81DB8D75C0014F202 /* RedeemTableViewCell.swift */; };
 		11D37EEC1DB8D75C0014F202 /* RedeemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11D37EE91DB8D75C0014F202 /* RedeemTableViewCell.xib */; };
@@ -165,6 +167,8 @@
 		118DBBE41DB9FFB7000AF9EE /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
 		118DBBE51DB9FFB7000AF9EE /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextFieldWithIcon.swift; sourceTree = "<group>"; };
 		118DBBE61DB9FFB7000AF9EE /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
+		118FB8801E3F51A200E70699 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		118FB8821E3F51AF00E70699 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		11904BF71DBDC56C009B768E /* OTPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 		11D37EE81DB8D75C0014F202 /* RedeemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedeemTableViewCell.swift; sourceTree = "<group>"; };
 		11D37EE91DB8D75C0014F202 /* RedeemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RedeemTableViewCell.xib; sourceTree = "<group>"; };
@@ -498,6 +502,8 @@
 				18C90C441DAF7CB40053F8D7 /* SWSidePanel */,
 				18C90C031DAF78DF0053F8D7 /* AppDelegate.swift */,
 				18C90C051DAF78DF0053F8D7 /* CXSigninViewController.swift */,
+				118FB8801E3F51A200E70699 /* ForgotPasswordViewController.swift */,
+				118FB8821E3F51AF00E70699 /* ChangePasswordViewController.swift */,
 				118DBBE11DB9FB3A000AF9EE /* SignUpViewController.swift */,
 				11904BF71DBDC56C009B768E /* OTPViewController.swift */,
 				18C90C071DAF78DF0053F8D7 /* Main.storyboard */,
@@ -800,7 +806,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		3FE81C5E8ACB1B2971D81DA2 /* [CP] Copy Pods Resources */ = {
@@ -860,7 +866,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		B49D75EF945FA4C4FE11324F /* [CP] Embed Pods Frameworks */ = {
@@ -905,7 +911,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D7B1EB2F33C80054806CEFDF /* [CP] Copy Pods Resources */ = {
@@ -930,6 +936,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				118FB8811E3F51A200E70699 /* ForgotPasswordViewController.swift in Sources */,
 				118DBBE91DB9FFB7000AF9EE /* UITextField+fixCaretPosition.swift in Sources */,
 				18D160631DB8E088009FF71D /* UserProfile.swift in Sources */,
 				18D160621DB8E074009FF71D /* CX_SocialIntegration.swift in Sources */,
@@ -987,6 +994,7 @@
 				18057E2F1DAFA33B0017F038 /* ICSDrawerController.m in Sources */,
 				115CA1C81DC1D3B700BE9D57 /* FTPopOverMenu.m in Sources */,
 				1144E0551DDC3F0F00EDC6C4 /* DPDConstants.swift in Sources */,
+				118FB8831E3F51AF00E70699 /* ChangePasswordViewController.swift in Sources */,
 				18C90C471DAF7CC30053F8D7 /* SWRevealViewController.m in Sources */,
 				189E7C7A1DB7722000A48CE2 /* OfferTableViewCell.swift in Sources */,
 				18D29F021DDC48DE00569AC9 /* CX_Stores+CoreDataProperties.swift in Sources */,

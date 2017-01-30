@@ -342,7 +342,7 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
     
     func showAlertView(message:String, status:Int) {
         dispatch_async(dispatch_get_main_queue(), {
-            let alert = UIAlertController(title: "CoupoCon", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: "Coupocon", message: message, preferredStyle: UIAlertControllerStyle.Alert)
             let okAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default) {
                 UIAlertAction in
                 if status == 1 {

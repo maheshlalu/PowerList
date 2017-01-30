@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3CF-tc-xn3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3CF-tc-xn3">
     <dependencies>
         <deployment identifier="iOS"/>
         <development version="7000" identifier="xcode"/>
@@ -32,8 +32,16 @@
             <string>Roboto-Bold</string>
             <string>Roboto-Bold</string>
             <string>Roboto-Bold</string>
+            <string>Roboto-Bold</string>
+            <string>Roboto-Bold</string>
+            <string>Roboto-Bold</string>
         </mutableArray>
         <mutableArray key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
@@ -961,7 +969,7 @@
                                             <constraint firstAttribute="width" constant="228" id="qqZ-2C-H7a"/>
                                             <constraint firstAttribute="height" constant="30" id="tyD-Ay-UXY"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
                                         <state key="normal" title="Forgot your password?">
                                             <color key="titleColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -979,6 +987,7 @@
                                         </variation>
                                         <connections>
                                             <action selector="forgotPasswordAction:" destination="E1K-YL-D6u" eventType="touchUpInside" id="jrC-wn-xqT"/>
+                                            <segue destination="LLl-kG-xgr" kind="push" id="pv2-gw-lZJ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1169,6 +1178,445 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hyb-MH-wMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1422" y="-303.75"/>
+        </scene>
+        <!--Forgot Password View Controller-->
+        <scene sceneID="sTA-fi-X4S">
+            <objects>
+                <viewController storyboardIdentifier="ForgotPasswordViewController" id="LLl-kG-xgr" customClass="ForgotPasswordViewController" customModule="Coupocon" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L4O-9x-2K3"/>
+                        <viewControllerLayoutGuide type="bottom" id="Tjt-lh-gR6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="G4X-zt-kqU">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="leftpanel_image" translatesAutoresizingMaskIntoConstraints="NO" id="V5S-Cj-peP">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="C8r-31-zfO">
+                                <rect key="frame" x="0.0" y="365" width="400" height="121"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2FA-1B-EfV">
+                                        <rect key="frame" x="20" y="20" width="360" height="30"/>
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="LLl-kG-xgr" id="X0G-ts-8FR"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSo-qd-woQ">
+                                        <rect key="frame" x="20" y="58" width="360" height="43"/>
+                                        <color key="backgroundColor" red="0.91764705882352937" green="0.090196078431372548" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
+                                        <state key="normal" title="Submit">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="submitAction:" destination="LLl-kG-xgr" eventType="touchUpInside" id="jco-cB-j7D"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="5Ji-K2-K8f">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="100"/>
+                                    </constraint>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="5Ji-K2-K8f"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" axis="vertical">
+                                    <mask key="constraints">
+                                        <include reference="5Ji-K2-K8f"/>
+                                    </mask>
+                                </variation>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Forgot Password?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yvn-Pq-QsB">
+                                <rect key="frame" x="52" y="45" width="198" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="EQj-tZ-h2A">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="53"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="258" id="MlB-L5-ZqF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="31"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="MlB-L5-ZqF"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="MlB-L5-ZqF"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Get Your Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhO-NN-TYj">
+                                <rect key="frame" x="52" y="45" width="198" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="3Zy-gU-UNq"/>
+                                    <constraint firstAttribute="width" constant="158" id="AlF-dk-dig"/>
+                                    <constraint firstAttribute="height" constant="26" id="JlF-qA-SSb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="AlF-dk-dig"/>
+                                        <exclude reference="JlF-qA-SSb"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="3Zy-gU-UNq"/>
+                                        <include reference="AlF-dk-dig"/>
+                                        <include reference="JlF-qA-SSb"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Tjt-lh-gR6" firstAttribute="top" secondItem="C8r-31-zfO" secondAttribute="bottom" constant="355" id="33I-ZV-VuR">
+                                <variation key="heightClass=regular-widthClass=compact" constant="315"/>
+                            </constraint>
+                            <constraint firstItem="Yvn-Pq-QsB" firstAttribute="centerX" secondItem="G4X-zt-kqU" secondAttribute="centerX" id="5GT-sS-L6Z"/>
+                            <constraint firstItem="V5S-Cj-peP" firstAttribute="top" secondItem="Yvn-Pq-QsB" secondAttribute="bottom" constant="-73" id="6Dd-GY-gLS">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-70"/>
+                            </constraint>
+                            <constraint firstItem="C8r-31-zfO" firstAttribute="leading" secondItem="G4X-zt-kqU" secondAttribute="leading" constant="20" id="9bW-pL-NBo"/>
+                            <constraint firstItem="QhO-NN-TYj" firstAttribute="top" secondItem="Yvn-Pq-QsB" secondAttribute="bottom" constant="-1" id="CCS-uE-RmE">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-3"/>
+                            </constraint>
+                            <constraint firstItem="C8r-31-zfO" firstAttribute="centerY" secondItem="G4X-zt-kqU" secondAttribute="centerY" id="Fqu-lP-h3G"/>
+                            <constraint firstItem="V5S-Cj-peP" firstAttribute="top" secondItem="G4X-zt-kqU" secondAttribute="top" id="ODj-G1-0hV">
+                                <variation key="heightClass=regular-widthClass=compact" constant="64"/>
+                            </constraint>
+                            <constraint firstItem="QhO-NN-TYj" firstAttribute="centerX" secondItem="G4X-zt-kqU" secondAttribute="centerX" id="Qkb-GS-aBW">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-5"/>
+                            </constraint>
+                            <constraint firstAttribute="trailing" secondItem="V5S-Cj-peP" secondAttribute="trailing" id="SCX-48-1jw"/>
+                            <constraint firstItem="Tjt-lh-gR6" firstAttribute="top" secondItem="V5S-Cj-peP" secondAttribute="bottom" id="SlB-uB-thQ"/>
+                            <constraint firstItem="C8r-31-zfO" firstAttribute="centerX" secondItem="G4X-zt-kqU" secondAttribute="centerX" id="WVr-c3-JJJ"/>
+                            <constraint firstItem="V5S-Cj-peP" firstAttribute="leading" secondItem="G4X-zt-kqU" secondAttribute="leading" id="fYp-DA-SrS"/>
+                            <constraint firstAttribute="trailing" secondItem="C8r-31-zfO" secondAttribute="trailing" constant="277" id="iWX-tQ-RI4">
+                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                            </constraint>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="V5S-Cj-peP"/>
+                                <exclude reference="Yvn-Pq-QsB"/>
+                                <exclude reference="QhO-NN-TYj"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="6Dd-GY-gLS"/>
+                                <exclude reference="ODj-G1-0hV"/>
+                                <exclude reference="SCX-48-1jw"/>
+                                <exclude reference="fYp-DA-SrS"/>
+                                <exclude reference="5GT-sS-L6Z"/>
+                                <exclude reference="CCS-uE-RmE"/>
+                                <exclude reference="Qkb-GS-aBW"/>
+                                <exclude reference="9bW-pL-NBo"/>
+                                <exclude reference="Fqu-lP-h3G"/>
+                                <exclude reference="WVr-c3-JJJ"/>
+                                <exclude reference="iWX-tQ-RI4"/>
+                                <exclude reference="33I-ZV-VuR"/>
+                                <exclude reference="SlB-uB-thQ"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="V5S-Cj-peP"/>
+                                <include reference="Yvn-Pq-QsB"/>
+                                <include reference="QhO-NN-TYj"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="6Dd-GY-gLS"/>
+                                <include reference="ODj-G1-0hV"/>
+                                <include reference="SCX-48-1jw"/>
+                                <include reference="fYp-DA-SrS"/>
+                                <include reference="5GT-sS-L6Z"/>
+                                <include reference="CCS-uE-RmE"/>
+                                <include reference="Qkb-GS-aBW"/>
+                                <include reference="9bW-pL-NBo"/>
+                                <include reference="Fqu-lP-h3G"/>
+                                <include reference="WVr-c3-JJJ"/>
+                                <include reference="iWX-tQ-RI4"/>
+                                <exclude reference="33I-ZV-VuR"/>
+                                <include reference="SlB-uB-thQ"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="4AP-RL-Dj4"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="emailTxtField" destination="2FA-1B-EfV" id="wZx-oD-iyF"/>
+                        <outlet property="submitBtn" destination="dSo-qd-woQ" id="doc-R1-2Y4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Tv-wi-6vs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1731" y="165.75"/>
+        </scene>
+        <!--Change Password View Controller-->
+        <scene sceneID="fsI-Vk-tTB">
+            <objects>
+                <viewController storyboardIdentifier="ChangePasswordViewController" id="peV-sm-qQE" customClass="ChangePasswordViewController" customModule="Coupocon" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="toc-aU-pCQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="eWz-9t-QCH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HIm-LE-GLp">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="leftpanel_image" translatesAutoresizingMaskIntoConstraints="NO" id="pTg-7w-a4g">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="jaz-pf-JtG">
+                                <rect key="frame" x="59" y="117" width="547" height="31"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="id8-D8-N7i">
+                                        <rect key="frame" x="0.0" y="0.0" width="421" height="31"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="fSD-fs-NrV">
+                                                <rect key="frame" x="-20" y="-20" width="400" height="85"/>
+                                                <subviews>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Current Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vMY-wz-uSF">
+                                                        <rect key="frame" x="20" y="20" width="360" height="45"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="45" id="gb0-0w-L5f"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="gb0-0w-L5f"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <variation key="widthClass=compact">
+                                                            <mask key="constraints">
+                                                                <include reference="gb0-0w-L5f"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="peV-sm-qQE" id="FsO-p6-CB3"/>
+                                                        </connections>
+                                                    </textField>
+                                                    <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJA-um-wUn">
+                                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="45" id="KCj-cj-sLj"/>
+                                                            <constraint firstAttribute="height" constant="45" id="wZf-sm-sbn"/>
+                                                        </constraints>
+                                                        <state key="normal" image="Invisible-96"/>
+                                                        <state key="selected" image="Visible-96"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="KCj-cj-sLj"/>
+                                                                <exclude reference="wZf-sm-sbn"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                            <mask key="constraints">
+                                                                <include reference="KCj-cj-sLj"/>
+                                                                <include reference="wZf-sm-sbn"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="cVBtnAction:" destination="peV-sm-qQE" eventType="touchUpInside" id="NKr-71-fBa"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <variation key="heightClass=regular-widthClass=compact" axis="horizontal">
+                                                    <mask key="subviews">
+                                                        <include reference="fJA-um-wUn"/>
+                                                    </mask>
+                                                </variation>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="HIq-AG-R6X">
+                                                <rect key="frame" x="-20" y="30" width="400" height="85"/>
+                                                <subviews>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hhk-y8-ZwF">
+                                                        <rect key="frame" x="20" y="20" width="360" height="45"/>
+                                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="peV-sm-qQE" id="8y7-mm-PJW"/>
+                                                        </connections>
+                                                    </textField>
+                                                    <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQa-yJ-liV">
+                                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="45" id="AoB-wN-u9s"/>
+                                                            <constraint firstAttribute="width" constant="45" id="Hv6-1c-Og3"/>
+                                                        </constraints>
+                                                        <state key="normal" image="Invisible-96"/>
+                                                        <state key="selected" image="Visible-96"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="Hv6-1c-Og3"/>
+                                                                <exclude reference="AoB-wN-u9s"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                            <mask key="constraints">
+                                                                <include reference="Hv6-1c-Og3"/>
+                                                                <include reference="AoB-wN-u9s"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="nVBtnAction:" destination="peV-sm-qQE" eventType="touchUpInside" id="Pbh-7b-Bvq"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <variation key="heightClass=regular-widthClass=compact" axis="horizontal">
+                                                    <mask key="subviews">
+                                                        <include reference="TQa-yJ-liV"/>
+                                                    </mask>
+                                                </variation>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="hg5-He-M2h">
+                                                <rect key="frame" x="-20" y="80" width="400" height="85"/>
+                                                <subviews>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xt1-ff-DWA">
+                                                        <rect key="frame" x="20" y="20" width="360" height="45"/>
+                                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="peV-sm-qQE" id="MWQ-0d-29u"/>
+                                                        </connections>
+                                                    </textField>
+                                                    <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2D-d8-oVO">
+                                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="45" id="bNS-ua-xLA"/>
+                                                            <constraint firstAttribute="height" constant="45" id="zEt-KL-2e5"/>
+                                                        </constraints>
+                                                        <state key="normal" image="Invisible-96"/>
+                                                        <state key="selected" image="Visible-96"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="bNS-ua-xLA"/>
+                                                                <exclude reference="zEt-KL-2e5"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                            <mask key="constraints">
+                                                                <include reference="bNS-ua-xLA"/>
+                                                                <include reference="zEt-KL-2e5"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="nRVBtnAction:" destination="peV-sm-qQE" eventType="touchUpInside" id="ry1-FV-Fpd"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <variation key="heightClass=regular-widthClass=compact" axis="horizontal">
+                                                    <mask key="subviews">
+                                                        <include reference="f2D-d8-oVO"/>
+                                                    </mask>
+                                                </variation>
+                                            </stackView>
+                                        </subviews>
+                                        <variation key="widthClass=compact" axis="vertical"/>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLg-FG-nb5">
+                                        <rect key="frame" x="436" y="0.0" width="111" height="31"/>
+                                        <color key="backgroundColor" red="0.91764705879999997" green="0.090196078430000007" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="dAU-C7-BLV"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
+                                        <state key="normal" title="Change Password">
+                                            <color key="titleColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="dAU-C7-BLV"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="dAU-C7-BLV"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="changePswAction:" destination="peV-sm-qQE" eventType="touchUpInside" id="XCw-ob-pKj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <variation key="widthClass=compact" alignment="fill" axis="vertical"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jaz-pf-JtG" firstAttribute="centerY" secondItem="HIm-LE-GLp" secondAttribute="centerY" id="05d-cq-Bbz"/>
+                            <constraint firstAttribute="trailing" secondItem="pTg-7w-a4g" secondAttribute="trailing" id="Lac-Dx-ezO"/>
+                            <constraint firstItem="pTg-7w-a4g" firstAttribute="leading" secondItem="HIm-LE-GLp" secondAttribute="leading" id="Pjg-cZ-vR1"/>
+                            <constraint firstItem="pTg-7w-a4g" firstAttribute="top" secondItem="HIm-LE-GLp" secondAttribute="top" id="QAn-Xl-P94">
+                                <variation key="heightClass=regular-widthClass=compact" constant="64"/>
+                            </constraint>
+                            <constraint firstItem="eWz-9t-QCH" firstAttribute="top" secondItem="pTg-7w-a4g" secondAttribute="bottom" id="TmW-8k-lfp"/>
+                            <constraint firstItem="jaz-pf-JtG" firstAttribute="leading" secondItem="HIm-LE-GLp" secondAttribute="leading" constant="20" id="cDI-FO-d7O"/>
+                            <constraint firstItem="jaz-pf-JtG" firstAttribute="centerX" secondItem="HIm-LE-GLp" secondAttribute="centerX" id="mcZ-yY-ulW"/>
+                            <constraint firstAttribute="trailing" secondItem="jaz-pf-JtG" secondAttribute="trailing" constant="20" id="yxl-0k-C64"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="pTg-7w-a4g"/>
+                                <exclude reference="jaz-pf-JtG"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Lac-Dx-ezO"/>
+                                <exclude reference="Pjg-cZ-vR1"/>
+                                <exclude reference="QAn-Xl-P94"/>
+                                <exclude reference="05d-cq-Bbz"/>
+                                <exclude reference="cDI-FO-d7O"/>
+                                <exclude reference="mcZ-yY-ulW"/>
+                                <exclude reference="yxl-0k-C64"/>
+                                <exclude reference="TmW-8k-lfp"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="pTg-7w-a4g"/>
+                                <include reference="jaz-pf-JtG"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Lac-Dx-ezO"/>
+                                <include reference="Pjg-cZ-vR1"/>
+                                <include reference="QAn-Xl-P94"/>
+                                <include reference="05d-cq-Bbz"/>
+                                <include reference="cDI-FO-d7O"/>
+                                <include reference="mcZ-yY-ulW"/>
+                                <include reference="yxl-0k-C64"/>
+                                <include reference="TmW-8k-lfp"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="cVBtn" destination="fJA-um-wUn" id="3SG-dR-OHw"/>
+                        <outlet property="changePswBtn" destination="ZLg-FG-nb5" id="e7X-it-TCK"/>
+                        <outlet property="confirmPswTxtField" destination="xt1-ff-DWA" id="Wc4-2b-yZQ"/>
+                        <outlet property="currentPswTxtField" destination="vMY-wz-uSF" id="9dk-lf-ejC"/>
+                        <outlet property="nRVBtn" destination="f2D-d8-oVO" id="qHe-Xc-pZw"/>
+                        <outlet property="nVBtn" destination="TQa-yJ-liV" id="07s-8S-U2G"/>
+                        <outlet property="newPswTxtField" destination="hhk-y8-ZwF" id="ieh-GU-af4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XBf-zz-A1S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-967.5" y="257.25"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="tOC-ey-OS1">
@@ -2639,13 +3087,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="NaA-vR-OoH">
                                 <rect key="frame" x="0.0" y="476" width="147" height="67"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Please Enter OTP!!!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0p-u6-75U">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Please Enter OTP!!!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0p-u6-75U">
                                         <rect key="frame" x="0.0" y="0.0" width="147" height="30"/>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter OTP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0PX-TX-IsX">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter OTP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0PX-TX-IsX">
                                         <rect key="frame" x="0.0" y="37" width="147" height="30"/>
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
@@ -2706,11 +3154,11 @@
                             <constraint firstItem="NaA-vR-OoH" firstAttribute="leading" secondItem="pU7-Ae-8bv" secondAttribute="leading" constant="10" id="ZWo-3F-BJg">
                                 <variation key="heightClass=regular-widthClass=compact" constant="9"/>
                             </constraint>
-                            <constraint firstItem="nQ5-Ef-77d" firstAttribute="top" secondItem="R3h-6b-j8t" secondAttribute="bottom" id="egO-G9-JBf"/>
                             <constraint firstAttribute="trailing" secondItem="NaA-vR-OoH" secondAttribute="trailing" constant="7" id="hWm-bI-59v">
                                 <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                             </constraint>
                             <constraint firstItem="R3h-6b-j8t" firstAttribute="leading" secondItem="pU7-Ae-8bv" secondAttribute="leading" id="hrm-oP-njc"/>
+                            <constraint firstItem="nQ5-Ef-77d" firstAttribute="top" secondItem="R3h-6b-j8t" secondAttribute="bottom" id="soe-t6-aUS"/>
                             <constraint firstItem="R3h-6b-j8t" firstAttribute="top" secondItem="pU7-Ae-8bv" secondAttribute="top" id="vSB-Fb-8sP"/>
                             <constraint firstAttribute="trailing" secondItem="R3h-6b-j8t" secondAttribute="trailing" id="zUD-Im-Aip"/>
                         </constraints>
@@ -2726,7 +3174,6 @@
                                 <exclude reference="UGR-PK-28B"/>
                                 <exclude reference="ZWo-3F-BJg"/>
                                 <exclude reference="hWm-bI-59v"/>
-                                <exclude reference="egO-G9-JBf"/>
                                 <exclude reference="1bZ-tr-fDc"/>
                                 <exclude reference="IE8-ce-Ld4"/>
                             </mask>
@@ -2744,7 +3191,6 @@
                                 <include reference="UGR-PK-28B"/>
                                 <include reference="ZWo-3F-BJg"/>
                                 <include reference="hWm-bI-59v"/>
-                                <include reference="egO-G9-JBf"/>
                                 <include reference="1bZ-tr-fDc"/>
                                 <include reference="IE8-ce-Ld4"/>
                             </mask>
@@ -2951,16 +3397,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="M1F-JQ-68H">
-                                <rect key="frame" x="0.0" y="476" width="227" height="116"/>
+                                <rect key="frame" x="0.0" y="476" width="255" height="116"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Provide mobile number for OTP" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cs-r1-R2d">
-                                        <rect key="frame" x="0.0" y="0.0" width="227" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="255" height="34"/>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mobile" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b7Z-wJ-RjM">
-                                        <rect key="frame" x="0.0" y="41" width="227" height="34"/>
+                                        <rect key="frame" x="0.0" y="41" width="255" height="34"/>
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -2974,7 +3420,7 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XxG-VT-PW0" customClass="NiceButton" customModule="Coupocon" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="82" width="227" height="34"/>
+                                        <rect key="frame" x="0.0" y="82" width="255" height="34"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
                                         <state key="normal" title="Select City">
@@ -3365,10 +3811,10 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="AeK-77-UZL">
                                         <rect key="frame" x="16" y="248" width="199" height="30"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Pvg-cG-8H3" userLabel="FirstRowStackView">
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Pvg-cG-8H3" userLabel="FirstRowStackView">
                                                 <rect key="frame" x="0.0" y="0.0" width="118" height="30"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mVw-OP-Bpi">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mVw-OP-Bpi">
                                                         <rect key="frame" x="0.0" y="0.0" width="118" height="30"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -3398,7 +3844,7 @@
                                                     </mask>
                                                 </variation>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LtH-Vc-VmN">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LtH-Vc-VmN">
                                                 <rect key="frame" x="137" y="0.0" width="62" height="30"/>
                                                 <color key="backgroundColor" red="0.92941176469999998" green="0.1019607843" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -3583,7 +4029,9 @@
         <image name="1year" width="122" height="122"/>
         <image name="6months" width="122" height="122"/>
         <image name="Gmail_120" width="20" height="20"/>
+        <image name="Invisible-96" width="20" height="20"/>
         <image name="SigninBg_image" width="320" height="480"/>
+        <image name="Visible-96" width="20" height="20"/>
         <image name="appBg" width="1242" height="2208"/>
         <image name="back-120" width="20" height="20"/>
         <image name="dropDown" width="48" height="48"/>

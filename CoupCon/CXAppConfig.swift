@@ -57,6 +57,10 @@ class CXAppConfig {
     func getForgotPassordUrl() -> String {
         return config!.valueForKey("forgotPassordMethod") as! String
     }
+    //changePassword
+    func getChangePswUrl() -> String {
+        return config!.valueForKey("changePassword") as! String
+    }
     
     func getPlaceOrderUrl() -> String{
         return config!.valueForKey("placeOrder") as! String
