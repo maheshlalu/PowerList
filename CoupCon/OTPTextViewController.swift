@@ -140,7 +140,7 @@ class OTPTextViewController: UIViewController,UITextFieldDelegate {
                 
             }else{
                 // OTP NOT SENT
-                self.showAlertView("Something went wrong during log in through email", status: 300)
+                self.showAlertView("Something went wrong during login through email", status: 300)
             }
         }
     }

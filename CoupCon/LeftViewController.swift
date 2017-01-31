@@ -25,12 +25,7 @@ import UIKit
         
         let appdata:NSArray = UserProfile.MR_findAll() as NSArray
         let userProfileData:UserProfile = appdata.lastObject as! UserProfile
-        dispatch_async(dispatch_get_main_queue(), {
-            let imageUrl = userProfileData.userPic
-            if (imageUrl != ""){
-                self.userImage.sd_setImageWithURL(NSURL(string: imageUrl!))
-            }
-        })
+        
         self.userImage.layer.borderColor = UIColor.whiteColor().CGColor
         self.userImage.layer.cornerRadius = 60
         self.userImage.layer.borderWidth = 5
@@ -46,6 +41,12 @@ import UIKit
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        dispatch_async(dispatch_get_main_queue(), {
+            let imageUrl = NSUserDefaults.standardUserDefaults().valueForKey("IMG_URL")
+            if imageUrl != nil{
+                self.userImage.sd_setImageWithURL(NSURL(string: imageUrl! as! String))
+            }
+        })
         self.navigationController?.navigationBarHidden = true
         
     }

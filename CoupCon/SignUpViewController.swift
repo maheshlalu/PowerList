@@ -250,7 +250,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
        
             }else{
                 // OTP NOT SENT
-                self.showAlertView("Something went wrong during log in through email", status: 0)
+                self.showAlertView("Something went wrong during login through email", status: 0)
             }
         }
     }
@@ -312,7 +312,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
                         if status == 1{
                         self.emailCheckingForOTP()
                         }else{
-                        self.showAlertView("Something went wrong during log in through email", status: 0)
+                        self.showAlertView("Something went wrong during login through email", status: 0)
                         }
                     })
                     //NSUserDefaults.standardUserDefaults().setObject(Response.valueForKey("filePath"), forKey: "IMG_URL")
