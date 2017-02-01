@@ -38,7 +38,6 @@ class CX_SocialIntegration: NSObject {
                 let email: String = (userDataDic.objectForKey("email") as? String)!
                 let fbID : String = (userDataDic.objectForKey("id") as? String)!
                 let userPic : String = (userDataDic.valueForKeyPath("picture.data.url") as? String)!
-                NSUserDefaults.standardUserDefaults().setObject(userPic, forKey: "IMG_URL")
                 CXAppConfig.sharedInstance.saveEmail(email)
                 //picture,data,url
                 let userRegisterDic: NSDictionary = NSDictionary(objects: [CXAppConfig.sharedInstance.getAppMallID(),email,"DEVICES",fbID,strFirstName,strLastName,gender,userPic,"true"],
@@ -121,6 +120,7 @@ class CX_SocialIntegration: NSObject {
             enProduct?.firstName = userData.valueForKey("firstName") as? String
             enProduct?.lastName = userData.valueForKey("lastName") as? String
             enProduct?.userPic =  userData.objectForKey("Image") as? String
+            NSUserDefaults.standardUserDefaults().setObject(userData.objectForKey("Image") as? String, forKey: "IMG_URL")
             enProduct?.macId = enProduct?.userId
             enProduct?.macIdJobId = ""
         }) { (success, error) in
@@ -146,6 +146,8 @@ class CX_SocialIntegration: NSObject {
                 enProduct?.lastName = userData.valueForKey("lastName") as? String
                 if enProduct?.userPic == nil{
                     enProduct?.userPic =  userData.objectForKey("userImagePath") as? String
+                    NSUserDefaults.standardUserDefaults().setObject(userData.objectForKey("userImagePath") as? String, forKey: "IMG_URL")
+
                 }
                 enProduct?.macId = userData.valueForKey("macId") as? String
                 enProduct?.macIdJobId = CXAppConfig.resultString(userData.valueForKey("macIdJobId")!)
