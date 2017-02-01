@@ -303,6 +303,7 @@ class SignUpViewController: UIViewController,UITextFieldDelegate,UIImagePickerCo
                 let status: Int = Int(Response.valueForKey("status") as! String)!
                 if status == 1{
                     let imgStr = Response.valueForKey("filePath") as! String
+                    NSUserDefaults.standardUserDefaults().setObject(imgStr, forKey: "IMG_URL")
                     let userRegisterDic: NSDictionary = NSDictionary(objects: [CXAppConfig.sharedInstance.getAppMallID(),email!,"DEVICES",password!,firstName!,lastName!,"",imgStr,"false"],
                         forKeys: ["orgId","userEmailId","dt","password","firstName","lastName","gender","filePath","isLoginWithFB"])
                     CX_SocialIntegration.sharedInstance.registerWithSocialNewtWokrk(userRegisterDic, completion: { (responseDict) in

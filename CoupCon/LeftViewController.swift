@@ -196,8 +196,12 @@ import UIKit
                 GIDSignIn.sharedInstance().signOut()
                 GIDSignIn.sharedInstance().disconnect()
                 appDelVar.applicationNavigationFlow()
-               // appDelVar.application(UIApplication.sharedApplication(), didFinishLaunchingWithOptions: nil)
-                //self.navigationController?.popViewControllerAnimated(true)
+
+                
+                // Removing items from userdefaults
+                if let bundle = NSBundle.mainBundle().bundleIdentifier{
+                    NSUserDefaults.standardUserDefaults().removePersistentDomainForName(bundle)
+                }
             }
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) {

@@ -135,6 +135,7 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         let loginManager: FBSDKLoginManager = FBSDKLoginManager()
         loginManager.logOut()
+
     }
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
@@ -236,6 +237,7 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
             print(responseDict)
             let status: Int = Int(responseDict.valueForKey("status") as! String)!
             if status == 1{
+                NSUserDefaults.standardUserDefaults().setObject(responseDict.valueForKey("userImagePath") as! String, forKey: "IMG_URL")
                 self.leadToHomeScreen()
                 LoadingView.hide()
             }
