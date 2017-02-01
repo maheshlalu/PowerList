@@ -313,6 +313,7 @@ class CXSigninViewController: UIViewController,UITextFieldDelegate,FBSDKLoginBut
         let lastName = dic["family_name"] as! String
         //let gender = dic["gender"] as! String
         let  profilePic = dic["picture"] as! String
+        NSUserDefaults.standardUserDefaults().setObject(profilePic, forKey: "IMG_URL")
         let  email = dic["email"] as! String
         LoadingView.show("Loading...", animated: true)
         CX_SocialIntegration.sharedInstance.applicationRegisterWithGooglePlus(dic) { (resPonce) in

@@ -38,6 +38,7 @@ class CX_SocialIntegration: NSObject {
                 let email: String = (userDataDic.objectForKey("email") as? String)!
                 let fbID : String = (userDataDic.objectForKey("id") as? String)!
                 let userPic : String = (userDataDic.valueForKeyPath("picture.data.url") as? String)!
+                NSUserDefaults.standardUserDefaults().setObject(userPic, forKey: "IMG_URL")
                 CXAppConfig.sharedInstance.saveEmail(email)
                 //picture,data,url
                 let userRegisterDic: NSDictionary = NSDictionary(objects: [CXAppConfig.sharedInstance.getAppMallID(),email,"DEVICES",fbID,strFirstName,strLastName,gender,userPic,"true"],
