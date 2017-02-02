@@ -536,6 +536,7 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
         { action -> Void in
             print("camera shot")
             let picker = UIImagePickerController()
+            picker.delegate = self
             picker.allowsEditing = false
             picker.sourceType = .Camera
             picker.cameraCaptureMode = .Photo
@@ -543,13 +544,6 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
             self.presentViewController(picker, animated: true, completion: nil)
         }
         choosePhotosActionSheet.addAction(capturePicture)
-        
-        let removePicture: UIAlertAction = UIAlertAction(title: "Remove Profile Picture", style: .Default)
-        { action -> Void in
-            
-            
-        }
-        choosePhotosActionSheet.addAction(removePicture)
         
         
         let cancel: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel)
