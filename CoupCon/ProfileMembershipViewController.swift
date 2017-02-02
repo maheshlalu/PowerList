@@ -560,7 +560,8 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
             dpImageView.contentMode = .ScaleToFill
             dpImageView.image = pickedImage
             let image = pickedImage as UIImage
-            let imageData = NSData(data: UIImagePNGRepresentation(image)!)
+            
+            let imageData = NSData(data: UIImageJPEGRepresentation(image, 0.2)!)
             NSUserDefaults.standardUserDefaults().setObject(imageData, forKey: "IMG_DATA")
             uploadPIc()
         }

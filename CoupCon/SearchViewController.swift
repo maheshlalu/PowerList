@@ -59,8 +59,8 @@ class SearchViewController: UIViewController {
         
         let categoryDic : NSDictionary = self.searchResults[indexPath.item] as! NSDictionary
         
-        if ((categoryDic.valueForKey("Image_URL")) != nil){
-             cell.dealsImageView.setImageWithURL(NSURL(string:(categoryDic.valueForKey("Image_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
+        if ((categoryDic.valueForKey("BackgroundImage_URL")) != nil){
+             cell.dealsImageView.setImageWithURL(NSURL(string:(categoryDic.valueForKey("BackgroundImage_URL") as?String)!), usingActivityIndicatorStyle: .Gray)
         }
         
         
