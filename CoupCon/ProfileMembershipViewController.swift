@@ -561,7 +561,7 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
             dpImageView.image = pickedImage
             let image = pickedImage as UIImage
             
-            let imageData = NSData(data: UIImageJPEGRepresentation(image, 0.2)!)
+            let imageData = NSData(data: UIImageJPEGRepresentation(image.correctlyOrientedImage(), 0.2)!)
             NSUserDefaults.standardUserDefaults().setObject(imageData, forKey: "IMG_DATA")
             uploadPIc()
         }
@@ -614,5 +614,21 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
         }else{
             
         }
+    }
+}
+
+
+extension UIImage{
+    
+    func correctlyOrientedImage() -> UIImage {
+        if self.imageOrientation == UIImageOrientation.Up {
+            return self
+        }
+        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+        self.drawInRect(CGRectMake(0, 0, self.size.width, self.size.height))
+        let normalizedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        return normalizedImage;
     }
 }
