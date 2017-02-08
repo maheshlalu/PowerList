@@ -38,13 +38,16 @@ class OffersViewController: UIViewController {
     
     
     func getTheOfferCodes() ->NSMutableString{
-        let keyExists = self.subJobDic![ "Offers"] != nil
+        let keyExists = self.productDic![ "Offers"] != nil
+        //let keyExists = self.subJobDic![ "Offers"] != nil
+
         if !keyExists {
             // now val is not nil and the Optional has been unwrapped, so use it
             return ""
         }
         //self.subJobDic?.valueForKey("Offers") as! String
-        let offerString :String =  CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(self.subJobDic!, sourceKey: "Offers")
+        let offerString :String =  CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(self.productDic!, sourceKey: "Offers")
+        // let offerString :String =  CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(self.subJobDic!, sourceKey: "Offers")
         if offerString.isEmpty{
             return ""
         }
@@ -193,7 +196,9 @@ class OffersViewController: UIViewController {
     
         let logoImg = NSUserDefaults.standardUserDefaults().valueForKey("POPUP_LOGO") as! String
         let popUpName = offerDic.valueForKey("Name") as? String
-        let offerString :String =  CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(self.subJobDic!, sourceKey: "Terms and conditions")
+        let offerString :String =  CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(self.productDic!, sourceKey: "Terms and conditions")
+        //        let offerString :String =  CXAppConfig.sharedInstance.getTheDataInDictionaryFromKey(self.subJobDic!, sourceKey: "Terms and conditions")
+
         let  offersListArry = NSArray(array: offerString.componentsSeparatedByString("#"))
         var termArray = ""
         for (index ,offerCode ) in offersListArry.enumerate() {
@@ -221,7 +226,7 @@ class OffersViewController: UIViewController {
         jsonDic.setObject(offerDic.valueForKey("ItemCode")!, forKey: "OfferId")
         //jsonDic.setObject(CXAppConfig.sharedInstance.getSubscriptionJobItemCode(), forKey: "SubscriptionJobId") //SubscriptionJobItemCode from user macIdInfo
         jsonDic.setObject(CXAppConfig.resultString(self.subJobDic!.valueForKey("ItemCode")!), forKey: "subJobId") //Item code in Offers
-        jsonDic.setObject(CXAppConfig.resultString(self.subJobDic!.valueForKey("Code")!), forKey: "OfferCode")
+        jsonDic.setObject(CXAppConfig.resultString(self.productDic!.valueForKey("Code")!), forKey: "OfferCode")
         CXAppConfig.sharedInstance.setRedeemDictionary(jsonDic)
     
     }
