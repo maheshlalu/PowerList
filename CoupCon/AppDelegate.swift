@@ -150,8 +150,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
   
     
     func applicationNavigationFlow(){
+        
+        if isNewVersion() {
+            CXAppConfig.sharedInstance.saveUserID("")
+        }
         let userId = CXAppConfig.sharedInstance.getUserID()
-        print(userId)
         if userId == "" {
             self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -167,6 +170,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,SWRevealViewControllerDel
         
     }
     
+    
+    func isNewVersion()-> Bool{
+        let newVersion = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
+        
+        if(NSUserDefaults.standardUserDefaults().objectForKey("VERSION") == nil)
+        {
+            NSUserDefaults.standardUserDefaults().setObject(newVersion, forKey: "VERSION")
+            
+            print("NULL")
+            return true
+        }else{
+            let oldVersion =   NSUserDefaults.standardUserDefaults().objectForKey("VERSION") as! String
+            if oldVersion == newVersion {
+                return false
+            }else{
+                NSUserDefaults.standardUserDefaults().setObject(newVersion, forKey: "VERSION")
+                return true
+            }
+        }
+        
+    }
+
     
     func updateTheMobileNumber(){
         //http://storeongo.com:8081/MobileAPIs/saveConsumerProperty?ownerId=20217&consumerEmail=yernagulamahesh@gmail.com&propName=mobileNo&propValue=8096380038
