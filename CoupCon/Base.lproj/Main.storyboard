@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3CF-tc-xn3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3CF-tc-xn3">
     <dependencies>
         <deployment identifier="iOS"/>
         <development version="7000" identifier="xcode"/>
@@ -1194,10 +1194,10 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leftpanel_image" translatesAutoresizingMaskIntoConstraints="NO" id="V5S-Cj-peP">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="C8r-31-zfO">
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="C8r-31-zfO">
                                 <rect key="frame" x="0.0" y="365" width="127" height="31"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2FA-1B-EfV">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2FA-1B-EfV">
                                         <rect key="frame" x="0.0" y="0.0" width="61" height="31"/>
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
@@ -1206,7 +1206,7 @@
                                             <outlet property="delegate" destination="LLl-kG-xgr" id="X0G-ts-8FR"/>
                                         </connections>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSo-qd-woQ">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSo-qd-woQ">
                                         <rect key="frame" x="66" y="0.0" width="61" height="31"/>
                                         <color key="backgroundColor" red="0.91764705882352937" green="0.090196078431372548" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="16"/>
@@ -1316,8 +1316,6 @@
                                 <exclude reference="QhO-NN-TYj"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="33I-ZV-VuR"/>
-                                <exclude reference="SlB-uB-thQ"/>
                                 <exclude reference="CCS-uE-RmE"/>
                                 <exclude reference="Qkb-GS-aBW"/>
                                 <exclude reference="5GT-sS-L6Z"/>
@@ -1325,6 +1323,8 @@
                                 <exclude reference="Fqu-lP-h3G"/>
                                 <exclude reference="WVr-c3-JJJ"/>
                                 <exclude reference="iWX-tQ-RI4"/>
+                                <exclude reference="33I-ZV-VuR"/>
+                                <exclude reference="SlB-uB-thQ"/>
                                 <exclude reference="6Dd-GY-gLS"/>
                                 <exclude reference="ODj-G1-0hV"/>
                                 <exclude reference="SCX-48-1jw"/>
@@ -1338,8 +1338,6 @@
                                 <include reference="QhO-NN-TYj"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="33I-ZV-VuR"/>
-                                <include reference="SlB-uB-thQ"/>
                                 <include reference="CCS-uE-RmE"/>
                                 <include reference="Qkb-GS-aBW"/>
                                 <include reference="5GT-sS-L6Z"/>
@@ -1347,6 +1345,8 @@
                                 <include reference="Fqu-lP-h3G"/>
                                 <include reference="WVr-c3-JJJ"/>
                                 <include reference="iWX-tQ-RI4"/>
+                                <exclude reference="33I-ZV-VuR"/>
+                                <include reference="SlB-uB-thQ"/>
                                 <include reference="6Dd-GY-gLS"/>
                                 <include reference="ODj-G1-0hV"/>
                                 <include reference="SCX-48-1jw"/>
@@ -1747,7 +1747,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appBg" translatesAutoresizingMaskIntoConstraints="NO" id="xyK-JZ-ar5">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cNq-y9-jOX">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cNq-y9-jOX">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P96-lH-NXH" customClass="KIImagePager">
@@ -2232,7 +2232,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ywX-5O-7Mq">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ywX-5O-7Mq">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -2571,13 +2571,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leftpanel_image" translatesAutoresizingMaskIntoConstraints="NO" id="eId-5D-Qty">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lmL-Dy-vHL">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lmL-Dy-vHL">
                                 <rect key="frame" x="-20" y="-20" width="440" height="669"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Pom-qe-5O2">
                                         <rect key="frame" x="30" y="323" width="64" height="18"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WL5-Tf-vK3" customClass="SkyFloatingLabelTextField" customModule="Coupocon" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WL5-Tf-vK3" customClass="SkyFloatingLabelTextField" customModule="Coupocon" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="9" height="18"/>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
@@ -2614,7 +2614,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xe5-Id-X5R" customClass="SkyFloatingLabelTextField" customModule="Coupocon" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xe5-Id-X5R" customClass="SkyFloatingLabelTextField" customModule="Coupocon" customModuleProvider="target">
                                                 <rect key="frame" x="11" y="0.0" width="9" height="18"/>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
@@ -2651,7 +2651,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kTu-s4-sQy" customClass="SkyFloatingLabelTextField" customModule="Coupocon" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kTu-s4-sQy" customClass="SkyFloatingLabelTextField" customModule="Coupocon" customModuleProvider="target">
                                                 <rect key="frame" x="22" y="0.0" width="9" height="18"/>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
@@ -2691,7 +2691,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tfd-m8-WOI" customClass="SkyFloatingLabelTextField" customModule="Coupocon" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tfd-m8-WOI" customClass="SkyFloatingLabelTextField" customModule="Coupocon" customModuleProvider="target">
                                                 <rect key="frame" x="33" y="0.0" width="9" height="18"/>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
@@ -2728,7 +2728,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sgK-hG-dzB" customClass="SkyFloatingLabelTextField" customModule="Coupocon" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sgK-hG-dzB" customClass="SkyFloatingLabelTextField" customModule="Coupocon" customModuleProvider="target">
                                                 <rect key="frame" x="44" y="0.0" width="9" height="18"/>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
@@ -2765,7 +2765,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wev-RK-Tml" customClass="SkyFloatingLabelTextField" customModule="Coupocon" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wev-RK-Tml" customClass="SkyFloatingLabelTextField" customModule="Coupocon" customModuleProvider="target">
                                                 <rect key="frame" x="55" y="0.0" width="9" height="18"/>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
@@ -3087,16 +3087,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="NaA-vR-OoH">
-                                <rect key="frame" x="0.0" y="476" width="17021" height="67"/>
+                                <rect key="frame" x="0.0" y="476" width="148" height="67"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Please Enter OTP!!!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0p-u6-75U">
-                                        <rect key="frame" x="0.0" y="0.0" width="17021" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="148" height="30"/>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter OTP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0PX-TX-IsX">
-                                        <rect key="frame" x="0.0" y="37" width="17021" height="30"/>
+                                        <rect key="frame" x="0.0" y="37" width="148" height="30"/>
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -3556,7 +3556,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leftpanel_image" translatesAutoresizingMaskIntoConstraints="NO" id="CkY-fR-0kF">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sFG-PJ-enQ">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sFG-PJ-enQ">
                                 <rect key="frame" x="-20" y="0.0" width="440" height="812"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mN1-5t-1cg" userLabel="headerView">
@@ -3671,12 +3671,12 @@
                                             </mask>
                                             <mask key="constraints">
                                                 <exclude reference="tTJ-oL-Nfb"/>
-                                                <exclude reference="xKc-dH-6ln"/>
-                                                <exclude reference="xsC-Ii-NSJ"/>
                                                 <exclude reference="5oa-Qg-E9P"/>
                                                 <exclude reference="RlF-gx-B7S"/>
                                                 <exclude reference="eP9-Gq-KmP"/>
                                                 <exclude reference="xPG-3L-fMG"/>
+                                                <exclude reference="xKc-dH-6ln"/>
+                                                <exclude reference="xsC-Ii-NSJ"/>
                                                 <exclude reference="BgU-SF-fk0"/>
                                                 <exclude reference="Pwe-VH-rHE"/>
                                             </mask>
@@ -3688,14 +3688,14 @@
                                             <mask key="constraints">
                                                 <exclude reference="HTF-3c-EIS"/>
                                                 <include reference="tTJ-oL-Nfb"/>
-                                                <exclude reference="560-MI-as4"/>
-                                                <exclude reference="Sfl-de-37I"/>
-                                                <include reference="xKc-dH-6ln"/>
-                                                <include reference="xsC-Ii-NSJ"/>
                                                 <include reference="5oa-Qg-E9P"/>
                                                 <include reference="RlF-gx-B7S"/>
                                                 <include reference="eP9-Gq-KmP"/>
                                                 <include reference="xPG-3L-fMG"/>
+                                                <exclude reference="560-MI-as4"/>
+                                                <exclude reference="Sfl-de-37I"/>
+                                                <include reference="xKc-dH-6ln"/>
+                                                <include reference="xsC-Ii-NSJ"/>
                                                 <include reference="BgU-SF-fk0"/>
                                                 <include reference="Pwe-VH-rHE"/>
                                                 <exclude reference="U4x-h7-Yxy"/>
@@ -3813,10 +3813,10 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="AeK-77-UZL">
                                         <rect key="frame" x="16" y="248" width="200" height="30"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Pvg-cG-8H3" userLabel="FirstRowStackView">
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Pvg-cG-8H3" userLabel="FirstRowStackView">
                                                 <rect key="frame" x="0.0" y="0.0" width="119" height="30"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mVw-OP-Bpi">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mVw-OP-Bpi">
                                                         <rect key="frame" x="0.0" y="0.0" width="119" height="30"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -3846,7 +3846,7 @@
                                                     </mask>
                                                 </variation>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LtH-Vc-VmN">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LtH-Vc-VmN">
                                                 <rect key="frame" x="138" y="0.0" width="62" height="30"/>
                                                 <color key="backgroundColor" red="0.92941176469999998" green="0.1019607843" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -3954,25 +3954,25 @@
                                         <exclude reference="vp5-8f-xbO"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <exclude reference="PXZ-HJ-Ggo"/>
+                                        <exclude reference="44N-L3-lVa"/>
+                                        <exclude reference="VyZ-SS-TnZ"/>
                                         <exclude reference="2eH-Z2-NM5"/>
                                         <exclude reference="COO-wA-5Lc"/>
                                         <exclude reference="SJB-p4-0gQ"/>
                                         <exclude reference="a6W-Ui-oX2"/>
                                         <exclude reference="b7E-7d-pWR"/>
                                         <exclude reference="fN8-C2-Y3n"/>
-                                        <exclude reference="PXZ-HJ-Ggo"/>
-                                        <exclude reference="44N-L3-lVa"/>
-                                        <exclude reference="VyZ-SS-TnZ"/>
-                                        <exclude reference="d2c-D1-fWM"/>
-                                        <exclude reference="BYY-2x-0x8"/>
-                                        <exclude reference="Gsp-Rl-bYf"/>
-                                        <exclude reference="OOK-9a-CNw"/>
-                                        <exclude reference="Qu4-ee-LYP"/>
                                         <exclude reference="f7G-9v-8WV"/>
                                         <exclude reference="vIN-gz-gHY"/>
                                         <exclude reference="Itl-4H-pPM"/>
                                         <exclude reference="Rvd-Qe-rSn"/>
                                         <exclude reference="ciy-yM-6bz"/>
+                                        <exclude reference="d2c-D1-fWM"/>
+                                        <exclude reference="BYY-2x-0x8"/>
+                                        <exclude reference="Gsp-Rl-bYf"/>
+                                        <exclude reference="OOK-9a-CNw"/>
+                                        <exclude reference="Qu4-ee-LYP"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -3981,25 +3981,25 @@
                                         <include reference="vp5-8f-xbO"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <include reference="PXZ-HJ-Ggo"/>
+                                        <include reference="44N-L3-lVa"/>
+                                        <include reference="VyZ-SS-TnZ"/>
                                         <include reference="2eH-Z2-NM5"/>
                                         <include reference="COO-wA-5Lc"/>
                                         <include reference="SJB-p4-0gQ"/>
                                         <include reference="a6W-Ui-oX2"/>
                                         <include reference="b7E-7d-pWR"/>
                                         <include reference="fN8-C2-Y3n"/>
-                                        <include reference="PXZ-HJ-Ggo"/>
-                                        <include reference="44N-L3-lVa"/>
-                                        <include reference="VyZ-SS-TnZ"/>
-                                        <include reference="d2c-D1-fWM"/>
-                                        <include reference="BYY-2x-0x8"/>
-                                        <include reference="Gsp-Rl-bYf"/>
-                                        <include reference="OOK-9a-CNw"/>
-                                        <include reference="Qu4-ee-LYP"/>
                                         <exclude reference="f7G-9v-8WV"/>
                                         <include reference="vIN-gz-gHY"/>
                                         <include reference="Itl-4H-pPM"/>
                                         <include reference="Rvd-Qe-rSn"/>
                                         <include reference="ciy-yM-6bz"/>
+                                        <include reference="d2c-D1-fWM"/>
+                                        <include reference="BYY-2x-0x8"/>
+                                        <include reference="Gsp-Rl-bYf"/>
+                                        <include reference="OOK-9a-CNw"/>
+                                        <include reference="Qu4-ee-LYP"/>
                                     </mask>
                                 </variation>
                             </scrollView>

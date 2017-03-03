@@ -46,6 +46,12 @@
 		11FC0D121DE2FEA50065F1D3 /* PagerMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11FC0D111DE2FEA50065F1D3 /* PagerMain.storyboard */; };
 		11FC0D141DE300880065F1D3 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FC0D131DE300880065F1D3 /* TutorialPageViewController.swift */; };
 		11FC0D181DE303D90065F1D3 /* BannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FC0D171DE303D90065F1D3 /* BannerViewController.swift */; };
+		125297261E694F9200D9C8D8 /* paytm_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 125297251E694F9200D9C8D8 /* paytm_icon.png */; };
+		125297281E69510A00D9C8D8 /* paytm_icon40.png in Resources */ = {isa = PBXBuildFile; fileRef = 125297271E69510A00D9C8D8 /* paytm_icon40.png */; };
+		1252972A1E6956E200D9C8D8 /* paytm_icon-icons.com_62731.png in Resources */ = {isa = PBXBuildFile; fileRef = 125297291E6956E200D9C8D8 /* paytm_icon-icons.com_62731.png */; };
+		12BC12171E697432007F4FB6 /* libPaymentsSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12BC12161E697432007F4FB6 /* libPaymentsSDK.a */; };
+		12BC12181E6979BB007F4FB6 /* PGTransactionViewController.h in Resources */ = {isa = PBXBuildFile; fileRef = 12BC12151E697432007F4FB6 /* PGTransactionViewController.h */; };
+		12BC121A1E699DE7007F4FB6 /* TurfCommonFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BC12191E699DE7007F4FB6 /* TurfCommonFunctions.swift */; };
 		180085F81DD49EAD00BE8D70 /* OTPTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180085F71DD49EAD00BE8D70 /* OTPTextViewController.swift */; };
 		1800D6191DD9D548006B7492 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1800D6181DD9D548006B7492 /* SystemConfiguration.framework */; };
 		18057E2F1DAFA33B0017F038 /* ICSDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18057E2C1DAFA33B0017F038 /* ICSDrawerController.m */; };
@@ -177,6 +183,16 @@
 		11FC0D111DE2FEA50065F1D3 /* PagerMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PagerMain.storyboard; sourceTree = "<group>"; };
 		11FC0D131DE300880065F1D3 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
 		11FC0D171DE303D90065F1D3 /* BannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerViewController.swift; sourceTree = "<group>"; };
+		125297251E694F9200D9C8D8 /* paytm_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paytm_icon.png; sourceTree = "<group>"; };
+		125297271E69510A00D9C8D8 /* paytm_icon40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paytm_icon40.png; sourceTree = "<group>"; };
+		125297291E6956E200D9C8D8 /* paytm_icon-icons.com_62731.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "paytm_icon-icons.com_62731.png"; sourceTree = "<group>"; };
+		12BC12111E697432007F4FB6 /* PaymentsSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentsSDK.h; sourceTree = "<group>"; };
+		12BC12121E697432007F4FB6 /* PGMerchantConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGMerchantConfiguration.h; sourceTree = "<group>"; };
+		12BC12131E697432007F4FB6 /* PGOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGOrder.h; sourceTree = "<group>"; };
+		12BC12141E697432007F4FB6 /* PGServerEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGServerEnvironment.h; sourceTree = "<group>"; };
+		12BC12151E697432007F4FB6 /* PGTransactionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGTransactionViewController.h; sourceTree = "<group>"; };
+		12BC12161E697432007F4FB6 /* libPaymentsSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPaymentsSDK.a; sourceTree = "<group>"; };
+		12BC12191E699DE7007F4FB6 /* TurfCommonFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurfCommonFunctions.swift; sourceTree = "<group>"; };
 		180085F71DD49EAD00BE8D70 /* OTPTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPTextViewController.swift; sourceTree = "<group>"; };
 		1800D6181DD9D548006B7492 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		18057E2B1DAFA33B0017F038 /* ICSDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICSDrawerController.h; sourceTree = "<group>"; };
@@ -280,6 +296,7 @@
 				1800D6191DD9D548006B7492 /* SystemConfiguration.framework in Frameworks */,
 				1184381D1DC86A1200DFE2FD /* AFNetworking.framework in Frameworks */,
 				18057E401DAFC37C0017F038 /* FBSDKShareKit.framework in Frameworks */,
+				12BC12171E697432007F4FB6 /* libPaymentsSDK.a in Frameworks */,
 				18057E3E1DAFC37C0017F038 /* FBSDKCoreKit.framework in Frameworks */,
 				18057E3F1DAFC37C0017F038 /* FBSDKLoginKit.framework in Frameworks */,
 				51993E13B3676EC918DBC1EE /* Pods_Coupocon.framework in Frameworks */,
@@ -366,6 +383,28 @@
 				18EA0EF01DE6B965007EC6E2 /* AboutCoupoconViewController.swift */,
 			);
 			name = SidePanel;
+			sourceTree = "<group>";
+		};
+		12BC120F1E697432007F4FB6 /* 2_1 */ = {
+			isa = PBXGroup;
+			children = (
+				12BC12191E699DE7007F4FB6 /* TurfCommonFunctions.swift */,
+				12BC12101E697432007F4FB6 /* include */,
+				12BC12161E697432007F4FB6 /* libPaymentsSDK.a */,
+			);
+			path = 2_1;
+			sourceTree = "<group>";
+		};
+		12BC12101E697432007F4FB6 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				12BC12111E697432007F4FB6 /* PaymentsSDK.h */,
+				12BC12121E697432007F4FB6 /* PGMerchantConfiguration.h */,
+				12BC12131E697432007F4FB6 /* PGOrder.h */,
+				12BC12141E697432007F4FB6 /* PGServerEnvironment.h */,
+				12BC12151E697432007F4FB6 /* PGTransactionViewController.h */,
+			);
+			path = include;
 			sourceTree = "<group>";
 		};
 		18057E3A1DAFC3550017F038 /* FB */ = {
@@ -464,6 +503,10 @@
 		18C90BF71DAF78DF0053F8D7 = {
 			isa = PBXGroup;
 			children = (
+				12BC120F1E697432007F4FB6 /* 2_1 */,
+				125297271E69510A00D9C8D8 /* paytm_icon40.png */,
+				125297291E6956E200D9C8D8 /* paytm_icon-icons.com_62731.png */,
+				125297251E694F9200D9C8D8 /* paytm_icon.png */,
 				18ED4A411DB617DB00A612BA /* OtherResources */,
 				18C90C021DAF78DF0053F8D7 /* CoupCon */,
 				18C90C1A1DAF78DF0053F8D7 /* CoupConTests */,
@@ -743,6 +786,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12BC12181E6979BB007F4FB6 /* PGTransactionViewController.h in Resources */,
 				183763E91DDEEB5400378F7F /* MerchantLocationTableViewCell.xib in Resources */,
 				18EA0EF51DE6BA8E007EC6E2 /* AboutUsTableViewCell.xib in Resources */,
 				181C04E81DB0EC4F006C05FF /* CXProjectConfiguration.plist in Resources */,
@@ -757,14 +801,17 @@
 				183763E31DDEE2B700378F7F /* MerchantDetailsTableViewCell.xib in Resources */,
 				11D37EEC1DB8D75C0014F202 /* RedeemTableViewCell.xib in Resources */,
 				181C04DD1DB0BA4D006C05FF /* Roboto-Light.ttf in Resources */,
+				125297281E69510A00D9C8D8 /* paytm_icon40.png in Resources */,
 				181C04DE1DB0BA4D006C05FF /* Roboto-Medium.ttf in Resources */,
 				181C04DF1DB0BA4D006C05FF /* Roboto-Regular.ttf in Resources */,
 				181C04E01DB0BA4D006C05FF /* RobotoCondensed-Bold.ttf in Resources */,
 				189AB5F31DDD8F0300749C6F /* HelpTableViewCell.xib in Resources */,
 				18ED4A011DB4FEE100A612BA /* CollectionViewCell.xib in Resources */,
 				115CA1C31DC1D35100BE9D57 /* DemoPopupViewController2.storyboard in Resources */,
+				125297261E694F9200D9C8D8 /* paytm_icon.png in Resources */,
 				181C04E11DB0BA4D006C05FF /* RobotoCondensed-Light.ttf in Resources */,
 				18C90C111DAF78DF0053F8D7 /* LaunchScreen.storyboard in Resources */,
+				1252972A1E6956E200D9C8D8 /* paytm_icon-icons.com_62731.png in Resources */,
 				115CA1CC1DC1E45500BE9D57 /* DealsCollectionViewCell.xib in Resources */,
 				18C90C501DAF7EA60053F8D7 /* reveal-icon@2x.png in Resources */,
 				110DD1C91DB0AD9C001F9BC1 /* TableViewCell.xib in Resources */,
@@ -967,6 +1014,7 @@
 				11FC0D141DE300880065F1D3 /* TutorialPageViewController.swift in Sources */,
 				18057E301DAFA33B0017F038 /* ICSDropShadowView.m in Sources */,
 				18EA0EF41DE6BA8E007EC6E2 /* AboutUsTableViewCell.swift in Sources */,
+				12BC121A1E699DE7007F4FB6 /* TurfCommonFunctions.swift in Sources */,
 				111C7D0D1DC0CD4F00D4FC09 /* TutorialViewController.swift in Sources */,
 				1144E0561DDC3F0F00EDC6C4 /* DPDKeyboardListener.swift in Sources */,
 				11D37EED1DB8D75C0014F202 /* ReedemViewController.swift in Sources */,
@@ -1161,6 +1209,10 @@
 				INFOPLIST_FILE = CoupCon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/2_1",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.creativexperts.cupocon;
 				PRODUCT_NAME = Coupocon;
 				PROVISIONING_PROFILE = "b56d5f10-ffef-4b79-8b70-d2269405ca67";
@@ -1186,6 +1238,10 @@
 				INFOPLIST_FILE = CoupCon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/2_1",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.creativexperts.cupocon;
 				PRODUCT_NAME = Coupocon;
 				PROVISIONING_PROFILE = "b56d5f10-ffef-4b79-8b70-d2269405ca67";

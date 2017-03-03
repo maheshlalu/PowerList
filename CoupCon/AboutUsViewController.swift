@@ -204,9 +204,19 @@ extension AboutUsViewController : UITableViewDelegate,UITableViewDataSource {
         let storeLocation : StoreLocations =  (self.storeLocationArray[button.tag] as? StoreLocations)!
         let destinationLatitude = Double(storeLocation.Latitude)
         let destinationLongtitude = Double(storeLocation.longitude)
-        let googleMapUrlString = String.localizedStringWithFormat("http://maps.google.com/?daddr=%f,%f", destinationLatitude!, destinationLongtitude!)
-        UIApplication.sharedApplication().openURL(NSURL(string:
-            googleMapUrlString)!)
+        if  (destinationLatitude == nil || destinationLongtitude == nil) {
+            print("no lat and long values ")
+            
+            
+        }else{
+            let googleMapUrlString = String.localizedStringWithFormat("http://maps.google.com/?daddr=%f,%f", destinationLatitude!, destinationLongtitude!)
+            UIApplication.sharedApplication().openURL(NSURL(string:
+                googleMapUrlString)!)
+
+        
+        }
+        
+        
 
 
     }

@@ -27,3 +27,4 @@
 #import <Google/SignIn.h>
 #import <Reachability/Reachability.h>
 #import "FTPopOverMenu.h"
+#import "PaymentsSDK.h"
