@@ -66,10 +66,10 @@
 		<string>232</string>
 	</array>
 	<key>paymentProductionUrl</key>
-	<string>http://46.137.241.54:8088/OngoStoresPG/coupoconPG?</string>
+	<string>http://46.137.241.54:9000/CoupoconPaymentGateway/payments?</string>
 	<key>createOrUpdateSubscription</key>
 	<string>MobileAPIs/createOrUpdateSubscription?</string>
 	<key>paymentTestBaseURL</key>
-	<string>http://46.137.241.54:9000/OngoStoresPG/coupoconPG?</string>
+	<string>http://46.137.241.54:9000/TestPaymentGateway/payments?</string>
 </dict>
 </plist>

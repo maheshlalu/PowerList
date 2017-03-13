@@ -12,7 +12,7 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
 
     
     var drawer : ICSDrawerController!
-    var storeCategoryArray : NSArray! = nil
+    var storeCategoryArray : NSMutableArray! = nil
     var refresher : UIRefreshControl = UIRefreshControl()
     var coverPageImagesList: NSMutableArray!
     
@@ -54,12 +54,22 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
         
         self.homecollectionview.registerNib(nib, forCellWithReuseIdentifier: "HomeCollectionViewCell")
         
-        self.storeCategoryArray = NSArray()
+        self.storeCategoryArray = NSMutableArray()
         self.coverPageImagesList = NSMutableArray()
         self.addSidePanelButton()
         LoadingView.show("Loading...", animated: true)
         CXDataService.sharedInstance.getTheAppDataFromServer(["type":"ProductCategories","mallId":CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in
-            self.storeCategoryArray = NSArray(array: (responseDict.valueForKey("jobs") as? NSArray)!)
+          //  self.storeCategoryArray = NSArray(array: (responseDict.valueForKey("jobs") as? NSArray)!)
+           
+            for dataDic in responseDict.valueForKey("jobs") as! NSArray {
+                if dataDic["Name"] as! String == "Birthday Offers"{
+                }else{
+                    self.storeCategoryArray.addObject(dataDic)
+                }
+                
+            }
+            
+            //print("categery Data \(responseDict)")
             self.homecollectionview.reloadData()
             LoadingView.hide()
         }
@@ -134,7 +144,7 @@ class HomeViewController: UIViewController, ICSDrawerControllerPresenting{
         //code to execute during refresher
         //Call this to stop refresher
         CXDataService.sharedInstance.getTheAppDataFromServer(["type":"ProductCategories","mallId":CXAppConfig.sharedInstance.getAppMallID()]) { (responseDict) in
-            self.storeCategoryArray = NSArray(array: (responseDict.valueForKey("jobs") as? NSArray)!)
+            self.storeCategoryArray = NSMutableArray(array: (responseDict.valueForKey("jobs") as? NSArray)!)
             self.homecollectionview.reloadData()
             self.refresher.endRefreshing()
             

@@ -455,15 +455,21 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
             UIAlertAction in
             if (status == 1){
                 print(" message \(message)")
-                self.paymoneyfrompaytem(message)
+               // self.paymoneyfrompaytem(message)
+                self.sendThePayMentDetailsToServer("99")
             
+            }else if(status == 2){
+                self.sendThePayMentDetailsToServer("149")
+            
+            }else if(status == 3){
+                self.sendThePayMentDetailsToServer("249")
             }
         }
         let paytm = UIAlertAction(title: "", style: UIAlertActionStyle.Default) {
             UIAlertAction in
             if (status == 1){
                 print(" message \(message)")
-                self.paymoneyfrompaytem(message)
+               // self.paymoneyfrompaytem(message)
                 
             }
         }
@@ -635,13 +641,13 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
     }
     @IBAction func sixMonthsAccessBtnAction(sender: AnyObject) {
         
-        showAlertViewpytm("149", status: 1)
+        showAlertViewpytm("149", status: 2)
         //self.sendThePayMentDetailsToServer("149")
     }
     @IBAction func oneYearAccessBtnAction(sender: AnyObject) {
         
-        showAlertViewpytm("249", status: 1)
-//        self.sendThePayMentDetailsToServer("249")
+        showAlertViewpytm("249", status: 3)
+       // self.sendThePayMentDetailsToServer("249")
         
     }
     
