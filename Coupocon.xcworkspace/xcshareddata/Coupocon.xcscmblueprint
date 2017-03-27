@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "F87101AB24A9B14E30F9248AC0F2045048D34221",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "F87101AB24A9B14E30F9248AC0F2045048D34221" : 0,
+    "6F19E99DCC8091D5A4A2447194EA3307B783BA2D" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "96A5C67E-B056-4254-B58B-02102165FDD9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "F87101AB24A9B14E30F9248AC0F2045048D34221" : "Coupocon\/",
+    "6F19E99DCC8091D5A4A2447194EA3307B783BA2D" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Coupocon",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Coupocon.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "ssh:\/\/bitbucket.org:maheshyios\/lefoodie.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6F19E99DCC8091D5A4A2447194EA3307B783BA2D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/maheshyios\/cx_coupcon.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F87101AB24A9B14E30F9248AC0F2045048D34221"
+    }
+  ]
+}

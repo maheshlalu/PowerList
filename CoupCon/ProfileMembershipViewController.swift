@@ -626,13 +626,7 @@ class ProfileMembershipViewController: UIViewController, UITableViewDataSource, 
         return orderID
         
     }
-    
-
-
-    
-    
-    
-    @IBAction func oneMonthAccessBtnAction(sender: AnyObject) {
+   @IBAction func oneMonthAccessBtnAction(sender: AnyObject) {
         //  http://test.com:9000/PaymentGateway/payments?name=&email=&amount=100&description=Test&phone=&macId=&mallId=
        // self.sendThePayMentDetailsToServer("99")
         showAlertViewpytm("99", status: 1)
